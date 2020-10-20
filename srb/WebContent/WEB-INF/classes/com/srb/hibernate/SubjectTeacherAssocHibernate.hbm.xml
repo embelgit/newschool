@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class  
+    name="com.srb.hibernate.SubjectTeacherAssocHibernate" 
+    table="subject_teacher_association"
+>
+
+    <id
+        name="pkSubjectTeacherAssociationId"
+        type="java.lang.Long"
+        column="pk_subject_teacher_association_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkSubjectId"
+        type="java.lang.Long"
+        column="fk_subject_id"
+        />
+      
+   
+    <property
+        name="fkTeacherId"
+        type="java.lang.Long"
+        column="fk_teacher_id"
+     />
+     
+    <property
+        name="subject"
+        type="java.lang.String"
+        column="subject_name"
+        
+    />
+    
+    <property
+        name="teacherName"
+        type="java.lang.String"
+        column="teacher_name"
+        
+    />
+     <property
+        name="academicYear"
+        type="java.lang.String"
+        column="academic_year"
+    />
+     </class>
+</hibernate-mapping>

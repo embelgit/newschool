@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Ordereat Admin Panel</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+  <body class="app sidebar-mini rtl">
+
+<div id="header"></div>
+
+ <main class="app-content">
+              <div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <div class="tile">
+            <h3 class="tile-title">Roles</h3>
+            <form action="" class="form-group" method="post">
+            	<div class="row">
+             <div class="col-md-12 pt-2">
+             <label>Role Name</label>             	
+             <select>
+             	<option>Choose Role</option>
+             	<option>Role 1</option>
+             	<option>Role 2</option>
+             	<option>Role 3</option>
+             	<option>Role 4</option>
+             </select>
+</div>
+            </div>
+            <div class="row">
+             <div class="col-md-12 pt-3" align="left">
+             <label>Order</label>
+             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Accept Order</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2" style="display: inline-block;">Cancel Order</label>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-md-12 pt-3" align="left">
+             <label>Table Management</label>
+             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Add Table</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">View Table</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Remove Table</label>
+             
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-md-12 pt-3" align="left">
+             <label>Menu Management</label>
+             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">View Menu</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Edit Menu</label>
+             	             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Add Category</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2" style="display: inline-block;">Edit Category</label>
+             </div>
+         </div>
+             <div class="col-md-12 pt-3" align="center">
+             <input type="submit" class="btn btn-primary" value="Save"></div>     
+            
+            </form>
+
+        </div>
+  </div>
+</div>
+
+<!-- ...............Edit Role................... -->
+         <div id="myNavEdit" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavedit()">&times;</a>
+  <div class="overlay-content">
+    <div class="tile">
+            <h3 class="tile-title">Edit Roles</h3>
+            <form action="" class="form-group" method="post">
+            	<div class="row">
+             <div class="col-md-12 pt-2">
+             <label>Role Name</label>             	
+             <select>
+             	<option>Choose Role</option>
+             	<option>Role 1</option>
+             	<option>Role 2</option>
+             	<option>Role 3</option>
+             	<option>Role 4</option>
+             </select>
+</div>
+            </div>
+            <div class="row">
+             <div class="col-md-12 pt-3" align="left">
+             <label>Order</label>
+             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Accept Order</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2" style="display: inline-block;">Cancel Order</label>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-md-12 pt-3" align="left">
+             <label>Table Management</label>
+             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Add Table</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">View Table</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Remove Table</label>
+             
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-md-12 pt-3" align="left">
+             <label>Menu Management</label>
+             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">View Menu</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Edit Menu</label>
+             	             <input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2 pr-2" style="display: inline-block;">Add Category</label>
+             	<input type="checkbox" style="display: inline-block;">
+             	<label class="pl-2" style="display: inline-block;">Edit Category</label>
+             </div>
+         </div>
+             <div class="col-md-12 pt-3" align="center">
+             <input type="submit" class="btn btn-primary" value="Update"></div>     
+            
+            </form>
+
+        </div>
+  </div>
+</div>
+<!-- ...............Edit Role.................. -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title">All Roles</h3>
+            <div class="col-md-9" style="display: inline-block;">
+              <form action="/action_page.php">
+                <div class="tablesdetailsform">
+      <button type="submit"><i class="fa fa-search"></i></button>
+      <input type="text" placeholder="Search.." name="search">
+      
+      </div>
+    </form>
+            </div>
+            <div class="col-md-3" style="display: inline;">
+              <button class="addnew" onclick="openNav()"><i class='fa fa-plus-circle pr-1' style='color:#fff'></i>Add New</button>
+
+            </div>
+
+            <table class="stafftable">
+              <thead align="center">
+                <tr>
+                <th><input type="checkbox"></th>
+                <th>Role Name</th>
+                <th>Permission</th>
+                <th>Action</th>
+                </tr>
+              </thead>
+              <tbody align="center">
+                <tr>
+                	<td><input type="checkbox"></td>
+                  <td>Admin</td>
+                  <td>All Action</td>
+                  <td><i class='fa fa-pencil'  onclick="openNavedit()" style='color:blue;cursor:pointer;'></i><img src="images/Icon/delete.png" class="pl-2" width="30px"></td>
+
+                </tr>
+               <tr>
+                	<td><input type="checkbox"></td>
+                  <td>Admin</td>
+                  <td>All Action</td>
+                  <td><i class='fa fa-pencil'   onclick="openNavedit()" style='color:blue;cursor:pointer;'></i><img src="images/Icon/delete.png" class="pl-2" width="30px"></td>
+
+                </tr>
+               <tr>
+                	<td><input type="checkbox"></td>
+                  <td>Admin</td>
+                  <td>All Action</td>
+                  <td><i class='fa fa-pencil'   onclick="openNavedit()" style='color:blue;cursor:pointer;'></i><img src="images/Icon/delete.png" class="pl-2" width="30px"></td>
+
+                </tr>
+               <tr>
+                	<td><input type="checkbox"></td>
+                  <td>Admin</td>
+                  <td>All Action</td>
+                  <td><i class='fa fa-pencil'   onclick="openNavedit()" style='color:blue;cursor:pointer;'></i><img src="images/Icon/delete.png" class="pl-2" width="30px"></td>
+
+                </tr>
+               <tr>
+                	<td><input type="checkbox"></td>
+                  <td>Admin</td>
+                  <td>All Action</td>
+                  <td><i class='fa fa-pencil'   onclick="openNavedit()" style='color:blue;cursor:pointer;'></i><img src="images/Icon/delete.png" class="pl-2" width="30px"></td>
+
+                </tr>
+                              </tbody>
+              <tfoot> 
+                <tr>
+             <td align="center" colspan="4"><h6>Show<select>
+              <option>10</option>
+              <option>20</option>
+              <option>30</option>
+              <option>40</option>
+            </select></h6>
+    <ul class="pagination pt-3" width="100%">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</td>
+                </tr>
+              </tfoot>
+            </table>
+        </div>
+      </div>
+      </div>
+</main>
+
+
+
+
+
+
+
+
+
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script type="text/javascript" src="js/plugins/chart.js"></script>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "80%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+function openNavedit() {
+  document.getElementById("myNavEdit").style.width = "80%";
+}
+
+function closeNavedit() {
+  document.getElementById("myNavEdit").style.width = "0%";
+}
+</script>
+     
+<script> 
+$(function(){
+  $("#header").load("header.html"); 
+  $("#footer").load("footer.html"); 
+});
+</script>
+  </body>
+</html>

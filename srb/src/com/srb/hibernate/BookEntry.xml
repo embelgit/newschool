@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.srb.hibernate.LibraryManagementHibernate" 
+    table="book_entry_master"
+>
+
+    <id
+        name="pkBookEntryManagementId"
+        type="java.lang.Long"
+        column="pk_book_entry_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+
+
+         
+    <property
+        name="bookName"
+        type="java.lang.String"
+        column="book_name"
+        
+    />
+    
+        <property
+        name="authorName"
+        type="java.lang.String"
+        column="author_name"
+        
+    />
+    
+        <property
+        name="publisherName"
+        type="java.lang.String"
+        column="publisher_name"
+        
+    />
+    
+    <property
+        name="supplierName"
+        type="java.lang.String"
+        column="supplier_name"
+        
+    />
+    
+      <property
+        name="buyPrice"
+        type="java.lang.Double"
+        column="buy_price"
+        
+    />
+    <property
+        name="quantity"
+        type="java.lang.Long"
+        column="quantity"
+        
+    />
+    
+        <property
+        name="totalAmount"
+        type="java.lang.Double"
+        column="total_amount"
+        
+    />
+    <property
+        name="insertDate"
+        type="java.util.Date"
+        column="insert_date"
+        
+    />
+     <property
+        name="grossTotal"
+        type="java.lang.Double"
+        column="gross_total"
+    />
+    
+    <property
+        name="fkSupplierId"
+        type="java.lang.Long"
+        column="fk_supplier_id"
+    />
+    
+    
+    <property
+        name="billNo"
+        type="java.lang.Long"
+        column="bill_no"
+    />
+      <property
+        name="Total"
+        type="java.lang.Double"
+        column="total"
+    />
+      <property
+        name="balanceamount"
+        type="java.lang.Double"
+        column="balance_amount"
+    />
+
+     </class>
+</hibernate-mapping>

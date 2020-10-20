@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.StudentInfoHibernate" 
+    table="student_master"
+>
+
+    <id
+        name="pkStudentId"
+        type="java.lang.Long"
+        column="pk_student_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="firstName"
+        type="java.lang.String"
+        column="first_name"
+        
+    />
+    <property
+        name="middleName"
+        type="java.lang.String"
+        column="middle_name"
+        
+    />
+    
+    <property
+        name="lastName"
+        type="java.lang.String"
+        column="last_name"
+        
+    />
+    <property
+        name="dob"
+        type="java.sql.Date"
+        column="date_of_birth"
+        
+    />
+    <property
+        name="doa"
+        type="java.sql.Date"
+        column="date_of_admission"
+        
+    />
+    <property
+        name="gender"
+        type="java.lang.String"
+        column="gender"
+        
+    />
+    <property
+        name="clas"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="division"
+        type="java.lang.String"
+        column="fk_division_id"
+        
+    />
+    <property
+        name="country"
+        type="java.lang.String"
+        column="country"
+        
+    />
+    
+     <property
+        name="state"
+        type="java.lang.String"
+        column="state"
+        
+    />
+    <property
+        name="pinCode"
+        type="java.lang.Long"
+        column="pin_code"
+        
+    />
+    
+    <property
+        name="preSchoolN"
+        type="java.lang.String"
+        column="previous_school_name"
+        
+    />
+    <property
+        name="fatherName"
+        type="java.lang.String"
+        column="father_name"
+        
+    />
+    <property
+        name="motherName"
+        type="java.lang.String"
+        column="mother_name"
+        
+    />
+    <property
+        name="contactNo"
+        type="java.lang.Long"
+        column="contact_number"
+        
+    />
+    <property
+        name="siblings"
+        type="java.lang.String"
+        column="siblings"
+        
+    />
+    <property
+        name="perAddress"
+        type="java.lang.String"
+        column="present_address"
+        
+    />
+    <property
+        name="preAddress"
+        type="java.lang.String"
+        column="permanent_address"
+        
+    />
+     </class>
+</hibernate-mapping>
+    

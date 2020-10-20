@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.srb.hibernate.hostelmanagementhibernate" 
+    table="hostel_management"
+>
+
+    <id
+        name="pkhostelid"
+        type="java.lang.Long"
+        column="pk_hostel_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="productName"
+        type="java.lang.String"
+        column="product_name"
+    />
+      <property 
+		name="supplier1" 
+		type="java.lang.Long" 
+		column="fk_supplier_id"
+		length="20"/> 
+    
+    <property
+        name="supplierName"
+        type="java.lang.String"
+        column="supplier_name"
+    />
+    
+      <property
+        name="buyPrice"
+        type="java.lang.Double"
+        column="buy_price"
+    />
+    
+    <property
+        name="quantity"
+        type="java.lang.Double"
+        column="quantity"
+    />
+    
+        <property
+        name="total"
+        type="java.lang.Double"
+        column="total"
+    />
+    
+     <property
+        name="storeDate"
+        type="java.sql.Date"
+        column="store_date"
+    />
+    
+    <property
+        name="insertDate"
+        type="java.util.Date"
+        column="insert_date"
+    />
+    
+     <property
+        name="grossTotal"
+        type="java.lang.Double"
+        column="gross_total"
+    />
+    
+    <property
+        name="billNo"
+        type="java.lang.Double"
+        column="bill_no"
+    />
+    
+    <property
+        name="balanceAmount"
+        type="java.lang.Double"
+        column="balance_amount"
+    />
+    <property
+    name ="gst"
+    type ="java.lang.Double"
+    column ="gst"
+    />
+      <property
+    name ="gstamt"
+    type ="java.lang.Double"
+    column ="gstamt"
+    />
+
+     </class>
+</hibernate-mapping>

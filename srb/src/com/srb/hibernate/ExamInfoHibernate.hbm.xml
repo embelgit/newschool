@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+<class  
+    name="com.srb.hibernate.ExamInfoHibernate" 
+    table="exam_master"
+>
+
+    <id
+        name="pkExamId"
+        type="java.lang.Long"
+        column="pk_exam_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="fkDivisionId"
+        type="java.lang.Long"
+        column="fk_division_id"
+    />
+   
+       <property
+        name="fkExamNameId"
+        type="java.lang.Long"
+        column="fk_examName_id"
+    />
+   
+    <property
+        name="fkSubjectId"
+        type="java.lang.Long"
+        column="fk_subject_id"
+     />
+    
+    <property
+        name="className"
+        type="java.lang.String"
+        column="class_name"
+        
+    />
+    <property
+        name="division"
+        type="java.lang.String"
+        column="division_name"
+        
+    />
+    
+    <property
+        name="subjectName"
+        type="java.lang.String"
+        column="subject_name"
+        
+    />
+    
+     <property
+        name="passingMarks"
+        type="java.lang.Long"
+        column="passing_marks"
+     />
+     
+      <property
+        name="totalMarks"
+        type="java.lang.Long"
+        column="total_marks"
+     />
+    
+      <property
+        name="examName"
+        type="java.lang.String"
+        column="exam_name"
+        
+    />
+    
+     <property
+        name="academicYear"
+        type="java.lang.String"
+        column="academic_year"
+    />
+    
+          <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+     />
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.SchoolInfoHibernate" 
+    table="school_master"
+>
+
+    <id
+        name="pkSchoolId"
+        type="java.lang.Long"
+        column="pk_school_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="schoolName"
+        type="java.lang.String"
+        column="school_name"
+    />
+    
+    <property
+        name="city"
+        type="java.lang.String"
+        column="city"
+    />
+    
+    <property
+        name="tq"
+        type="java.lang.String"
+        column="taluka"
+    />
+    
+    <property
+        name="district"
+        type="java.lang.String"
+        column="district"
+    />
+    
+    <property
+        name="state"
+        type="java.lang.String"
+        column="state"
+    />
+    
+    <property
+        name="pinCode"
+        type="java.lang.Long"
+        column="pin_code"
+    />
+    
+    <property
+        name="instituteName"
+        type="java.lang.String"
+        column="institute_name"
+    />
+    
+    <property
+        name="contactP"
+        type="java.lang.Long"
+        column="contact_number"
+    />
+    
+    <property
+        name="address"
+        type="java.lang.String"
+        column="address"
+    />
+    
+     <property
+        name="sansthaName"
+        type="java.lang.String"
+        column="sanstha_name"
+    />
+    
+    <property
+        name="schoolRegNumber"
+        type="java.lang.String"
+        column="school_reg_number"
+    />
+    
+    <property
+        name="schoolUdiseNumber"
+        type="java.lang.String"
+        column="school_udise_number"
+    />
+     </class>
+</hibernate-mapping>
+    

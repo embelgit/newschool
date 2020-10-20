@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class  
+    name="com.srb.hibernate.StudentScannedDocumentUploadHibernate" 
+    table="student_scan_documents"
+>
+
+    <id
+        name="pkStudentScanDocId"
+        type="java.lang.Long"
+        column="pk_student_doc_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="fkDivisionId"
+        type="java.lang.Long"
+        column="fk_div_id"
+    />
+
+     
+     <property
+        name="fkStudentId"
+        type="java.lang.Long"
+        column="fk_student_Id"
+     />
+
+
+    <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+    />
+    
+    <property
+        name="extraDoc"
+        column="extra_document"
+    />
+    
+        <property
+        name="studentPhoto"
+        column="student_photo"
+    />
+    
+        <property
+        name="lCFile"
+        column="leaving_certificate"
+    />
+    
+        <property
+        name="castFile"
+        column="cast_certificate"
+    />
+    
+        <property
+        name="aadharFile"
+        column="aadhar_card"
+    />
+     </class>
+</hibernate-mapping>

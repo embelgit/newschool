@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 21 Dec, 2018 12:43:29 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.srb.hibernate.ProductDetailsHibernate" table="product_details">
+        
+        <id name="pkProductId" type="java.lang.Long">
+            <column name="pk_product_Id" />
+            <generator class="increment" />
+        </id>
+        
+        <property name="quantityLimit" type="java.lang.Long">
+            <column name="product_quantity" />
+        </property>
+        
+        <property name="productName" type="java.lang.String">
+            <column name="product_name" />
+        </property>
+        
+        <property name="unit" type="java.lang.String">
+            <column name="unit" />
+        </property>
+        <property name="Description" type="java.lang.String">
+            <column name="Description" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class  
+    name="com.srb.hibernate.ClassDivisionSubjectAssocHibernate" 
+    table="class_division_subject_association"
+>
+
+    <id
+        name="pkClassDivisionSubjectAssociationId"
+        type="java.lang.Long"
+        column="pk_class_division_subject_association_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="fkDivisionId"
+        type="java.lang.Long"
+        column="fk_division_id"
+    />
+   
+    <property
+        name="fkSubjectId"
+        type="java.lang.Long"
+        column="fk_subject_id"
+     />
+         
+    <property
+        name="clas"
+        type="java.lang.Long"
+        column="class_name"
+        
+    />
+    <property
+        name="division"
+        type="java.lang.String"
+        column="division_name"
+        
+    />
+    
+    <property
+        name="subject"
+        type="java.lang.String"
+        column="subject_name"
+        
+    />
+     <property
+        name="academicYear"
+        type="java.lang.String"
+        column="academic_year"
+    />
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.SubjectInfoHibernate" 
+    table="subject_master"
+>
+
+    <id
+        name="pkSubjectId"
+        type="java.lang.Long"
+        column="pk_subject_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="subject"
+        type="java.lang.String"
+        column="subject_name"
+             
+    />
+        
+    
+     </class>
+</hibernate-mapping>
+    

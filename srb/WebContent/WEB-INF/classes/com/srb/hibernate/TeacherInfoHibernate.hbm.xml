@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.TeacherInfoHibernate" 
+    table="teacher_master"
+>
+
+    <id
+        name="pkTeacherId"
+        type="java.lang.Long"
+        column="pk_teacher_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="firstName"
+        type="java.lang.String"
+        column="first_name"
+        
+    />
+    <property
+        name="middleName"
+        type="java.lang.String"
+        column="middle_name"
+        
+    />
+    
+    <property
+        name="lastName"
+        type="java.lang.String"
+        column="last_name"
+        
+    />
+    <property
+        name="dob"
+        type="java.sql.Date"
+        column="date_of_birth"
+        
+    />
+    <property
+        name="hquqlification"
+        type="java.lang.String"
+        column="education"
+        
+    />
+    <property
+        name="jdate"
+        type="java.sql.Date"
+        column="joining_date"
+        
+    />
+    <property
+        name="specialization"
+        type="java.lang.String"
+        column="specialization"
+        
+    />
+    <property
+        name="percentage"
+        type="java.lang.Double"
+        column="percentage"
+        
+    />
+    <property
+        name="mobnum"
+        type="java.lang.Long"
+        column="mobile_number"
+        
+    />
+    
+     <property
+        name="landno"
+        type="java.lang.Long"
+        column="landline_number"
+        
+    />
+    <property
+        name="perAddress"
+        type="java.lang.String"
+        column="permanent_address"
+        
+    />
+    
+    <property
+        name="preAddress"
+        type="java.lang.String"
+        column="present_address"
+        
+    />
+    
+     </class>
+</hibernate-mapping>
+    

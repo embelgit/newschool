@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class  
+    name="com.srb.hibernate.ExamTimeTableHibernate" 
+    table="exam_time_table"
+>
+
+    <id
+        name="pkExamTimeTableId"
+        type="java.lang.Long"
+        column="pk_exam_time_table_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="fkDivisionId"
+        type="java.lang.Long"
+        column="fk_division_id"
+    />
+   
+       <property
+        name="fkExamNameId"
+        type="java.lang.Long"
+        column="fk_exam_id"
+    />
+   
+    <property
+        name="fkSubjectId"
+        type="java.lang.Long"
+        column="fk_subject_id"
+     />
+     
+
+         
+    <property
+        name="className"
+        type="java.lang.String"
+        column="class_name"
+        
+    />
+    <property
+        name="divisionName"
+        type="java.lang.String"
+        column="division_name"
+        
+    />
+    
+      <property
+        name="examName"
+        type="java.lang.String"
+        column="exam_name"
+        
+    />
+    <property
+        name="subjetName"
+        type="java.lang.String"
+        column="subject_name"
+        
+    />
+    
+        <property
+        name="weekDay"
+        type="java.lang.String"
+        column="day"
+        
+    />
+    <property
+        name="examDate"
+        type="java.util.Date"
+        column="exam_date"
+        
+    />
+     <property
+        name="academicYear"
+        type="java.lang.String"
+        column="academic_year"
+    />
+    
+         <property
+        name="startTime"
+        type="java.lang.String"
+        column="start_time"
+    />
+    
+    <property
+        name="endTime"
+        type="java.lang.String"
+        column="end_time"
+    />
+     </class>
+</hibernate-mapping>

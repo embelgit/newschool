@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.AdmissionEnquiryHibernate" 
+    table="admission_enquiry"
+>
+
+    <id
+        name="pkAdmissionEnquiryId"
+        type="java.lang.Long"
+        column="pk_admission_enquiry_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_d"
+        
+    />
+        <property
+        name="contactNumber"
+        type="java.lang.Long"
+        column="contact_number"
+        
+    />
+    <property
+        name="studentName"
+        type="java.lang.String"
+        column="student_name"
+        
+    />
+    <property
+        name="className"
+        type="java.lang.String"
+        column="class_name"
+        
+    />
+    
+    <property
+        name="parentName"
+        type="java.lang.String"
+        column="parent_name"
+        
+    />
+    <property
+        name="email"
+        type="java.lang.String"
+        column="email"
+        
+    />
+    <property
+        name="city"
+        type="java.lang.String"
+        column="city"
+        
+    />
+
+    <property
+        name="address"
+        type="java.lang.String"
+        column="address"
+    />
+    
+      <property
+        name="preSchoolN"
+        type="java.lang.String"
+        column="previous_school_name"
+    />
+    
+    <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+        
+    />
+    <property
+    name = "Status"
+    type = "java.lang.String"
+    column = "Status"
+    />
+	<property
+        name="comments"
+        type="java.lang.String"
+        column="comment"
+        
+    />
+
+     </class>
+</hibernate-mapping>
+    

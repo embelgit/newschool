@@ -1,0 +1,1171 @@
+<?php
+session_start();
+include("config.php");
+if(!isset($_SESSION['user'])){
+  header('location:Adminlogin.php');
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/DRIVEN-4 Vertical Logo.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Driven-4 Dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="https://www.embel.co.in/Driven-4" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img src="../assets/img/logo-small.png">
+          </div>
+          <!-- <p>CT</p> -->
+        </a>
+        <a href="https://www.embel.co.in/Driven-4" class="simple-text logo-normal">
+       Driven-4
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav" >
+          <li class="active ">
+            <a  href="#dashboard" class="activeTab" data-toggle="tab">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+           
+           <li>
+            <a href="#banner" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Banner Event Text</p>
+            </a>
+          </li>
+           <li >
+            <a href="#tabselect" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Events</p>
+            </a>
+          </li>
+                     <li >
+            <a href="#tabselect2" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Case Study</p>
+            </a>
+          </li>
+                     <li >
+            <a href="#tabselect3" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Blogs</p>
+            </a>
+          </li>
+
+            <li>
+            <a href="#newletter" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>NewsLetter</p>
+            </a>
+          </li>
+
+             <li >
+            <a href="#dInovator" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Digital Innovator PLM</p>
+            </a>
+            
+          </li>
+
+             <li >
+            <a href="#dInovator1" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Digital Innovator IoT</p>
+            </a>
+            
+          </li>
+          <li>
+            <a href="#resource" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Additional Resources PLM</p>
+            </a>
+          </li>
+          <li>
+            <a href="#resourceiot" data-toggle="tab">
+             <!-- <i class="nc-icon nc-single-02"></i>-->
+              <p>Additional Resources IoT</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;"><?php echo $_SESSION['user']?></a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+          
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link btn-magnify" href="logout.php">
+                 
+                    <p >Logout
+                  </p>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <section>
+        <div class="tab-content"> 
+          <div id="dashboard" class="tab-pane fade show active">
+           <img src="../assets/img/DRIVEN-4.png" class="img-fluid">
+          </div>
+
+          
+           <div id="banner" class="tab-pane fade ">
+ <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Banner Text</h5>
+              </div>
+              <div class="card-body">
+                <form action="bannertext.php" method="POST">
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Main Title</label>
+                        <input type="text" class="form-control" placeholder="Title" name="title">
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Short Description</label>
+                        <input type="text" class="form-control" placeholder="Description" name="description">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" class="form-control" placeholder="Author" value="" name="author">
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1" style="visibility: hidden;">
+                      <div class="form-group">
+                        <label>Date </label>
+                        <input type="date" class="form-control" placeholder="yyyy-mm-dd" name="date">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Event URL</label>
+                        <input type="text" class="form-control" placeholder="Event URL" name="url">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">Update Banner</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+           <div id="tabselect" class="tab-pane fade">
+             <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Events</h5>
+              </div>
+              
+              <div class="card-body">
+                <form action="events.php" method="POST" enctype="multipart/form-data">
+                     <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Main Title</label>
+                        <input type="text" class="form-control" placeholder="Title" name="title">
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="">Upload Image</label>
+                        <input type="file" name="image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" class="form-control" placeholder="Author" name="author">
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Sub Heading </label>
+                        <input type="text" class="form-control" name="smallheading">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Event URL</label>
+                        <input type="text" class="form-control" placeholder="Event URL" name="url" >
+                      </div>
+                    </div>
+                  
+                  <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Date </label>
+                        <input type="date" class="form-control" name="date">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control textarea" name="description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+
+<div id="tabselect2" class="tab-pane fade">
+             <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Casestudy</h5>
+              </div>
+              
+              <div class="card-body">
+                <form action="casestudybk.php" method="POST" enctype="multipart/form-data">
+                   <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Main Title</label>
+                        <input type="text" class="form-control" placeholder="Title" name="title">
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="">Upload Image</label>
+                        <input type="file" name="image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" class="form-control" placeholder="Author" name="author">
+                      </div>
+                    </div>
+                     <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Sub Heading </label>
+                        <input type="text" class="form-control" name="smallheading">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Event URL</label>
+                        <input type="text" class="form-control" placeholder="Event URL" name="url" >
+                      </div>
+                    </div>
+                                      <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Date </label>
+                        <input type="date" class="form-control" name="date">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control textarea" name="description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+
+<div id="tabselect3" class="tab-pane fade">
+             <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Blogs</h5>
+              </div>
+              
+              <div class="card-body">
+                <form action="blogsbk.php" method="POST" enctype="multipart/form-data">
+                   <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Main Title</label>
+                        <input type="text" class="form-control" placeholder="Title" name="title">
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="">Upload Image</label>
+                        <input type="file" name="image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" class="form-control" placeholder="Author" name="author">
+                      </div>
+                    </div>
+                     <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Sub Heading </label>
+                        <input type="text" class="form-control" name="smallheading">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Event URL</label>
+                        <input type="text" class="form-control" placeholder="Event URL" name="url" >
+                      </div>
+                    </div>
+                  <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Service Name </label>
+                        <input type="text" class="form-control" name="servicename">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control textarea" name="description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+
+           <div id="newletter" class="tab-pane fade">
+            
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Newsletter</h5>
+              </div>
+              
+              <div class="card-body">
+                <form action="newsletterbk.php" method="POST" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Main Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Title" >
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="">Upload PDF</label>
+                        <input type="file" id="" name="pdf">
+                      </div>
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" class="form-control" name="date" placeholder="Date" >
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Year</label>
+                        <input type="text" class="form-control" name="year" placeholder="Year">
+                      </div>
+                    
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Sub Title</label>
+                        <input type="text" class="form-control" name="subtitle" placeholder="Sub Title" >
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="">Upload Image</label>
+                        <input type="file" id="" name="image">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control textarea" name="description" placeholder="Description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+           <div id="dInovator" class="tab-pane fade">
+            <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Innovators</h5>
+              </div>
+              <div class="card-body">
+                <form action="digitalinnovbk.php" method="POST" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-12 pr-1">
+                      <div class="form-group">
+                        <h5>First Slide</h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title 1</label>
+                        <input type="text" class="form-control" name="namef" placeholder="First Slide Title" >
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Image</label>
+                        <input type="file"  name="imagef">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="descriptionf" placeholder="First Slide Description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" class="form-control" name="urlf" placeholder="First Slide URL">
+                      </div>
+                    </div>
+                  </div>
+                    
+                    <div class="row">
+                    <div class="col-md-12 pr-1">
+                      <div class="form-group">
+                        <h5>Second Slide</h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title 2</label>
+                        <input type="text" class="form-control" name="names" placeholder="Second Slide Title" >
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Image</label>
+                        <input type="file"  name="images">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="descriptions" placeholder="Second Slide Description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" class="form-control" name="urls" placeholder="Second Slide URL">
+                      </div>
+                    </div>
+                  </div>
+                    
+                    <div class="row">
+                    <div class="col-md-12 pr-1">
+                      <div class="form-group">
+                        <h5>Third Slide</h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title 3</label>
+                        <input type="text" class="form-control" name="namet" placeholder="Third Slide Title" >
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Image</label>
+                        <input type="file"  name="imaget">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="descriptiont" placeholder="Third Slide Description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" class="form-control" name="urlt" placeholder="Third Slide URL">
+                      </div>
+                    </div>
+                  </div>
+                    
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+
+ <div id="dInovator1" class="tab-pane fade">
+            <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Innovators</h5>
+              </div>
+              <div class="card-body">
+                <form action="digitalinnoviotbk.php" method="POST" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-12 pr-1">
+                      <div class="form-group">
+                        <h5>First Slide</h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title 1</label>
+                        <input type="text" class="form-control" name="namef" placeholder="First Slide Title" >
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Image</label>
+                        <input type="file"  name="imagef">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="descriptionf" placeholder="First Slide Description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" class="form-control" name="urlf" placeholder="First Slide URL">
+                      </div>
+                    </div>
+                  </div>
+                    
+                    <div class="row">
+                    <div class="col-md-12 pr-1">
+                      <div class="form-group">
+                        <h5>Second Slide</h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title 2</label>
+                        <input type="text" class="form-control" name="names" placeholder="Second Slide Title" >
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Image</label>
+                        <input type="file"  name="images">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="descriptions" placeholder="Second Slide Description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" class="form-control" name="urls" placeholder="Second Slide URL">
+                      </div>
+                    </div>
+                  </div>
+                    
+                    <div class="row">
+                    <div class="col-md-12 pr-1">
+                      <div class="form-group">
+                        <h5>Third Slide</h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title 3</label>
+                        <input type="text" class="form-control" name="namet" placeholder="Third Slide Title" >
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Image</label>
+                        <input type="file"  name="imaget">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="descriptiont" placeholder="Third Slide Description"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" class="form-control" name="urlt" placeholder="Third Slide URL">
+                      </div>
+                    </div>
+                  </div>
+                    
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+
+           <div id="resource" class="tab-pane fade ">
+            <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+
+                        <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit PLM Additional Resources</h5>
+              </div>
+              <div class="card-body">
+                <form action="addresoucebk.php" method="POST" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Title" >
+                      </div>
+                    </div>
+          
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" name="image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="description" placeholder="Short Description"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Upload PDF</label>
+                        <input type="file" name="pdf">
+                      </div>
+                    </div>
+                  </div>
+                 
+                 
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+         
+                      </div>
+        </div>
+      
+          </div>
+        </div>
+
+
+         <div id="resourceiot" class="tab-pane fade ">
+            <div class="content">
+        <div class="row">
+          
+          <div class="col-md-12">
+
+             <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit IoT Additional Resources</h5>
+              </div>
+              <div class="card-body">
+                <form action="addresouceiotbk.php" method="POST" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Title" >
+                      </div>
+                    </div>
+          
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" name="image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea class="form-control textarea" name="description" placeholder="Short Description"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Upload PDF</label>
+                        <input type="file" name="pdf">
+                      </div>
+                    </div>
+                  </div>
+                 
+                 
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" name="submit" class="btn btn-primary btn-round">Update </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+         
+                      </div>
+        </div>
+      
+          </div>
+        </div>
+      </div>
+      </section>
+    <!--   <div class="content">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-globe text-warning"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Capacity</p>
+                      <p class="card-title">150GB<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update Now
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-money-coins text-success"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Revenue</p>
+                      <p class="card-title">$ 1,345<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar-o"></i>
+                  Last day
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-vector text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Errors</p>
+                      <p class="card-title">23<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-clock-o"></i>
+                  In the last hour
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-favourite-28 text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Followers</p>
+                      <p class="card-title">+45K<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update now
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">Users Behavior</h5>
+                <p class="card-category">24 Hours performance</p>
+              </div>
+              <div class="card-body ">
+                <canvas id=chartHours width="400" height="100"></canvas>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-history"></i> Updated 3 minutes ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">Email Statistics</h5>
+                <p class="card-category">Last Campaign Performance</p>
+              </div>
+              <div class="card-body ">
+                <canvas id="chartEmail"></canvas>
+              </div>
+              <div class="card-footer ">
+                <div class="legend">
+                  <i class="fa fa-circle text-primary"></i> Opened
+                  <i class="fa fa-circle text-warning"></i> Read
+                  <i class="fa fa-circle text-danger"></i> Deleted
+                  <i class="fa fa-circle text-gray"></i> Unopened
+                </div>
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar"></i> Number of emails sent
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-title">NASDAQ: AAPL</h5>
+                <p class="card-category">Line Chart with Points</p>
+              </div>
+              <div class="card-body">
+                <canvas id="speedChart" width="400" height="100"></canvas>
+              </div>
+              <div class="card-footer">
+                <div class="chart-legend">
+                  <i class="fa fa-circle text-info"></i> Tesla Model S
+                  <i class="fa fa-circle text-warning"></i> BMW 5 Series
+                </div>
+                <hr />
+                <div class="card-stats">
+                  <i class="fa fa-check"></i> Data information certified
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Embel Technology Ind. Pvt. Ltd.
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <script>
+$(function() {
+   $(".recbtn").click(function() {
+      // remove classes from all
+      $(".recbtn").removeClass("active");
+      // add class to the one we clicked
+      $(this).addClass("active");
+   });
+});  </script>
+
+</body>
+
+</html>

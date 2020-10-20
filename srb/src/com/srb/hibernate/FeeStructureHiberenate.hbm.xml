@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+<class  
+    name="com.srb.hibernate.FeeStructureHiberenate" 
+    table="student_fee_structure"
+>
+
+    <id
+        name="pkFeeStructureId"
+        type="java.lang.Long"
+        column="pk_fee_structure_id"
+    >
+    <generator class="increment" />
+    </id>
+
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="fkDivisionId"
+        type="java.lang.Long"
+        column="fk_division_id"
+    />
+    
+   <property
+        name="firstName"
+        type="java.lang.String"
+        column="first_name"
+    />
+    
+    <property
+        name="middleName"
+        type="java.lang.String"
+        column="middle_name"
+    />
+    <property
+        name="lastName"
+        type="java.lang.String"
+        column="last_name"
+        
+    />
+    <property
+        name="academicYear"
+        type="java.lang.String"
+        column="academic_year"
+    />
+    
+        <property
+        name="className"
+        type="java.lang.String"
+        column="class_name"
+    />
+    
+        <property
+        name="divisionName"
+        type="java.lang.String"
+        column="division"
+    />
+    
+    <property
+        name="paymentReceiptNumber"
+        type="java.lang.Long"
+        column="payment_receipt_number"
+    />
+    
+     <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+     />
+     
+      <property
+        name="totalAnnualFee"
+        type="java.lang.Double"
+        column="total_annual_fee"
+    />
+   
+    <property
+        name="remainingFee"
+        type="java.lang.Double"
+        column="remaining_fee"
+     />
+    
+     
+     <property
+        name="expectedPaymentDate"
+        type="java.sql.Date"
+        column="expected_payment_date"
+     />
+     
+    <property
+        name="firstInstallment"
+        type="java.lang.Double"
+        column="first_installment"
+    />
+    
+    <property
+        name="secondInstallment"
+        type="java.lang.Double"
+        column="second_installment"
+    />
+    
+<!--     <property
+        name="gatheringFees"
+        type="java.lang.Double"
+        column="gathering_fees"
+    /> -->
+    
+      <property
+        name="computerFees"
+        type="java.lang.Double"
+        column="computer_fees"
+    />
+    
+<!--      <property
+        name="activityFees"
+        type="java.lang.Double"
+        column="activity_fees"
+    /> -->
+        <property
+        name="examFees"
+        type="java.lang.Double"
+        column="exam_Fees"
+    />
+    
+    
+    
+    
+    <property
+        name="admissionfees"
+        type="java.lang.Double"
+        column="admissionfees"
+    />
+    <property
+        name="tuitionfees"
+        type="java.lang.Double"
+        column="tuitionfees"
+    />
+    <property
+        name="medicalfees"
+        type="java.lang.Double"
+        column="medicalfees"
+    />
+    <property
+        name="gymnassiumfees"
+        type="java.lang.Double"
+        column="gymnassiumfees"
+    />
+    <property
+        name="laboratoryfees"
+        type="java.lang.Double"
+        column="laboratoryfees"
+    />
+    <property
+        name="stationaryfees"
+        type="java.lang.Double"
+        column="stationaryfees"
+    />
+    <property
+        name="competitivefees"
+        type="java.lang.Double"
+        column="competitivefees"
+    />
+    <property
+        name="hostelfees"
+        type="java.lang.Double"
+        column="hostelfees"
+    />
+    <property
+        name="messfees"
+        type="java.lang.Double"
+        column="messfees"
+    />
+    <property
+        name="uniformfees"
+        type="java.lang.Double"
+        column="uniformfees"
+    />
+    <property
+        name="raincoat"
+        type="java.lang.Double"
+        column="raincoat"
+    />
+    <property
+        name="undergarments"
+        type="java.lang.Double"
+        column="undergarments"
+    />
+    <property
+        name="otherfees"
+        type="java.lang.Double"
+        column="otherfees"
+    />
+    <property
+        name="lumpsumfees"
+        type="java.lang.Double"
+        column="lumpsumfees"
+    />
+    
+     <property
+        name="feedue"
+        type="java.lang.String"
+        column="fee_paid_due"
+    />
+     <property
+        name="rollno"
+        type="java.lang.Long"
+        column="roll_no"
+    />
+    
+     </class>
+</hibernate-mapping>
+    
