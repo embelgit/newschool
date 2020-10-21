@@ -345,7 +345,7 @@
 		</script>
       </div>
       </div>
-       <div class="row">        
+      <div class="row">        
           	<div class="form-group" >
 					<div class="col-md-3 control-label">
 	           				<label for="onlinepayment">Online Payment<sup>*</sup></label>  
@@ -383,7 +383,7 @@
 		$(document).ready(function(){
 	  		 $("#onlinepayment").change(function(){
 	       	$(this).find("option:selected").each(function(){
-	           	if($(this).attr("value")=="cheque"){
+	           	if($(this).attr("value")=="debitcard"){
 	           	
 	           	$("#cheque_no").show(); 
 	           	
@@ -397,21 +397,21 @@
 	          		$("#neft_acc_no").hide(); 
 	        		$("#cheque_no").hide();
 	           }
-	          	 else if($(this).attr("value")=="neft"){
+	          	 else if($(this).attr("value")=="googlepay"){
 	                	
 	           		$("#neft_acc_no").show(); 	
 	           		
 	           		$("#card_no").hide(); 
 	        		$("#cheque_no").hide();
 	            }
-	          	 else if($(this).attr("value")=="cash"){
+	          	 else if($(this).attr("value")=="phonepe"){
 	             	
 	            		$("#neft_acc_no").hide(); 
 	            		$("#cheque_no").hide();
 	            		$("#card_no").hide(); 
 	             }
 	           	
-	          	else if($(this).attr("value")=="selected"){
+	          	else if($(this).attr("value")=="upipayment"){
 	             	
 	        		$("#neft_acc_no").hide(); 
 	        		$("#cheque_no").hide();
@@ -424,6 +424,7 @@
 		</script>
       </div>
       </div>
+       
       				<div class="row">
  					<div class="form-group">
  			
