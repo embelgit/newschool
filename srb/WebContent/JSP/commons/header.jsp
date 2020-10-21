@@ -254,6 +254,17 @@
     	  
       					%>	
       					
+      					 <li class="">
+                            <a href="Thoughts.jsp" ><i class="far fa-newspaper"></i>Thoughts</a>
+                        </li> 
+						<%}%>
+						
+						<%
+    			  			if(type1.equals("admin")){
+    	  
+      					%>	
+      		
+      					
       					<%-- <li><a href="<%=path%>School.jsp" accesskey="t">School Details</a></li> --%>
                         <li class="treeview active">
                             <a >

@@ -7018,6 +7018,7 @@ table.package tfoot .links a{
 	padding: 20px;
 	
 }
+/*News Section*/
 
 .blog-grid-box {
     margin-bottom: 80px;
@@ -7049,4 +7050,53 @@ img {
     border: none;
     max-width: 100%;
     outline: none;
+}
+
+/*Thoughts*/
+.heading {
+    padding: 27px 0;
+    
+    /* font-size: 15px; */
+    /* font-weight: 700; */
+   /*  background-color: #fff; */
+    border-radius: 20px;
+    
+}
+.heading h2{
+    
+    text-align: center;
+     font-size: 30px; 
+     font-weight: 700; 
+     text-transform: uppercase;
+     border-radius: 25px;
+     color: #080d9e;
+}
+p#demo {
+    padding-top: 15px;
+    padding-left: 24px;
+    font-size: 17px;
+    font-weight: 700;
+}
+.thought {
+      padding: 20px;
+    height: 190px;
+    font-size: 10px;
+    font-weight: 500;
+    color: #2d2d2d;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: 5px 10px 10px 0 rgba(0,0,0,0.5);
+}
+.thought h3 {
+  font-size: 17px;
+    font-weight: 600;
+    color: #79797b;
+}
+.thought h5 {
+    
+    font-weight: 600;
+}
+.thought h6 {
+    text-align: right;
+    font-weight: 600;
 }
