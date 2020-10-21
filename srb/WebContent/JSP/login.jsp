@@ -68,7 +68,7 @@
                             </div>
                             <div class="header-title">
                                 <h3> School</h3>
-                                <small><strong>Please Log In</strong></small>
+                                <small><strong>Login By Role</strong></small>
                             </div>
                         </div>
                         <div class="">
