@@ -231,6 +231,14 @@
                             <a href="mailsystem.jsp" ><i class='fas fa-mail-bulk'></i> Attendance Alert</a>
                         </li> 
 						<%}%>
+									<%
+    			  			if(type1.equals("admin")){
+    	  
+      					%>	
+                        <li class="">
+                            <a href="idcardgeneration.jsp" ><i class="fa fa ti-home"></i> ID Card Generation</a>
+                        </li> 
+						<%}%>
 						
 							<%
     			  			if(type1.equals("admin")){
