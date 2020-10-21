@@ -286,6 +286,7 @@
 								</select>	
 	           				</div>
 						</div>
+						
 			<div class="col-sm-2" align="right">
 						<label class="control-label">Expected Payment Date:<sup>*</sup></label>
 					</div>
@@ -302,6 +303,85 @@
 		
 		$(document).ready(function(){
 	  		 $("#paymentMode").change(function(){
+	       	$(this).find("option:selected").each(function(){
+	           	if($(this).attr("value")=="cheque"){
+	           	
+	           	$("#cheque_no").show(); 
+	           	
+	           	$("#neft_acc_no").hide(); 
+	           	$("#card_no").hide();
+	           	}
+	          	 else if($(this).attr("value")=="card"){
+	           	
+	          		$("#card_no").show(); 	
+	          		
+	          		$("#neft_acc_no").hide(); 
+	        		$("#cheque_no").hide();
+	           }
+	          	 else if($(this).attr("value")=="neft"){
+	                	
+	           		$("#neft_acc_no").show(); 	
+	           		
+	           		$("#card_no").hide(); 
+	        		$("#cheque_no").hide();
+	            }
+	          	 else if($(this).attr("value")=="cash"){
+	             	
+	            		$("#neft_acc_no").hide(); 
+	            		$("#cheque_no").hide();
+	            		$("#card_no").hide(); 
+	             }
+	           	
+	          	else if($(this).attr("value")=="selected"){
+	             	
+	        		$("#neft_acc_no").hide(); 
+	        		$("#cheque_no").hide();
+	        		$("#card_no").hide(); 
+	         }
+	          
+	       });
+	   }).change();
+		});	
+		</script>
+      </div>
+      </div>
+       <div class="row">        
+          	<div class="form-group" >
+					<div class="col-md-3 control-label">
+	           				<label for="onlinepayment">Online Payment<sup>*</sup></label>  
+	           		</div>
+	           		
+	           		<div class="col-md-3">
+							<div class="input-group">
+								<span class="input-group-addon">
+										<i class="glyphicon glyphicon-hand-right"></i>
+								</span>
+	           					<select class="form-control" id="onlinepayment">
+										<option value="selected">-Select Type--</option>
+										<option value="debitcard">Debit Card</option>
+										<option value="googlepay">Google Pay</option>
+										<option value="phonepe">Phone Pe</option>
+										<option value="upipayment">Upi Payment</option>
+								</select>	
+	           				</div>
+						</div>
+						
+		<!-- 	<div class="col-sm-2" align="right">
+						<label class="control-label">Expected Payment Date:<sup>*</sup></label>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							 <i class="glyphicon glyphicon-calendar"></i>
+							</span>
+							 <input type="date" id='expectedPaymentDate' name="expectedPaymentDate" class="form-control" />
+						</div>
+					</div> -->
+            	
+	 <script>
+		
+		$(document).ready(function(){
+	  		 $("#onlinepayment").change(function(){
 	       	$(this).find("option:selected").each(function(){
 	           	if($(this).attr("value")=="cheque"){
 	           	
