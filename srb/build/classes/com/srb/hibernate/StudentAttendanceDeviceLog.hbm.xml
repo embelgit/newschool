@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.StudentAttendanceDeviceLogHibernate" 
+    table="student_attendance_device_log"
+>
+
+    <id
+        name="pkStudentAttendanceDeviceLogId"
+        type="java.lang.Long"
+        column="pk_student_attendance_device_log_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+       <property
+        name="pkDeviceLogId"
+          type="java.lang.String"
+        column="pkDeviceLogId"
+        
+    />
+    <property
+        name="downloadDate"
+         type="java.lang.String"
+        column="DownloadDate"
+        
+    />
+        <property
+        name="deviceId"
+          type="java.lang.String"
+        column="DeviceId"
+        
+    />
+    <property
+        name="userId"
+        type="java.lang.String"
+        column="UserId"
+        
+    />
+    <property
+        name="logDate"
+        type="java.lang.String"
+        column="LogDate"
+        
+    />
+    
+    <property
+        name="direction"
+        type="java.lang.String"
+        column="Direction"
+        
+    />
+    <property
+        name="AlternateDirection"
+        type="java.lang.String"
+        column="AttDirection"
+        
+    />
+    <property
+        name="AlternateAttDirection"
+        type="java.lang.String"
+        column="AlternateAttDirection"
+        
+    />
+
+    <property
+        name="statusCode"
+        type="java.lang.String"
+        column="StatusCode"
+        
+    />
+    
+        <property
+        name="workCode"
+        type="java.lang.String"
+        column="WorkCode"
+        
+    />
+    
+    <property
+        name="duration"
+        type="java.lang.String"
+        column="Duration"
+        
+    />
+    <property
+        name="smsFlag"
+        type="java.lang.String"
+        column="SMSFlag"
+        
+    />
+    <property
+        name="isApproved"
+        type="java.lang.String"
+        column="IsApproved"
+        
+    />
+
+    <property
+        name="remark"
+        type="java.lang.String"
+        column="Remarks"
+        
+    />
+    
+    
+        <property
+        name="verificationMode"
+        type="java.lang.String"
+        column="VerificationMode"
+        
+    />
+    
+        <property
+        name="logRecordLocation"
+        type="java.lang.String"
+        column="LogRecordLocation"
+        
+    />
+    
+    <property
+        name="managerRemark"
+        type="java.lang.String"
+        column="ManagerRemarks"
+        
+    />
+    <property
+        name="attMarkAndroidIMEINo"
+        type="java.lang.String"
+        column="AttMarkAndroidIMEINo"
+        
+    />
+    <property
+        name="lattitude"
+        type="java.lang.String"
+        column="Lattitude"
+        
+    />
+
+    <property
+        name="longitude"
+        type="java.lang.String"
+        column="Longitude"
+        
+    />
+    
+    <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+        
+    />
+
+     </class>
+</hibernate-mapping>
+    

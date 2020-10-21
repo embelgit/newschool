@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.srb.hibernate.SportParticipantDetails" 
+    table="SportParticipant_Details"
+>
+
+    <id
+        name="PkSportParticipant"
+        type="java.lang.Long"
+        column="Pk_Sport_Participant"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="firstName"
+        type="java.lang.String"
+        column="firstName"
+    />
+      <property 
+		name="PkSportid" 
+		type="java.lang.Long" 
+		column="PkSport_id"
+		length="20"/> 
+    
+    <property
+        name="middleName"
+        type="java.lang.String"
+        column="middleName"
+    /> 
+    <property
+        name="LastName"
+        type="java.lang.String"
+        column="LastName"
+    /> 
+     <property
+        name="Lose"
+        type="java.lang.String"
+        column="Lose"
+    />
+    
+      <property
+        name="win"
+        type="java.lang.String"
+        column="win"
+    />
+    <property
+        name="Award"
+        type="java.lang.String"
+        column="Award"
+    />
+      <property
+        name="SportParticipant"
+        type="java.lang.String"
+        column="Sport_Participant"
+    />
+    
+    <property
+        name="PkSportGridid"
+        type="java.lang.Long"
+        column="PkSport_Grid_id"
+    />
+    
+  
+    <property
+        name="Insertdate"
+        type="java.sql.Date"
+        column="insert_date"
+    />
+    <property
+        name="startdate"
+        type="java.sql.Date"
+        column="start_date"
+    />
+    
+    <property
+        name="enddate"
+        type="java.sql.Date"
+        column="end_date"
+    />
+    <property
+        name="fk_division_id"
+        type="java.lang.Long"
+        column="fk_division_id"
+    />
+    <property
+        name="fk_class_id"
+        type="java.lang.Long"
+        column="fk_class_id"
+    />
+    
+    
+
+     </class>
+</hibernate-mapping>

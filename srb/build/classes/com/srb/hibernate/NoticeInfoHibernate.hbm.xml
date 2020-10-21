@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class  
+    name="com.srb.hibernate.NoticeInfoHibernate" 
+    table="notice"
+>
+
+    <id
+        name="pkNoticeId"
+        type="java.lang.Long"
+        column="pk_notice_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="fkDivisionId"
+        type="java.lang.Long"
+        column="fk_division_id"
+    />
+   
+    <property
+        name="className"
+        type="java.lang.String"
+        column="str_class_name"
+        
+    />
+    <property
+        name="division"
+        type="java.lang.String"
+        column="str_division"
+    />
+    
+     <property
+        name="academicYear"
+        type="java.lang.String"
+        column="str_academic_year"
+    />
+    
+    <property
+        name="task"
+        type="java.lang.String"
+        column="str_task_in_text"
+    />
+    
+    <property
+        name="noticeDate"
+        type="java.sql.Date"
+        column="dt_notice_date"
+    />
+    
+     </class>
+</hibernate-mapping>

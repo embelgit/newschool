@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+ <class name="com.srb.hibernate.TrasnportDetailsHibernate" table="TrasnportDetails_Payment"
+ schema ="school">
+ 
+ <id name="pkTranspaymentId" type="java.lang.Long" column ="pkTranspayment_Id"
+ length="20">
+ 
+
+ 
+ <generator class ="increment"/>
+ </id>
+ 
+ 
+  <property name="txid" type="java.lang.Long" column="transaction_id"/>
+ 
+  <property
+        name="totalAnnualFee"
+        type="java.lang.Double"
+        column="totalAnnualFee"
+     />
+       <property
+        name="personnameT"
+        type="java.lang.String"
+        column="personnameT"
+     />
+      <property
+        name="balanceAmountT"
+        type="java.lang.Double"
+        column="balanceAmountT"
+     />
+      <property
+        name="paymentMode3"
+        type="java.lang.String"
+        column="paymentMode3"
+     />
+    
+     <property
+        name="paymentTypeT"
+        type="java.lang.String"
+        column="paymentTypeT"
+     /> 
+     
+      <property
+        name="paidAmountT"
+        type="java.lang.Double"
+        column="paidAmountT"
+     /> 
+     
+     
+      <property
+        name="chequeNum"
+        type="java.lang.String"
+        column="chequeNum"
+     />
+     
+     
+      <property
+        name="nameOnCheck"
+        type="java.lang.String"
+        column="nameOnCheck"
+     />
+     
+     
+      <property
+        name="bankName"
+        type="java.lang.String"
+        column="bankName"
+     /> 
+     
+      <property
+        name="cardNum"
+        type="java.lang.String"
+        column="cardNum"
+     />
+     
+      <property
+        name="accNum"
+        type="java.lang.String"
+        column="accNum"
+     />
+     
+     <property
+        name="studentName"
+        type="java.lang.String"
+        column="studentName"
+     />
+     
+     
+     <property
+        name="fkclassId"
+        type="java.lang.Long"
+        column="fkclassId"
+     />
+     <property
+        name="fkdivisionId"
+        type="java.lang.Long"
+        column="fkdivisionId"
+     />
+     
+     	<property 
+     	name="insertDate" 
+     	type="java.sql.Date" 
+     	column="insert_date" />
+     	
+ </class>
+   </hibernate-mapping>

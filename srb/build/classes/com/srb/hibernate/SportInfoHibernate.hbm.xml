@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.SportInfoHibernate" 
+    table="sport_master"
+>
+
+    <id
+        name="pkSportId"
+        type="java.lang.Long"
+        column="pk_sport_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="Createactivity"
+        type="java.lang.String"
+        column="Create_activity"
+    />
+    
+    <property
+        name="Activitydetails"
+        type="java.lang.String"
+        column="Activity_details"
+    />
+    
+    <property
+        name="Organizeby"
+        type="java.lang.String"
+        column="Organize_by"
+    />
+    
+    <property
+        name="otherdetails"
+        type="java.lang.String"
+        column="other_details"
+    />
+    
+    
+     </class>
+</hibernate-mapping>
+    

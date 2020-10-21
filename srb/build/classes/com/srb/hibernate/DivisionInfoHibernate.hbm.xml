@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.DivisionInfoHibernate" 
+    table="division_master"
+>
+
+    <id
+        name="pkDivisionId"
+        type="java.lang.Long"
+        column="pk_division_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="division"
+        type="java.lang.String"
+        column="division_name"
+    />
+    
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_cat_id"
+    />
+    
+        <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+    />
+    
+    <property
+        name="classRoom"
+        type="java.lang.String"
+        column="room_number"
+        
+    />
+     </class>
+</hibernate-mapping>
+    

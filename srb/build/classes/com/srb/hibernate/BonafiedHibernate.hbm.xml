@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class 
+    name="com.srb.hibernate.BonafideCertificateHibernate" 
+    table="bonafide_certificate"
+>
+    <id
+        name="pkBonafiedCertificateId"
+        type="java.lang.Long"
+        column="pk_bonafide_certificate_id"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fk_class_id"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    
+     <property
+        name="fk_div_id"
+        type="java.lang.Long"
+        column="fk_div_id"
+        
+    />
+
+    <property
+        name="fkStudentMasterId"
+        type="java.lang.Long"
+        column="fk_student_id"
+        
+    />
+    <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+        
+    />
+
+    
+     </class>
+</hibernate-mapping>
+    

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.LeavingCertificateHibernate" 
+    table="leaving_certificate"
+>
+
+    <id
+        name="pkLcId"
+        type="java.lang.Long"
+        column="pk_lc_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fk_class_id"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    
+     <property
+        name="fk_div_id"
+        type="java.lang.Long"
+        column="fk_div_id"
+        
+    />
+
+    <property
+        name="fkStudentMasterId"
+        type="java.lang.Long"
+        column="fk_student_id"
+        
+    />
+
+    <property
+        name="idMarks"
+        type="java.lang.String"
+        column="idMarks"
+        
+    />
+    <property
+        name="reason"
+        type="java.lang.String"
+        column="reason"
+        
+    />
+    
+    <property
+        name="promotion"
+        type="java.lang.String"
+        column="promotion"
+        
+    />
+    
+        <property
+        name="progress"
+        type="java.lang.String"
+        column="progress"
+        
+    />
+
+    <property
+        name="conduct"
+        type="java.lang.String"
+        column="conduct"
+        
+    />
+    
+     <property
+        name="attendance"
+        type="java.lang.Long"
+        column="attendance"
+        
+    />
+    <property
+        name="workingday"
+        type="java.lang.Long"
+        column="workingday"
+        
+    /> 
+   
+    <property
+        name="dateOfLeaving"
+        type="java.sql.Date"
+        column="date_of_leaving"
+        
+    />
+
+    <property
+        name="insertdate"
+        type="java.sql.Date"
+        column="insert_date"
+        
+    />
+
+    
+     </class>
+</hibernate-mapping>
+    

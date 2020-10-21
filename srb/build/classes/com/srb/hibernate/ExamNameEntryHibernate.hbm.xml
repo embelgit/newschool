@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.ExamNameEntryHibernate" 
+    table="exam_name_entry_master"
+>
+
+    <id
+        name="pkExamNameEntryId"
+        type="java.lang.Long"
+        column="pk_Exam_Name_Entry_Id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="examNameEntry"
+        type="java.lang.String"
+        column="Exam_Name_Entry"
+             
+    />
+        
+     <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+             
+    />
+        
+     </class>
+</hibernate-mapping>
+    

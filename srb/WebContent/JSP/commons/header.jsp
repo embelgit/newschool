@@ -232,11 +232,20 @@
                         </li> 
 						<%}%>
 						
+							<%
+    			  			if(type1.equals("admin")){
+    	  
+      					%>	
+                        <li class="">
+                            <a href="NewsSection.jsp" ><i class="far fa-newspaper"></i> News Section</a>
+                        </li> 
+						<%}%>
 						
 						<%
     			  			if(type1.equals("admin")){
     	  
       					%>	
+      					
       					<%-- <li><a href="<%=path%>School.jsp" accesskey="t">School Details</a></li> --%>
                         <li class="treeview active">
                             <a >
@@ -258,6 +267,7 @@
                               	<li><a class="padding" href="<%=path%>ParentsComplaint.jsp" accesskey="n">Parents Complaint</a></li>
                                <%--  <li><a class="padding" href="<%=path%>productDetails.jsp" accesskey="n">Product Details</a></li> --%>
                                 <li><a class="padding" href="<%=path%>StudentHealthCheckup.jsp" accesskey="n">Student Health Checkup</a></li>
+                                <li><a class="padding" href="<%=path%>NewsSection.jsp" accesskey="n">News Section</a></li>
                                 
                               <%--   <li><a  href="<%=path%>cancellationOFStudentAdmission.jsp" accesskey="t">Cancle Admission</a></li> --%> 
                                 

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.srb.hibernate.BookReturnHibernate" 
+    table="book_return"
+>
+    <id
+        name="pkBookReturnId"
+        type="java.lang.Long"
+        column="pk_book_return_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+    <property
+        name="bookName"
+        type="java.lang.String"
+        column="book_name"
+        
+    />
+    
+        <property
+        name="authorName"
+        type="java.lang.String"
+        column="author_name"
+        
+    />
+    
+        <property
+        name="publisherName"
+        type="java.lang.String"
+        column="publisher_name"
+        
+    />
+    
+    <property
+        name="supplierName"
+        type="java.lang.String"
+        column="supplier_name"
+        
+    />
+ 
+    <property
+        name="quantity"
+        type="java.lang.Long"
+        column="quantity"
+    />
+        <property
+        name="fkDivId"
+        type="java.lang.Long"
+        column="fk_div_id"
+    />
+        <property
+        name="fkCatId"
+        type="java.lang.Long"
+        column="fk_class_id"
+    />
+        <property
+        name="studentId"
+        type="java.lang.Long"
+        column="fk_student_id"
+    />
+    
+    
+     <property
+        name="TeacherIssueReturnId"
+        type="java.lang.Long"
+        column="TeacherIssueReturn_Id"
+    />
+    
+    
+    <property
+        name="insertDate"
+        type="java.util.Date"
+        column="insert_date"
+        
+    />
+     <property
+        name="BookissueDateReturn"
+        type="java.lang.String"
+        column="BookissueDate_Return"
+        
+    />
+     <property
+        name="BookReturneDateReturn"
+        type="java.lang.String"
+        column="BookReturneDate_Return"
+        
+    />
+     <property
+        name="LateCharges"
+        type="java.lang.String"
+        column="Late_Charges"
+        
+    />
+    
+     <property
+        name="Status"
+        type="java.lang.String"
+        column="Status"
+        
+    />
+     <property
+        name="BookReturneDateNew"
+        type="java.sql.Date"
+        column="BookReturne_DateNew"
+        
+    />
+    <property
+    name ="pkBookIssueId"
+    type ="java.lang.Long"
+    column  = "pkBookIssueId"
+/>
+     </class>
+</hibernate-mapping>

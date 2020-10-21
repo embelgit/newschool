@@ -7018,3 +7018,35 @@ table.package tfoot .links a{
 	padding: 20px;
 	
 }
+
+.blog-grid-box {
+    margin-bottom: 80px;
+    background: #fff;
+    box-shadow: 2px 4px 8px 3px rgba(0,0,0,0.2);
+    border-bottom-right-radius: 100px;
+    height: 375px;
+}
+.blog-grid-box .thumb {
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 20px -3px rgba(171, 171, 171, 0.6) !important;
+    border: solid 2px #fff;
+}
+.blog-grid-box .thumb img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.blog-grid-box .title {
+    font-size: 12px;
+    color: #4b4b4b;
+    margin: 10px 10px;
+    display: inline-block;
+    font-weight: 600;
+    height: 100px;
+}
+img {
+    border: none;
+    max-width: 100%;
+    outline: none;
+}

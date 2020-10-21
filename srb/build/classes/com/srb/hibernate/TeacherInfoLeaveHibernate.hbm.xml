@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.TeacherInfoLeaveHibernate" 
+    table="teacher_Leave"
+>
+
+    <id
+        name="pkTeacherLeaveId"
+        type="java.lang.Long"
+        column="pk_Teacher_LeaveId"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+
+
+
+
+    <property
+        name="LeaveType"
+        type="java.lang.String"
+        column="Leave_Type"
+        
+    />
+    <property
+        name="FkTeacherid"
+        type="java.lang.Long"
+        column="Fk_Teacher_id"
+        
+    />
+    
+ <property
+        name="FirstDate"
+        type="java.sql.Date"
+        column="First_Date"
+        
+    />
+  
+  
+  <property
+        name="teacher"
+        type="java.lang.String"
+        column="teacher_name"
+        
+    />
+    
+    <property
+        name="LastDate"
+        type="java.sql.Date"
+        column="Last_Date"
+    />
+    
+    <property
+        name="ApprovedBy"
+        type="java.lang.String"
+        column="ApprovedBy"
+    />
+    
+    <property
+        name="Description"
+        type="java.lang.String"
+        column="Description"
+    />
+    
+    
+     
+     </class>
+</hibernate-mapping>
+    

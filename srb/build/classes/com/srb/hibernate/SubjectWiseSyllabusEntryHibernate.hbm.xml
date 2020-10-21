@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class  
+    name="com.srb.hibernate.SubjectWiseSyllabusEntryHibernate" 
+    table="subject_wise_syllabus_entry"
+>
+
+    <id
+        name="pkSubjectWiseSyllabusEntryId"
+        type="java.lang.Long"
+        column="pk_subjectwise_syllabus_entry_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkClassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+        
+    />
+    <property
+        name="fkDivisionId"
+        type="java.lang.Long"
+        column="fk_division_id"
+    />
+   
+  <!--   <property
+        name="fkSubjectId"
+        type="java.lang.Long"
+        column="fk_subject_id"
+     /> -->
+     
+     <property
+        name="fkTeacherId"
+        type="java.lang.Long"
+        column="fk_teacher_id"
+     />
+         
+    <property
+        name="className"
+        type="java.lang.String"
+        column="class_name"
+        
+    />
+    <property
+        name="division"
+        type="java.lang.String"
+        column="division"
+        
+    />
+    
+    <property
+        name="subjectName"
+        type="java.lang.String"
+        column="subject"
+        
+    />
+    
+    <property
+        name="teacherName"
+        type="java.lang.String"
+        column="teacher_name"
+        
+    />
+     <property
+        name="academicYear"
+        type="java.lang.String"
+        column="academic_year"
+    />
+    
+    <property
+        name="syllabus"
+        type="java.lang.String"
+        column="syllabus"
+    />
+
+    
+    <property
+        name="insertDate"
+        type="java.sql.Date"
+        column="insert_date"
+    />
+    
+         <property
+        name="syllabusFile"
+        column="syllabus_uploaded_file"
+    />
+    
+    
+     </class>
+</hibernate-mapping>

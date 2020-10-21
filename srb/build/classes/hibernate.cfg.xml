@@ -1,0 +1,136 @@
+<!-- Mysql config -->
+
+ <!-- <?xml version='1.0' encoding='utf-8'?> -->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+       <!-- Database connection settings -->
+       <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+       <property name="connection.url">jdbc:mysql://localhost:3306/school</property>
+       <property name="connection.username">root</property>
+       <property name="connection.password">root</property>
+
+		<!-- <property name="hibernate.validator.autoregister_listeners">false</property>
+		<property name="hibernate.validator.apply_to_ddl">false</property>
+        JDBC connection pool (use the built-in)    -->
+   		 <property name="connection.pool_size">1</property>
+	   <property name="hibernate.validator.autoregister_listeners">false</property>
+	   <property name="hibernate.validator.apply_to_ddl">false</property>
+       <!-- SQL dialect -->
+       <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+       <!-- Disable the second-level cache  -->
+       <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+       <!-- Echo all executed SQL to stdout -->
+       <property name="show_sql">true</property>
+       
+       <mapping resource="com/srb/hibernate/ClassInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/DivisionInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/SchoolInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StudentInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/SubjectInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/TeacherInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassDivisionAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassDivisionSubjectAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassDivisionSubjectTeacherAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassSubjectAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassSubjectTeacherAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/SubjectTeacherAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExamInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExamNameEntryHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/Result.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/TeacherDailyTaskEntry.xml"/>
+       <mapping resource="com/srb/hibernate/SubjectWiseSyllabusEntryHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StudentCashBankBookHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/DailyTimeTableHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExamTimeTable.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StoreManagement.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/AdmissionEnquiryHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StudentAttendanceDeviceLog.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/LeavingCertificate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/BookEntry.xml"/>
+       <mapping resource="com/srb/hibernate/BonafiedHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/BookStockHibernate.xml"/>
+       <mapping resource="com/srb/hibernate/BookIssueHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StudentScannedDoc.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/MeetingSchedule.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/NoticeInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/TeacherPaymentBeanHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExpenditureDetails.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExpenditurePayment.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/FeeStructureHiberenate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ParentsComplaintHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/SportInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/UserDetails.hbm.xml"/>
+        <mapping resource="com/srb/hibernate/SupplierPayment.hbm.xml"/>
+        <mapping resource="com/srb/hibernate/SupplierDetails.hbm.xml"/>
+        <mapping resource="com/srb/hibernate/BookReturn.hbm.xml"/>
+        <mapping resource="com/srb/hibernate/KitchenInventoryHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ProductDetailsHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StudentCheckUpHibernate.hbm.xml"/>
+        <mapping resource="com/srb/hibernate/SportParticipantDetails.hbm.xml"/>
+         <mapping resource="com/srb/hibernate/HomeWorkTeacherDailyTaskEntryHibernate.hbm.xml"/>
+        <mapping resource="com/srb/hibernate/MeetingScheduleHibernateparents.hbm.xml"/>
+         <mapping resource="com/srb/hibernate/TeacherInfoLeaveHibernate.hbm.xml"/>
+         <mapping resource="com/srb/hibernate/TrasnpotationSchollBush.bm.xml"/>
+         <mapping resource ="com/srb/hibernate/TrasnportDetailsHibernate.hbm.xml"/>
+         <mapping resource ="com/srb/hibernate/LibraryPaymentBean.hbm.xml"/>
+         <mapping resource ="com/srb/hibernate/AccessControl.hbm.xml"/>
+          <mapping resource ="com/srb/hibernate/hostelManagement.hbm.xml"/>
+          <mapping resource="com/srb/hibernate/nirgumCertificate.hbm.xml"/>
+    </session-factory>
+
+</hibernate-configuration>
+ 
+<!--  for ms sql server 2008 -->
+ <!--  <?xml version='1.0' encoding='utf-8'?> -->
+<!-- <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+       Database connection settings
+       <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+       <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=sc;instanceName=MSSQLSERVER;</property>
+       <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=school</property>
+       <property name="connection.username">sql123</property>
+       <property name="connection.password">sql12345</property>
+
+		<property name="hibernate.validator.autoregister_listeners">false</property>
+		<property name="hibernate.validator.apply_to_ddl">false</property>
+        JDBC connection pool (use the built-in)   
+    <property name="connection.pool_size">1</property>
+
+       SQL dialect
+       <property name="dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+
+       Disable the second-level cache 
+       <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+       Echo all executed SQL to stdout
+       <property name="show_sql">true</property>
+       
+       <mapping resource="com/srb/hibernate/ClassInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/DivisionInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/SchoolInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StudentInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/SubjectInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/TeacherInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassDivisionAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassDivisionSubjectAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassDivisionSubjectTeacherAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassSubjectAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ClassSubjectTeacherAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/SubjectTeacherAssocHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExamInfoHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExamNameEntryHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/Result.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/TeacherDailyTaskEntry.xml"/>
+       <mapping resource="com/srb/hibernate/SubjectWiseSyllabusEntryHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StudentCashBankBookHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/DailyTimeTableHibernate.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/ExamTimeTable.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/StoreManagement.hbm.xml"/>
+       <mapping resource="com/srb/hibernate/AdmissionEnquiryHibernate.hbm.xml"/>
+    </session-factory>
+
+</hibernate-configuration> -->

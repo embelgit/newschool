@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class  
+    name="com.srb.hibernate.TrasnpotationSchollBus" 
+    table="Trasnpotation_School_Bus"
+>
+
+    <id
+        name="pkTrasnpotationSchollBusId"
+        type="java.lang.Long"
+        column="pk_Trasnpotation_Scholl_BusId"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="leaveDateFrom"
+        type="java.lang.String"
+        column="leave_DateFrom"
+    />
+    
+    <property
+        name="DriverName"
+        type="java.lang.String"
+        column="Driver_Name"
+    />
+   
+    <property
+        name="leaveDateTo"
+        type="java.lang.String"
+        column="leaveDate_To"
+    />
+    
+    <property
+        name="ContactNo"
+        type="java.lang.Long"
+        column="Contact_No"
+    />
+    
+      <property
+        name="Pincode"
+        type="java.lang.Long"
+        column="Pincode"
+    />
+    
+     <property
+        name="payement"
+        type="java.lang.Double"
+        column="payement"
+    />
+    
+    <property
+        name="Address"
+        type="java.lang.String"
+        column="Address"
+    />
+    
+    <property
+        name="fkclassid"
+        type="java.lang.Long"
+        column="fk_class_id1"
+    />
+    
+     <property
+        name="fkdivisionid"
+        type="java.lang.Long"
+        column="fk_division_id1"
+    />
+    
+    <property
+        name="studentid"
+        type="java.lang.Long"
+        column="studentID"
+    />
+    
+        <property
+        name="studentName"
+        type="java.lang.String"
+        column="studentName"
+    />
+    
+    
+     </class>
+</hibernate-mapping>

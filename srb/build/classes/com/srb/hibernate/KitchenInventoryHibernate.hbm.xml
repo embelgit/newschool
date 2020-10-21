@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Dec, 2018 7:27:01 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.srb.hibernate.KitchenInventoryHibernate" table="kitchen_inventory">
+        
+        <id name="pkKitchenInvId" type="java.lang.Long">
+            <column name="pk_kitchen_inv_id" />
+            <generator class="increment" />
+        </id>
+        
+        <property name="fkSupplierId" type="java.lang.Long">
+            <column name="fk_supplier_id" />
+        </property>
+        
+        
+        <property name="billNo" type="java.lang.String">
+            <column name="bill_no" />
+        </property>
+        <property name="date" type="java.util.Date">
+            <column name="date" />
+        </property>
+        <property name="suppilerName" type="java.lang.String">
+            <column name="supplier_name" />
+        </property>
+        <property name="productName" type="java.lang.String">
+            <column name="product_name" />
+        </property>
+        <property name="unit" type="java.lang.String">
+            <column name="unit" />
+        </property>
+        <property name="Quantity" type="java.lang.Long">
+            <column name="quantity" />
+        </property>
+        <property name="buyPrice" type="java.lang.Double">
+            <column name="buy_price" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="total" />
+        </property>
+        <property name="grossTotal" type="java.lang.Double">
+            <column name="gross_total" />
+        </property>
+        
+        
+        <property name="subTotal" type="java.lang.Double">
+            <column name="sub_total" />
+        </property>
+        <property name="gst" type="java.lang.Long">
+            <column name="gst" />
+        </property>
+        <property name="gstAmount" type="java.lang.Double">
+            <column name="gst_amount" />
+        </property>
+        
+        <property name="fkProductId" type="java.lang.Long">
+       		 <column name="fk_product_id" />
+        </property>
+        
+        
+        <property name="balanceAmount" type="java.lang.Double">
+        	   <column name="balance_amount" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.StudentInfoHibernate" 
+    table="student_master"
+>
+
+    <id
+        name="pkStudentId"
+        type="java.lang.Long"
+        column="pk_student_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="aadharNumber"
+        type="java.lang.String"
+        column="aadhar_number"
+        
+    />
+        <property
+        name="rollNumber"
+        type="java.lang.String"
+        column="roll_number"
+        
+    />
+        <property
+        name="studentSerialNumber"
+        type="java.lang.Long"
+        column="student_serial_number"
+        
+    />
+        <property
+        name="generalRegNumber"
+        type="java.lang.String"
+        column="general_reg_number"
+    />
+
+        <property
+        name="district"
+        type="java.lang.String"
+        column="district"
+    />
+    
+        <property
+        name="taluka"
+        type="java.lang.String"
+        column="taluka"
+    />
+
+        <property
+        name="cast"
+        type="java.lang.String"
+        column="cast"
+    />
+    
+     <property
+        name="religion"
+        type="java.lang.String"
+        column="religion"
+    />
+      
+        <property
+        name="studenttype"
+        type="java.lang.String"
+        column="studenttype"
+    />
+      
+        <property
+        name="subCast"
+        type="java.lang.String"
+        column="sub_cast"
+    />
+    
+        <property
+        name="city"
+        type="java.lang.String"
+        column="city"
+    />
+    
+        <property
+        name="birthPlace"
+        type="java.lang.String"
+        column="birth_place"
+    />
+
+	 <property
+        name="birthtal"
+        type="java.lang.String"
+        column="birth_tal"
+    />
+     <property
+        name="birthdist"
+        type="java.lang.String"
+        column="birth_dist"
+    />
+     <property
+        name="birthcountry"
+        type="java.lang.String"
+        column="birth_country"
+    />
+	
+    <property
+        name="firstName"
+        type="java.lang.String"
+        column="first_name"
+    />
+    
+    <property
+        name="middleName"
+        type="java.lang.String"
+        column="middle_name"
+    />
+    
+    <property
+        name="lastName"
+        type="java.lang.String"
+        column="last_name"
+    />
+    
+    <property
+        name="dob"
+        type="java.sql.Date"
+        column="date_of_birth"
+        
+    />
+    <property
+        name="doa"
+        type="java.sql.Date"
+        column="date_of_admission"
+    />
+    
+    <property
+        name="gender"
+        type="java.lang.String"
+        column="gender"
+    />
+    
+    <property
+        name="clas"
+        type="java.lang.Long"
+        column="fk_class_id"
+    />
+    
+        <property
+        name="annualFee"
+        type="java.lang.Long"
+        column="annual_fee"
+    />
+    
+    <property
+        name="division"
+        type="java.lang.String"
+        column="fk_division_id"
+    />
+    
+    <property
+        name="country"
+        type="java.lang.String"
+        column="country"
+    />
+    
+     <property
+        name="state"
+        type="java.lang.String"
+        column="state"
+    />
+    
+    <property
+        name="pinCode"
+        type="java.lang.Long"
+        column="pin_code"
+    />
+    
+    <property
+        name="preSchoolN"
+        type="java.lang.String"
+        column="previous_school_name"
+    />
+    
+    <property
+        name="fatherName"
+        type="java.lang.String"
+        column="father_name"
+    />
+    
+    <property
+        name="motherName"
+        type="java.lang.String"
+        column="mother_name"
+    />
+    
+    <property
+        name="contactNo"
+        type="java.lang.Long"
+        column="contact_number"
+    />
+    
+    <property
+        name="siblings"
+        type="java.lang.String"
+        column="siblings"
+    />
+    
+    <property
+        name="preAddress"
+        type="java.lang.String"
+        column="present_address"
+    />
+    
+    <property
+        name="perAddress"
+        type="java.lang.String"
+        column="permanent_address"
+    />
+    
+        <property
+        name="isStudentActive"
+        type="java.lang.String"
+        column="student_active"
+    />
+    
+      <property
+        name="attendanceNumber"
+        type="java.lang.String"
+        column="attendance_Id"
+    />
+    
+      <property
+        name="studentPhoto"
+        column="student_photo"
+    />
+    
+    <property
+        name="preSchoolUdias"
+        type="java.lang.String"
+        column="pre_school_udias_number"
+    />
+    
+     <property
+        name="area"
+        type="java.lang.String"
+        column="area"
+    />
+    
+     <property
+        name="namankit"
+        type="java.lang.String"
+        column="namankit_type"
+    />
+      <property
+        name="studId"
+        type="java.lang.String"
+        column="stud_serial_id_number"
+    />
+    
+    	
+     <property
+        name="mothertongue"
+        type="java.lang.String"
+        column="mothertongue"
+    />
+    
+    
+    <property
+        name="EmergencyContact"
+        type="java.lang.Long"
+        column="Emergency_Contact"
+    />
+    
+     <property
+        name="studentstatus"
+        type="java.lang.String"
+        column="studentstatus"
+    />
+     <property
+        name="studentstatusid"
+        type="java.lang.Long"
+        column="studentstatus_id"
+    />
+     <property
+        name="ex_class"
+        type="java.lang.Long"
+        column="ex_class"
+    />
+     <property
+        name="ex_leaving"
+        type="java.lang.Long"
+        column="ex_leaving"
+    />
+    
+     </class>
+</hibernate-mapping>
+    
