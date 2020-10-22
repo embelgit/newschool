@@ -24,7 +24,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     color: #374767;
-    background-color: #f1f3f6;
+    background-color: #fff !important;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -7085,12 +7085,27 @@ p#demo {
     color: #2d2d2d;
     border-radius: 30px;
     background-color: #fff;
-    box-shadow: 5px 10px 10px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 18px rgba(0,0,0,0.5);
+}
+.thought:hover {
+    transform: translateY(-10px);
 }
 .thought h3 {
-  font-size: 17px;
+	height: 110px;
+    font-size: 17px;
     font-weight: 600;
     color: #79797b;
+    line-height: 22px;
+}
+.thought h3:before {
+    content: '\201C';
+    font-size: 28px;
+}
+.thought h3:after {
+    content: '\201D';
+    font-size: 28px;
+    position: relative;
+    bottom: -4px;
 }
 .thought h5 {
     

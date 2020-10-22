@@ -255,7 +255,17 @@
       					%>	
       					
       					 <li class="">
-                            <a href="Thoughts.jsp" ><i class="far fa-newspaper"></i>Thoughts</a>
+                            <a href="Thoughts.jsp" ><i class="far fa-edit"></i>Thoughts</a>
+                        </li> 
+						<%}%>
+						
+						<%
+    			  			if(type1.equals("admin")){
+    	  
+      					%>	
+      					
+      					 <li class="">
+                            <a href="Penalty.jsp" ><i class="far fa-edit"></i>Penalty</a>
                         </li> 
 						<%}%>
 						

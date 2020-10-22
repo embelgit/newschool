@@ -45,7 +45,7 @@
    <div class="row">
       <div class="col-sm-4 ">
        <div class="thought">
-          <h3><q>I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel</q></h3>
+          <h3>I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel</q></h3>
           <h5 class="author text-right">- Maya Angelou</h5>
           <h6>21/10/2020</h6>
           
@@ -54,7 +54,7 @@
        
         <div class="col-sm-4">
        <div class="thought">
-          <h3><q>Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.</q></h3>
+          <h3>Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.</h3>
           <h5 class="author text-right">- Neil Gaiman</h5>
           <h6>21/10/2020</h6>
        </div>
@@ -62,7 +62,7 @@
        
         <div class="col-sm-4">
        <div class="thought">
-          <h3><q>Be yourself; everyone else is already taken.</q></h3>
+          <h3>Be yourself; everyone else is already taken.</h3>
           <h5 class="author text-right">- Oscar Wilde</h5>
           <h6>21/10/2020</h6>
        </div>
