@@ -378,50 +378,7 @@
 						</div>
 					</div> -->
             	
-	 <script>
-		
-		$(document).ready(function(){
-	  		 $("#onlinepayment").change(function(){
-	       	$(this).find("option:selected").each(function(){
-	           	if($(this).attr("value")=="debitcard"){
-	           	
-	           	$("#cheque_no").show(); 
-	           	
-	           	$("#neft_acc_no").hide(); 
-	           	$("#card_no").hide();
-	           	}
-	          	 else if($(this).attr("value")=="card"){
-	           	
-	          		$("#card_no").show(); 	
-	          		
-	          		$("#neft_acc_no").hide(); 
-	        		$("#cheque_no").hide();
-	           }
-	          	 else if($(this).attr("value")=="googlepay"){
-	                	
-	           		$("#neft_acc_no").show(); 	
-	           		
-	           		$("#card_no").hide(); 
-	        		$("#cheque_no").hide();
-	            }
-	          	 else if($(this).attr("value")=="phonepe"){
-	             	
-	            		$("#neft_acc_no").hide(); 
-	            		$("#cheque_no").hide();
-	            		$("#card_no").hide(); 
-	             }
-	           	
-	          	else if($(this).attr("value")=="upipayment"){
-	             	
-	        		$("#neft_acc_no").hide(); 
-	        		$("#cheque_no").hide();
-	        		$("#card_no").hide(); 
-	         }
-	          
-	       });
-	   }).change();
-		});	
-		</script>
+	
       </div>
       </div>
        
@@ -788,7 +745,40 @@
 						</div>
 					</div>
 					</div>
+				</div>
+				<div class="row">
+				<div class="form-group">
+					<div class="col-sm-2 col-sm-offset-1" align="right">
+						<label class="control-label">Fee Installment Period:</label>
 					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							 <i class="glyphicon glyphicon-hand-right"></i>
+							</span> 
+						<!-- 	<input type="text" id='otherFees' name="otherFees" class="form-control" placeholder="Enter Activities Fees" /> -->
+								<select class="form-control" id="feedue">
+										<option value="NA">-Select Type--</option>
+										<option value="One Time">One Time</option>
+										<option value="Three month">Three Month</option>
+										<option value="Six month">Six Month</option>
+									
+								</select>	
+						</div>
+					</div>
+					<div class="col-sm-2" align="right">
+						<label class="control-label">Total Installment Fee:</label>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							 <i class="glyphicon glyphicon-hand-right"></i>
+							</span>
+							<input type="text" id='installmentFees' name="installmentFees" class="form-control" placeholder="Total Installment Fees" onkeypress="return isNumber(event)"/>
+						</div>
+					</div>
+					</div>
+				</div>
 					
 			
                  <div class="form-group row">

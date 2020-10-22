@@ -115,6 +115,11 @@
           			window.location="examTimeTable.jsp";
           		}
           		</script>
+          		<script type="text/javascript">
+          		function admitCard(){
+          			window.location="AdmitCard.jsp";
+          		}
+          		</script>
           		
           		<!-- <script type="text/javascript">
 
@@ -161,6 +166,10 @@
                 
                  <div class="btn-group"> 
                     <a class="btn btn-primary" onclick="markSheet()" accesskey="t""> <i class="fa fa-calendar"></i>MarkSheet</a>  
+                </div>
+                
+                 <div class="btn-group"> 
+                    <a class="btn btn-primary" onclick="admitCard()" accesskey="t""> <i class="fa fa-calendar"></i>Admit Card</a>  
                 </div>
                 
             </div> 
