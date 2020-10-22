@@ -220,7 +220,7 @@
     	  
       					%>	
                         <li class="">
-                            <a href="gallary.jsp" ><i class='fas fa-image'></i> Gallery</a>
+                            <a href="gallary.jsp" ><i class='fa fa-image'></i> Gallery</a>
                         </li> 
 						<%}%>
 												<%
@@ -228,7 +228,7 @@
     	  
       					%>	
                         <li class="">
-                            <a href="mailsystem.jsp" ><i class='fas fa-mail-bulk'></i> Attendance Alert</a>
+                            <a href="mailsystem.jsp" ><i class='fa fa-mail-bulk'></i> Attendance Alert</a>
                         </li> 
 						<%}%>
 									<%
@@ -245,7 +245,7 @@
     	  
       					%>	
                         <li class="">
-                            <a href="NewsSection.jsp" ><i class="far fa-newspaper"></i> News Section</a>
+                            <a href="NewsSection.jsp" ><i class="fa fa-newspaper"></i> News Section</a>
                         </li> 
 						<%}%>
 						
@@ -255,7 +255,7 @@
       					%>	
       					
       					 <li class="">
-                            <a href="Thoughts.jsp" ><i class="far fa-edit"></i>Thoughts</a>
+                            <a href="Thoughts.jsp" ><i class="fa fa-edit"></i>Thoughts</a>
                         </li> 
 						<%}%>
 						
@@ -265,7 +265,7 @@
       					%>	
       					
       					 <li class="">
-                            <a href="Penalty.jsp" ><i class="far fa-edit"></i>Penalty</a>
+                            <a href="Penalty.jsp" ><i class="fa fa-edit"></i>Penalty</a>
                         </li> 
 						<%}%>
 						
@@ -389,6 +389,7 @@
                               	<li><a class="padding" class="padding" href="<%=path%>leavingCertificate.jsp">Leaving Certificate</a></li>
  				<li><a class="padding" class="padding" href="<%=path%>bonafideCertificate.jsp">Bonafide Certificate</a></li>
  				<li><a class="padding" class="padding" href="<%=path%>nirgumcertificate.jsp">Nirgum Certificate</a></li>
+ 				<li><a class="padding" class="padding" href="<%=path%>SportsCertificate.jsp">Sports Certificate</a></li>
  				<%-- <li><a class="padding" class="padding" href="<%=path%>CopyleavingCertificate.jsp"> Copy Leaving Certificate</a></li>
  				<li><a class="padding" class="padding" href="<%=path%>CopybonafideCertificate.jsp">Copy Bonafide Certificate</a></li> --%>
                             </ul>
