@@ -256,26 +256,26 @@
 						<div class="row">
 							<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Attendance:<sup>*</sup></label>
+						<label class="control-label">Sport Name <sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="attendance" name="attendance" class="form-control" placeholder="Enter Attendance in %">
+						    <input type="text" id="attendance" name="attendance" class="form-control" placeholder="Enter Sport Name">
 					 	</div>
 					 </div>
 
 					<div class="col-sm-2" align="right">
-						<label class="control-label">Working days:<sup>*</sup></label>
+						<label class="control-label">Grade:</label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="workingday" name="workingday" class="form-control" placeholder="Enter Working days">
+						    <input type="text" id="workingday" name="workingday" class="form-control" placeholder="Grade">
 					 	</div>
 					 </div>
 				</div>
