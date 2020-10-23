@@ -222,6 +222,15 @@
                         <li class="">
                             <a href="gallary.jsp" ><i class='fa fa-image'></i> Gallery</a>
                         </li> 
+                        <%
+    			  			if(type1.equals("admin")){
+    	  
+      					%>	
+      					
+      					 <li class="">
+                            <a href="RFIDAttendance.jsp" ><i class="fa fa-edit"></i>RFID Attendance</a>
+                        </li> 
+						<%}%>
 						<%}%>
 												<%
     			  			if(type1.equals("admin")){

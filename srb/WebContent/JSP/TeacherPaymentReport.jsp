@@ -169,11 +169,11 @@
                                 </div>
                             </div>    
 			</div>
-		</div>
-		</form>
-		</div>
-		
-
+			</div>
+			</form>
+			</div>
+			
+	
 					<table
 						class="table table-bordered table-striped table-condensed cf"
 						id="empBetweenTwoDates" class="display"
