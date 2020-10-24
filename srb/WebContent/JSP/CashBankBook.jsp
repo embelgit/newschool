@@ -1451,7 +1451,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 							<span class="input-group-addon"> <i
 								class="glyphicon glyphicon-pencil"></i>
 							</span>
-							<input list="division" id="fk_teacher_id" class="form-control" onchange="getStudentDetails1()">
+							<input list="division" id="fk_teacher_id" class="form-control" onchange="getStudentDetails1()" placeholder="Employee ID">
 							<!-- <datalist id="division"></datalist> -->
 							<!-- <select class="form-control input-md" id="fk_teacher_id"  name="fk_teacher_id" class="form-control" onchange="getStudentDetails1()"  placeholder="Teacher Name">
 									</select> -->
@@ -1465,7 +1465,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 							<span class="input-group-addon"> <i
 								class="glyphicon glyphicon-pencil"></i>
 							</span>
-							<input list="teacherNameList" id="fk_teacher_id" class="form-control" onchange="getStudentDetails1()">
+							<input list="teacherNameList" id="fk_teacher_id" class="form-control" onchange="getStudentDetails1()" placeholder="Employee Name">
 							<!-- <input list="division" id="fk_teacher_id" class="form-control" onchange="getStudentDetails1()">
 							<datalist id="division"></datalist> -->
 							<!-- <select class="form-control input-md" id="fk_teacher_id"  name="fk_teacher_id" class="form-control" onchange="getStudentDetails1()"  placeholder="Teacher Name">
@@ -1475,7 +1475,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 							TeacherInfoDao sdd3 = new TeacherInfoDao();
 							List sList4 = sdd3.getAllMainTeacher();
 							 %> --%>
-							 <input list="teacherNameList" id="fk_teacher_id" class="form-control" onchange="getStudentDetails1()">
+							 <!-- <input list="teacherNameList" id="fk_teacher_id" class="form-control" onchange="getStudentDetails1()"> -->
 								<%-- <datalist id="teacherNameList">
 								 <%
 									for (int i = 0; i < sList4.size(); i++) {
