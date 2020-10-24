@@ -68,8 +68,8 @@
     <input type="text" class="form-control" required placeholder="Division">
     </div>
         <div class="col-md-6 pt-5">
-    <label> Mobile No.</label>
-    <input type="date" id="date" name="date" >
+    <label> Date</label>
+    <input type="date" class="form-control" id="date" name="date" >
     </div>
      <div class="col-md-6 pt-5">
     <label>Penalty Amount</label>

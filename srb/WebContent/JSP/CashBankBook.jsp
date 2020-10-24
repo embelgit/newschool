@@ -1533,7 +1533,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 						</div>
 					</div>
 					
-					<label class="col-md-2 control-label" for="paymentMode"> Payment Mode<sup>*</sup></label>  
+					<label class="col-md-2 control-label" for="paymentMode"> Payment Type<sup>*</sup></label>  
 	           		       <div class="col-md-3">
 							<div class="input-group">
 								<span class="input-group-addon">
