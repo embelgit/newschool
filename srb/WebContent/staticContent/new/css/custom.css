@@ -7035,6 +7035,9 @@ table.package tfoot .links a{
     border-bottom-right-radius: 100px;
     height: 375px;
 }
+.blog-grid-box:hover {
+    transform: translateY(-10px);
+}
 .blog-grid-box .thumb {
     margin-bottom: 10px;
     box-shadow: 0px 0px 20px -3px rgba(171, 171, 171, 0.6) !important;

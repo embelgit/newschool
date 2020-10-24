@@ -760,8 +760,8 @@
 								<select class="form-control" id="feedue">
 										<option value="NA">-Select Type--</option>
 										<option value="One Time">One Time</option>
-										<option value="Three month">Three Month</option>
-										<option value="Six month">Six Month</option>
+										<option value="Three month">3 Months</option>
+										<option value="Six month">6 Months</option>
 									
 								</select>	
 						</div>
