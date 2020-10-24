@@ -37,6 +37,9 @@
 			function libraryPaymentList(){
 				window.location = "librarypaylist.jsp";
 			}
+			function ListOfSalarySlip(){
+				window.location = "ListOfSalarySlip.jsp";
+			}
 	</script>
 	<script type="text/javascript">
 			function isAlphabets(evt) {
@@ -1586,7 +1589,8 @@ SupplierPaymentDao data = new SupplierPaymentDao();
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
-                                           
+                                         	<div class="or"></div>
+                               	            <input type="button" class="ui positive button" onclick="ListOfSalarySlip()" value="List">  
                                         </div>
                                 </div>
                             </div>
