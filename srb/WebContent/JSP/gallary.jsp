@@ -25,8 +25,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Comoatible" content="IE=edge">
-<title>Dashboard</title>
+<title>Gallery</title>
 <!--   <link rel="stylesheet" href="/srb/dashboard/css/main.css" type="text/css"> -->
+
 <link rel="stylesheet" type="text/css"
 	href="/srb/staticContent/CSS/bootstrap_aniket.css">
 <link rel="stylesheet" type="text/css"

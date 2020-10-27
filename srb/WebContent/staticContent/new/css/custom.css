@@ -513,6 +513,7 @@ hr {
         color: inherit;
         background: transparent;
     }
+  
 }
 
 @media (max-width: 767px) {
@@ -531,6 +532,7 @@ hr {
         float: right;
         margin-right: 10px;
     }
+  
 }
 
 .main-header .sidebar-toggle {
@@ -783,6 +785,8 @@ hr {
     background-color: #2c3136;
 }
 
+
+
 @media (max-width: 767px) {
     .main-sidebar,
     .left-side {
@@ -846,6 +850,7 @@ hr {
     border: 2px solid rgba(255, 255, 255, 0.1);
     padding: 5px;
 }
+
 .tile {
   position: relative;
   background: #ffffff;
@@ -868,6 +873,7 @@ hr {
 .tile.small {
   padding: 0;
 }
+
 
 .tile .overlay {
   position: absolute;
@@ -2503,6 +2509,8 @@ small,
         width: 20%;
         font-size: 12px;
     }
+    
+  
 }
 
 @media (min-width: 1200px) {
@@ -2510,6 +2518,8 @@ small,
         width: 10%;
         font-size: 12px;
     }
+}
+
 }
 
 
@@ -2566,14 +2576,35 @@ small,
     .icon-container {
         width: 100%;
     }
+   .mailsystem {
+    width: 50%;
+    margin: auto;
+}
+
 }
 
 @media(min-width: 768px) and (max-width:1199px) {
     .icon-container {
         width: 50%;
     }
+ 
 }
 
+/* @media (max-width: 580px){
+.mailsystem {
+    width: 80%;
+    margin: auto;
+}
+} */
+/* .column {
+    padding: 2em;
+    position: relative;
+} */
+
+
+@media (min-width: 768px){
+
+}
 
 /*** Social icon pages
 ==============================================================================*/
@@ -2687,7 +2718,10 @@ small,
     .glyphs.character-mapping li {
         margin: 0 20px 20px 0;
     }
+  
 }
+
+
 
 
 /*--- material-icon-inner ---*/
@@ -7027,6 +7061,8 @@ table.package tfoot .links a{
 	
 }
 /*News Section*/
+
+
 
 .blog-grid-box {
     margin-bottom: 80px;

@@ -43,7 +43,7 @@
     <h2>Thoughts</h2>
     </div>
    <div class="row">
-      <div class="col-sm-4 ">
+      <div class="col-sm-6 col-sm-4 ">
        <div class="thought">
           <h3>I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel</q></h3>
           <h5 class="author text-right">- Maya Angelou</h5>
@@ -52,7 +52,7 @@
        </div>
        </div>
        
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-sm-4">
        <div class="thought">
           <h3>Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.</h3>
           <h5 class="author text-right">- Neil Gaiman</h5>
@@ -60,7 +60,7 @@
        </div>
        </div>
        
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-sm-4">
        <div class="thought">
           <h3>Be yourself; everyone else is already taken.</h3>
           <h5 class="author text-right">- Oscar Wilde</h5>

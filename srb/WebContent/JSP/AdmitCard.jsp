@@ -17,7 +17,7 @@
 <head>
 
          <script type="text/javascript" src="/srb/staticContent/JS/exam.js"></script>
-         
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <script type="text/javascript">
 			function examDetails()
 			{
