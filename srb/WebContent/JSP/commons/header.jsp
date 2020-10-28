@@ -282,6 +282,15 @@
     			  			if(type1.equals("admin")){
     	  
       					%>	
+      					
+      					 <li class="">
+                            <a href="Tutorial.jsp" ><i class="fa fa-edit"></i>Tutorial</a>
+                        </li> 
+						<%}%>
+						<%
+    			  			if(type1.equals("admin")){
+    	  
+      					%>	
       		
       					
       					<%-- <li><a href="<%=path%>School.jsp" accesskey="t">School Details</a></li> --%>
