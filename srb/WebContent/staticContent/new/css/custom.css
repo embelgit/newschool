@@ -1276,7 +1276,7 @@ button, input {
 /* The expanding image container */
 .container {
   position: relative;
-  /* display: none; */
+  display: none;
 }
 
 /* Expanding image text */
@@ -7205,7 +7205,7 @@ p#demo {
 
 /*horizontal-sub*/
 .horizontal-sub {
-   width: 80%;
+   width: 100%;
 }
 .horizontal-sub ul.nav.nav-pills {
 padding: 16px 35px;

@@ -161,7 +161,7 @@
       <div class="tab-content">
         <div id="Sub1" class="tab-pane active">
           <h3>English</h3>
-         <div class="container">
+         <div class="container-video">
            <div class="row">
              <div class="col-md-6 pt-1">
                <div class="subvideo">
@@ -180,7 +180,7 @@
         </div>
       <div id="Sub2" class="tab-pane">
           <h3>Hindi</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -198,7 +198,7 @@
       </div>
       <div id="Sub3" class="tab-pane">
           <h3>Marathi</h3>
-         <div class="container">
+         <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -218,7 +218,7 @@
       </div>
       <div id="Sub4" class="tab-pane">
           <h3>Mathematics</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -237,7 +237,7 @@
       </div>
       <div id="Sub5" class="tab-pane">
           <h3>EVS</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -257,7 +257,7 @@
       </div>
       <div id="Sub6" class="tab-pane">
           <h3>Social Study</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -277,7 +277,7 @@
       </div>
       <div id="Sub7" class="tab-pane">
           <h3>Computer</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -317,7 +317,7 @@
     <div class="tab-content">
         <div id="Subs1" class="tab-pane active">
           <h3>English</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
          
              <div class="col-md-6">
@@ -337,7 +337,7 @@
         </div>
         <div id="Subs2" class="tab-pane">
           <h3>Hindi</h3>
-           <div class="container">
+           <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -357,7 +357,7 @@
         </div>
         <div id="Subs3" class="tab-pane">
           <h3>Marathi</h3>
-           <div class="container">
+           <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -377,7 +377,7 @@
         </div>
         <div id="Subs4" class="tab-pane">
           <h3>Mathematics</h3>
-           <div class="container">
+           <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -398,7 +398,7 @@
         </div>
         <div id="Subs5" class="tab-pane">
           <h3>EVS</h3>
-           <div class="container">
+           <div class="container-video">
            <div class="row">
          
              <div class="col-md-6">
@@ -418,7 +418,7 @@
         </div>
         <div id="Subs6" class="tab-pane">
           <h3>Social Study</h3>
-           <div class="container">
+           <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -438,7 +438,7 @@
         </div>
         <div id="Subs7" class="tab-pane">
           <h3>Computer</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -476,7 +476,7 @@
     <div class="tab-content">
       <div id="Sub31" class="tab-pane active">
          <h3>English</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -496,7 +496,7 @@
       </div>
       <div id="Sub32" class="tab-pane">
         <h3>Hindi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -516,7 +516,7 @@
       </div>
       <div id="Sub33" class="tab-pane">
         <h3>Marathi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -536,7 +536,7 @@
       </div>
       <div id="Sub34" class="tab-pane">
         <h3>Mathematics</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -556,7 +556,7 @@
       </div>
       <div id="Sub35" class="tab-pane">
         <h3>Science</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -576,7 +576,7 @@
       </div>
       <div id="Sub36" class="tab-pane">
         <h3>Social Study</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -596,7 +596,7 @@
       </div>
       <div id="Sub37" class="tab-pane">
         <h3>Computer</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -633,7 +633,7 @@
       <div class="tab-content">
       <div id="Sub41" class="tab-pane active">
         <h3>English</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -653,7 +653,7 @@
       </div>
       <div id="Sub42" class="tab-pane">
         <h3>Hindi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -672,7 +672,7 @@
       </div>
       <div id="Sub43" class="tab-pane">
         <h3>Marathi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -692,7 +692,7 @@
       </div>
       <div id="Sub44" class="tab-pane">
         <h3>Mathematics</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
 
              <div class="col-md-6">
@@ -712,7 +712,7 @@
       </div>
       <div id="Sub45" class="tab-pane">
         <h3>Science</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -732,7 +732,7 @@
       </div>
       <div id="Sub46" class="tab-pane">
         <h3>Social Study</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -752,7 +752,7 @@
       </div>
       <div id="Sub47" class="tab-pane">
         <h3>Computer</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -789,7 +789,7 @@
       <div class="tab-content">
       <div id="Sub51" class="tab-pane active">
         <h3>English</h3>
-           <div class="container">
+           <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -808,7 +808,7 @@
       </div>
       <div id="Sub52" class="tab-pane">
         <h3>Hindi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -827,7 +827,7 @@
       </div>
       <div id="Sub53" class="tab-pane">
         <h3>Marathi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -847,7 +847,7 @@
       </div>
       <div id="Sub54" class="tab-pane">
         <h3>Mathematics</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -867,7 +867,7 @@
       </div>
       <div id="Sub55" class="tab-pane">
         <h3>Science</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -886,7 +886,7 @@
       </div>
       <div id="Sub56" class="tab-pane">
         <h3>Social Study</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -906,7 +906,7 @@
       </div>
       <div id="Sub57" class="tab-pane">
         <h3>Computer</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -943,7 +943,7 @@
       <div class="tab-content">
         <div id="Sub61" class="tab-pane active">
           <h3>English</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -964,7 +964,7 @@
 
         <div id="Sub62" class="tab-pane">
           <h3>Hindi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -983,7 +983,7 @@
         </div>
         <div id="Sub63" class="tab-pane">
           <h3>Marathi</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -1003,7 +1003,7 @@
         </div>
         <div id="Sub64" class="tab-pane">
           <h3>Mathematics</h3>
-         <div class="container">
+         <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -1022,7 +1022,7 @@
         </div>
         <div id="Sub65" class="tab-pane">
           <h3>Science</h3>
-          <div class="container">
+          <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -1042,7 +1042,7 @@
         </div>
         <div id="Sub66" class="tab-pane">
           <h3>Social Study</h3>
-         <div class="container">
+         <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1062,7 +1062,7 @@
         </div>
         <div id="Sub67" class="tab-pane">
           <h3>Computer</h3>
-         <div class="container">
+         <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1100,7 +1100,7 @@
     <div class="tab-content">
       <div id="Sub71" class="tab-pane active">
         <h3>English</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -1120,7 +1120,7 @@
       </div>
       <div id="Sub72" class="tab-pane">
         <h3>Hindi</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1140,7 +1140,7 @@
       </div>
       <div id="Sub73" class="tab-pane">
         <h3>Marathi</h3>
-        <div class="container">
+        <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1159,7 +1159,7 @@
       </div>
       <div id="Sub74" class="tab-pane">
         <h3>Mathematics</h3>
-         <div class="container">
+         <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1179,7 +1179,7 @@
       </div>
     <div id="Sub75" class="tab-pane">
       <h3>Science</h3>
-      <div class="container">
+      <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -1199,7 +1199,7 @@
     </div>
    <div id="Sub76" class="tab-pane">
       <h3>Social Study</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1219,7 +1219,7 @@
     </div>
     <div id="Sub77" class="tab-pane">
       <h3>Computer</h3>
-     <div class="container">
+     <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1259,7 +1259,7 @@
       <div class="tab-content">
     <div id="Sub81" class="tab-pane active">
       <h3>English</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1279,7 +1279,7 @@
     </div>
     <div id="Sub82" class="tab-pane">
       <h3>Hindi</h3>
-      <div class="container">
+      <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1298,7 +1298,7 @@
     </div>
    <div id="Sub83" class="tab-pane">
       <h3>Marathi</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1317,7 +1317,7 @@
     </div>
     <div id="Sub84" class="tab-pane">
       <h3>Mathematics</h3>
-      <div class="container">
+      <div class="container-video">
            <div class="row">
           
              <div class="col-md-6">
@@ -1337,7 +1337,7 @@
     </div>
     <div id="Sub85" class="tab-pane">
       <h3>Science</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1357,7 +1357,7 @@
     </div>
    <div id="Sub86" class="tab-pane">
       <h3>Social Study</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1377,7 +1377,7 @@
     </div>
     <div id="Sub87" class="tab-pane">
       <h3>Computer</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -1417,7 +1417,7 @@
       <div class="tab-content">
     <div id="Sub91" class="tab-pane active">
       <h3>English</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1437,7 +1437,7 @@
     </div>
     <div id="Sub92" class="tab-pane">
       <h3>Hindi</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1457,7 +1457,7 @@
     </div>
    <div id="Sub93" class="tab-pane">
       <h3>Marathi</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1476,7 +1476,7 @@
     </div>
     <div id="Sub94" class="tab-pane">
       <h3>Mathematics</h3>
-      <div class="container">
+      <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1496,7 +1496,7 @@
     </div>
     <div id="Sub95" class="tab-pane">
       <h3>Science</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1516,7 +1516,7 @@
     </div>
    <div id="Sub96" class="tab-pane">
       <h3>Social Study</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1555,7 +1555,7 @@
       <div class="tab-content">
     <div id="Sub101" class="tab-pane active">
       <h3>English</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -1575,7 +1575,7 @@
     </div>
     <div id="Sub102" class="tab-pane">
       <h3>Hindi</h3>
-      <div class="container">
+      <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1595,7 +1595,7 @@
     </div>
    <div id="Sub103" class="tab-pane">
       <h3>Marathi</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1615,7 +1615,7 @@
     </div>
     <div id="Sub104" class="tab-pane">
       <h3>Mathematics</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
@@ -1634,7 +1634,7 @@
     </div>
     <div id="Sub105" class="tab-pane">
       <h3>Science</h3>
-       <div class="container">
+       <div class="container-video">
            <div class="row">
            
              <div class="col-md-6">
@@ -1653,7 +1653,7 @@
     </div>
    <div id="Sub106" class="tab-pane">
       <h3>Social Study</h3>
-      <div class="container">
+      <div class="container-video">
            <div class="row">
             
              <div class="col-md-6">
