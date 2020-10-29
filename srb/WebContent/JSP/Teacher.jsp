@@ -332,7 +332,7 @@ function checkForDuplicateTeacherEntry(){
 							<span class="input-group-addon"> 
 							<i class="glyphicon glyphicon-folder-open"></i>
 							</span> 
-							<input type="text" id='percentage' name="percentage" class="form-control" placeholder="Enter Percentage of Marks" onkeypress="return isNumberKey(evt,id)" />
+							<input type="text" id='percentage' name="percentage" class="form-control" placeholder="Enter Percentage of Marks" maxlength="6" onkeypress="return isNumberKey(evt,id)" />
 						</div>
 					</div>
 				</div>
@@ -373,7 +373,7 @@ function checkForDuplicateTeacherEntry(){
 							<span class="input-group-addon">
 							 <i class="glyphicon glyphicon-phone-alt"></i>
 							</span>
-						    <input type="text" id='landno' name="landno" class="form-control" placeholder="Enter Landline No." maxlength="10" onkeypress="return isNumber(event)" />
+						    <input type="text" id='landno' name="landno"  class="form-control" placeholder="Enter Landline No." maxlength="10" onkeypress="return isNumber(event)" />
 						</div>
 					</div>
 				</div>

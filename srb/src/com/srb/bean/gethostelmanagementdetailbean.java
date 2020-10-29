@@ -11,6 +11,8 @@ public class gethostelmanagementdetailbean {
 	private String insertDate;
 	private Long gst;
 	private Long gstamt;
+	private Double total;
+	private Double grossTotal;
 	
 	
 	public Long getPkhostelid() {
@@ -67,12 +69,24 @@ public class gethostelmanagementdetailbean {
 	public void setGstamt(Long gstamt) {
 		this.gstamt = gstamt;
 	}
+	public Double getTotal() {
+		return total;
+	}
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	public Double getGrossTotal() {
+		return grossTotal;
+	}
+	public void setGrossTotal(Double grossTotal) {
+		this.grossTotal = grossTotal;
+	}
 	public gethostelmanagementdetailbean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public gethostelmanagementdetailbean(Long pkhostelid, String productName, String supplierName, String billNo,
-			String buyPrice, String quantity, String insertDate, Long gst, Long gstamt) {
+			String buyPrice, String quantity, String insertDate, Long gst, Long gstamt,Double total,Double grossTotal) {
 		super();
 		this.pkhostelid = pkhostelid;
 		this.productName = productName;
@@ -83,6 +97,8 @@ public class gethostelmanagementdetailbean {
 		this.insertDate = insertDate;
 		this.gst = gst;
 		this.gstamt = gstamt;
+		this.total=total;
+		this.grossTotal=grossTotal;
 	}
 	
 	

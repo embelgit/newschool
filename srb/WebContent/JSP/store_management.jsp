@@ -504,7 +504,7 @@ StoreManagementDAO data = new StoreManagementDAO();
 								<span class="input-group-addon">
 									Rs
 								</span>
-	              				<input readonly="readonly" id="grossTotal" name="grossTotal"  class="form-control input-md" type="text" style="font-size: 25px;  height: 55px; color: red; background-color:#4CAF50">
+	              				<input readonly="readonly" id="grossTotal" name="grossTotal"  class="form-control input-md" type="text" style="font-size: 25px;  height: 55px;">
 	            			</div>
 	            		</div>
             	
@@ -696,8 +696,8 @@ StoreManagementDAO data = new StoreManagementDAO();
                         <input type="button" class="ui positive button" name="btn" value="Save" onclick="supplierDetail()" style="width: 75px;">Save
                         <div class="or"></div>
                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
-                         <div class="or"></div>
-                         <button type="reset" class="ui positive button" onclick="editSupplier()">Edit</button>
+                         <!-- <div class="or"></div>
+                         <button type="reset" class="ui positive button" onclick="editSupplier()">Edit</button> -->
                          </div>
                     </div>
                 </div>
@@ -1128,7 +1128,7 @@ StoreManagementDAO data = new StoreManagementDAO();
 								<span class="input-group-addon">
 									Rs
 								</span>
-	              				<input readonly="readonly" id="grossTotall" name="grossTotall"  class="form-control input-md" type="text" style="font-size: 25px;  height: 55px; color: red; background-color:#4CAF50">
+	              				<input readonly="readonly" id="grossTotall" name="grossTotall"  class="form-control input-md" type="text" style="font-size: 25px;  height: 55px; ">
 	            			</div>
 	            		</div>
             	

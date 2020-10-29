@@ -232,7 +232,7 @@ function checkForDuplicateGenralEntry(){
                 </div>
                  
                  <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="CancelStudentList()" accesskey="t""> <i class="fa fa-list"></i>Cancel StudentList</a>  
+                    <a class="btn btn-primary"  onclick="CancelStudentList()" accesskey="t""> <i class="fa fa-list"></i>Admission Cancel StudentList</a>  
                 </div>
                 
             </div> 
@@ -871,7 +871,7 @@ StudentInfoDao dao1 = new StudentInfoDao();
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Parent Contact No.:</label>
+						<label class="control-label">Contact Person No.:</label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">

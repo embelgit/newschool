@@ -34,6 +34,10 @@
   			{
   				window.location = "delkitchenlist.jsp";
   			}
+  			function editkitchen()
+  			{
+  				window.location = "editkitchen.jsp";
+  			}
   		</script>
 		
 
@@ -67,6 +71,9 @@
                 </div>
                 <div class="btn-group"> 
                     <a class="btn btn-primary"  onclick="delkitchen()" accesskey="t""> <i class="fa fa-list"></i>Delete Kitchen Inventory</a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="editkitchen()" accesskey="t""> <i class="fa fa-list"></i>Edit Kitchen Inventory</a>  
                 </div>
                 </div>
                

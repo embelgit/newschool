@@ -116,7 +116,7 @@ public class KitchenInventoryDao
 		hbu = HibernateUtility.getInstance();
 		session = hbu.getHibernateSession();
 
-		Query query=session.createSQLQuery("SELECT supplier_name, date, bill_no, product_name, unit, quantity, total, sub_total, gst, gst_amount, gross_total, buy_price FROM kitchen_inventory");
+		Query query=session.createSQLQuery("SELECT  supplier_name, date, bill_no, product_name, unit, quantity, total, sub_total, gst, gst_amount, gross_total, buy_price,pk_kitchen_inv_id FROM kitchen_inventory");
 		List<Object[]> list = query.list();
 
 
@@ -145,9 +145,7 @@ public class KitchenInventoryDao
 		reports.setGstAmount(o[9].toString());
 		reports.setGrossTotal(o[10].toString());
 		reports.setBuyPrice(o[11].toString());
-		
-		
-		
+		reports.setPk_store_management_id(Long.parseLong(o[12].toString()));
 		supList.add(reports);
 
 	}}catch(RuntimeException e){	
@@ -298,6 +296,52 @@ public class KitchenInventoryDao
 			 }
 			
 		}
+			
+		public List getAllkitchenDetailsForEdit1(String product_name) {
+
+			
+			HibernateUtility hbu = null;
+			Session session =  null;
+			Query query = null;
+			 List list = null;
+			 try {
+				 hbu = HibernateUtility.getInstance();
+				 session = hbu.getHibernateSession();
+				 query = session.createSQLQuery("SELECT product_name, bill_no, quantity, buy_price, gst, supplier_name, date, pk_kitchen_inv_id FROM kitchen_inventory WHERE product_name =:product_name");
+				//query.setParameter("designation", designation);
+				query.setParameter("product_name",product_name);
+				 list = query.list(); 
+			} catch (RuntimeException e) {
+				e.printStackTrace();
+			}
+			 
+			 finally
+			 {
+				 if (session!=null) {
+					hbu.closeSession(session);
+				}
+			 }
+			 System.out.println("out of dao - return getAllHDetailsForEdit List : "+list);
+					return list;
+
+			
+		}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 
 }

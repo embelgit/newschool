@@ -253,7 +253,8 @@ function ClassDivisionSubjectTeacherAssoc1(){
 	
 		var subject = allRowsInGrid[i].subject;
 		if(subject == undefined || subject == null || subject == ""){
-			alert("Please Select Subject Name")
+			alert("Please Select Subject Name");
+			return false;
 		}
 		else{
 			params["subject"+i] = subject;
@@ -264,7 +265,14 @@ function ClassDivisionSubjectTeacherAssoc1(){
 		params["fkTeacherId"+i] = fkTeacherId;
 		
 		var teacherName = allRowsInGrid[i].teacherName;
-		params["teacherName"+i] = teacherName;
+		if(teacherName == undefined || teacherName == null || teacherName == ""){
+			alert("Please Select Techer Name");
+			return false;
+		}
+		else{
+			params["teacherName"+i] = teacherName;
+		}
+		
 	}
 
 			var academicYear = $('#academicYear').val();

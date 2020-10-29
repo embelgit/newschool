@@ -152,11 +152,11 @@ function gridForDailyTimeTable(){
 			         
 					     {	name:'startTime',
 					    	 width:30,
-					    	 //editable:true,
+					    	 editable:true,
 					     },
 					     {
 					    	 name:'endTime',
-					    	 //editable:true,
+					    	 editable:true,
 					    	 width:30,
 					    	 
 					     },

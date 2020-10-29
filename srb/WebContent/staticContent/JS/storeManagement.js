@@ -122,9 +122,9 @@ function getGridForStoreManagement(){
 	        rownumbers: true,
             rowNum: 10,
             'cellEdit':true,
-         	 afterSaveCell: function  grossTotal() {
+         	 afterSaveCell: function  grossTotal12() {
 			       /* 	Calculation of total after editing quantity*/
-			        	   
+         		 document.getElementById("grossTotal").value = 0;
 			        	   // $(this).trigger('reloadGrid');
 			        	   var rowId =$("#list4").jqGrid('getGridParam','selrow');  
 	                       var rowData = jQuery("#list4").getRowData(rowId);
@@ -134,23 +134,23 @@ function getGridForStoreManagement(){
 	                    	var gstamt = rowData['gstamt'];
 	                    	
 	                    	var tota1 = 0;
-	                    	var tota1 = quantity * buyPrice;
+	                    	var tota1 =(quantity*buyPrice);
                     		
                     		GstAmount = tota1 * (gst) / 100 ;
-                    		$("#list4").jqGrid("setCell", rowId, "gstamt", GstAmount.toFixed(2));
+                    		$("#list4").jqGrid("setCell", rowId, "gstamt", GstAmount);
                     		
                     		var tota = 0;
 	                    	var tota = (quantity * buyPrice)+GstAmount;
-                    		$("#list4").jqGrid("setCell", rowId, "total", tota.toFixed(2));
+                    		$("#list4").jqGrid("setCell", rowId, "total",tota);
                     		
                     		var Total = 0;
                     		var Total1 = 0; 
                     		
-                    		if(Total1 == "" || Total1 ==null || Total1 == undefined)
+                    		/*if(Total1 == "" || Total1 ==null || Total1 == undefined)
                     			{
                     			Total1 = 0;                    			
                     			}
-                    		
+                    		*/
                     		var count = jQuery("#list4").jqGrid('getGridParam', 'records');
         		        	var allRowsInGrid1 = $('#list4').getGridParam('data');
         		        	var AllRows=JSON.stringify(allRowsInGrid1);
@@ -161,7 +161,7 @@ function getGridForStoreManagement(){
         		        		}
         		        		
         		        	}
-        		        	document.getElementById("grossTotal").value = (Total);
+        		        	document.getElementById("grossTotal").value = (Total).toFixed(2);
         		        	
 	                    	
 	        	},
@@ -1619,6 +1619,7 @@ function getGridForhostelManagement(){
 			       /* 	Calculation of total after editing quantity*/
 			        	   
 			        	   // $(this).trigger('reloadGrid');
+        		 document.getElementById("grossTotall").value = 0;
 			        	   var rowId =$("#list10").jqGrid('getGridParam','selrow');  
 	                       var rowData = jQuery("#list10").getRowData(rowId);
 	                    	var quantity = rowData['quantity'];
@@ -1630,11 +1631,11 @@ function getGridForhostelManagement(){
 	                    	var tota1 = quantity * buyPrice;
                    		
                    		GstAmount = tota1 * (gst) / 100 ;
-                   		$("#list10").jqGrid("setCell", rowId, "gstamt", GstAmount.toFixed(2));
+                   		$("#list10").jqGrid("setCell", rowId, "gstamt", GstAmount);
                    		
                    		var tota = 0;
 	                    	var tota = (quantity * buyPrice)+GstAmount;
-                   		$("#list10").jqGrid("setCell", rowId, "total", tota.toFixed(2));
+                   		$("#list10").jqGrid("setCell", rowId, "total", tota);
                    		
                    		var Total = 0;
                    		var Total1 = 0; 
@@ -1741,7 +1742,7 @@ function getGridForhostelManagement(){
     		        		var Total1 = allRowsInGrid1[k].total;
     		        		Total = +Total + +Total1;
     		        	}
-    		        	document.getElementById("grossTotall").value = Total;
+    		        	document.getElementById("grossTotall").value = (Total).toFixed(2);
 	                  }
 	                });
 		 
@@ -1800,7 +1801,7 @@ function addhostelManagement(){
 		
 		var buyPrice = allRowsInGrid[i].buyPrice;
 		if(buyPrice==undefined || buyPrice== null || buyPrice == "" ){
-			alert("Enter BuyPrice")
+			alert("Enter BuyPrice");
 			return false;
 		}
 		else{
@@ -1809,7 +1810,7 @@ function addhostelManagement(){
 		
 		var quantity = allRowsInGrid[i].quantity;
 		if(quantity==undefined || quantity== null || quantity == "" ){
-			alert("Enter Quantity")
+			alert("Enter Quantity");
 			return false;
 		}
 		else{
@@ -1879,5 +1880,454 @@ function addhostelManagement(){
  	    		}
  	    	})
  	    	
-	
 }	
+//ready to edit store inventory
+function getStoreInventory1() {
+
+	var params = {};
+	var input = document.getElementById('storeLists1'), list = document
+			.getElementById('storeInventoryList1'), i, fkstoreId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkstoreId = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	
+	$("#supplierName4").append($("<input/>").attr("value", "").text());
+	$("#date4").append($("<input/>").attr("value", "").text());
+	$("#billno4").append($("<input/>").attr("value", "").text());
+	//$("#designation").append($("<input/>").attr("value", "").text());
+	$("#quantity4").append($("<input/>").attr("value", "").text());
+	$("#buy_price4").append($("<input/>").attr("value", "").text());
+	$("#gst4").append($("<input/>").attr("value", "").text());
+	$("#gstamt4").append($("<input/>").attr("value", "").text());
+	$("#gross_total4").append($("<input/>").attr("value", "").text());
+	params["fkstoreId"] = fkstoreId;
+	params["methodName"] = "getstoreDetailToEdit1";
+	$
+			.post(
+					'/srb/JSP/utility/controller.jsp',
+					params,
+					function(data) {
+
+						var jsonData = $.parseJSON(data);
+						var catmap = jsonData.list;
+						$
+								.each(
+										jsonData,
+										function(i, v) {
+											
+											document.getElementById("storeLists1").value = v.productName;
+											document.getElementById("billno4").value = v.billNo;
+											document.getElementById("quantity4").value = v.quantity;
+											document.getElementById("buy_price4").value = v.buyPrice;
+											document.getElementById("gst4").value = v.gst;
+											var total=(v.quantity*v.buyPrice)/100*v.gst;
+											document.getElementById("gstamt4").value = total;
+											document.getElementById("gross_total4").value =(v.quantity*v.buyPrice)+total;
+											document.getElementById("supplierName4").value = v.supplierName;
+											document.getElementById("date4").value =v.insertDate;
+											
+										});
+					}).error(function(jqXHR, textStatus, errorThrown) {
+				if (textStatus === "timeout") {
+
+				}
+			});
+
+}
+// calculation for store inventory
+function getcalculation()
+{
+	var gst=document.getElementById("gst4").value;
+	var quant=document.getElementById("quantity4").value;
+	var buyprice=document.getElementById("buy_price4").value
+	var total=(quant*buyprice)/100*gst;
+	document.getElementById("gstamt4").value = total;
+	var tota1=0;
+	tota1=(quant*buyprice)+total;
+	document.getElementById("gross_total4").value =tota1;
+}
+
+// update store inventory
+function updatestoreInventory() {
+	var params = {};
+	var input = document.getElementById('storeLists1'), list = document
+			.getElementById('storeInventoryList1'), i, fkstoreId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkstoreId = list.options[i].getAttribute('data-value');
+		}
+	}
+
+	var productName4 = $('#storeLists1').val();
+	var billno4 = $('#billno4').val();
+	var quantity4 = $('#quantity4').val();
+	var buy_price4 = $('#buy_price4').val();
+	var gst4 = $('#gst4').val();
+	var gstamt4 = $('#gstamt4').val();
+	var gross_total4 = $('#gross_total4').val();
+	var date4= $('#date4').val();
+	var supplierName4 = $('#supplierName4').val();
+	if (productName4 == undefined || productName4 == null
+			|| productName4 == "") {
+		alert("please select product name to Update");
+		return false;
+	}
+	if (billno4 == undefined || billno4 == null || billno4 == "") {
+		billno4 = "N/A";
+	}
+	if (quantity4 == undefined || quantity4 == null || quantity4 == "") {
+		alert("please enter a Quantity to Update");
+		return false;
+	}
+	if (buy_price4 == undefined || buy_price4 == null || buy_price4 == "") {
+		alert("please enter buy price to Update");
+		return false;
+	}
+	if (supplierName4 == undefined || supplierName4 == null || supplierName4 == "") {
+		alert("please enter a supplier Name");
+		return false;
+	}
+	if (gst4 == undefined || gst4 == null || gst4 == "") {
+		gst4 = "'N/A'";
+	}
+	if (gstamt4 == undefined || gstamt4 == null || gstamt4 == "") {
+		gstamt4 = "'N/A'";
+	}
+	if (gross_total4 == undefined || gross_total4 == null || gross_total4 == "") {
+		gross_total4 = "'N/A'";
+	}
+
+	if(date4 ==undefined || date4 == null || date4 == "")
+		{
+		alert("please select Date");
+		return false;
+		}
+	
+	
+	var params = {};
+	params["fkstoreId"] = fkstoreId;
+	params["productName4"] = productName4;
+	params["billno4"] = billno4;
+	params["quantity4"] = quantity4;
+	params["buy_price4"] = buy_price4;
+	params["gst4"] = gst4;
+	params["gstamt4"] = gstamt4;
+	params["gross_total4"] = gross_total4;
+	params["date4"] = date4;
+	params["supplierName4"] = supplierName4;
+	params["methodName"] = "updateStoreInventoryDetails";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) {
+		alert(data);
+		location.reload();
+	}).error(function(jqXHR, textStatus, errorThrown) {
+		if (textStatus === "timeout") {
+			$(loaderObj).hide();
+			$(loaderObj).find('#errorDiv').show();
+		}
+	});
+}
+
+
+
+
+//edit kitchen inventory
+function getKitchenInventory1() {
+
+	var params = {};
+	var input = document.getElementById('kitchenLists'), list = document
+			.getElementById('kitchenInventoryList'), i, fkstoreId1;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkstoreId1 = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	$("#storeid").append($("<input/>").attr("value", "").text());
+	$("#supplierName1").append($("<input/>").attr("value", "").text());
+	$("#date1").append($("<input/>").attr("value", "").text());
+	$("#billno1").append($("<input/>").attr("value", "").text());
+	$("#quantity1").append($("<input/>").attr("value", "").text());
+	$("#buy_price1").append($("<input/>").attr("value", "").text());
+	$("#gst1").append($("<input/>").attr("value", "").text());
+	$("#gstamt1").append($("<input/>").attr("value", "").text());
+	$("#gross_total1").append($("<input/>").attr("value", "").text());
+	params["fkstoreId1"] = fkstoreId1;
+	params["methodName"] = "getKitchenDetailToEdit1";
+	$
+			.post(
+					'/srb/JSP/utility/controller.jsp',
+					params,
+					function(data) {
+
+						var jsonData = $.parseJSON(data);
+						var catmap = jsonData.list;
+						$
+								.each(
+										jsonData,
+										function(i, v) {
+											
+											document.getElementById("kitchenLists").value = v.productName;
+											document.getElementById("billno1").value = v.billNo;
+											document.getElementById("quantity1").value = v.quantity;
+											document.getElementById("buy_price1").value = v.buyPrice;
+											document.getElementById("gst1").value = v.gst;
+											var total=(v.quantity*v.buyPrice)/100*v.gst;
+											document.getElementById("gstamt1").value = total;
+											document.getElementById("gross_total1").value =(v.quantity*v.buyPrice)+total;
+											document.getElementById("supplierName1").value = v.supplierName;
+											document.getElementById("date1").value =v.date;
+											document.getElementById("storeid").value =v.pk_store_management_id;
+											
+										});
+					}).error(function(jqXHR, textStatus, errorThrown) {
+				if (textStatus === "timeout") {
+
+				}
+			});
+
+}
+// calculation for kitchen inventory
+function getcalculation1()
+{
+	var gst=document.getElementById("gst1").value;
+	var quant=document.getElementById("quantity1").value;
+	var buyprice=document.getElementById("buy_price1").value
+	var total=(quant*buyprice)/100*gst;
+	document.getElementById("gstamt1").value = total;
+	var tota1=0;
+	tota1=(quant*buyprice)+total;
+	document.getElementById("gross_total1").value =tota1;
+}
+
+// update Kitchen Inventory
+function updatekitchenInventory() {
+	var params = {};
+	var input = document.getElementById('kitchenLists'), list = document
+			.getElementById('kitchenInventoryList'), i, fkstoreId1;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkstoreId1 = list.options[i].getAttribute('data-value');
+		}
+	}
+
+	var productName1 = $('#kitchenLists').val();
+	var billno1 = $('#billno1').val();
+	var quantity1 = $('#quantity1').val();
+	var buy_price1 = $('#buy_price1').val();
+	var gst1 = $('#gst1').val();
+	var gstamt1 = $('#gstamt1').val();
+	var gross_total1 = $('#gross_total1').val();
+	var date1= $('#date1').val();
+	var supplierName1 = $('#supplierName1').val();
+	var storeid = $('#storeid').val();
+	if (productName1 == undefined || productName1 == null
+			|| productName1 == "") {
+		alert("please select product to Update");
+		return false;
+	}
+	if (billno1 == undefined || billno1 == null || billno1 == "") {
+		billno1 = "N/A";
+	}
+	if (quantity1 == undefined || quantity1 == null || quantity1 == "") {
+		alert("please enter a Quantity to Update");
+		return false;
+	}
+	if (buy_price1 == undefined || buy_price1 == null || buy_price1 == "") {
+		alert("please enter buy price to Update");
+		return false;
+	}
+	if (supplierName1 == undefined || supplierName1 == null || supplierName1 == "") {
+		alert("please enter a supplier Name");
+		return false;
+	}
+	if (gst1 == undefined || gst1 == null || gst1 == "") {
+		gst1 = "'N/A'";
+	}
+	if (gstamt1 == undefined || gstamt1 == null || gstamt1 == "") {
+		gstamt1 = "'N/A'";
+	}
+	if (gross_total1 == undefined || gross_total1 == null || gross_total1 == "") {
+		gross_total1 = "'N/A'";
+	}
+
+	if(date1 ==undefined || date1 == null || date1 == "")
+		{
+		alert("please select Date");
+		return false;
+		}
+	var params = {};
+	params["fkstoreId1"] = fkstoreId1;
+	params["productName1"] = productName1;
+	params["billno1"] = billno1;
+	params["quantity1"] = quantity1;
+	params["buy_price1"] = buy_price1;
+	params["gst1"] = gst1;
+	params["gstamt1"] = gstamt1;
+	params["gross_total1"] = gross_total1;
+	params["date1"] = date1;
+	params["supplierName1"] = supplierName1;
+	params["storeid"] = storeid;
+	params["methodName"] = "updateKitchenInventoryDetails";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) {
+		alert(data);
+		location.reload();
+	}).error(function(jqXHR, textStatus, errorThrown) {
+		if (textStatus === "timeout") {
+			$(loaderObj).hide();
+			$(loaderObj).find('#errorDiv').show();
+		}
+	});
+}
+
+//get hostel Inventory to edit
+function gethostelInventory1() {
+
+	var params = {};
+	var input = document.getElementById('HostelLists'), list = document
+			.getElementById('HostelInventoryList'), i, fkhostelreId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkhostelreId = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	$("#billno2").append($("<input/>").attr("value", "").text());
+	$("#supplierName2").append($("<input/>").attr("value", "").text());
+	$("#hostelid").append($("<input/>").attr("value", "").text());
+	
+	//$("#designation").append($("<input/>").attr("value", "").text());
+	$("#quantity2").append($("<input/>").attr("value", "").text());
+	$("#buy_price2").append($("<input/>").attr("value", "").text());
+	$("#total2").append($("<input/>").attr("value", "").text());
+	params["fkhostelreId"] = fkhostelreId;
+	params["methodName"] = "gethostelDetailToEdit1";
+	$
+			.post(
+					'/srb/JSP/utility/controller.jsp',
+					params,
+					function(data) {
+
+						var jsonData = $.parseJSON(data);
+						var catmap = jsonData.list;
+						$
+								.each(
+										jsonData,
+										function(i, v) {
+											
+											document.getElementById("HostelLists").value = v.productName;
+											document.getElementById("billno2").value = v.billNo;
+											document.getElementById("supplierName2").value = v.supplierName;
+											document.getElementById("hostelid").value = v.pkhostelid;
+											document.getElementById("buy_price2").value = v.buyPrice;
+											document.getElementById("quantity2").value = v.quantity;
+											var total=(v.quantity*v.buyPrice);
+											document.getElementById("total2").value = total;
+											document.getElementById("date2").value =v.insertDate;
+											
+										});
+					}).error(function(jqXHR, textStatus, errorThrown) {
+				if (textStatus === "timeout") {
+
+				}
+			});
+
+}
+// calculation for Hostel inventory
+function getcalculation3()
+{
+	var quant=document.getElementById("quantity2").value;
+	var buyprice=document.getElementById("buy_price2").value
+	var total=(quant*buyprice);
+	document.getElementById("total2").value =total;
+}
+//update Hostel inventory
+
+function updateHostelInventory1(){
+	var params = {};
+	var input = document.getElementById('HostelLists'), list = document
+			.getElementById('HostelInventoryList'), i, fkhostelreId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkhostelreId = list.options[i].getAttribute('data-value');
+		}
+	}
+	var productName2 = $('#HostelLists').val();
+	var billno2 = $('#billno2').val();
+	var quantity2 = $('#quantity2').val();
+	var buy_price2 = $('#buy_price2').val();
+	var total2 = $('#total2').val();
+	var date2= $('#date2').val();
+	var supplierName2 = $('#supplierName2').val();
+	var hostelid = $('#hostelid').val();
+	if (productName2 == undefined || productName2 == null
+			|| productName2 == "") {
+		alert("please select product name to Update");
+		return false;
+	}
+	if (billno2 == undefined || billno2 == null || billno2 == "") {
+		billno2 = "N/A";
+	}
+	if (quantity2 == undefined || quantity2 == null || quantity2 == "") {
+		alert("please enter a Quantity to Update");
+		return false;
+	}
+	if (buy_price2 == undefined || buy_price2 == null || buy_price2 == "") {
+		alert("please enter buy price to Update");
+		return false;
+	}
+	if (supplierName2 == undefined || supplierName2 == null || supplierName2 == "") {
+		alert("please enter a supplier Name");
+		return false;
+	}
+	if (total2 == undefined || total2 == null || total2 == "") {
+		total2 = "'N/A'";
+	}
+
+	if(date2 ==undefined || date2 == null || date2 == "")
+		{
+		alert("please select Date");
+		return false;
+		}
+	var params = {};
+	params["fkhostelreId"]= fkhostelreId;
+	params["productName2"] = productName2;
+	params["billno2"] = billno2;
+	params["quantity2"] = quantity2;
+	params["buy_price2"] = buy_price2;
+	params["total2"] =total2;
+	params["date2"] = date2;
+	params["supplierName2"] = supplierName2;
+	params["hostelid"] = hostelid;
+	params["methodName"] = "updateHostelInventoryDetails";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) {
+		alert(data);
+		location.reload();
+	}).error(function(jqXHR, textStatus, errorThrown) {
+		if (textStatus === "timeout") {
+			$(loaderObj).hide();
+			$(loaderObj).find('#errorDiv').show();
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,20 +9,28 @@ import com.srb.bean.hostelmanagementbean;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.srb.hibernate.hostelmanagementhibernate;
+import com.srb.utility.HibernateUtility;
+import com.itextpdf.text.log.SysoCounter;
 import com.srb.bean.GetExamTimeTableDetail;
 import com.srb.bean.GetStoreManagementDetailBean;
+import com.srb.bean.GetTeacherDetailBean;
 import com.srb.bean.StockManagementBean;
+import com.srb.bean.StoreMAnagementBean;
 import com.srb.bean.StudentInformationForReport;
 import com.srb.bean.TeacherLeavebean;
 import com.srb.dao.ProductDetailsDao;
 import com.srb.dao.StoreManagementDAO;
 import com.srb.dao.StudentInfoDao;
 import com.srb.dao.SupplierPaymentDao;
+import com.srb.dao.TeacherInfoDao;
 import com.srb.hibernate.SportParticipantDetails;
 import com.srb.hibernate.StoreManagementHibernate;
 import com.srb.hibernate.SupplierPaymentBean;
 import com.srb.hibernate.TrasnpotationSchollBus;
 import com.srb.bean.gethostelmanagementdetailbean;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 public class StoreManagementHelper {
 
 	public GetStoreManagementDetailBean getGridForStoreManagement(String productName) {
@@ -510,5 +518,200 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 		dao2.deletstreproductss(strpro_id);
 			
 		}
+	
+	public Map getstoreDetailsForEdit1(Long fkTeacherId) {
 
-}
+	 	System.out.println("into helper class");
+	 	StoreManagementDAO dao1 = new StoreManagementDAO();
+		List catList = dao1.getAllstoreDetailsForEdit1(fkTeacherId);
+		
+		Map  map =  new HashMap();
+		for(int i=0;i<catList.size();i++)
+		{
+			Object[] o = (Object[])catList.get(i);
+		
+			GetStoreManagementDetailBean b = new GetStoreManagementDetailBean();
+			b.setProductName(o[0].toString());
+			b.setBillNo(o[1].toString());
+			b.setQuantity(o[2].toString());
+			b.setBuyPrice(o[3].toString());
+			b.setGst(Long.parseLong(o[4].toString()));
+			b.setSupplierName(o[5].toString());
+			String d = o[6].toString();
+			String dt[] = d.split("-");
+			String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
+			b.setInsertDate(insertDate);	
+			map.put(b.getPkStoreManagementId(),b);
+		}
+		System.out.println("out of helper return map : "+map);
+		return map;
+	
+	
+	}
+	
+
+	public void updatestoreInventoryInfoDetail(HttpServletRequest request,
+			HttpServletResponse response) {
+		Session session = null;
+		String fkstoreId =request.getParameter("fkstoreId");
+		String productName = request.getParameter("productName4");
+		String billno = request.getParameter("billno4");
+		String quantity = request.getParameter("quantity4");
+		String buy_price = request.getParameter("buy_price4");
+		String gst = request.getParameter("gst4");
+		String gstamt = request.getParameter("gstamt4");
+		String gross_total = request.getParameter("gross_total4");
+		String supplierName=request.getParameter("supplierName4");
+		String date=request.getParameter("date4");
+		System.out.println("----------------------fkstoreId-----------------------"+fkstoreId);
+		System.out.println("----------------------product name-----------------------"+productName);
+		System.out.println("----------------------bill no-----------------------"+billno);
+		System.out.println("----------------------quantity-----------------------"+quantity);
+		System.out.println("-------------------------gst------------------"+gst);
+		System.out.println("----------------------gst amt-----------------------"+gstamt);
+		System.out.println("----------------------buy price-----------------------"+buy_price);
+		System.out.println("----------------------groos total-----------------------"+gross_total);
+		System.out.println("----------------------supplierName-----------------------"+supplierName);
+		System.out.println("----------------------date-----------------------"+date);
+		com.srb.utility.HibernateUtility hbu=null;
+		Transaction transaction = null;
+		 hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		 transaction = session.beginTransaction();
+		Long pkStoreManagementId1=Long.parseLong(fkstoreId);
+		StoreManagementHibernate det = (StoreManagementHibernate) session.load(StoreManagementHibernate.class, pkStoreManagementId1);
+		det.setProductName(productName);
+		det.setSupplierName(supplierName);
+		det.setBuyPrice(Double.parseDouble(buy_price));
+		det.setQuantity(Double.parseDouble(quantity));
+		if(!"".equals(date)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(date);
+				//det.setStoreDate(joiningDate);
+				det.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   "+det.getStoreDate());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
+		det.setTotal(Double.parseDouble(gross_total));
+		det.setGrossTotal(Double.parseDouble(gross_total));
+		det.setBalanceAmount(Double.parseDouble(gross_total));
+		det.setBillNo(Double.parseDouble(billno));
+		det.setSupplier1((long) 1);
+		det.setGst(Double.parseDouble(gst));
+		det.setGstamt(Double.parseDouble(gstamt));
+		System.out.println("updated in store manager bean");
+		com.srb.utility.HibernateUtility hbu2=null;
+		//Session session = null;
+		 session.saveOrUpdate(det);
+			transaction.commit();
+		
+		}
+	
+	// Hostel Inventory Edit/update
+	
+	public Map getHostelDetailsForEdit1(String fkTeacherId) {
+
+	 	System.out.println("into helper class");
+	 	StoreManagementDAO dao1 = new StoreManagementDAO();
+		List catList = dao1.getHostelDetailsForEdit1(fkTeacherId);
+		
+		Map  map =  new HashMap();
+		for(int i=0;i<catList.size();i++)
+		{
+			Object[] o = (Object[])catList.get(i);
+		
+			gethostelmanagementdetailbean b = new gethostelmanagementdetailbean();
+			b.setPkhostelid(Long.parseLong(o[0].toString()));
+			b.setBillNo(o[1].toString());
+			b.setSupplierName(o[2].toString());
+			String d = o[3].toString();
+			String dt[] = d.split("-");
+			String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
+			b.setInsertDate(insertDate);
+			b.setProductName(o[4].toString());
+			b.setBuyPrice(o[5].toString());
+			b.setQuantity(o[6].toString());
+			b.setTotal(Double.parseDouble(o[7].toString()));
+			b.setGrossTotal(Double.parseDouble(o[8].toString()));
+			map.put(b.getProductName(),b);
+		}
+		System.out.println("out of helper return map : "+map);
+		return map;
+	
+	
+	}
+	// update hostel inventory
+	public void updatehostelInventoryInfoDetail(HttpServletRequest request,
+			HttpServletResponse response) {
+		Session session = null;
+		String fkhostelreId=request.getParameter("fkhostelreId");
+		String productName2 = request.getParameter("productName2");
+		String billno2 = request.getParameter("billno2");
+		String quantity2 = request.getParameter("quantity2");
+		String buy_price2 = request.getParameter("buy_price2");
+		String total2 = request.getParameter("total2");
+		String supplierName2=request.getParameter("supplierName2");
+		String date2=request.getParameter("date2");
+		String hostelid=request.getParameter("hostelid");
+		System.out.println("------------hostelleeerrrrrr----------------------------------"+fkhostelreId);
+		System.out.println("----------------------storeid-----------------------"+hostelid);
+		System.out.println("----------------------product name-----------------------"+productName2);
+		System.out.println("----------------------bill no-----------------------"+billno2);
+		System.out.println("----------------------quantity-----------------------"+quantity2);
+		System.out.println("----------------------buy price-----------------------"+buy_price2);
+		System.out.println("----------------------groos total-----------------------"+total2);
+		System.out.println("----------------------supplierName-----------------------"+supplierName2);
+		System.out.println("----------------------date-----------------------"+date2);
+		com.srb.utility.HibernateUtility hbu=null;
+		Transaction transaction = null;
+		 hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		 transaction = session.beginTransaction();
+		 Long pkKitchenInvId= Long.parseLong(hostelid);
+		 System.out.println("Store id"+pkKitchenInvId);
+		 hostelmanagementhibernate det = (hostelmanagementhibernate) session.load(hostelmanagementhibernate.class, pkKitchenInvId);
+		det.setPkhostelid(pkKitchenInvId);
+		det.setProductName(productName2);
+		det.setSupplierName(supplierName2);
+		det.setBillNo(Double.parseDouble(billno2));
+		if(!"".equals(date2)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(date2);
+				//det.setStoreDate(joiningDate);
+				det.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   ");
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
+		det.setBuyPrice(Double.parseDouble(buy_price2));
+		det.setQuantity(Double.parseDouble(quantity2));
+		det.setTotal(Double.parseDouble(total2));
+		det.setGrossTotal(Double.parseDouble(total2));
+		
+		System.out.println("updated kitchen hibernate  bean");
+		com.srb.utility.HibernateUtility hbu2=null;
+		//Session session = null;
+		 session.saveOrUpdate(det);
+		transaction.commit();
+		
+		}
+			
+			
+	}

@@ -193,7 +193,7 @@
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span> 
-							<input type="text" id='firstName' name="firstName" class="form-control" placeholder="Enter first name" />
+							<input type="text" id='firstName' name="firstName" class="form-control" placeholder="Enter first name" onkeypress="return isAlphabets(event)"/>
 						</div>
 					</div>
 
@@ -205,7 +205,7 @@
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span>
-							 <input type="text" id='middleName' name="middleName" class="form-control"  placeholder="Enter Middle Name">
+							 <input type="text" id='middleName' name="middleName" class="form-control"  placeholder="Enter Middle Name" onkeypress="return isAlphabets(event)"/>
 						</div>
 					</div>
 				</div>
@@ -221,7 +221,7 @@
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span> 
-							<input type="text" id='lastName' name="lastName" class="form-control"  placeholder="Enter last Name"> 
+							<input type="text" id='lastName' name="lastName" class="form-control"  placeholder="Enter last Name" onkeypress="return isAlphabets(event)"/> 
 						</div>
 					</div>
 						<div class="col-sm-2" align="right">
@@ -232,7 +232,7 @@
 							<span class="input-group-addon">
 							<i class="glyphicon  glyphicon-earphone"></i>
 							</span>
-						    <input type="text" id='contactNo' name="contactNo" class="form-control" placeholder="Enter Contact No.">
+						    <input type="text" id='contactNo' name="contactNo" class="form-control" maxlength="10" placeholder="Enter Contact No." onkeypress="return isNumber(event)">
 					 	</div>
 					 </div>
 					</div>

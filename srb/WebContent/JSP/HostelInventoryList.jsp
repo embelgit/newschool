@@ -34,6 +34,14 @@
   			{
   				window.location = "deletehostel.jsp";
   			}
+  			function del1()
+  			{
+  				window.location = "deletehostel.jsp";
+  			}
+  			function edii()
+  			{
+  				window.location = "edithostelinventory.jsp";
+  			}
   		</script>
 		
 
@@ -70,8 +78,13 @@
               
                     <a class="btn btn-primary"  onclick="del1()" accesskey="t""> <i class="fa fa-list"></i>Delete Hostel Inventory</a>  
                 </div>
+                
+					<div class="btn-group"> 
+              
+                    <a class="btn btn-primary"  onclick="edii()" accesskey="t""> <i class="fa fa-list"></i>Edit Hostel Inventory</a>  
                 </div>
-               
+                </div>
+               </div>
             <div class="panel-body-search panel-form">
                 <div class="row">
 		

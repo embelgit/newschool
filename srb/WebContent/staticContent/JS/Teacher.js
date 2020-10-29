@@ -1,4 +1,190 @@
 function TeacherValidation() {
+if (document.tdvf.designation.value == "") {
+		alert("Select Designation");
+		return false;
+	}
+	if(document.tdvf.firstName.value == "")
+	{
+	alert(" Enter first Name.");
+		return false;
+	}
+	var letterNumber1 = /^[a-zA-Z]+$/;
+	if(document.tdvf.firstName.value.match(letterNumber1))//1st
+                    {
+		if(document.tdvf.middleName.value=="")
+		{
+		alert("Enter Teacher Middle Name.");
+		return false;
+		}
+		var letterNumber2 = /^[a-zA-Z]+$/;
+		if(document.tdvf.middleName.value.match(letterNumber2))//2nd 
+		{
+		if(document.tdvf.lastName.value == "") 
+		{
+		alert("Enter Teacher Last Name.");
+		return false;
+		}
+		var letterNumber3 = /^[a-zA-Z]+$/;
+		if(document.tdvf.lastName.value.match(letterNumber3))//3rd
+		 {
+		if (document.tdvf.dob.value == "")
+		 {
+		alert("Please Select dob");
+		return false;
+		}				
+		if (document.tdvf.hquqlification.value == "")
+		 {
+		alert("Please Enter Quqlification");
+		return false;
+		}		
+		var letterNumber4 = /^[a-zA-Z.]+$/;
+		if(document.tdvf.hquqlification.value.match(letterNumber4))//4th
+		 {
+			if (document.tdvf.jdate.value == "") {
+			alert("Please Select Joining Date");
+			return false;
+			}			
+			if(document.tdvf.percentage.value == "") {
+		    	    alert(" Enter percentage.");
+		    	    return false;
+		    	    }			
+		//var letterNumber5 = /^-?\d*[.,]?\d*$/;
+			var letterNumber5 =/^([0-9][0-9])|([0-9]).([0-9][0-9])$/ ;
+			if(document.tdvf.percentage.value.match(letterNumber5))//5th
+		 {			
+			  if(document.tdvf.mobnum.value == "" )
+		        	{
+		        	alert(" Enter mobile Number.");
+		        	return false;
+		        	}
+		        	var letterNumber6 = /^[0-9]{10}$/;  
+		        	if(document.tdvf.mobnum.value.match(letterNumber6) && document.tdvf.mobnum.value != "0000000000")//6th
+		            	{
+		        		if(document.tdvf.accountNumber.value=="")
+		        			{
+		        			alert("Enter a account Number");
+		        			return false;
+		        			}
+		        			if(document.tdvf.bankName.value=="")
+		        			{
+		        			alert("Enter a bank name");
+		        			return false;
+		        			}
+		        			var letterNumber10 =/^[a-zA-Z]+$/;
+		        			if(document.tdvf.bankName.value.match(letterNumber10))//7
+		        			{
+		        			if(document.tdvf.ifsc.value=="")
+		        			{
+		        			alert("Enter a Ifsc number");
+		        			return false;
+		        			}
+		        			var letterNumber7=/^[a-zA-Z0-9]+$/;
+			        		if(document.tdvf.ifsc.value.match(letterNumber7))//7th
+			    			{
+			        			if(document.tdvf.aadharNumber.value=="")
+			        			{
+			        			alert("Enter a adhaar number");
+			        			return false;
+			        			}
+			        			var letterNumber8 = /^[0-9]{12}$/;
+			        		     if(document.tdvf.aadharNumber.value.match(letterNumber8))//8th
+			        			{
+			        		    	 if(document.tdvf.epfNumber.value=="")
+					        			{
+					        				alert("Enter a Epf Number");
+					        				return false;
+					        			}
+					        							
+					        			 var letterNumber9=/^[a-zA-Z0-9]+$/;	
+					        			if(document.tdvf.epfNumber.value.match(letterNumber9))//9th
+					        				{
+					        					if(document.tdvf.Salary.value=="")
+					        						{
+					        						alert("Enter a salary");
+					        						return false;
+					        						}
+					        					teacherInfo();
+					        				}
+					        				else//9th
+					        				{
+					        				alert("Enter a valid Epf number");				
+					        				return false;
+
+					        				}			
+					        	 
+			        			}
+				        			
+				        			else//8th
+				        		         			{
+				        		         			alert("Enter 12 digits Only in Adhar number field..!!");
+				        		         			return false;
+				        		         			}
+				    
+			        					}
+			        		else//7th
+			    			{
+			    				alert("Enter a valid Ifsc code");
+			    				return false;
+			    			}
+		        		}
+		        		else//11
+		        			{
+		        			alert("Enter a valid Bank Name");
+		        			return false;
+		        			}
+			}
+			
+			else//6th
+		    	{
+		    	alert("Enter 10 digits Only in contact number field And All 0's is invalid..!!");
+		    	return false;
+		    	}	
+			
+		}
+		 else//5th
+	              	 {
+	                   	alert("Enter Number Only in Percentage/CGPA..!!");
+	                   	return false;
+	                     }
+
+
+		}
+		else//4th
+	               	{
+	                   alert("Enter Alphabets Only in Highest Qualification..!!");
+	                   return false;
+	                     }
+
+
+		}
+		else//3rd
+		{
+		alert("Enter Alphabets Only in Last Name..!!");
+		return false;
+		}
+
+		}
+		 else//2nd
+		     {
+		        alert("Enter Alphabets Only in middle name field..!!");
+		          return false;
+		       }
+  }
+	 else//1st
+	{
+	 alert("Enter Alphabets Only in first name field..!!");
+	 return false;
+	 }
+}
+
+
+
+
+
+
+
+
+/*function TeacherValidation() {
 	if (document.tdvf.designation.value == "") {
 		alert("Select Designation");
 		return false;
@@ -33,7 +219,7 @@ function TeacherValidation() {
 					return false;
 				}
 				//var letterNumber = /^[a-zA-Z]+$/;
-				var letterNumber = /^[a-zA-Z._!@#$%^&*)( ]*$/;
+				var letterNumber = /^[a-zA-Z.]+$/;
 				if(document.tdvf.hquqlification.value.match(letterNumber)) {
 				if (document.tdvf.jdate.value == "") {
 					alert("Please Select Joining Date");
@@ -88,7 +274,8 @@ function TeacherValidation() {
 	                   return false;
 	                     }
 	               }
-			*/	else
+			*/	
+/*else
 	               {
 	                   alert("Enter Alphabets Only in Highest Qualification..!!");
 	                   return false;
@@ -115,7 +302,7 @@ function TeacherValidation() {
 		                }
 		    			
 }
-
+*/
 function validationEmployeeLeaveDetails()
 {
 	var params = {};

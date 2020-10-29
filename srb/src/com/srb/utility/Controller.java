@@ -182,7 +182,14 @@ public class Controller
 			String data = "Home-Work Deleted Sucessfully";
 			return data;
 		}
-		
+		/*//del syllabus
+		public String deleteSyllabus(HttpServletRequest request, HttpServletResponse response) {
+			SubjectInfoHelper helper = new SubjectInfoHelper();
+			helper.deleteSyllabuus(request, response);
+			String data = "syllabus Deleted Sucessfully";
+			return data;
+		}*/
+
 		//add student
 	public String StudentInfoo(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -1316,6 +1323,94 @@ public class Controller
 		System.out.println("going out of controller");
 		return xyz;
 	}
+	
+	//get store inventory details to edit
+	public String getstoreDetailToEdit1(HttpServletRequest request,
+			HttpServletResponse response) {
+		String teacherId = request.getParameter("fkstoreId");
+		Long storeId1=Long.parseLong(teacherId);
+		System.out.println("teacherId"+teacherId);
+		//String designation = request.getParameter("designation");
+		//System.out.println("designation"+designation);
+		StoreManagementHelper helper = new StoreManagementHelper();
+		Map map = helper.getstoreDetailsForEdit1(storeId1);
+		Map<Long, List> returnMap = new HashMap<Long, List>();
+		String xyz = toJson(map);
+		System.out.println(xyz);
+		System.out.println("going out of controller");
+		return xyz;
+	}
+	
+
+
+// update store inventory
+public String updateStoreInventoryDetails(HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("In controller update Supplier Details");
+		StoreManagementHelper helper = new StoreManagementHelper();
+		helper.updatestoreInventoryInfoDetail(request, response);
+		System.out.println("In controller updateInventory");
+		return toJson("Data Updated Successfully");
+	}
+	
+
+// kitchenInventory Details to edit
+	public String getKitchenDetailToEdit1(HttpServletRequest request,
+		HttpServletResponse response) {
+		System.out.println("In controller");
+		String teacherId = request.getParameter("fkstoreId1");
+		//Long storeId1=Long.parseLong(teacherId);
+	System.out.println("teacherId"+teacherId);
+	//String designation = request.getParameter("designation");
+	//System.out.println("designation"+designation);
+	KitchenInventoryHelper helper = new KitchenInventoryHelper();
+	Map map = helper.getkitchenDetailsForEdit1(teacherId);
+	Map<String, List> returnMap = new HashMap<String, List>();
+	String xyz = toJson(map);
+	System.out.println(xyz);
+	System.out.println("going out of controller");
+	return xyz;
+}	
+	// update kitchen inventory
+	public String updateKitchenInventoryDetails(HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("In controller update Supplier Details");
+		KitchenInventoryHelper helper = new KitchenInventoryHelper();
+		helper.updatKitchenInventoryInfoDetail(request, response);
+		System.out.println("In controller updateInventory");
+		return toJson("Data Updated Successfully");
+	}	
+	// grid for edit hostel iventory
+	
+	public String gethostelDetailToEdit1(HttpServletRequest request,
+			HttpServletResponse response) {
+			System.out.println("In controller");
+			String fkhostelreId = request.getParameter("fkhostelreId");
+			//Long storeId1=Long.parseLong(teacherId);
+		System.out.println("teacherId"+fkhostelreId);
+		//String designation = request.getParameter("designation");
+		//System.out.println("designation"+designation);
+		StoreManagementHelper helper = new StoreManagementHelper();
+		Map map = helper.getHostelDetailsForEdit1(fkhostelreId);
+		Map<String, List> returnMap = new HashMap<String, List>();
+		String xyz = toJson(map);
+		System.out.println(xyz);
+		System.out.println("going out of controller");
+		return xyz;
+	}
+	//update hostelInventory
+	public String updateHostelInventoryDetails(HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("In controller update Supplier Details");
+		StoreManagementHelper helper = new StoreManagementHelper();
+		helper.updatehostelInventoryInfoDetail(request, response);
+		System.out.println("In controller updateInventory");
+		return toJson("Data Updated Successfully");
+	}		
+
+	
+	
+	
 	
 // get Teacher Name Edit wise 
 	public String getTeacherDetailWiseToEdit(HttpServletRequest request,

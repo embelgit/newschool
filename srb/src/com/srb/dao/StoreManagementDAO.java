@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.jfree.util.Log;
 
+import com.srb.bean.GetStoreManagementDetailBean;
 import com.srb.bean.KitchenInventoryBean;
 import com.srb.bean.StockManagementBean;
 import com.srb.bean.StoreMAnagementBean;
@@ -586,5 +587,128 @@ public class StoreManagementDAO {
 		 }
 		
 	}
+	
+	public List getAllstoreDetailsForEdit1(Long pk_store_management_id) {
+
+		HibernateUtility hbu = null;
+		Session session =  null;
+		Query query = null;
+		 List list = null;
+		 try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 String TeachingStaff="TeachingStaff";
+			 //query = session.createSQLQuery("SELECT pk_teacher_id,designation,first_name,middle_name,last_name,date_of_birth,education,specialization,percentage,joining_date,mobile_number,landline_number,present_address,permanent_address,aadhar_number,account_number,bank_name,ifsc,pan_number,epf_number,pt_number,Salary FROM teacher_master WHERE designation =:designation ");
+			 query = session.createSQLQuery("SELECT product_name,bill_no,quantity,buy_price,gst,supplier_name,store_date FROM store_management WHERE pk_store_management_id =:pk_store_management_id");
+			//query.setParameter("designation", designation);
+			query.setParameter("pk_store_management_id", pk_store_management_id);
+			 list = query.list(); 
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+		 
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+		 System.out.println("out of dao - return getAllTeacherDetailsForEdit List : "+list);
+				return list;
+
+		
+	}
+
+public List gethostelInventoryList1(){
+		
+		HibernateUtility hbu=null;
+		Session session=null;
+		List<hostelmanagementbean> supList=null;
+	try{	
+
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+
+		Query query=session.createSQLQuery("select pk_hostel_id,bill_no,supplier_name,insert_date,product_name,buy_price,quantity,total,gross_total,balance_amount from hostel_management");
+		List<Object[]> list = query.list();
+
+
+		supList= new ArrayList<hostelmanagementbean>(0);
+
+
+	for (Object[] o : list) 
+	{	
+		hostelmanagementbean reports = new hostelmanagementbean();
+		
+		reports.setPkhostelid(Long.parseLong(o[0].toString()));		
+		reports.setBillNo(Double.parseDouble((o[1].toString())));
+		reports.setSupplierName(o[3].toString());
+		reports.setInsertDate((o[2].toString()));
+		reports.setProductName(o[4].toString());
+		reports.setBuyPrice(Double.parseDouble(o[5].toString()));
+		reports.setQuantity(Double.parseDouble((o[6].toString())));
+		reports.setTotal(Double.parseDouble(o[7].toString()));
+		reports.setGrossTotal(Double.parseDouble(o[8].toString()));
+		reports.setBalanceAmount(Double.parseDouble((o[9].toString())));
+		supList.add(reports);
+
+	}}catch(RuntimeException e){	
+
+	}
+	finally{
+
+	hbu.closeSession(session);	
+	}
+	return supList;
+	}
+
+	
+public List getHostelDetailsForEdit1(String product_name) {
+
+	
+	HibernateUtility hbu = null;
+	Session session =  null;
+	Query query = null;
+	 List list = null;
+	 try {
+		 hbu = HibernateUtility.getInstance();
+		 session = hbu.getHibernateSession();
+		 query = session.createSQLQuery("select pk_hostel_id,bill_no,supplier_name,insert_date,product_name,buy_price,quantity,total,gross_total from hostel_management WHERE product_name =:product_name");
+		//query.setParameter("designation", designation);
+		query.setParameter("product_name",product_name);
+		 list = query.list(); 
+	} catch (RuntimeException e) {
+		e.printStackTrace();
+	}
+	 
+	 finally
+	 {
+		 if (session!=null) {
+			hbu.closeSession(session);
+		}
+	 }
+	 System.out.println("out of dao - return getAllTeacherDetailsForEdit List : "+list);
+			return list;
+
+	
+}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

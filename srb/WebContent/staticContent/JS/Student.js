@@ -1,219 +1,212 @@
 function StudValidation() {
-	if (document.sdtv.generalRegNumber.value == "") {
-		alert("Enter General Registation Number.");
+	
+	if(document.sdtv.generalRegNumber.value == "") {
+		alert("please Enter General Registation Number.");
 		return false;
 	}
-	if (document.sdtv.studentSerialNumber.value == "") {
-		alert("Enter  Student Serial Number.");
+if(document.sdtv.rollNumber.value == "") {
+		alert("please Enter Student Roll Number.");
 		return false;
 	}
-	if (document.sdtv.firstName.value == "") {
-		alert("Enter Student First Name.");
+if(document.sdtv.firstName.value == "")
+	 {
+		alert("please Enter Student First Name.");
 		return false;
 	}
-/*	var letterNumber1 = /^[a-zA-Z]+$/;
-	if (document.sdtv.firstName.value.match(letterNumber1)) {*/
-
-		if (document.sdtv.middleName.value == "") {
-			alert("Enter Student Middle Name.");
+if(document.sdtv.middleName.value =="") {
+			alert("please Enter Student Middle Name.");
 			return false;
 		}
-	/*	var letterNumber2 = /^[a-zA-Z]+$/;
-		if (document.sdtv.middleName.value.match(letterNumber2)) {*/
-
-			if (document.sdtv.lastName.value == "") {
-				alert("Enter Student Last Name.");
+if(document.sdtv.lastName.value =="") {
+				alert("please Enter Student Last Name.");
 				return false;
 			}
-/*			var letterNumber = /^[a-zA-Z]+$/;
-			if (document.sdtv.lastName.value.match(letterNumber)) {*/
 
-				if (document.sdtv.dob.value == "") {
-					alert("Please Select dob");
-					return false;
-				}
-
-				if (document.sdtv.doa.value == "") {
+if(document.sdtv.dob.value =="") {
+				alert("please select  date of birth");
+				return false;
+			}
+if(document.sdtv.doa.value =="") {
 					alert("Please select date Admission");
 					return false;
 				}
-				if (document.sdtv.gender.value == "") {
+if(document.sdtv.gender.value =="") {
 					alert("Please Select Gender");
 					return false;
 				}
-				
-				
-				if (document.sdtv.fk_class_id1.value == "") {
+if(document.sdtv.fk_class_id1.value == "") {
 					alert("Please Select class");
 					return false;
 				}
-				if (document.sdtv.fk_division_id.value == "") {
+				if(document.sdtv.fk_division_id.value == "") {
 					alert("Please Select division");
 					return false;
 				}
-				
-	/*			if (document.sdtv.pinCode.value == "") {
-					alert("Enter pinCode Name.");
-					return false;
-				}*/				
-				if (document.sdtv.studenttype.value == "") {
-					alert("Select student type");
+if(document.sdtv.city.value == "") {
+					alert("Please Enter city name");
 					return false;
 				}
-				/*if (document.sdtv.contactNo.value == "") {
-					alert("Please Enter parent's Contact Number");
-					return false;
-				}*/
-				/*if (document.sdtv.perAddress.value == "") {
-					alert("Please Enter student permanent Address.");
+if(document.sdtv.taluka.value == "") {
+					alert("Please Enter taluka name");
 					return false;
 				}
-				
-				if (document.sdtv.preAddress.value == "") {
-					alert("Please Enter student present Address.");
+if(document.sdtv.district.value == "") {
+					alert("Please Enter district name");
 					return false;
 				}
-				if (document.sdtv.birthPlace.value == "") 
-				{
-					alert("Enter place of birth");
-					return false;
-				}*/
-				if (document.sdtv.studentstatus.value == "") 
-				{
-					alert("Select student status");
+if(document.sdtv.state.value == "") {
+					alert("Please Enter state name");
 					return false;
 				}
 
-				StudentInfo();
-				
-/*				var letterNumber = /^[0-9]{6}$/;
-				if (document.sdtv.pinCode.value.match(letterNumber)) {
-					// StudentInfo();
-				} else {
-					alert("Enter 6 Digit Valid pin code");
+if(document.sdtv.country.value == "") {
+					alert("Please Enter country  name");
 					return false;
 				}
 
-				var letterNumber = /^[a-zA-Z0-9]+$/;
-				if (document.sdtv.fk_division_id.value.match(letterNumber)
-						&& document.sdtv.fk_division_id.value != "0000000000") {
+if(document.sdtv.pinCode.value == "") {
+					alert("Please Enter pinCode");
+					return false;
+				}
+var number2= /^[0-9]{6}$/ ;
+if(document.sdtv.pinCode.value.match(number) && document.sdtv.pinCode.value != "000000"  && document.sdtv.pinCode.value!="999999")
+{
+	if(document.sdtv.mothertongue.value == "") {
+					alert("Please Enter mothertongue");
+					return false;
+				}
+if(document.sdtv.studentstatus.value == "") {
+					alert("Please select student status");
+					return false;
+				}
 
-					if (document.sdtv.country.value == "") {
-						alert("Enter country Name.");
-						return false;
-					}
-					if (document.sdtv.studenttype.value == "") {
-						alert("Select student type");
-						return false;
-					}
+if(document.sdtv.studentstatus.value=="exstudent")
+{
+
+if(document.sdtv.classname.value == "") {
+					alert("Please Enter classname");
+					return false;
+				}
+
+if(document.sdtv.leavingyr.value == "") {
+					alert("Please Enter leavingyr");
+					return false;
+				}
+}
+
+if(document.sdtv.cast.value == "") {
+					alert("Please Enter cast");
+					return false;
+				}
+if(document.sdtv.subCast.value == "") {
+					alert("Please Enter subCast");
+					return false;
+				}
+if(document.sdtv.religion.value == "") {
+					alert("Please Enter religion");
+					return false;
+				}
+
+
+if(document.sdtv.studenttype.value == "") {
+					alert("Please Select Student Type");
+					return false;
+				}
+
+if(document.sdtv.fatherName.value == "") {
+					alert("Please Enter fatherName");
+					return false;
+				}
+
+if(document.sdtv.motherName.value == "") {
+					alert("Please Enter motherName");
+					return false;
+				}
+
+if(document.sdtv.contactNo.value == "") {
+					alert("Please Enter parent contactNo");
+					return false;
+				}
+var number= /^[0-9]{10}$/ ;
+if(document.sdtv.contactNo.value.match(number) && document.sdtv.contactNo.value != "0000000000"  && document.sdtv.contactNo.value!="9999999999") {
 					
-					var letterNumber = /^[a-zA-Z]+$/;
-					if (document.sdtv.country.value.match(letterNumber)) {
-
-						if (document.sdtv.state.value == "") {
-							alert("Enter state Name.");
-							return false;
-						}
-						var letterNumber5 = /^[a-zA-Z]+$/;
-						if (document.sdtv.state.value.match(letterNumber5)) {
-
-							if (document.sdtv.preSchoolN.value == "") {
-								alert("Enter Pre School Name.");
-								return false;
-							}
-							var letterNumber = /^[A-Za-z\d\s]+$/;
-							if (document.sdtv.preSchoolN.value.match(letterNumber))
-							{
-								if (document.sdtv.birthPlace.value == "") 
-								{
-									alert("Enter birth Place name.");
-									return false;
-								}
-								
-								if (document.sdtv.fatherName.value == "") {
-									alert("Enter fatherName Name.");
-									return false;
-								}
-								var letterNumber4 = /^[A-Za-z\d\s]+$/;
-								if (document.sdtv.fatherName.value.match(letterNumber4)) 
-								{
-
-									if (document.sdtv.motherName.value == "") {
-										alert("Enter motherName Name.");
-										return false;
-									}
-									var letterNumber = /^[A-Za-z\d\s]+$/;
-									if (document.sdtv.motherName.value.match(letterNumber)) {
-
-										if (document.sdtv.dob.value == "") {
-											alert("Please Enter dob");
-											return false;
-										}
-
-										if (document.sdtv.contactNo.value == "") {
-											alert("Please Enter Contact Number");
-											return false;
-										}
-										var letterNumber = /^[0-9]{10}$/;
-										if (document.sdtv.contactNo.value.match(letterNumber) && document.sdtv.contactNo.value != "0000000000") {
-
-											if (document.sdtv.perAddress.value == "") {
-												alert("Please Enter student permanent Address.");
-												return false;
-											}
-											//var letterNumber = /^[a-zA-Z]+$/;
-											if (document.sdtv.perAddress.value
-													.match(letterNumber)) {
-
-												if (document.sdtv.preAddress.value == "") {
-													alert("Please Enter Student present Address.");
-													return false;
-												}
-												if(document.sdtv.studentPhoto.value == ""){
-													alert("Please Select Student Photo");
-													return false;
-												}
-												//var letterNumber = /^[a-zA-Z]+$/;
-												if (document.sdtv.preAddress.value
-														.match(letterNumber)) {
-										//			StudentInfo();
-												}
-											} else {
-												alert("Enter Alphabates Only in address field..!!");
-												return false;
-											}
-										}
-
-										else {
-											alert("Enter 10 digits Only in contact number field And All 0's is invalid..!!");
-											return false;
-										}
-									}
-
-									else {
-										alert("Enter Alphabets Only in last name field..!!");
-										return false;
-									}
-								}
-
-								else {
-									alert("Enter Alphabets Only in fathers full name.!!");
-									return false;
-								}
-							}
-
-							else {
-								alert("Enter Alphabets Only in previous school name.!!");
-								return false;
-							}
-						}
-					}
+if(document.sdtv.siblings.value == "") {
+					alert("Please Select siblings");
+					return false;
 				}
-			}
-		}
-	}*/
-	
-	
+		
+
+if(document.sdtv.perAddress.value == "") {
+					alert("Please Enter perAddress");
+					return false;
+				}
+if(document.sdtv.annualFee.value == "") {
+					alert("Please Enter annualFee");
+					return false;
+				}
+
+if(document.sdtv.preSchoolN.value == "") {
+					alert("Please Enter Previous School Name ");
+					return false;
+				}
+if(document.sdtv.birthPlace.value == "") {
+					alert("Please Enter BirthPlace Name ");
+					return false;
+				}
+
+if(document.sdtv.birthtal.value == "") {
+					alert("Please Enter Birth Taluka Name");
+					return false;
+				}
+
+if(document.sdtv.birthdist.value == "") {
+					alert("Please Enter Birth District Name");
+					return false;
+				}
+
+if(document.sdtv.birthcountry.value == "") {
+					alert("Please Enter Birth Country Name ");
+					return false;
+				}
+
+if(document.sdtv.studId.value == "") {
+					alert("Please Enter Student Id ");
+					return false;
+				}
+
+if(document.sdtv.EmergencyContact.value == "") {
+					alert("Please Enter Emergency Contact Number");
+					return false;
+				}
+var number=/^[0-9]{10}$/;
+if(document.sdtv.contactNo.value.match(number) && document.sdtv.contactNo.value != "0000000000"  && document.sdtv.contactNo.value!="9999999999")
+{
+StudentInfo();
+
+}
+else
+{
+
+alert("Enter a valid Emergency contact Number");
+return false;
+
+}
+
+					
+				}
+else
+{
+alert("Please enter a valid  mobile number");
+return false;
+
+}
+}
+else
+	{
+	alert("please enter a valid pin code");
+	return false;
+	}
+
 }
 
 function StudentInfo() {
@@ -1166,17 +1159,25 @@ function updateStudentInformation() {
 		alert("Please Select contact Number");
 		return false;
 	}
-	if (document.updatesdtv.fk_class_id1.value == "") {
+	var number= /^[0-9]{10}$/ ;
+	if(document.updatesdtv.contactNo.value.match(number) && document.updatesdtv.contactNo.value != "0000000000"  && document.updatesdtv.contactNo.value!="9999999999") 
+	{
+	if(document.updatesdtv.fk_class_id1.value == "") {
 		alert("Please Select class");
 		return false;
 	}
-	if (document.updatesdtv.fk_division_id.value == "") {
+	if(document.updatesdtv.fk_division_id.value == "") {
 		alert("Please Select division");
 		return false;
 	}
-	
 	updateStudentInfo();
-}
+	}
+	else
+		{
+		alert("Enter a valid contact Number");
+		return false;
+		}
+	}
 
 function updateStudentInfo() 
 {

@@ -37,6 +37,11 @@
   			{
   				window.location = "deletestore.jsp";
   			}
+  			
+  			function editstore()
+  			{
+  				window.location = "editstoreinventory.jsp";
+  			}
   		</script>
 		
 
@@ -70,6 +75,9 @@
                 </div>
 			 <div class="btn-group"> 
                     <a class="btn btn-primary"  onclick="delstore()" accesskey="t""> <i class="fa fa-list"></i>Delete Store Inventory</a>  
+                </div>
+                 <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="editstore()" accesskey="t""> <i class="fa fa-list"></i>Edit Store Inventory</a>  
                 </div>
                 </div>
                

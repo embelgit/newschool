@@ -1,5 +1,8 @@
 <%@page import="com.srb.hibernate.ExamInfoHibernate"%>
 <%@page import="com.srb.dao.ExamInfoDao"%>
+<%@page import="com.srb.hibernate.SubjectInfoHibernate"%>
+<%@page import="com.srb.dao.SubjectInfoDao"%>
+
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
 
@@ -162,7 +165,7 @@ function reload()
 								List sList2 = sdd1.getAllMainDivision();
 							     %>
 
-							<input list="division" id="fk_division_id" class="form-control" onchange="getGridForSubjectEdit()">
+							<input list="division" id="fk_division_id" class="form-control" >
 							<datalist id="division"> <%
 									for (int i = 0; i < sList2.size(); i++) {
 										DivisionInfoHibernate sup = (DivisionInfoHibernate) sList2.get(i);
@@ -182,38 +185,45 @@ function reload()
 				</div>
 			</div>
 			
-<!-- 			<div class="row">
+ 		<div class="row">
 				<div class="form-group">
-					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Division Name:</label>
+					<div class="col-md-2 col-sm-offset-1" align="right">
+						<label class="control-label">Subject Name:<sup>*</sup></label>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<div class="input-group">
-							<span class="input-group-addon">
-							<i class="glyphicon glyphicon-hand-right"></i>
-							</span> 
-							<input type="text" id='divisionName' name="divisionName" class="form-control" placeholder="Division Name" />
-						</div>
-					</div>
-
-					 <div class="col-sm-2" align="right">
-						<label class="control-label">Subject Name:</label>
-					</div>
-					<div class="col-sm-3">
-						<div class="input-group">
-							<span class="input-group-addon">
-							<i class="glyphicon glyphicon-book"></i>
+							<span class="input-group-addon"> <i
+								class="glyphicon glyphicon-book"></i>
 							</span>
-							 <input type="text" id='SubjectName' name="subjectName" class="form-control"  placeholder="subjectName">
+
+							<%
+							SubjectInfoDao sdd2 = new SubjectInfoDao();
+							List sList3 = sdd2.getAllMainSubject();
+							 %>
+
+							<input list="subjectList" id="fk_subject_id" class="form-control" autofocus="autofocus">
+							<datalist id="subjectList"> <%
+									for (int i = 0; i < sList3.size(); i++) {
+									SubjectInfoHibernate sup = (SubjectInfoHibernate) sList3.get(i);
+								 %>
+
+							<option data-value="<%=sup.getPkSubjectId()%>"
+								value="<%=sup.getSubject()%>">
+								<%
+										}
+									%>
+							
+							</datalist>
 						</div>
-					</div> 
+					</div>
 				</div>
-			</div> -->
+			</div>
+
 			
-<!-- 			<div class="row">
+		<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">ToTal Marks:</label>
+						<label class="control-label">Total Marks:</label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
@@ -236,7 +246,7 @@ function reload()
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 					  <div class="table-responsive	row col-md-offset-1" style="margin-left: 260px">
 				<table id="list5" ></table>
 				<div id="jqGridPager1"></div>

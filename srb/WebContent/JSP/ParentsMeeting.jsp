@@ -15,6 +15,7 @@
 
 <div class="content-wrapper" style="min-height: 1134px;">
                 <!-- Content Header (Page header) -->
+                
                 <section class="content-header">
 
                     <div class="p-l-30 p-r-30">
@@ -33,10 +34,18 @@
     <!--  form area -->
     <div class="col-sm-12">
         <div class="panel panel-default thumbnail">
- 
-            <div class="panel-heading no-print">
-               
+ 			 <div class="panel-heading no-print">
+                <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="classList1()" accesskey="t""> <i class="fa fa-list"></i>Meeting List </a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary" onclick="divList()" accesskey="t""> <i class="fa fa-list"></i>Edit List </a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary" onclick="divList()" accesskey="t""> <i class="fa fa-list"></i>Delete</a>  
+                </div>
             </div> 
+ 			
 
             <div class="panel-body panel-form">
                 <div class="row">
