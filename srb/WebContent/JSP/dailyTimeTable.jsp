@@ -252,7 +252,7 @@
 			</div> -->
 			<div class="row">
 			<div class="form-group">
-			<label class="col-md-2    control-label"  style="margin-left: 108px;">Start Time::<sup>*</sup>
+			<label class="col-md-2 col-sm-offset-1  control-label"  style="margin-left: 108px;">Start Time:<sup>*</sup>
 						</label>
 						<div class="col-md-3  bootstrap-timepicker timepicker" >
 							<div class="input-group">
