@@ -159,8 +159,19 @@ function checkForDuplicateDivisionEntry(){
 		<form class="form-horizontal" name="classForName">
 			<div class="row">
 				<div class="form-group">
+				<div class="col-md-3 col-sm-offset-1"  align="right">
+						<label class="control-label">Class Room No:<sup>*</sup></label>
+					</div>
+					<div class="col-sm-2">
+						<div class="input-group">
+							<span class="input-group-addon">
+							 <i class="glyphicon glyphicon-pencil"></i>
+							</span>
+							 <input type="text" id='classRoom' name="classRoom" class="form-control"  placeholder="class Room" onchange="checkForDuplicateDivisionEntry()">
+						</div>
+					</div>
 				
-					<div class="col-md-4  col-sm-offset-1" align="right">
+					<div class="col-md-3 " align="right">
 						<label class="control-label">Class Name:<sup>*</sup></label>
 					</div>
 					
@@ -171,7 +182,7 @@ function checkForDuplicateDivisionEntry(){
 							</span> 
 <!-- 							 <input type="text" id='clas' name="clas" class="form-control" placeholder="Enter class" onchange="checkForDuplicateClassEntry()"/>  -->
                       
-						<select name="clas" class="form-control selectpicker" id='clas' onchange="checkForDuplicateClassEntry()">
+						<select name="clas" class="form-control selectpicker" id='clas' onchange="checkForDuplicateClassEntry()" placeholder="Class">
 									<option value="">Select Class</option>
 									<option value="1th">1th</option>
 									<option value="2th">2th</option>
@@ -210,7 +221,7 @@ function checkForDuplicateDivisionEntry(){
 		
 			
 			 <div class="form-group row">
-                 <div class="col-sm-2 btn-center">
+                 <div class="col-md-offset-3 col-sm-4 btn-center">
                                     <div class="ui buttons">
                                     <button class="ui positive button" name="btn" value="Save" onclick="ClassInfo(); return false;">Save</button>
                                        
@@ -228,7 +239,7 @@ function checkForDuplicateDivisionEntry(){
 		</form>
 	</div>
 	<!-- ---	For division entry	---- -->
- 		<div id="twoDates" class="tab-pane ">
+ 		<div id="twoDates" class="tab-pane fade ">
 		
 			<form class="form-horizontal" name="divInfo">
 			
@@ -263,7 +274,7 @@ function checkForDuplicateDivisionEntry(){
 							</datalist>
 						</div>
 					</div>
-					<div class="form-group">
+			    <div class="form-group">
 					<div class="col-md-2" align="right">
 						<label class="control-label">Division Name:<sup>*</sup></label>
 					</div>
@@ -275,13 +286,13 @@ function checkForDuplicateDivisionEntry(){
 							 <input type="text" id='division' name="division" class="form-control"  placeholder="division" >
 						</div>
 					</div>
-					</div>
-					</div>
+			   </div>
+			</div>
 			<div class="row form-group">
 					<div class="col-md-4 col-sm-offset-1"  align="right">
 						<label class="control-label">Class Room No:<sup>*</sup></label>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-4">
 						<div class="input-group">
 							<span class="input-group-addon">
 							 <i class="glyphicon glyphicon-pencil"></i>
