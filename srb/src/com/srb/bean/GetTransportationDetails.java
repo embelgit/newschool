@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class GetTransportationDetails {
 	//private String pkleaveId;
+	private Long pkTranspaymentId;
+	private String studentName;
 	private Long fkclassId;
 	private Long fkdivisionId;
 	private String firstName;
@@ -12,7 +14,12 @@ public class GetTransportationDetails {
 	private String className;
 	private String divisionName;
 	
-	
+	public Long getPkTranspaymentId() {
+		return pkTranspaymentId;
+	}
+	public void setPkTranspaymentId(Long pkTranspaymentId) {
+		this.pkTranspaymentId = pkTranspaymentId;
+	}
 	
 	public String getClassName() {
 		return className;
@@ -142,6 +149,12 @@ public class GetTransportationDetails {
 	}
 	public void setLeaveDateFrom(String leaveDateFrom) {
 		this.leaveDateFrom = leaveDateFrom;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 	private String DriverName;
 	private  String leaveDateTo;

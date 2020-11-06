@@ -2,6 +2,7 @@ package com.srb.bean;
 
 public class ClassDivisionSubjectTeacherAssocBean 
 {
+	private Long pkClassDivisionSubjectTeacherAssociationId;
 	private String className;
 	private String division_name;
 	private String subject_name;
@@ -39,7 +40,13 @@ public class ClassDivisionSubjectTeacherAssocBean
 	public void setAcademic_year(String academic_year) {
 		this.academic_year = academic_year;
 	}
-
+	public Long getPkClassDivisionSubjectTeacherAssociationId() {
+		return pkClassDivisionSubjectTeacherAssociationId;
+	}
+	public void setPkClassDivisionSubjectTeacherAssociationId(
+			Long pkClassDivisionSubjectTeacherAssociationId) {
+		this.pkClassDivisionSubjectTeacherAssociationId = pkClassDivisionSubjectTeacherAssociationId;
+	}
 	
 	
 	

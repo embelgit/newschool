@@ -1952,6 +1952,7 @@ function getcalculation()
 
 // update store inventory
 function updatestoreInventory() {
+	
 	var params = {};
 	var input = document.getElementById('storeLists1'), list = document
 			.getElementById('storeInventoryList1'), i, fkstoreId;

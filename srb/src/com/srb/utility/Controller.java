@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.itextpdf.text.log.SysoCounter;
 import com.srb.bean.gethostelmanagementdetailbean;
 import com.srb.bean.ClasSubAssoBean;
 import com.srb.bean.ClassDivisionSubjectAssocBean;
@@ -105,7 +106,9 @@ public class Controller
 		System.out.println("In controller TransportionDetailsOFStrudents ");
 		StudentTransportationHelper stf = new StudentTransportationHelper();
 		stf.TransportionDetailsOFStrudents(request, response);
-		return toJson("Transportation Details Added Successfully");
+		//return toJson("Transportation Details Added Successfully");
+		String data="Transportation Details Added Successfully";
+		return data;
 	}
 	
 	// Delete ShopNAme 
@@ -371,6 +374,23 @@ public class Controller
 		cdst.doClassDivisionSubjectTeacherAssoc(request, response);
 		return toJson("Data Added Successfully");
 	}
+	
+	// delete class subject teacher division
+	
+	public String deletclassdivSubTeacher(HttpServletRequest request, HttpServletResponse response) {
+		ClassDivisionSubjectTeacherAssocHelper helper = new ClassDivisionSubjectTeacherAssocHelper();
+		helper.deletesClassDivsubTeacherAsso(request, response);
+		
+		String data = "Class Deleted Sucessfully";
+		return data;
+	}
+
+	
+	
+	
+	
+	
+	
 	
 	/*// for logout
 	public String LogOut(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -1123,6 +1143,18 @@ public class Controller
 		System.out.println("going out of controller");
 		return xyz;
 	}
+	// delete Notice Details
+	public String deletNotice(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("In Controller");
+		NoticeInfoHelper helper = new NoticeInfoHelper();
+		helper.deletesNoticeDetails(request, response);
+		
+		String data = "Notice Details Deleted Sucessfully";
+		return data;
+	}
+	
+	
+	
 	//employee
 	public String getemployeeToEdit(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -1182,13 +1214,23 @@ public class Controller
 	// update transportation info details
 		public String updateTransportationDetails(HttpServletRequest request,
 				HttpServletResponse response) {
-			System.out.println("In controller update Supplier Details");
-			StudentTransportationHelper helper = new StudentTransportationHelper();
+			System.out.println("In controller update Transportation Details");
+			TransportationInfoHelper helper = new TransportationInfoHelper();
 			helper.updateTransportationInfoDetail(request, response);
 			System.out.println("In controller Updateemployee");
 			return toJson("Data Updated Successfully");
 
 		}
+		// delete transportation details
+		public String deletTransportation(HttpServletRequest request, HttpServletResponse response) {
+			System.out.println("In Controller");
+			TransportationInfoHelper helper = new TransportationInfoHelper();
+			helper.deletesTransportationDetails(request, response);
+			
+			String data = "Transportation Deleted Sucessfully";
+			return data;
+		}
+
 	
 	// Fetching Division Details To Edit
 	public String getDivisionDetailToEdit(HttpServletRequest request,
@@ -1994,6 +2036,30 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 		cdst.addStoreManagementParticipantDetails(request, response);
 		return toJson("Store Inventory Added Successfully");
 	}
+	// delete Participant
+	
+	public String deletParticipant(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("In Controller");
+		String id=request.getParameter("delparticipantId");
+		System.out.println("Dlete Id"+id);
+		SportInfoHelper helper = new SportInfoHelper();
+		helper.deleteParticipantDetails(request, response);
+		
+		String data = "Participant Deleted Sucessfully";
+		return data;
+	}
+	// delete sport List
+	public String deletSportList(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("In Controller");
+		String id=request.getParameter("delSportId");
+		System.out.println("Dlete Id"+id);
+		SportInfoHelper helper = new SportInfoHelper();
+		helper.deleteSportDetails(request, response);
+		
+		String data = "Sport Details Deleted Sucessfully";
+		return data;
+	}
+	
 	
 	
 	// add book details
@@ -2202,6 +2268,45 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 		sif.scheduleMeetingAndSendMessage(request, response);
 		return toJson("Schedule Meetings Added Successfully");
 	}
+	//edit schedule Meeting
+	public String getScheduleMeetigToEdit(HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("In Controller");
+		String teacherId = request.getParameter("meetingId1");
+		Long fkteacherID=Long.parseLong(teacherId);
+		System.out.println("teacherId"+teacherId);
+		//String designation = request.getParameter("designation");
+		//System.out.println("designation"+designation);
+		MeetingScheduleHelper helper = new MeetingScheduleHelper();
+		Map map = helper.getScheduleMeetingToEdit(fkteacherID);
+		Map<Long, List> returnMap = new HashMap<Long, List>();
+		String xyz = toJson(map);
+		System.out.println(xyz);
+		System.out.println("going out of controller");
+		return xyz;
+	}
+	//update schedule Meeting
+	public String updateScheduleMeetingDetails(HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("In controller update Supplier Details");
+		MeetingScheduleHelper helper = new MeetingScheduleHelper();
+		helper.updatescheduleMeetingDetail(request, response);
+		System.out.println("In controller updateInventory");
+		return toJson("Data Updated Successfully");
+	}
+	
+	
+	
+	
+	//delete Schedule Meeting
+	public String deletScheduleMeeting(HttpServletRequest request,HttpServletResponse response)
+	{
+	System.out.println("In Controller");
+	MeetingScheduleHelper helper = new MeetingScheduleHelper();
+	helper.deleteScheduleMeeting(request,response);		
+	String data = "Schedule Meeting Deleted Sucessfully";
+	return data;
+	}
 	
 	//Add meeting parents For message To PArents 
 	public String scheduleMeetingAndSendMessageParents(HttpServletRequest request,HttpServletResponse response)
@@ -2210,6 +2315,42 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 		MeetingScheduleHelper sif = new MeetingScheduleHelper();
 		sif.scheduleMeetingAndSendMessageParents(request, response);
 		return toJson("Parents Meetings Added Successfully");
+	}
+	// edit meeting parents
+	
+	public String getparentMeetigToEdit(HttpServletRequest request,
+			HttpServletResponse response) {
+		String teacherId = request.getParameter("meetingId");
+		Long fkteacherID=Long.parseLong(teacherId);
+		System.out.println("teacherId"+teacherId);
+		//String designation = request.getParameter("designation");
+		//System.out.println("designation"+designation);
+		MeetingScheduleHelper helper = new MeetingScheduleHelper();
+		Map map = helper.getParentMeetingEdit(fkteacherID);
+		Map<Long, List> returnMap = new HashMap<Long, List>();
+		String xyz = toJson(map);
+		System.out.println(xyz);
+		System.out.println("going out of controller");
+		return xyz;
+	}
+	// update Parents Meeting
+	public String updateParentsMeetingDetails(HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("In controller update Supplier Details");
+		MeetingScheduleHelper helper = new MeetingScheduleHelper();
+		helper.updateParentMeetingDetail(request, response);
+		System.out.println("In controller updateInventory");
+		return toJson("Data Updated Successfully");
+	}
+
+	//delete parents Meeting
+	public String deletParentsMeeting(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("In Controller");
+		MeetingScheduleHelper helper = new MeetingScheduleHelper();
+		helper.deletesParentMeeting(request, response);
+		
+		String data = "Parents Meeting Deleted Sucessfully";
+		return data;
 	}
 	
 	//add notice Entry Details
@@ -2479,7 +2620,44 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 				System.out.println("In controller == =  =" + xyz);
 				return xyz;
 			}
-			//
+			// Teacher task to edit
+			public String getTeacherDailyTaskToEdit(HttpServletRequest request,
+					HttpServletResponse response) {
+				String teacherId = request.getParameter("fkteacherID");
+				Long fkteacherID=Long.parseLong(teacherId);
+				System.out.println("teacherId"+teacherId);
+				//String designation = request.getParameter("designation");
+				//System.out.println("designation"+designation);
+				TeacherDailyTaskEntryHelper helper = new TeacherDailyTaskEntryHelper();
+				Map map = helper.getDailyTasktoEdit(fkteacherID);
+				Map<Long, List> returnMap = new HashMap<Long, List>();
+				String xyz = toJson(map);
+				System.out.println(xyz);
+				System.out.println("going out of controller");
+				return xyz;
+			}
+			//update teacher task 
+			public String updateTeacherTaskDetails(HttpServletRequest request,
+					HttpServletResponse response) {
+				System.out.println("In controller update Supplier Details");
+				TeacherDailyTaskEntryHelper helper = new TeacherDailyTaskEntryHelper();
+				helper.updateTeacherTaskDetail(request, response);
+				System.out.println("In controller updateInventory");
+				return toJson("Data Updated Successfully");
+			}
+
+			//delete Teacher Daily Task
+			public String deletTeacherdailyTask(HttpServletRequest request, HttpServletResponse response) {
+				TeacherDailyTaskEntryHelper helper = new TeacherDailyTaskEntryHelper();
+				helper.deleteTeacherdailyTask(request, response);
+				
+				String data = "Product Deleted Sucessfully";
+				return data;
+			}
+			
+			
+			
+			
 			public String getDivisionNameByClassName1(HttpServletRequest request, HttpServletResponse response) 
 			{
 			

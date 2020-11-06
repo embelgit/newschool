@@ -1,6 +1,6 @@
 
-<%@page import="com.srb.bean.ClassDivisionSubjectTeacherAssocBean"%>
-<%@page import="com.srb.dao.ClassDivisionSubjectTeacherAssocDao"%>
+<%@page import="com.srb.bean.MeetingScheduleBean"%>
+<%@page import="com.srb.dao.MeetingScheduleDao"%>
 
 <%@page import="java.util.List"%>
   	<% boolean isHome=false;%>
@@ -22,19 +22,29 @@
 <html>
 	<head>
 	
-		<title>Class Details List</title>
+		<title>Supplier List</title>
 		
   		
   		<script type="text/javascript">
   			function back()
   			{
-  				window.location = "Class_Division_Subject_Teacher.jsp";
+  				window.location = "meetingSchedule.jsp";
   			}
-			function del()
-			{
-				window.location="deleteClass_Division_Subject_Teacher.jsp";
-				
-			}
+  		</script>
+		<script type="text/javascript">
+  			function back1()
+  			{
+  				window.location = "meetingSchedule.jsp";
+  			}
+  			function editList()
+  			{
+  				window.location="EditScheduleMeeting.jsp";
+  			}
+  			function Del()
+  			{
+  				window.location="deleteScheduleMeeting.jsp";
+  				
+  			}
   		</script>
 		
 
@@ -48,8 +58,8 @@
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/list.png" style="width: 55px;"></div>
                         <div class="header-title">
-                            <h1>Class Details List</h1>
-                            <small>Class Details List</small> 
+                            <h1>Meeting  List</h1>
+                            <small>Meeting List</small> 
                         </div>
                     </div>
                 </section>
@@ -64,10 +74,13 @@
  
            <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="back()" accesskey="t""> <i class="fa fa-list"></i>Add Class Details</a>  
+                    <a class="btn btn-primary"  onclick="back1()" accesskey="t""> <i class="fa fa-list"></i>Add Meeting</a>  
                 </div>
-					<div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="del()" accesskey="t""> <i class="fa fa-list"></i>Delete Class Details</a>  
+                <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="editList()" accesskey="t""> <i class="fa fa-list"></i>Edit Meeting</a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="Del()" accesskey="t""> <i class="fa fa-list"></i>delete Meeting</a>  
                 </div>
                 </div>
                
@@ -93,8 +106,8 @@
 <body id="dt_example" style="min-height:300px;">
 		
 	<%
-		ClassDivisionSubjectTeacherAssocDao dao=new ClassDivisionSubjectTeacherAssocDao();
-		List list12=dao.getClassDetails();
+	MeetingScheduleDao dao=new MeetingScheduleDao();
+	List list12=dao.getScheduleMeeting();
 	%>
 
 	<div id="demo_jui">
@@ -103,11 +116,10 @@
 				<tr>
 					<th>Sr No</th>
 					<th>Class Name</th>
-	                <th>Division Name</th>
-	             	<th>Subject Name</th>
-					<th>Teacher Name</th>
-	                <th>Academic Year</th>
-	               
+	                <th>Division</th>
+					<th>Message</th>
+	                <th>Date</th>
+					
 				</tr>
 			</thead>
 			
@@ -115,18 +127,16 @@
    				<%
    					int k=0;
 					for(int i=0;i<list12.size();i++){
-						ClassDivisionSubjectTeacherAssocBean sr=(ClassDivisionSubjectTeacherAssocBean)list12.get(i);
+						MeetingScheduleBean sr=(MeetingScheduleBean)list12.get(i);
 						k++;
 				%>
 				
 				<tr>
 					<td class="align"><%=k%></td>
-					<td class="align"><%=sr.getClassName() %></td>
-					<td class="align"><%=sr.getDivision_name() %></td>
-					<td class="align"><%=sr.getSubject_name() %></td>
-					<td class="align"><%=sr.getTeacher_name() %></td>
-					<td class="align"><%=sr.getAcademic_year() %></td>
-						
+					<td class="align"><%=sr.getClassName()%></td>
+					<td class="align"><%=sr.getDivisionName()%></td>
+					<td class="align"><%=sr.getMessage() %></td>
+					<td class="align"><%=sr.getInsertDate()%></td>
 				</tr>
 	
 				<%
@@ -135,7 +145,16 @@
 			</tbody>
 		</table>
 	</div>
-
+	<div class="form-group row">
+                                <div class="col-md-offset-4 col-md-4 btn-center">
+                                    <div class="ui buttons">
+                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="back()" >back</button>
+       
+                                         
+                                        
+                                         </div>
+                                </div>
+                            </div>
 	
 </body>
 

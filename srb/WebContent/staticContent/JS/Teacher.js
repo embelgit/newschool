@@ -528,40 +528,66 @@ function employeeLeaveList()
 
 function validationofTransportionDetails(){
 	if (document.tmpd.fk_class_id1.value == "") {
-		alert("Please Enter Class Name.");
+		alert("Please Select Class Name.");
 		return false;
 	}
 	if (document.tmpd.fk_division_id.value == "") {
-		alert("Please Enter Division Name.");
+		alert("Please Select Division Name.");
 		return false;
 	}
 	if (document.tmpd.fk_Student_id.value == "") {
-		alert("Please Enter Student Name.");
+		alert("Please Select Student Name.");
 		return false;
 	}
 	if (document.tmpd.leaveDateFrom.value == "") {
 		alert("Please Enter Date From.");
 		return false;
 	}
+	var num=/^[0-9]{10}$/;
 	if (document.tmpd.ContactNo.value == "") {
 		alert("Please Enter Contact No.");
 		return false;
 	}
-	if (document.tmpd.leaveDateTo.value == "") {
-		alert("Please Enter Date To.");
+	var num=/^[0-9]{10}$/;
+	if(document.tmpd.ContactNo.value.match(num) && document.tmpd.ContactNo.value!="9999999999" && document.tmpd.ContactNo.value!="0000000000" )
+		{
+		
+		if (document.tmpd.leaveDateTo.value == "") {
+			alert("Please Enter Date To.");
+			return false;
+		}
+		if (document.tmpd.DriverName.value == "") {
+			alert("Please Enter Driver Name");
+			return false;
+		}
+		
+		if (document.tmpd.Pincode.value == "") {
+			alert("Please Enter Pincode.");
+			return false;
+		}
+		var num2=/^[0-9]{6}$/;
+		if(document.tmpd.Pincode.value.match(num2) && document.tmpd.Pincode.value!="000000" && document.tmpd.Pincode.value!="999999")
+			{
+			if (document.tmpd.payement.value == "") {
+				alert("Please Enter Fees.");
+				return false;
+			}
+			validationofTransportionDetails1();
+			}
+		else
+			{
+			alert("plese Enter a Valid Pincode");
+			return false;
+			}
+		
+		}
+	else
+		{
+		alert("Please Enter a Valid Contact Number");
 		return false;
-	}
-	if (document.tmpd.Pincode.value == "") {
-		alert("Please Enter Pincode.");
-		return false;
-	}
-	if (document.tmpd.payement.value == "") {
-		alert("Please Enter Fees.");
-		return false;
-	}
+		}
 	
 	
-	validationofTransportionDetails1()
 }	
 
 
@@ -609,10 +635,13 @@ if (list.options[i].value === input2.value) {
 	var studentname = $('#fk_Student_id').val();
 	var payement = $('#payement').val(); 
 	var Address = $('#Address').val();
-	
+	if(Address=="" || Address==null ||Address==undefined )
+		{
+		Address="N/A";
+		}
 //	var aa = document.getElementById("studentid").value;
 	
-	alert("student name - "+studentname+"  aa  -  "+fkstudid);
+	//alert("student name - "+studentname+"  aa  -  "+fkstudid);
 	
 	params["leaveDateFrom"] = leaveDateFrom;
 	params["DriverName"] = DriverName;
@@ -642,7 +671,11 @@ if (list.options[i].value === input2.value) {
 
 // Teacher daily Task Home work Validation 
 function TeacherDailyTaskValidation() {
-
+	
+	if (document.DailyTask.date3.value == "") {
+		alert("Please Select  Date");
+		return false;
+	}
 	if (document.DailyTask.fk_teacher_id.value == "") {
 		alert("Please Enter Teacher Name.");
 		return false;
@@ -837,9 +870,10 @@ function teacherDailyTaskEntry() {
 	var subject = $('#fk_subject_id').val();
 	var teacherName = $('#fk_teacher_id').val();
 	var academicYear = $('#academicYear').val();
+	var date3=$('#date3').val();
 	var task = $('#taskInTextt').val();
 	var taskImage = $('#taskImage').val();
-
+	
 	if (className == undefined || className == null || className == "") {
 		className = "'N/A'";
 	}
@@ -868,7 +902,7 @@ function teacherDailyTaskEntry() {
 	if (fkClassId == undefined || fkClassId == null || fkClassId == "") {
 		fkClassId = 0;
 	}
-
+	
 	params["className"] = className;
 	params["division"] = division;
 	params["subject"] = subject;
@@ -879,7 +913,7 @@ function teacherDailyTaskEntry() {
 	params["fkDivisionId"] = fkDivisionId;
 	params["fkteacherid"] = fkteacherid;
 	params["fkClassId"] = fkClassId;
-
+	params["date3"] = date3;
 	params["methodName"] = "addTeacherDailyTask";
 
 	$.post('/srb/JSP/utility/controller.jsp', params, function(data)
@@ -1045,7 +1079,6 @@ function edithome()
 		}
 	}
 
-
 	var subid = fkClassId;
 	var className = $('#fk_class_id1').val();
 	var division = $('#fk_division_id').val();
@@ -1054,8 +1087,26 @@ function edithome()
 	var academicYear = $('#academicYear').val();
 	var task = $('#taskInText').val();
 //	var taskImage = $('#taskImage').val();
-
-
+	if (teacherName == undefined || teacherName == null || teacherName == "") {
+		alert("Please select Teacher Name");
+		return false;
+	}
+	if (className == undefined || className == null || className == "") {
+		alert("Please Select Class Name");
+		return false;
+	}
+	if (division == undefined || division == null || division == "") {
+		alert("Please Select Division");
+		return false;
+	}
+	if (subject == undefined || subject == null || subject == "") {
+		alert("Please Select subject");
+		return false;
+	}
+	if (task == undefined || task == null || task == "") {
+		alert("Please Enter Homework");
+		return false;
+	}
 
 	params["className"] = className;
 	params["division"] = division;
@@ -1654,17 +1705,17 @@ function getDivisionNameByClassName()
 
 
 //get Division by Class Name
-function getDivisionNameByClassName()
+function getDivisionNameByClassName2()
 {
 //var type = document.getElementById('vendor').value;
 	
-	$("#division").empty();
-	$("#division").append($("<option></option>").attr("value","").text("Select product"));
+	$("#division1").empty();
+	$("#division1").append($("<option></option>").attr("value","").text("Select Division"));
 	var params= {};
 	
 	
-		var input = document.getElementById('fk_class_id1'), list = document
-		.getElementById('classes'), i, fkRootStudentId;
+		var input = document.getElementById('clsname'), list = document
+		.getElementById('clsList'), i, fkRootStudentId;
 		for (i = 0; i < list.options.length; ++i)
 		{
 			if (list.options[i].value === input.value) 
@@ -1673,7 +1724,7 @@ function getDivisionNameByClassName()
 			}
 		}
 		
-	var className = $('#fk_class_id1').val();
+	var className = $('#clsname').val();
 	
 	params["fkClassId"] = fkClassId;
 	params["className"] = className;
@@ -2114,3 +2165,167 @@ function employeeBetweenTwoDate()
 	
 	
 }
+// get teacher Daily task to update
+function getTeacherdailyTask() {
+
+	var params = {};
+	var input = document.getElementById('fk_teacher_id'), list = document
+			.getElementById('teacherNameList'), i,fkteacherID;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkteacherID= list.options[i].getAttribute('data-value');
+		}
+	}
+	$("#fk_teacher_id").append($("<input/>").attr("value", "").text());
+	$("#clsname1").append($("<input/>").attr("value", "").text());
+	$("#DivisionName").append($("<input/>").attr("value", "").text());
+	$("#subject").append($("<input/>").attr("value", "").text());
+	$("#academic").append($("<input/>").attr("value", "").text());
+	$("#date4").append($("<input/>").attr("value", "").text());
+	$("#taskInTextt").append($("<input/>").attr("value", "").text());
+	params["fkteacherID"] = fkteacherID;
+	
+	params["methodName"] = "getTeacherDailyTaskToEdit";
+	$
+			.post(
+					'/srb/JSP/utility/controller.jsp',
+					params,
+					function(data) {
+
+						var jsonData = $.parseJSON(data);
+						var catmap = jsonData.list;
+						$
+								.each(
+										jsonData,
+										function(i, v) {
+											
+											document.getElementById("clsname1").value =v.className;
+											document.getElementById("DivisionName").value =v.division;
+											document.getElementById("subject").value =v.subjectName;
+											document.getElementById("academic").value =v.academicYear;
+											document.getElementById("date4").value =v.insertDate;
+											document.getElementById("taskInTextt").value =v.task;
+											
+										});
+					}).error(function(jqXHR, textStatus, errorThrown) {
+				if (textStatus === "timeout") {
+
+				}
+			});
+
+}
+// update Teacher Task
+function updateteacherDailyTask1(){
+	var params = {};
+	var input = document.getElementById('fk_teacher_id'), list = document
+			.getElementById('teacherNameList'), i, fkteacherID1;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkteacherID1 = list.options[i].getAttribute('data-value');
+		}
+	}
+	var TeacherName=$('#fk_teacher_id').val();
+	var clsname1 = $('#clsname1').val();
+	var DivisionName1= $('#DivisionName').val();
+	var subject1 = $('#subject').val();
+	var date41 = $('#date4').val();
+	var academic1= $('#academic').val();
+	var taskInTextt1 = $('#taskInTextt').val();
+	if(TeacherName == undefined || TeacherName== null
+			||TeacherName== "") {
+		alert("Please select Teacher Name,Class, Division");
+		return false;
+	}
+	if (clsname1 == undefined || clsname1== null
+			||clsname1== "") {
+		alert("please Enter class  name to Update");
+		return false;
+	}
+	if (DivisionName1 == undefined || DivisionName1 == null || DivisionName1 == "") {
+		alert("please Enter Division  name to Update");
+		return false;
+	}
+	if (subject1 == undefined || subject1 == null || subject1 == "") {
+		alert("please enter a Subject to Update");
+		return false;
+	}
+	if (academic1 == undefined || academic1 == null || academic1 == "") {
+		alert("please enter academic year to Update");
+		return false;
+	}
+	if (taskInTextt1 == undefined || taskInTextt1 == null || taskInTextt1== "") {
+		alert("please enter a Task");
+		return false;
+	}
+
+	if(date41 ==undefined || date41 == null || date41 == "")
+		{
+		alert("please select Date");
+		return false;
+		}
+	
+	
+	var params = {};
+	params["fkteacherID1"] =fkteacherID1 ;
+	params["clsname"] =clsname1 ;
+	params["taskInTextt"] = taskInTextt1;
+	params["academic"] = academic1;
+	params["DivisionName"] = DivisionName1;
+	params["subject"] = subject1;
+	params["date4"] = date41;
+	params["methodName"] = "updateTeacherTaskDetails";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) {
+		alert(data);
+		location.reload();
+	}).error(function(jqXHR, textStatus, errorThrown) {
+		if (textStatus === "timeout") {
+			$(loaderObj).hide();
+			$(loaderObj).find('#errorDiv').show();
+		}
+	});
+}
+ // delete Teacher task
+function delTeacherTask2(){
+	
+	/*if(document.teacherNameList2.fk_teacher_id2.value == "" || document.teacherNameList2.fk_teacher_id2.value == null || document.teacherNameList2.fk_teacher_id2.value == undefined)
+	{
+		alert("Please select From Options");
+		return false;
+	}*/	
+	var input = document.getElementById('fk_teacher_id42'), list = document
+			.getElementById('teacherNameList42'), i, fkteacherID2;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkteacherID2 = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	var params = {};
+	
+	params["fkteacherID2"] =fkteacherID2;
+	
+	params["methodName"] = "deletTeacherdailyTask";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+	
+}
+
+
+
+

@@ -2531,8 +2531,104 @@ function getDivisionNameByClassNameCancellationAdmission()
 				}
 			});
 }
+// delete Sport Participant
+function ValidationSportParticipant()
+{
+	 if(document.delstrpro15.delparticipant.value=="" || document.delstrpro15.delparticipant.value==null || document.delstrpro15.delparticipant.value==undefined) 
+		 {
+		 alert("Please Select Field");
+		 return false;
+		 }
+	 DeleteParticipant()
+}
+
+function DeleteParticipant()
+{
+	document.getElementById("btn").disabled = true;
+	var input = document.getElementById('delparticipant'),
+    list = document.getElementById('delp_drop2'),
+    i,delparticipantId;
+
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input.value) {
+    	delparticipantId= list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	var params = {};
+	params["delparticipantId"] =delparticipantId;
+	
+	params["methodName"] ="deletParticipant";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
 
 
+}
+
+// delete Sport
+function ValidationSporttoDel()
+{
+	if(document.delsport.delsport1.value=="" || document.delsport.delsport1.value==null || document.delsport.delsport1.value==undefined) 
+	 {
+	 alert("Please Select Field");
+	 return false;
+	 }
+DeleteSport()
+
+}
 
 
+function DeleteSport()
+{
+	document.getElementById("btn").disabled = true;
+	var input = document.getElementById('delsport1'),
+    list = document.getElementById('dels_drop2'),
+    i,delSportId;
 
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input.value) {
+    	delSportId= list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	var params = {};
+	params["delSportId"] =delSportId;
+	
+	params["methodName"] ="deletSportList";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+
+
+}

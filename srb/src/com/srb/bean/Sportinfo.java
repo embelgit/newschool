@@ -9,6 +9,7 @@ public class Sportinfo {
 	private String win;
 	private String Lose;
 	private String Award;
+	private String  SportParticipant;
 	
 	public String getWin() {
 		return win;
@@ -52,5 +53,10 @@ public class Sportinfo {
 	public void setLastName(String lastName) {
 		LastName = lastName;
 	}
-	
+	public String getSportParticipant() {
+		return SportParticipant;
+	}
+	public void setSportParticipant(String sportParticipant) {
+		SportParticipant = sportParticipant;
+	}
 }

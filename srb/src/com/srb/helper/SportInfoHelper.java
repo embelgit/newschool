@@ -153,6 +153,23 @@ public class SportInfoHelper {
 		 List<Sportinfo> expL= dao.getSportDetail(fk_class_id,fk_division_id);
 		 return expL;
 	}
+	// delete Participant List
 	
-	
+public void deleteParticipantDetails(HttpServletRequest request, HttpServletResponse response ) {
+		System.out.println("In Helper");
+		String delparticipantId = request.getParameter("delparticipantId");
+		SportInfoDao dao2 = new SportInfoDao();
+		dao2.deletParticipantDetails(delparticipantId);
+			
+		}
+
+// delete Sport Details
+public void deleteSportDetails(HttpServletRequest request, HttpServletResponse response ) {
+	System.out.println("In Helper");
+	String delSportId = request.getParameter("delSportId");
+	SportInfoDao dao2 = new SportInfoDao();
+	dao2.deletSportListDetails(delSportId);
+		
+	}
+
 }

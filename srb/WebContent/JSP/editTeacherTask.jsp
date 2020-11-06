@@ -1,14 +1,20 @@
-<%@page import="com.srb.bean.StoreMAnagementBean"%>
-<%@page import="com.srb.dao.StoreManagementDAO"%>
- 
+<%@page import="com.srb.hibernate.TeacherDailyTaskEntryHibernate"%>
+<%@page import="com.srb.dao.TeacherDailyTaskEntryDao"%>
+ <%@page import="com.srb.hibernate.ClassInfoHibernate"%>
+<%@page import="com.srb.dao.ClassInfoDao"%>
+<%@page import="com.srb.hibernate.DivisionInfoHibernate"%>
+<%@page import="com.srb.dao.DivisionInfoDao"%>
+ <%@page import="com.srb.dao.SubjectInfoDao"%>
+<%@page import="com.srb.hibernate.TeacherInfoHibernate"%>
+ <%@page import="com.srb.hibernate.SubjectInfoHibernate"%>
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
 <html>
 <head>
-  	<script src="/srb/staticContent/JS/storeManagement.js"></script>
+  	<script src="/srb/staticContent/JS/Teacher.js"></script>
   	<script type="text/javascript">
 	 function Back() {
-			 window.location = "StoreInventryList.jsp";
+			 window.location = "teacherDailyTaskEntry.jsp";
 	}
 
 </script>
@@ -16,7 +22,7 @@
 			function isAlphabetsWithSpace(evt) {
 		    evt = (evt) ? evt : window.event;
 		    var charCode = (evt.which) ? evt.which : evt.keyCode;
-		    if (charCode!=32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+		    if(charCode!=32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)){
 		        return false;
 		    }
 		    return true;
@@ -47,8 +53,8 @@
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><i class="pe-7s-world"></i></div>
                         <div class="header-title">
-                            <h1>Edit Store Details</h1>
-                            <small>edit store</small>
+                            <h1>Edit Teacher Task</h1>
+                            <small>edit task</small>
                         </div>
                     </div>
                 </section>
@@ -78,7 +84,7 @@
 		    <div class="form-group">
 			   <div class="col-sm-2 col-sm-offset-1" align="center">
 			        <div align=center-left">
-				       <h5><b><u>Store Inventory Details</u></b></h5>
+				       <h5><b><u>Teacher task Details</u></b></h5>
 			        </div>
 		       </div>
 			</div>
@@ -109,7 +115,7 @@
  			<div class="row">
 				<div class="form-group">
 				<div class="col-md-2 col-sm-offset-1" align="right">
-						<label class="control-label">Select Product Name:</label>
+						<label class="control-label">Select Teacher Name:</label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
@@ -122,18 +128,17 @@
 									</select> -->
 								
 						<%
-					StoreManagementDAO dao=new StoreManagementDAO();
-					List list4=dao.getStoreInventoryList();
-							%>
-							 <input list="storeInventoryList1" id="storeLists1" class="form-control" onchange="getStoreInventory1()">
-								<datalist id="storeInventoryList1">
+						TeacherDailyTaskEntryDao sdd3 = new TeacherDailyTaskEntryDao();
+							List sList3 = sdd3.getAllTeacherDetailForList1();
+							 %>
+							 <input list="teacherNameList" id="fk_teacher_id" class="form-control" placeholder="please select techer Name" onchange="getTeacherdailyTask()"/>
+								<datalist id="teacherNameList">
 								 <%
-									for (int i = 0; i < list4.size(); i++) {
-										StoreMAnagementBean sr=(StoreMAnagementBean)list4.get(i);
+									for (int i = 0; i < sList3.size(); i++) {
+										TeacherDailyTaskEntryHibernate sup = (TeacherDailyTaskEntryHibernate) sList3.get(i);
 								 %>
 
-								<option data-value="<%=sr.getPkStoreManagementId()%>"
-									value="<%=sr.getProductName()%>">
+								<option data-value="<%=sup.getPkTeacherDailyTaskId()%>"value="<%=sup.getTeacherName()%>, <%=sup.getClassName()%>, <%=sup.getDivision()%>, <%=sup.getSubjectName()%>">
 									<%
 										}
 									%>
@@ -142,15 +147,15 @@
 						</div>
 				
 					<div class="col-sm-2 " align="right">
-						<label class="control-label">Bill No:<sup>*</sup></label>
+						<label class="control-label">Class Name:<sup>*</sup></label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span> 
-							<input type="text" id='billno4' name="billno" class="form-control" readonly="readonly" />
-						</div>
+							<input type="text" id='clsname1' name="clsname1" class="form-control"  placeholder="Enter Class Name" />
+													</div>
 					</div>
 				
 				</div>
@@ -158,26 +163,26 @@
 			<div class="row">
 			<div class=" form-group">
 				<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">supplier name<sup>*</sup></label>
+						<label class="control-label">Division<sup>*</sup></label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span>
-							 <input type="text" id='supplierName4' name="supplierName" class="form-control"  placeholder="Enter Supplier Name" onkeypress="return isAlphabetsWithSpace(event)" />
+								<input type="text" id='DivisionName' name="DivisionName" class="form-control"  placeholder="Enter Division Name" onkeypress="return isAlphabetsWithSpace(event)" />
 						</div>
 					</div>
 					
 					<div class="col-sm-2 " align="right">
-						<label class="control-label">Date<sup>*</sup></label>
+						<label class="control-label">Subject Name<sup>*</sup></label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span> 
-							<input type="date" id='date4' name="date" class="form-control"  placeholder="select Date"> 
+							 <input type="text" id='subject' name="subject" class="form-control"  placeholder="Enter Subject" onkeypress="return isAlphabetsWithSpace(event)" />							 
 						</div>
 					</div>
 					
@@ -188,26 +193,26 @@
 			<div class="row">
 			<div class=" form-group">
 				<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Quantity<sup>*</sup></label>
+						<label class="control-label">Date<sup>*</sup></label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span>
-							 <input type="text" id='quantity4' name="quantity" class="form-control"  placeholder="Enter Quantity" onkeypress="return isNumber(event)" onchange="getcalculation()"/>
-						</div>
+							<input type="date" id='date4' name="date" class="form-control"  placeholder="select Date">
+							 						</div>
 					</div>
 					
 					<div class="col-sm-2 " align="right">
-						<label class="control-label">Buy Price<sup>*</sup></label>
+						<label class="control-label">Academic Year<sup>*</sup></label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							</span> 
-							<input type="text" id='buy_price4' name="buypricee" class="form-control"  placeholder="Buy Price" onkeypress="return isNumber(event)" onchange="getcalculation()"/> 
+							<input type="text" id='academic' name="academic" class="form-control"  placeholder="Enter Academic Year" onkeypress="return isNumber(event)" onchange="getcalculation()"/> 
 						</div>
 					</div>
 					
@@ -218,66 +223,28 @@
 				<div class="row">
 		    <div class="row form-group">
 			<div class="col-sm-2 col-sm-offset-1" align="right">
-				<label class="control-label">Gst percentage<sup>*</sup></label>
+				<label class="control-label">Task<sup>*</sup></label>
 			</div>
-			<div class="col-md-3">
-				<div class="selectContainer">
-					<div class="input-group">
-						<span class="input-group-addon">
-						<i class="glyphicon glyphicon-user"></i> </span>
-						
-						<input type="text" id='gst4' name="gst" class="form-control" placeholder="Enter a percentage" onkeypress="return isNumber(event)" onchange="getcalculation()" />
-								
-					</div>
-				</div>
+			<div class="col-sm-6">
+						<textarea id="taskInTextt" rows="07" cols="70"></textarea>
 			</div>
 			
 					
 		</div>
 		  </div>
 
-			<div class="row">
-				<div class="form-group">
-					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Gst Amount:</label>
-					</div>
-					<div class="col-sm-3">
-						<div class="input-group">
-							<span class="input-group-addon">
-							 <i class="glyphicon glyphicon-calendar"></i>
-							</span>
-							 <input type="text" id='gstamt4' name="gstamount" class="form-control"  readonly="readonly" />
-						</div>
-					</div>
-					
-					<div class="col-sm-2" align="right">
-						<label class="control-label">Total:</label>
-					</div>
-					<div class="col-sm-3">
-						<div class="input-group">
-							<span class="input-group-addon">
-							 <i class="glyphicon glyphicon-calendar"></i>
-							</span>
-							 <input type="text" id='gross_total4' name="total" class="form-control" readonly="readonly" />
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<div class="form-group row">
-                                <div class="col-md-offset-4 col-md-4 btn-center">
+                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="update" onclick="updatestoreInventory()" />update</button>
-                                       
+                                    <input class="ui positive button" name="btn" value="Update"  onclick="delTeacherTask()" style="width: 75px;">Save
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
-                                         
                                         
                                          </div>
                                 </div>
                             </div>
-			
-			
-         			</form>
+		</form>
                 
                 </div>
                 </div>

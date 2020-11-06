@@ -103,7 +103,7 @@ public void ClassDivisionSubjectTeacherAssocHibernate(ClassDivisionSubjectTeache
 				hbu = HibernateUtility.getInstance();
 				session = hbu.getHibernateSession();
 	
-				Query query=session.createSQLQuery("SELECT class_name, division_name, subject_name, teacher_name, academic_year FROM class_division_subject_teacher_association");
+				Query query=session.createSQLQuery("SELECT class_name, division_name, subject_name, teacher_name, academic_year,pk_class_division_subject_teacher_association_id FROM class_division_subject_teacher_association");
 				List<Object[]> list = query.list();
 	
 	
@@ -119,8 +119,7 @@ public void ClassDivisionSubjectTeacherAssocHibernate(ClassDivisionSubjectTeache
 				reports.setSubject_name(o[2].toString());
 				reports.setTeacher_name(o[3].toString());
 				reports.setAcademic_year(o[4].toString());
-				
-				
+				reports.setPkClassDivisionSubjectTeacherAssociationId(Long.parseLong(o[5].toString()));
 				classDetlsList.add(reports);
 	
 			}}catch(RuntimeException e){	
@@ -133,6 +132,40 @@ public void ClassDivisionSubjectTeacherAssocHibernate(ClassDivisionSubjectTeache
 			
 			return classDetlsList;
 			}
+			
+			
+			//delete class division subject asso
+			public void deletclassDivSubTeachAsso(String strpro_id) {
+				Long pk_class_division_subject_teacher_association_id = Long.parseLong(strpro_id);
+				HibernateUtility hbu = null ;
+				Transaction tx = null; 
+				Session session = null;
+				 List list  = null;
+				 try {
+					 hbu = HibernateUtility.getInstance();
+					 session = hbu.getHibernateSession();
+					 tx = session.beginTransaction();
+						Query query = session.createSQLQuery("DELETE FROM class_division_subject_teacher_association WHERE pk_class_division_subject_teacher_association_id =:pk_class_division_subject_teacher_association_id");
+						query.setParameter("pk_class_division_subject_teacher_association_id",pk_class_division_subject_teacher_association_id);
+						int seletedRecords = query.executeUpdate();
+						System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+						//list = query.list();
+						tx.commit();
+				} catch (Exception e) {
+					e.printStackTrace();
+					// TODO: handle exception
+				}
+					
+				 finally
+				 {
+					 if (session!=null) {
+						hbu.closeSession(session);
+					}
+				 }
+				
+			}
+
+			
 		
 
 }

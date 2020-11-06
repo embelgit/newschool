@@ -253,7 +253,7 @@
 						</div>
 						
 						<div class="col-sm-2" align="right">
-							<label class="control-label">Driver Name:</label>
+							<label class="control-label">Driver Name:<sup>*</sup></label>
 						</div>
 						<div class="col-sm-3">
 							<div class="input-group">
@@ -261,7 +261,7 @@
 									class="glyphicon glyphicon-hand-right"></i>
 								</span>
 								
-									<input id="DriverName" name="DriverName" type="text" class="form-control" placeholder="Enter DriverName">
+									<input id="DriverName" name="DriverName" type="text" class="form-control" onkeypress="return isAlphabetsWithSpace(event)" placeholder="Enter DriverName">
 							</div>
 						</div>
  				
@@ -299,7 +299,7 @@
 	           		 				<option value="paid">Paid</option>
 	           		 			
 	           		 			</select> -->
-	           		 			<input type="text" id='ContactNo' name="ContactNo" maxlength="10" placeholder="Enter ContactNo" class="form-control" />
+	           		 			<input type="text" id='ContactNo' name="ContactNo" maxlength="10" onkeypress="return isNumber(event)"placeholder="Enter ContactNo" class="form-control" />
 							</div>
 						</div>
 
@@ -338,7 +338,7 @@
 	           		 				<option value="paid">Paid</option>
 	           		 			
 	           		 			</select> -->
-	           		 			<input type="text" id='Pincode' name="Pincode" maxlength="6"  placeholder="Enter Pincode" class="form-control" />
+	           		 			<input type="text" id='Pincode' name="Pincode" maxlength="6" onkeypress="return isNumber(event)" placeholder="Enter Pincode" class="form-control" />
 							</div>
 						</div>
 						
@@ -357,7 +357,7 @@
 								<span class="input-group-addon"> 
 								<i class="glyphicon glyphicon-hand-right"></i>
 								</span>
-								<input type="text" id="payement" name="payement" class ="form-control" placeholder="Enter Fees">
+								<input type="text" id="payement" name="payement" class ="form-control" onkeypress="return isNumber(event)" placeholder="Enter Fees">
 								<!-- <textarea id='description' name="description" class="form-control" placeholder="enter description" onchange="getHrBillingGrid();clearHrCalculation();clearField()" rows="2" cols="10"></textarea> -->
 							</div>
 						</div>

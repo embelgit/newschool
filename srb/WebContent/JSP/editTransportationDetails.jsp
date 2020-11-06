@@ -1,36 +1,54 @@
-<%@page import="com.srb.hibernate.StudentInfoHibernate"%>
-<%@page import="com.srb.hibernate.TrasnpotationSchollBus"%>
-<%@page import="com.srb.dao.StudentInfoDao"%>
-<%@page import="com.srb.hibernate.ClassInfoHibernate"%>
-<%@page import="com.srb.dao.ClassInfoDao"%>
-<%@page import="com.srb.hibernate.SchoolInfoHibernate"%>
-<%@page import="com.srb.dao.SchoolInfoDao"%>
+<%@page import="com.srb.bean.GetTransportationDetails"%>
+<%@page import="com.srb.hibernate.TrasnpotationSchollBus" %>
+<%@page import="com.srb.dao.TransportationInfoDao"%>
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	
-  <script src="/srb/staticContent/JS/certificate.js"></script>	
-  <script src="/srb/staticContent/JS/Teacher.js"></script>
-  <script src="/srb/staticContent/JS/transportation.js"></script>
-	<script type="text/javascript">
-	function Back(){
-	window.location = "TranspotationBus2.jsp";
+  	<script src="/srb/staticContent/JS/transportation.js"></script>
+  	<script type="text/javascript">
+	 function Back() {
+			 window.location = "TranspotationBus2.jsp";
 	}
-	</script>
+
+</script>
+<script type="text/javascript">
+			function isAlphabetsWithSpace(evt) {
+		    evt = (evt) ? evt : window.event;
+		    var charCode = (evt.which) ? evt.which : evt.keyCode;
+		    if(charCode!=32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)){
+		        return false;
+		    }
+		    return true;
+			}
+
+
+		</script>
+ <script type="text/javascript">
+			function isNumber(evt) {
+		    evt = (evt) ? evt : window.event;
+		    var charCode = (evt.which) ? evt.which : evt.keyCode;
+		    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		        return false;
+		    }
+		    return true;
+		}
+	   </script>
+
+
 </head>
 <body>
+
 
 <div class="content-wrapper" style="min-height: 1134px;">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
 
                     <div class="p-l-30 p-r-30">
-                        <div class="header-icon"><i class="pe-7s-world"></i></div>
+                        <div class="header-icon"><img src="/srb/staticContent/Images/list.png" style="width: 55px;"></div>
                         <div class="header-title">
                             <h1>Edit Transportation Details</h1>
-                            <small>Transportation Details</small> 
+                            <small>edit Transportation</small>
                         </div>
                     </div>
                 </section>
@@ -39,21 +57,55 @@
 
                     <!-- content -->
                     <div class="row">
-    <!--  form area -->
-    <div class="col-sm-12">
+                    
+                        <div class="col-sm-12">
         <div class="panel panel-default thumbnail">
  
             <div class="panel-heading no-print">
-                <div class="btn-group"> 
-                    <a class="btn btn-primary" onclick="Back()"  accesskey="t""> <i class="fa fa-list"></i>Add Transportation Details </a>  
-                </div>
+                 <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="Back()" accesskey="t""> <i class="fa fa-list"></i>Back</a>  
+                </div>               
             </div> 
 
-            <div class="panel-body panel-form class-list">
+            <div class="panel-body panel-form">
                 <div class="row">
-                	<form class="form-horizontal " name ="edittmpd">
-				
-				<%-- <div class="row">
+            
+		
+		  <div class="row">
+		    <div class="form-group">
+			   <div class="col-sm-2 col-sm-offset-1" align="center">
+			        <div align=center-left">
+				       <h5><b><u>Transportation Details</u></b></h5>
+			        </div>
+		       </div>
+			</div>
+		  </div>
+		  <!-- <div class="row">
+		    <div class="row form-group">
+			<div class="col-sm-2 col-sm-offset-1" align="right">
+				<label class="control-label">Designation<sup>*</sup></label>
+			</div>
+			<div class="col-md-3">
+				<div class="selectContainer">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<i class="glyphicon glyphicon-user"></i> </span>
+						<select name="designation" class="form-control selectpicker" id="designation" onchange="getTeacherName()" >
+							<option value="">Select Designation</option>
+							<option>Teaching Staff</option>
+							<option>Non-Teaching Staff</option>
+							<option>Principal</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		  </div> -->
+		  
+		  
+ 			<form class="form-horizontal" method="post" name="edittmpd">
+			
+			<div class="row">
 				<div class="form-group">
 					<div class="col-md-2 col-sm-offset-1" align="right">
 						<label class="control-label">Class Name:</label><sup>*</sup>
@@ -65,19 +117,19 @@
 							</span>
 
 							<%
-								ClassInfoDao sdd = new ClassInfoDao();
-								List sList = sdd.getAllMainClass();
+							TransportationInfoDao sdd = new TransportationInfoDao();
+								List sList = sdd.getListToEditTransportaionDetails();
 							%>
 
-							<input list="classes" id="fk_class_id1" class="form-control" onchange="getDivisionNameByClassNameBonafide()">
-							<datalist id="classes">
+							<input list="studentNameList12" id="studentName12" class="form-control" onchange="getTransportationDetails()">
+							<datalist id="studentNameList12">
 							 <%
  	                            for (int i = 0; i < sList.size(); i++) {
- 		                        ClassInfoHibernate sup = (ClassInfoHibernate) sList.get(i);
+ 	                            	GetTransportationDetails gt = (GetTransportationDetails) sList.get(i);
                              %>
 
-							<option data-value="<%=sup.getPkClassId()%>"
-								value="<%=sup.getClas()%>">
+							<option data-value="<%=gt.getPkTranspaymentId()%>"
+								value="<%=gt.getStudentName()%> ,<%=gt.getContactNo()%>">
 								<%
 									}
 								%>
@@ -86,158 +138,24 @@
 						</div>
 					</div>
 
-
-					<div class="col-sm-2" align="right">
-						<label class="control-label">Division Name:</label><sup>*</sup>
+					
+					<div class="col-sm-2 " align="right">
+						<label class="control-label">Driver Name:<sup>*</sup></label>
 					</div>
-					<div class="col-md-3">
+					<div class="col-sm-3">
 						<div class="input-group">
-							<span class="input-group-addon"> <i
-								class="glyphicon glyphicon-pencil"></i>
-							</span>
-
-							<%
-								DivisionInfoDao sdd1 = new DivisionInfoDao();
-								List sList2 = sdd1.getAllMainDivision();
-							     %>
-
-							<input list="division" id="fk_division_id" class="form-control" onchange="getStudentDetailsAsPerClassAdDivision()">
-							<datalist id="division"> <%
-									for (int i = 0; i < sList2.size(); i++) {
-										DivisionInfoHibernate sup = (DivisionInfoHibernate) sList2.get(i);
-								%>
-
-							<option data-value="<%=sup.getPkDivisionId()%>"
-								value="<%=sup.getDivision() %>">
-								<%
-										}
-									%>
-							
-							</datalist>
-							
-							
-							<input list="division" id="fk_division_id" class="form-control" onchange="getStudentDetailsAsPerClassAdDivision()">
-							<datalist id="division"></datalist>
-							
+							<span class="input-group-addon">
+							<i class="glyphicon glyphicon-user"></i>
+							</span> 
+							 <input type="text" id='DriverName12' name="DriverName12" class="form-control"  placeholder="Enter Driver Name" />							 
 						</div>
 					</div>
+					
 				</div>
-			</div> --%>
+				</div>
+			
 				
-			<div class="row">
- 			<div class="form-group">
- 					
- 					<label class="col-md-2 col-sm-offset-1 control-label"  align="right">Student Name:<sup>*</sup>
- 					</label> 
-           							  <div class="col-md-3">
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="glyphicon glyphicon-user"></i>
-											</span>
-											
-											<%
-												StudentInfoDao sdd3 = new StudentInfoDao();
-												List sList4 = sdd3.getAllMainStudentfromtrans();
-											 %>
-												 <input list="studentNameList" id="studentName" class="form-control" onchange="getTransportationDetails()">
-										<datalist id="studentNameList">
-								 <%
-									for (int i = 0; i < sList4.size(); i++) {
-										TrasnpotationSchollBus sup = (TrasnpotationSchollBus) sList4.get(i);
-								 %>
-
-								<option data-value="<%=sup.getPkTrasnpotationSchollBusId()%>"
-<%-- 									value="<%=sup.getFirstName()%> <%=sup.getMiddleName()%> <%=sup.getLastName()%>"> --%>
-								value="<%=sup.getStudentName()%>">
-									<%
-										}
-									%>
-								</datalist>
-											<!-- <select id="studentName" class="form-control" onchange="getTransportationDetails()">
-											</select> -->
-           							 </div>
-								</div> 
-								<%-- <div class="col-md-3">
-						<div class="input-group">
-							<span class="input-group-addon"> <i
-								class="glyphicon glyphicon-hand-right"></i>
-							</span>
-						<%
-						StudentInfoDao sdd3 = new StudentInfoDao();
-							List sList4 = sdd3.getAllMainStudent();
-							 %>
-							 <input list="studentNameList" id="fk_Student_id" class="form-control">
-								<datalist id="studentNameList">
-								 <%
-									for (int i = 0; i < sList4.size(); i++) {
-										StudentInfoHibernate sup = (StudentInfoHibernate) sList4.get(i);
-								 %>
-
-								<option data-value="<%=sup.getPkStudentId()%>"
-									value="<%=sup.getFirstName()%> <%=sup.getMiddleName()%> <%=sup.getLastName()%>">
-									<%
-										}
-									%>
-								</datalist>
-							</div>
-						</div> --%>
-						
-						<!-- <div class="col-sm-2" align="right">
-						<label class="control-label">Driver Name:</label><sup>*</sup>
-					</div>
-					<div class="col-md-3">
-						<div class="input-group">
-							<span class="input-group-addon"> <i
-								class="glyphicon glyphicon-pencil"></i>
-							</span>
-																					
-							<input id="DriverName" name="DriverName" type="text" class="form-control" placeholder="Enter DriverName">
-							
-							
-						</div>
-					</div> -->
- 				
-				</div>
-			</div>
-			
-			
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-2 col-sm-offset-1" align="right">
-						<label class="control-label">Driver Name:</label><sup>*</sup>
-					</div>
-					<div class="col-md-3">
-						<div class="input-group">
-							<span class="input-group-addon"> <i
-								class="glyphicon glyphicon-pencil"></i>
-							</span>
-																					
-							<input id="DriverName" name="DriverName" type="text" class="form-control" placeholder="Enter DriverName">
-							
-							
-						</div>
-					</div>
-
-
-					<!-- <div class="col-sm-2" align="right">
-						<label class="control-label">Driver Name:</label><sup>*</sup>
-					</div>
-					<div class="col-md-3">
-						<div class="input-group">
-							<span class="input-group-addon"> <i
-								class="glyphicon glyphicon-pencil"></i>
-							</span>
-																					
-							<input id="DriverName" name="DriverName" type="text" class="form-control" placeholder="Enter DriverName">
-							
-							
-						</div>
-					</div> -->
-				</div>
-			</div>
-			
-							           		
-           		<div class="row">
+				<div class="row">
 					<div class="form-group">
 					
 						<div class="col-sm-2 col-sm-offset-1" align="right">
@@ -248,7 +166,7 @@
 								<span class="input-group-addon"> 
 								<i class="glyphicon glyphicon-calendar"></i>
 								</span>
-								<input type="date" id='leaveDateFrom' name="leaveDateFrom" class="form-control">
+								<input type="date" id='leaveDateFrom12' name="leaveDateFrom12" class="form-control">
 							</div>
 						</div>
 
@@ -269,17 +187,16 @@
 	           		 				<option value="paid">Paid</option>
 	           		 			
 	           		 			</select> -->
-	           		 			<input type="text" id='ContactNo' name="ContactNo"  placeholder="Enter ContactNo" class="form-control" />
+	           		 			<input type="text" id='ContactNo12' name="ContactNo12" maxlength="10" onkeypress="return isNumber(event)"placeholder="Enter ContactNo" class="form-control" />
 							</div>
 						</div>
 
 						
 					</div>
 				</div>
-           		
-           		
-           		
-           		<div class="row">
+				
+				
+				<div class="row">
 					<div class="form-group">
 					<h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4>
 						<div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;">
@@ -287,7 +204,7 @@
 								<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-calendar"></i>
 								</span>
-						 <input type="date" id='leaveDateTo' name="leaveDateTo" class="form-control" />
+						 <input type="date" id='leaveDateTo12' name="leaveDateTo12" class="form-control" />
 							</div>
 							
 						</div>
@@ -309,18 +226,15 @@
 	           		 				<option value="paid">Paid</option>
 	           		 			
 	           		 			</select> -->
-	           		 			<input type="text" id='Pincode' name="Pincode"  placeholder="Enter Pincode" class="form-control" />
+	           		 			<input type="text" id='Pincode12' name="Pincode12" maxlength="6" onkeypress="return isNumber(event)" placeholder="Enter Pincode" class="form-control" />
 							</div>
 						</div>
 						
 						
 					</div>
 				</div>
-			
-			
-			
-			
-           		<div class="row">
+				
+				<div class="row">
 					<div class="form-group">
 					
 						<div class="col-sm-2 col-sm-offset-1" align="right">
@@ -331,7 +245,7 @@
 								<span class="input-group-addon"> 
 								<i class="glyphicon glyphicon-hand-right"></i>
 								</span>
-								<input type="text" id="payement" name="payement" class ="form-control" placeholder="Enter Fees">
+								<input type="text" id="payement12" name="payement12" class ="form-control" onkeypress="return isNumber(event)" placeholder="Enter Fees">
 								<!-- <textarea id='description' name="description" class="form-control" placeholder="enter description" onchange="getHrBillingGrid();clearHrCalculation();clearField()" rows="2" cols="10"></textarea> -->
 							</div>
 						</div>
@@ -346,54 +260,32 @@
 								</span>
 								
 									<!-- <input id="approvedBy" name="approvedBy" type="text" class="form-control" placeholder="Approved by"> -->
-									<textarea id='Address' name="Address" class="form-control" placeholder="Enter Address" onchange="getHrBillingGrid();clearHrCalculation();clearField()" rows="2" cols="10"></textarea>
+									<textarea id='Address12' name="Address12" class="form-control" placeholder="Enter Address"  rows="2" cols="10"></textarea>
 							</div>
 						</div>
-
+</div>
 						
 					</div>
 				</div>
-				</div>
-			
-			
-			
-			
-			
-			
-			 	
-			
-			
-			
-			 
-<!-- 		
-		 <div class="row">
-				<div class="form-group">
-
-				</div>
-			</div>
-		 -->
-			</div>
-			
+				
+				
 			<div class="form-group row">
-                                <div class="col-md-offset-4 col-md-4 btn-center">
+                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <button class="ui positive button" name="btn" value="Update" onclick="validationUpdateTransportationInfo()">Update</button>
-                                       
+                                    <input class="ui positive button" name="btn" id="btn" value="Update"  onclick="validationUpdateTransportation3()" style="width: 90px;">save
                                         <div class="or"></div>
-                                         <button type="reset" class="ui button" value="Clear" >Reset</button>
-                                         
-                                          </div>
+                                         <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
+                                        
+                                         </div>
                                 </div>
                             </div>
-				
-		</form>		
+                            
+		</form>
                 
                 </div>
                 </div>
                 </div>
 
-</body>
 </html>				
-					
-	<%@include file="commons/newFooter.jsp" %>         
-			
+		<%@include file="commons/newFooter.jsp" %> 			
+	        

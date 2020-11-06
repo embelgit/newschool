@@ -54,7 +54,7 @@
 			<div class="row">
 				<div class="form-group">
 					<!-- <div class="col-md-2 col-sm-offset-2" align="right"> -->
-						<label class="col-md-2 control-label col-sm-offset-1" align="right">Select Teacher Name:</label>
+						<label class="col-md-2 control-label col-sm-offset-1" align="right">Select Subject,Class, Division:</label>
 						 <div class="col-md-3">
 						<div class="input-group">
 							<span class="input-group-addon">
@@ -73,7 +73,7 @@
           			for(int z=0;z<listt.size();z++){
           				HomeWorkTeacherDailyTaskEntryHibernate bean = (HomeWorkTeacherDailyTaskEntryHibernate)listt.get(z);
           			%> 
-          			<option data-value="<%=bean.getPkTeacherDailyTaskId()%>"><%=bean.getTeacherName()%></option>
+          			<option data-value="<%=bean.getPkTeacherDailyTaskId()%>"><%=bean.getSubjectName()%> , <%=bean.getClassName() %> , <%=bean.getDivision()%></option>
 							<%
 				      			}
 				    		%>

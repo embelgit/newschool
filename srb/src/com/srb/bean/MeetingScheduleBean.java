@@ -12,6 +12,9 @@ public class MeetingScheduleBean  {
 	private Long fkDivId;
 	private String message;
 	private String insertDate;
+	private String className;
+	private String divisionName;
+	
 	public Long getPkScheduleMeetingsId() {
 		return pkScheduleMeetingsId;
 	}
@@ -42,6 +45,18 @@ public class MeetingScheduleBean  {
 	public void setInsertDate(String insertDate) {
 		this.insertDate = insertDate;
 	}
+	public String getClassName() {
+		return className;
+	}
+	public void setClassName(String className) {
+		this.className = className;
+	}
+	public String getDivisionName() {
+		return divisionName;
+	}
+	public void setDivisionName(String divisionName) {
+		this.divisionName = divisionName;
+	}
 
-
+	
 }

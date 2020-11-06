@@ -298,3 +298,52 @@
 	 	    	
 	 	    	})
 	  }
+ // delete Notice
+ function ValidationdeleteNotice()
+ {
+	 if(document.delstrpro14.field2.value=="" || document.delstrpro14.field2.value==null || document.delstrpro14.field2.value==undefined) 
+		 {
+		 alert("Please Select Field");
+		 return false;
+		 }
+	 DeleteNotice();
+ }
+ function DeleteNotice()
+ {
+	 document.getElementById("btn").disabled = true;
+	 var input = document.getElementById('field2'),
+	    list = document.getElementById('field_drop2'),
+	    i,Noticeid;
+
+		for (i = 0; i < list.options.length; ++i) {
+	    if (list.options[i].value === input.value) {
+	    	Noticeid= list.options[i].getAttribute('data-value');
+	    	}
+		}
+		
+		var params = {};
+		params["Noticeid"] =Noticeid;
+		
+		params["methodName"] ="deletNotice";
+		
+		$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+	 	    	{
+	 		if(data=="↵↵↵↵↵↵↵"){
+	 			alert("Not Added");
+	 		}
+	 		else{
+	 			alert(data);
+	 		}
+	 			location.reload();
+
+	 			}
+	 	    	).error(function(jqXHR, textStatus, errorThrown){
+	 	    		if(textStatus==="timeout") {
+	 	    			$(loaderObj).hide();
+	 	    			$(loaderObj).find('#errorDiv').show();
+	 	    		}
+	 	    	});
+
+	 
+ }
+ 

@@ -205,19 +205,12 @@ function ClassDivisionSubjectTeacherAssoc(){
 		alert("Please Select Division Name ");
 		return false;
 	}
-	/*if(document.Class.fk_subject_id.value ==""){
-		alert("Please Select Subject Name ");
-		return false;
-	}*/
 	if(document.Class.academicYear.value ==""){
 		alert("Please Select Academic Year ");
 		return false;
 	}
-	/*if(document.Class.fk_teacher_id.value ==""){
-		alert("Please Select Teacher Name ");
-		return false;
-	}*/
 	ClassDivisionSubjectTeacherAssoc1();
+	
 }
 function ClassDivisionSubjectTeacherAssoc1(){
 	var params = {};
@@ -307,7 +300,6 @@ function ClassDivisionSubjectTeacherAssoc1(){
  	
 $.post('/srb/JSP/utility/controller.jsp',params,function(data)
 	    	{
-	 	
 	 		alert(data)
 	 		location.reload();
 			}
@@ -352,7 +344,6 @@ function getDivisionNameByClassName()
 			var jsonData = $.parseJSON(data);
 			$.each(jsonData,function(i,v)
 					{
-				
 						
 						/*$("#vendorList_Drop").append($("<option></option>").attr("value",(v.vendorName))); */
 						$("#division").append($("<option></option>").attr("value",(v.divisionName)).attr("data-value",(v.pkDivisionId)));
@@ -364,6 +355,55 @@ function getDivisionNameByClassName()
 				}
 			});
 }
+
+// delete class details
+function delClassdivsubTeacher()
+{
+if(document.delstrpro1.field2.value==null||document.delstrpro1.field2.value=="" || document.delstrpro1.field2.value==undefined)
+	{
+	alert("Please Select Field To Delete");
+	return false;
+	}
+delClassdivsubTeacher1();
+}
+function delClassdivsubTeacher1()
+{
+	var input = document.getElementById('field2'),
+    list = document.getElementById('field_drop1'),
+    i,pkid;
+
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input.value) {
+    	pkid = list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	var params = {};
+	
+	params["pkid"] =pkid;
+	
+	params["methodName"] = "deletclassdivSubTeacher";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+	
+}
+	
 
 
 

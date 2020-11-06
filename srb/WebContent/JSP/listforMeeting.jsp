@@ -100,8 +100,8 @@
 			<thead>
 				<tr>
 					<th>Sr No</th>
-					<th>Meeting Id</th>
-	                <th>Class Name</th>
+					<th>Class Name</th>
+	                <th>Division</th>
 					<th>Message</th>
 	                <th>Date</th>
 					
@@ -118,10 +118,10 @@
 				
 				<tr>
 					<td class="align"><%=k%></td>
-					<td class="align"><%=sr.getPkScheduleMeetingsId()%></td>
-					<td class="align"><%=sr.getFkclassId()%></td>
+					<td class="align"><%=sr.getClassName()%></td>
+					<td class="align"><%=sr.getDivisionName()%></td>
 					<td class="align"><%=sr.getMessage() %></td>
-					<td class="align"><%=sr.getInsertDate() %></td>
+					<td class="align"><%=sr.getInsertDate()%></td>
 				</tr>
 	
 				<%

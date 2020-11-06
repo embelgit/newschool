@@ -1,14 +1,18 @@
 package com.srb.helper;
-
+import com.srb.bean.MeetingScheduleBean;
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transaction;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -32,11 +36,28 @@ public class MeetingScheduleHelper {
 		String fkclassId = request.getParameter("fk_class_id");
 		String fkDivId = request.getParameter("fk_division_id");
 		String message = request.getParameter("message");
-		
+		String date=request.getParameter("date");
 		MeetingScheduleHibernate b = new MeetingScheduleHibernate();
-
-		Date date = new Date();
-		b.setInsertDate(date);
+		
+		if(!"".equals(date)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(date);
+				//det.setStoreDate(joiningDate);
+				b.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   "+b.getInsertDate());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
+		//Date date = new Date();
+		//b.setInsertDate(date);
 		b.setFkclassId(Long.parseLong(fkclassId));
 		b.setFkDivId(Long.parseLong(fkDivId));
 		b.setMessage(message);
@@ -151,5 +172,174 @@ public class MeetingScheduleHelper {
 		 		}*/
 		
 	}
+	
+	// edit parents Meeting
+	public Map getParentMeetingEdit(Long fkteacherID) {
 
+	 	System.out.println("into helper class");
+	 	MeetingScheduleDao dao1 = new MeetingScheduleDao();
+		List catList = dao1.getParentMeetingForEdit1(fkteacherID);
+		
+		Map  map =  new HashMap();
+		for(int i=0;i<catList.size();i++)
+		{
+			Object[] o = (Object[])catList.get(i);
+			MeetingScheduleBean reports = new MeetingScheduleBean();
+		reports.setClassName(o[0].toString());
+		reports.setDivisionName(o[1].toString());
+		reports.setMessage(o[2].toString());
+		String d = o[3].toString();
+		String dt[] = d.split("-");
+		String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
+		reports.setInsertDate(insertDate);
+		reports.setPkScheduleMeetingsId(Long.parseLong(o[4].toString()));
+		reports.setFkclassId(Long.parseLong(o[5].toString()));
+		reports.setFkDivId(Long.parseLong(o[6].toString()));
+			map.put(reports.getPkScheduleMeetingsId(),reports);
+		}
+		System.out.println("out of helper return map : "+map);
+		return map;
+	
+	
+	}
+	public void updateParentMeetingDetail(HttpServletRequest request,
+			HttpServletResponse response) {
+		Session session = null;
+		System.out.println("IN helper");
+		String meetingId =request.getParameter("meetingId");
+		String taskInTextt =request.getParameter("taskInTextt3");
+		String date=request.getParameter("date5");
+		System.out.println("----------------------meetingId-----------------------"+meetingId);
+		System.out.println("------------------------taskInTextt------------------"+taskInTextt);
+		System.out.println("----------------------date amt-----------------------"+date);
+		com.srb.utility.HibernateUtility hbu=null;
+		org.hibernate.Transaction transaction = null;
+		 hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		 transaction = session.beginTransaction();
+		Long pkScheduleMeetingsId=Long.parseLong(meetingId);
+		MeetingScheduleHibernateparents det = (MeetingScheduleHibernateparents) session.load(MeetingScheduleHibernateparents.class, pkScheduleMeetingsId);
+		det.setPkScheduleMeetingsId(pkScheduleMeetingsId);
+		det.setMessage(taskInTextt);
+		if(!"".equals(date)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(date);
+				//det.setStoreDate(joiningDate);
+				det.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   "+det.getInsertDate());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
+	
+		System.out.println("updated in Parents Meeting Hibernate");
+		com.srb.utility.HibernateUtility hbu2=null;
+		//Session session = null;
+		 session.saveOrUpdate(det);
+			transaction.commit();
+		
+		}
+
+	// delete Parents Meeting
+public void deletesParentMeeting(HttpServletRequest request, HttpServletResponse response ) {
+		
+		String fieldId1 = request.getParameter("fieldId");
+		MeetingScheduleDao dao2 = new MeetingScheduleDao();
+		dao2.deletparentMeeting(fieldId1);
+			
+		}
+
+	public void deleteScheduleMeeting(HttpServletRequest request,HttpServletResponse response)
+	{
+		String field2=request.getParameter("fieldId2");
+		MeetingScheduleDao dao2 = new MeetingScheduleDao();
+		dao2.delScheduleMeeting(field2);
+	}
+	//edit schedule Meeting
+	
+	public Map getScheduleMeetingToEdit(Long fkteacherID) {
+
+	 	System.out.println("into helper class");
+	 	MeetingScheduleDao dao1 = new MeetingScheduleDao();
+		List catList = dao1.getScheduleMeetingForEdit(fkteacherID);
+		
+		Map  map =  new HashMap();
+		for(int i=0;i<catList.size();i++)
+		{
+			Object[] o = (Object[])catList.get(i);
+			MeetingScheduleBean reports = new MeetingScheduleBean();
+		reports.setClassName(o[0].toString());
+		reports.setDivisionName(o[1].toString());
+		reports.setMessage(o[2].toString());
+		String d = o[3].toString();
+		String dt[] = d.split("-");
+		String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
+		reports.setInsertDate(insertDate);
+		reports.setPkScheduleMeetingsId(Long.parseLong(o[4].toString()));
+		reports.setFkclassId(Long.parseLong(o[5].toString()));
+		reports.setFkDivId(Long.parseLong(o[6].toString()));
+			map.put(reports.getPkScheduleMeetingsId(),reports);
+		}
+		System.out.println("out of helper return map : "+map);
+		return map;
+}
+
+	//update schedule Meeting
+	public void updatescheduleMeetingDetail(HttpServletRequest request,
+			HttpServletResponse response) {
+		Session session = null;
+		System.out.println("IN helper");
+		String meetingId =request.getParameter("meetingId2");
+		String taskInTextt =request.getParameter("taskInTextt3");
+		String date=request.getParameter("date3");
+		System.out.println("----------------------meetingId-----------------------"+meetingId);
+		System.out.println("------------------------taskInTextt------------------"+taskInTextt);
+		System.out.println("----------------------date amt-----------------------"+date);
+		com.srb.utility.HibernateUtility hbu=null;
+		org.hibernate.Transaction transaction = null;
+		 hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		 transaction = session.beginTransaction();
+		Long pkScheduleMeetingsId=Long.parseLong(meetingId);
+		MeetingScheduleHibernate det = (MeetingScheduleHibernate) session.load(MeetingScheduleHibernate.class, pkScheduleMeetingsId);
+		det.setPkScheduleMeetingsId(pkScheduleMeetingsId);
+		det.setMessage(taskInTextt);
+		if(!"".equals(date)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(date);
+				//det.setStoreDate(joiningDate);
+				det.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   "+det.getInsertDate());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
+	
+		System.out.println("updated in Schedule Hibernate");
+		com.srb.utility.HibernateUtility hbu2=null;
+		//Session session = null;
+		 session.saveOrUpdate(det);
+			transaction.commit();
+		
+		}
+
+
+	
+	
+	
+	
 }

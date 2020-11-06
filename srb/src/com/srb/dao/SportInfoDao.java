@@ -226,5 +226,149 @@ public List getSportDetail( String fk_class_id, String fk_division_id) {
 
 
 }
+//List to delete Sport Participant
+public List getAllSportparticipanttoDelete(){
+
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<Sportinfo> custList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("select Pk_Sport_Participant, firstName,middleName,LastName,Sport_Participant from sportparticipant_details");
+	//Query query = session.createQuery("from PurchaseBill2");
+	List<Object[]> list = query.list();
+
+
+	custList= new ArrayList<Sportinfo>(0);
+
+for (Object[] o : list) {	
+	Sportinfo r = new Sportinfo();
+	r.setPkSportid(Long.parseLong(o[0].toString()));
+	r.setFirstName(o[1].toString());
+	r.setMiddleName(o[2].toString());
+	r.setLastName(o[3].toString());
+	r.setSportParticipant(o[4].toString());
+		
+	custList.add(r);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+	if(session!=null){
+		
+		hbu.closeSession(session);
+	}	
+}
+return custList;
+
+}
+// delete Participant 
+public void deletParticipantDetails(String TransportId1) {
+	Long Pk_Sport_Participant= Long.parseLong(TransportId1);
+	System.out.println("In DAO");
+	HibernateUtility hbu = null ;
+	Transaction tx = null; 
+	Session session = null;
+	 List list  = null;
+	 try {
+		 hbu = HibernateUtility.getInstance();
+		 session = hbu.getHibernateSession();
+		 tx = session.beginTransaction();
+			Query query = session.createSQLQuery("DELETE FROM sportparticipant_details WHERE Pk_Sport_Participant =:Pk_Sport_Participant");
+			query.setParameter("Pk_Sport_Participant",Pk_Sport_Participant);
+			int seletedRecords = query.executeUpdate();
+			System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+			//list = query.list();
+			tx.commit();
+	} catch (Exception e) {
+		e.printStackTrace();
+		// TODO: handle exception
+	}
+		
+	 finally
+	 {
+		 if (session!=null) {
+			hbu.closeSession(session);
+		}
+	 }
+	
+}
+
+
+public List getAllSporttoDelete(){
+
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<SportInfoHibernate> custList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("select pk_sport_id,Create_activity from sport_master");
+	//Query query = session.createQuery("from PurchaseBill2");
+	List<Object[]> list = query.list();
+
+
+	custList= new ArrayList<SportInfoHibernate>(0);
+
+for (Object[] object : list) {	
+	SportInfoHibernate reports = new SportInfoHibernate();
+	reports.setPkSportId(Long.parseLong(object[0].toString()));
+	reports.setCreateactivity((object[1].toString()));
+	
+	custList.add(reports);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return custList;
+
+}
+
+public void deletSportListDetails(String TransportId1) {
+	Long pk_sport_id= Long.parseLong(TransportId1);
+	System.out.println("In DAO");
+	HibernateUtility hbu = null ;
+	Transaction tx = null; 
+	Session session = null;
+	 List list  = null;
+	 try {
+		 hbu = HibernateUtility.getInstance();
+		 session = hbu.getHibernateSession();
+		 tx = session.beginTransaction();
+			Query query = session.createSQLQuery("DELETE FROM sport_master WHERE pk_sport_id =:pk_sport_id");
+			query.setParameter("pk_sport_id",pk_sport_id);
+			int seletedRecords = query.executeUpdate();
+			System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+			//list = query.list();
+			tx.commit();
+	} catch (Exception e) {
+		e.printStackTrace();
+		// TODO: handle exception
+	}
+		
+	 finally
+	 {
+		 if (session!=null) {
+			hbu.closeSession(session);
+		}
+	 }
+	
+}
+
+
+
+
+
+
 
 }

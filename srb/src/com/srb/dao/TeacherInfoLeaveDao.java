@@ -174,9 +174,6 @@ for (Object[] object : list)
 {	
 	
 	GetTransportationDetails reports = new GetTransportationDetails();
-
-	
-	
 	reports.setFirstName(object[0].toString());
 	reports.setMiddleName(object[1].toString());
 	reports.setLastName(object[2].toString());

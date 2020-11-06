@@ -15,12 +15,6 @@
 <head>
 
 <script src="/srb/staticContent/JS/Teacher.js"></script>
-  <script type="text/javascript">
-	
-	 function TeacherTaskList() {
-		 window.location = "ListTeacherTask.jsp";
-}
-</script>
 
 </head>
 
@@ -48,10 +42,7 @@
         <div class="panel panel-default thumbnail">
  
             <div class="panel-heading no-print">
-                <div class="btn-group"> 
-                    <a class="btn btn-primary"   onclick="TeacherTaskList()" accesskey="t""> <i class="fa fa-list"></i>List </a>  
-                </div>
-               
+                
             </div> 
 
             <div class="panel-body panel-form">

@@ -11,7 +11,11 @@
 	 function Back() {
 			 window.location = "Sport.jsp";
 	}
-
+	function del()
+	{
+		
+		window.location="DeleteSport.jsp";
+	}
 </script>
 	<!-- For datatable to pdf,print,excel etc conversion -->
 		<script type="text/javascript" src="/srb/staticContent/jsForReport/jquery-1.12.4.js"></script> 
@@ -57,6 +61,9 @@ td {
        <div class="panel-heading no-print">
                 <div class="btn-group"> 
                     <a class="btn btn-primary" onclick="Back()"  accesskey="t""> <i class="fa fa-list"></i>Add Sports</a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary" onclick="del()"  accesskey="t""> <i class="fa fa-list"></i>Delete Sports</a>  
                 </div>
                 </div>
                

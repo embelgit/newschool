@@ -4,8 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import com.srb.bean.GetSchoolDetailBean;
 import com.srb.dao.SchoolInfoDao;
+import com.srb.dao.TransportationInfoDao;
+import com.srb.hibernate.TrasnpotationSchollBus;
+import com.srb.utility.HibernateUtility;
 
 public class TransportationInfoHelper {
 	//get school detail to edit
@@ -40,4 +49,70 @@ public class TransportationInfoHelper {
 		return map;
 	
 	}
+	
+public void deletesTransportationDetails(HttpServletRequest request, HttpServletResponse response ) {
+		
+		String TransportId = request.getParameter("TransportId");
+		TransportationInfoDao dao2 = new TransportationInfoDao();
+		dao2.deletTransport(TransportId);
+			
+		}
+public void updateTransportationInfoDetail(HttpServletRequest request,
+		HttpServletResponse response) {
+
+	String studId = request.getParameter("studId1");
+	System.out.println("studId"+studId);
+	String leaveDateFrom = request.getParameter("leaveDateFrom");
+	System.out.println("leaveDateFrom"+leaveDateFrom);
+	String DriverName = request.getParameter("DriverName");
+	System.out.println(" DriverName == "+DriverName);
+	String leaveDateTo = request.getParameter("leaveDateTo");
+	System.out.println("leaveDateTo"+leaveDateTo);
+	String ContactNo = request.getParameter("ContactNo");
+	System.out.println("ContactNo"+ContactNo);
+	
+	String Pincode = request.getParameter("Pincode");
+	System.out.println("Pincode"+Pincode);
+	String payement = request.getParameter("payement");
+	System.out.println("payement"+payement);
+	String Address = request.getParameter("Address");
+	System.out.println("Address"+Address);
+	//String fk_class_id1 = request.getParameter("fk_class_id1");
+	//System.out.println("fk_class_id1"+fk_class_id1);
+//	String fk_division_id = request.getParameter("fk_division_id");
+//	System.out.println("fk_division_id"+fk_division_id);
+	
+	
+	com.srb.utility.HibernateUtility hbu=null;
+	Session session = null;
+	Transaction transaction = null;
+	
+	 hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+	 transaction = session.beginTransaction();
+
+	//long customerId = Long.parseLong(customerId);
+	//String schoolInfoId = studentName;
+	 long pkTrasnpotationSchollBusId = Long.parseLong(studId);
+	
+	TrasnpotationSchollBus tsb = (TrasnpotationSchollBus) session.load(TrasnpotationSchollBus.class, pkTrasnpotationSchollBusId);
+	tsb.setPkTrasnpotationSchollBusId(pkTrasnpotationSchollBusId);
+	tsb.setDriverName(DriverName);
+	tsb.setLeaveDateFrom(leaveDateFrom);
+	tsb.setContactNo(Long.parseLong(ContactNo));
+	tsb.setLeaveDateTo(leaveDateTo);
+	tsb.setPincode(Long.parseLong(Pincode));
+	tsb.setPayement(Double.parseDouble(payement));
+	tsb.setAddress(Address);
+	//tsb.setFkclassid(Long.parseLong(fk_class_id1));
+	//tsb.setFkdivisionid(Long.parseLong(fk_division_id));
+	
+	System.out.println("update in transportation hibernate");
+    session.saveOrUpdate(tsb);
+	transaction.commit();
+	
+}
+	
+	
+	
 }

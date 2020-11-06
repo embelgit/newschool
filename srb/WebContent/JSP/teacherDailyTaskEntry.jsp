@@ -30,6 +30,18 @@ function imageIsLoaded(e) {
 
 </script>
 <script src="/srb/staticContent/JS/Teacher.js"></script>
+ <script type="text/javascript">
+	
+	 function TeacherTaskList() {
+		 window.location = "ListTeacherTask.jsp";
+}
+	 function editTeacherTaskList(){
+		 window.location = "editTeacherTask.jsp";
+}
+	 function deleteTeacherTaskList(){
+		 window.location = "deleteTeacherTask.jsp";
+}
+</script>
 </head>
 <body>
 
@@ -55,7 +67,15 @@ function imageIsLoaded(e) {
         <div class="panel panel-default thumbnail">
  
             <div class="panel-heading no-print">
-             
+              <div class="btn-group"> 
+                    <a class="btn btn-primary"   onclick="TeacherTaskList()" accesskey="t""> <i class="fa fa-list"></i>List </a>  
+                </div>
+                 <div class="btn-group"> 
+                    <a class="btn btn-primary"   onclick="editTeacherTaskList()" accesskey="t""> <i class="fa fa-list"></i>Edit </a>  
+                </div>
+                 <div class="btn-group"> 
+                    <a class="btn btn-primary"   onclick="deleteTeacherTaskList()" accesskey="t""> <i class="fa fa-list"></i>Delete </a>  
+                </div>
             </div> 
 
             <div class="panel-body panel-form">
@@ -65,6 +85,21 @@ function imageIsLoaded(e) {
 
 
 			<form class="form-horizontal" method="post" enctype="multipart/form-data" name="DailyTask">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-2 " align="right">
+						<label class="control-label">Date<sup>*</sup></label>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							<i class="glyphicon glyphicon-user"></i>
+							</span> 
+							<input type="date" id='date3' name="buypricee" class="form-control"  placeholder="select Date"> 
+						</div>
+					</div>
+					</div>
+	
 			<div class="row">
 				<div class="form-group">
 				<div class="col-sm-2" align="right">

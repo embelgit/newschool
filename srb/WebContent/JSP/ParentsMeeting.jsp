@@ -9,6 +9,23 @@
 <head>
 <title>Parent Meeting</title>
  <script type="text/javascript" src="/srb/staticContent/JS/schoolMeetings.js"></script>
+ <script type="text/javascript">
+ function List()
+ {
+	 
+	 window.location="listforMeeting.jsp";
+	 
+ }
+ function editList()
+ {
+	 window.location="editParentsMeeting.jsp";
+ }
+ function del()
+ {
+	 window.location="deleteParentMeeting.jsp";
+ }
+ 
+ </script>
 </head>
 
 <body>
@@ -36,13 +53,13 @@
         <div class="panel panel-default thumbnail">
  			 <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="classList1()" accesskey="t""> <i class="fa fa-list"></i>Meeting List </a>  
+                    <a class="btn btn-primary"  onclick="List()" accesskey="t""> <i class="fa fa-list"></i>Meeting List </a>  
                 </div>
                 <div class="btn-group"> 
-                    <a class="btn btn-primary" onclick="divList()" accesskey="t""> <i class="fa fa-list"></i>Edit List </a>  
+                    <a class="btn btn-primary" onclick="editList()" accesskey="t""> <i class="fa fa-list"></i>Edit List </a>  
                 </div>
                 <div class="btn-group"> 
-                    <a class="btn btn-primary" onclick="divList()" accesskey="t""> <i class="fa fa-list"></i>Delete</a>  
+                    <a class="btn btn-primary" onclick="del()" accesskey="t""> <i class="fa fa-list"></i>Delete</a>  
                 </div>
             </div> 
  			

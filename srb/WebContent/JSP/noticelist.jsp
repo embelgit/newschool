@@ -33,7 +33,14 @@
   			{
   				window.location = "Notice.jsp";
   			}
-
+			function del()
+			{
+				window.location="DeleteNotice.jsp";
+			}
+			function back1()
+			{
+				window.location="Notice.jsp";
+			}
   		</script>
 		
 
@@ -63,7 +70,14 @@
  
            <div class="panel-heading no-print">
                 <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="back1()" accesskey="t""> <i class="fa fa-list"></i>Add Notice</a>  
+                </div>
+                <div class="btn-group"> 
                     <a class="btn btn-primary"  onclick="back()" accesskey="t""> <i class="fa fa-list"></i>Notice</a>  
+                </div>
+                
+                 <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="del()" accesskey="t""> <i class="fa fa-list"></i>Delete Notice</a>  
                 </div>
 
                 </div>
@@ -124,7 +138,7 @@
 			
 	         		<th>Academic Year</th>
 	                <th>Notice Date</th>
-	                <th>Task</th>
+	                <th>Notice Details</th>
 					
 					
 				</tr>

@@ -8,6 +8,14 @@
 <%@include file="commons/header.jsp"%>
 <head>
  <script type="text/javascript" src="/srb/staticContent/JS/schoolMeetings.js"></script>
+<script type="text/javascript">
+function ScheduleMeetingList()
+{
+window.location="listForScheduleMeeting.jsp";	
+	
+}
+
+</script>
 </head>
 <title>Schedule Meeting</title>
 <body>
@@ -35,6 +43,10 @@
  
             <div class="panel-heading no-print">
                
+	                <div class="btn-group"> 
+	                    <a class="btn btn-primary"  onclick="ScheduleMeetingList()" accesskey="t""> <i class="fa fa-list"></i>Meeting List </a>  
+	                </div>
+	                
             </div> 
 
             <div class="panel-body panel-form">
@@ -112,6 +124,20 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="row form-group">
+			<div class="col-md-2 col-sm-offset-1" align="right">
+					<label class="control-label" for="message">Date:</label>
+			</div>
+		 	 <div class="col-md-3">
+      			<div class="input-group">
+							<span class="input-group-addon">
+							<i class="glyphicon glyphicon-user"></i>
+							</span> 
+							<input type="date" id='date31' name="date31" class="form-control"  placeholder="select Date"> 
+						</div>
+			</div>
+		</div>
 
 		<div class="row form-group">
 			<div class="col-md-2 col-sm-offset-1" align="right">

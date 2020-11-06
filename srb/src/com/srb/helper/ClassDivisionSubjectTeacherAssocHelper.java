@@ -116,4 +116,19 @@ public class ClassDivisionSubjectTeacherAssocHelper {
 					
 				}
 				
+				//delete class division subject teacher Association
+				
+				public void deletesClassDivsubTeacherAsso(HttpServletRequest request, HttpServletResponse response ) {
+					
+					String pkid = request.getParameter("pkid");
+					   
+					ClassDivisionSubjectTeacherAssocDao dao2 = new ClassDivisionSubjectTeacherAssocDao();
+					dao2.deletclassDivSubTeachAsso(pkid);
+						
+					}
+				
+				
+				
+				
+				
 }

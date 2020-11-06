@@ -1,6 +1,7 @@
 <%@page import="com.srb.bean.GetTransportationDetails"%>
 <%@page import="com.srb.bean.TeacherLeavebean"%>
 <%@page import="com.srb.dao.TeacherInfoLeaveDao"%>
+<%@page import="com.srb.dao.TransportationInfoDao"%>
 <%@page import="com.srb.bean.GetStudentDetailsBean"%>
 <%@page import="com.srb.dao.StudentInfoDao"%>
 <%@page import="com.srb.bean.GetTeacherDetailBean"%>
@@ -16,6 +17,11 @@
 	 function Back() {
 			 window.location = "TranspotationBus2.jsp";
 	}
+	 function del()
+	 {
+		 window.location="DeleteTranspotationBus2.jsp";
+		 
+	 }
 
 </script>
 	<!-- For datatable to pdf,print,excel etc conversion -->
@@ -65,7 +71,9 @@ td {
                 <div class="btn-group"> 
                     <a class="btn btn-primary"  onclick="Back()" accesskey="t""> <i class="fa fa-list"></i>Add Transportaion Bus Details</a>  
                 </div>
-                
+                 <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="del()" accesskey="t""> <i class="fa fa-list"></i>Delete Details</a>  
+                </div>
             </div> 
 
             <div class="panel-body panel-form">
@@ -73,8 +81,8 @@ td {
 			   
 		
 	<%
-	TeacherInfoLeaveDao dao=new TeacherInfoLeaveDao();
-	List list=dao.getAllTransportaionDetailsList();
+	TransportationInfoDao dao=new TransportationInfoDao();
+	List list=dao.getAllTransportaionDetailsLists();
 	%>
 	
 	<div id="demo_jui">

@@ -110,4 +110,17 @@ public class NoticeInfoHelper {
 		transaction.commit();
 
 }
+	
+public void deletesNoticeDetails(HttpServletRequest request, HttpServletResponse response ) {
+		
+		String Noticeid = request.getParameter("Noticeid");
+		NoticeInfoDao dao = new NoticeInfoDao();
+		dao.delNoticeDetails(Noticeid);
+			
+		}
+
+	
+	
+	
+	
 }

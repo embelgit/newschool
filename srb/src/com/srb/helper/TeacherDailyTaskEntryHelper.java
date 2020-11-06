@@ -2,10 +2,14 @@ package com.srb.helper;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,6 +19,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.srb.bean.GetTeacherDetailBean;
+import com.srb.bean.TeacherDailyTaskEntryBean;
 import com.srb.dao.SubjectInfoDao;
 import com.srb.dao.TeacherDailyTaskEntryDao;
 import com.srb.hibernate.ExamInfoHibernate;
@@ -37,7 +42,7 @@ public class TeacherDailyTaskEntryHelper {
 		String fkteacherid = request.getParameter("fkteacherid");
 		String fkClassId = request.getParameter("fkClassId");
 		String taskImage = request.getParameter("taskImage");
-		
+		String date=request.getParameter("date3");
 		//System.out.println("taskImage ===========+ ====="+taskImage);
 		
 		File file = new File(taskImage);
@@ -62,8 +67,23 @@ public class TeacherDailyTaskEntryHelper {
 		b.setFkDivisionId(Long.parseLong(fkDivisionId));
 		b.setFkTeacherId(Long.parseLong(fkteacherid));
 		b.setTaskPic(imageData);
-		Date date = new Date();
-		b.setInsertDate(date);
+		if(!"".equals(date)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(date);
+				//det.setStoreDate(joiningDate);
+				b.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   "+b.getInsertDate());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
 		TeacherDailyTaskEntryDao dao = new TeacherDailyTaskEntryDao();
 		dao.addTeacherTaskDaily(b);
 	}
@@ -194,5 +214,104 @@ public class TeacherDailyTaskEntryHelper {
 		dao2.deletehomework(hid);
 			
 		}
+	public Map getDailyTasktoEdit(Long fkteacherID) {
 
+	 	System.out.println("into helper class");
+	 	TeacherDailyTaskEntryDao dao1 = new TeacherDailyTaskEntryDao();
+		List catList = dao1.getAllTeacherTaskForEdit1(fkteacherID);
+		
+		Map  map =  new HashMap();
+		for(int i=0;i<catList.size();i++)
+		{
+			Object[] o = (Object[])catList.get(i);
+			TeacherDailyTaskEntryBean b = new TeacherDailyTaskEntryBean();
+			b.setPkTeacherDailyTaskId(Long.parseLong(o[0].toString()));
+			b.setClassName(o[1].toString());
+			b.setDivision(o[2].toString());
+			b.setSubjectName(o[3].toString());
+			String d = o[4].toString();
+			String dt[] = d.split("-");
+			String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
+			b.setInsertDate(insertDate);
+			b.setTask(o[5].toString());
+			b.setAcademicYear(o[6].toString());
+			map.put(b.getPkTeacherDailyTaskId(),b);
+		}
+		System.out.println("out of helper return map : "+map);
+		return map;
+	
+	
+	}
+// update teacher Daily Task
+	
+	public void updateTeacherTaskDetail(HttpServletRequest request,
+			HttpServletResponse response) {
+		Session session = null;
+		System.out.println("IN helper");
+		String teacherName1 =request.getParameter("teacherName1");
+		String fkteacherID1 =request.getParameter("fkteacherID1");
+		String clsname = request.getParameter("clsname");
+		String DivisionName = request.getParameter("DivisionName");
+		String academic= request.getParameter("academic");
+		String taskInTextt = request.getParameter("taskInTextt");
+		String date=request.getParameter("date4");
+		String subject=request.getParameter("subject");
+		System.out.println("----------------------teacherName1-----------------------"+teacherName1);
+		System.out.println("----------------------fkstoreId-----------------------"+fkteacherID1);
+		System.out.println("----------------------clsname-----------------------"+clsname);
+		System.out.println("----------------------DivisionName----------------------"+DivisionName);
+		System.out.println("---------------------academic-----------------------"+academic);
+		System.out.println("------------------------taskInTextt------------------"+taskInTextt);
+		System.out.println("----------------------date amt-----------------------"+date);
+		System.out.println("----------------------subject-----------------------"+subject);
+		com.srb.utility.HibernateUtility hbu=null;
+		Transaction transaction = null;
+		 hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		 transaction = session.beginTransaction();
+		Long pkStoreManagementId1=Long.parseLong(fkteacherID1);
+		TeacherDailyTaskEntryHibernate det = (TeacherDailyTaskEntryHibernate) session.load(TeacherDailyTaskEntryHibernate.class, pkStoreManagementId1);
+		det.setPkTeacherDailyTaskId(pkStoreManagementId1);
+		det.setClassName(clsname);
+		det.setAcademicYear(academic);
+		det.setTask(taskInTextt);
+		det.setSubjectName(subject);
+		if(!"".equals(date)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(date);
+				//det.setStoreDate(joiningDate);
+				det.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   "+det.getInsertDate());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
+	
+		System.out.println("updated in TeacherTask Hibernate");
+		com.srb.utility.HibernateUtility hbu2=null;
+		//Session session = null;
+		 session.saveOrUpdate(det);
+			transaction.commit();
+		
+		}
+
+// delete Teacher Task
+	
+	public void deleteTeacherdailyTask(HttpServletRequest request, HttpServletResponse response ) {
+		String kitpro_id = request.getParameter("fkteacherID2");   
+		TeacherDailyTaskEntryDao dao2 = new TeacherDailyTaskEntryDao();
+		dao2.deletTeachertask(kitpro_id);
+			
+		}
+
+	
+	
+	
 }
