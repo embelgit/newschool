@@ -46,7 +46,7 @@ function reload()
 </head>
 <body>
 <div class="content-wrapper" style="min-height: 597px;">
-<section class="content-header">
+              <section class="content-header">
 
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/clipboard.png" style="width: 55px;"></div>
@@ -252,8 +252,9 @@ function reload()
 				<div id="jqGridPager1"></div>
 			<!-- </div> -->
 		  </div>
-			<br><br>
-<div class="col-md-offset-4 col-md-4 btn-center">
+		<br><br>
+		        <div class="form-group row">
+                        <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
                                     <input type="button" class="ui positive button" name="btn" value="Save" onclick="updateExamName()">Save
                                        
@@ -261,15 +262,14 @@ function reload()
                                          <button type="reset" onclick="location.reload()" class="ui button"  >Reset</button>
                                         </div>
                                 </div>
-
+                   </div>
 </form>
-
-
 </div>
 </div>
-
-
- </div></div></div>
+</div>
+ </div>
+ </div>
+ </div>
 <%-- 
 <div class="container-fluid">
 

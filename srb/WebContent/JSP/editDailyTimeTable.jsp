@@ -67,17 +67,24 @@
 <div class="container-fluid">
 
 		<div class="row header_margin_top">
-			<div align="center">
-				<h2 class="form-name style_heading" style="margin-top: 80px">Edit Daily Time Table Details</h2>
-			</div>
+			<div align="center" style="margin-left: 310px;">
+				<h2 class="form-name style_heading" style="margin-top: 30px">Edit Daily Time Table Details</h2>
+			</div><hr>
 		</div>
+		
+		<!--   <div class="row">
+			<div class="col-sm-offset-1 col-md-10">
+				<hr style="border-top-color: #c1b1b1;">
+			</div>
+		</div> -->
 		
 		
 		<div class="row">
 			<div class="form-group" align="right">
 			    <div class="col-sm-offset-6 col-md-5 control-label">
 						<div id="date">
-							<label id="demo"></label>
+							 <label id="demo"></label>
+							
 							<script>
 							   var date = new Date();
 							   document.getElementById("demo").innerHTML = date.toDateString();
@@ -87,11 +94,7 @@
 				</div>
 	      </div>	
 
-         <div class="row">
-			<div class="col-sm-offset-1 col-md-10">
-				<hr style="border-top-color: #c1b1b1;">
-			</div>
-		</div>
+       
 
  <form class="form-horizontal" name="dailyTimeTable">
 			<div class="row">
@@ -217,7 +220,7 @@
 								<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-time"></i>
 								</span> 
-								 <input id="startTime" style="width: 260px;"type="text" class="form-control input-small">
+								 <input id="startTime" type="text" class="form-control input-small">
 							</div>
 						</div>
 
@@ -228,7 +231,7 @@
 							<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-time"></i>
 								</span>
-								  <input id="endTime" type="text" style="width: 260px;" class="form-control input-small" >
+								  <input id="endTime" type="text"  class="form-control input-small" >
 							</div>
 						</div>
 			</div>
@@ -237,7 +240,7 @@
 	       		 $('#startTime').timepicker();
 	            $('#endTime').timepicker();
 	        </script>
-        </div>
+     
 						
 			<div class="row">
 				<div class="form-group">
@@ -333,7 +336,7 @@
                                 </div>
                             </div>
  </form>
-	</div>
+    </div>
 </body>
 </html>
 <%@include file="commons/newFooter.jsp" %> 

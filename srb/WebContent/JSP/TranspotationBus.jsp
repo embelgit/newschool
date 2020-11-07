@@ -402,19 +402,13 @@
 						
 					</div>
 				</div>
-				</div>
+	
 				
-				
-
-
 			<!-- <div class="container" align="center">
 				<input type="button"  class="btn btn-success btn-lg btnn " value="Submit" name="btn" onclick="validationofTransportionDetails()"> 
 				<input type="button"  class="btn btn-danger btn-lg btnn" value="Cancel" onclick="reset()">
 				<input type="button"  value="List" id="listBtn" class="btn btn-primary btn-lg btnn" onclick="employeeLeaveList()">
-				
-				
-				
-				
+					
 			</div> -->
 			
 			<div class="form-group row">
@@ -433,7 +427,9 @@
                       </div>
                      </div>
 		</form>
-	</div>
+				</div>		
+		
+	
 </body>
 </html>
 

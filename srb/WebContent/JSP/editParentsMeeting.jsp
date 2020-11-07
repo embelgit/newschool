@@ -202,12 +202,13 @@
 					
 		</div>
 		  </div>
+<br>
 
 			
 			<div class="form-group row">
                                  <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input class="ui positive button" name="btn" id="btn" value="Update"  onclick="UpdateParentMeeting()" style="width: 75px;">Save
+                                    <input type="button" class="ui positive button" name="btn" id="btn" value="Update"  onclick="UpdateParentMeeting()" style="width: 90px;">
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                                         
@@ -215,7 +216,10 @@
                                 </div>
                             </div>
 		</form>
-                
+             </div>
+             </div>
+             </div>
+               
                 </div>
                 </div>
                 </div>

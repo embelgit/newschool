@@ -252,25 +252,31 @@
 			</div> -->
 			<div class="row">
 			<div class="form-group">
-			<label class="col-md-2 col-sm-offset-1  control-label"  style="margin-left: 108px;">Start Time:<sup>*</sup>
-						</label>
+			           <!--  <label class="col-md-2 col-sm-offset-1  control-label"  style="margin-left: 108px;">Start Time:<sup>*</sup>
+						</label> -->
+						<div class="col-sm-2 col-sm-offset-1" align="right">
+						<label class="control-label">Start Time:<sup>*</sup></label>
+				     	</div>
 						<div class="col-md-3  bootstrap-timepicker timepicker" >
 							<div class="input-group">
 								<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-time"></i>
 								</span> 
-								 <input id="startTime" style="width: 239px;"type="text" class="form-control input-small">
+								 <input id="startTime" type="text" class="form-control input-small">
 							</div>
 						</div>
 
-			<label class="col-md-2  control-label" style="margin-left: 0px;" for="endDate" align="right">End Time:<sup>*</sup>
-				</label>
-				   <div class="col-md-3 bootstrap-timepicker timepicker">
+			  <!--   <label class="col-md-2  control-label" for="endDate" align="right">End Time:<sup>*</sup>
+				</label> -->
+				     <div class="col-sm-2" align="right">
+						<label class="control-label">End Time:<sup>*</sup></label>
+				     	</div>
+				      <div class="col-md-3 bootstrap-timepicker timepicker">
 						<div class="input-group">
 							<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-time"></i>
 								</span>
-								  <input id="endTime" type="text" style="width: 239px;" class="form-control input-small" >
+								  <input id="endTime" type="text" class="form-control input-small" >
 							</div>
 						</div>
 			</div>
@@ -354,7 +360,7 @@
 					</div>
 				</div>
 			
-		<br><br>	
+	<!-- 	<br><br>	 -->
         
 		  <div class="table-responsive	row col-md-offset-1" style="margin-top: 20px;margin-left: 420px;">
 				<table id="list4" ></table>
@@ -362,7 +368,7 @@
 			<!-- </div> -->
 		  </div>
 
-<br><br>			
+<!-- <br><br>	 -->		
 				 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center" style=" padding-top: 15px;">
                                     <div class="ui buttons">
@@ -378,6 +384,12 @@
                             </div>
 			
  </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 	
 	

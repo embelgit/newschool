@@ -310,8 +310,12 @@
 				
 				<div class="row">
 					<div class="form-group">
-					<h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4>
-						<div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;">
+					  <div class="col-sm-2 col-sm-offset-1" align="right">
+							<label class="control-label">To:<sup>*</sup></label>
+						</div>
+					<!-- <h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4> -->
+						<!-- <div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;"> -->
+						<div class="col-sm-3">
 							<div class="input-group">
 								<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-calendar"></i>
@@ -379,7 +383,7 @@
 						
 					</div>
 				</div>
-				</div>
+			
 				
 				
 
@@ -402,7 +406,7 @@
                               <div class="or"></div>
                                	<button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                                		<div class="or"></div>
-                               	<button class="ui positive button"  type="button" value="Edit" id="listBtn" onclick="editTransportation()">Edit</button>
+                               	<button class="ui positive button"  type="button" id="listBtn" onclick="editTransportation()">Edit</button>
                                	
                               </div>
                               

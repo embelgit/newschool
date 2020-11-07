@@ -110,10 +110,9 @@
                 <div class="row">
 	
 		
-	<form class="form-horizontal" method="post" action=""
-		name="expenseDetails">
+	<form class="form-horizontal" method="post" action="" name="expenseDetails">
 		<!-- Value of 'name' attribute is used in customerDetails.js  -->
-		<fieldset>
+	<!-- 	<fieldset> -->
 			<div class="row form-group">
 				<label class="col-md-3 col-md-offset-2 control-label" for="expenseName">Expenditure Name:<sup>*</sup>
 				</label>
@@ -146,7 +145,7 @@
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button"  class="ui positive button" name="btn" value="Save"  onclick="addExpenseDetails()" style=" width: 75px;">Save</button>
+                                    <input type="button"  class="ui positive button" name="btn" value="Save"  onclick="addExpenseDetails()" style=" width: 75px;">
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>
@@ -156,8 +155,14 @@
                                        </div>
                                 </div>
                             </div>
-		</fieldset>
+		<!-- </fieldset> -->
 	</form>
+	</div>
+	</div>
+	</div>
+	</div>
 </div>
+</div>
+</body>
 
 <%@include file="commons/newFooter.jsp" %> 

@@ -12,15 +12,14 @@
 <html>
 <head>
         <script src="/srb/staticContent/JS/Student.js"></script>
-        <script type="text/javascript">
+      <!--   <script type="text/javascript">
 	 function editStudent() {
 			 window.location = "editStudentInfo.jsp";
 	}
 	 function studentList() {
 		 window.location = "listForStudent2.jsp";
 }
-</script>
-
+</script> -->
 
 		<script type="text/javascript">
 			function isNumber(evt) {
@@ -200,7 +199,7 @@ function checkForDuplicateGenralEntry(){
                 <section class="content-header">
 
                     <div class="p-l-30 p-r-30">
-                        <div class="header-icon"></div>
+                         <div class="header-icon"><img src="/srb/staticContent/Images/clipboard.png" style="width: 55px;"></div>
                         <div class="header-title">
                             <h1>RFID Attendance</h1>
                             <small>Add RFID Attendance</small> 
@@ -218,7 +217,7 @@ function checkForDuplicateGenralEntry(){
  
             <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"   onclick="RFIDAttendanceList()" accesskey="t""> <i class="fa fa-list"></i>RFID Attendance List </a>
+                    <a class="btn btn-primary"  onclick="RFIDAttendanceList()" accesskey="t""> <i class="fa fa-list"></i>RFID Attendance List </a>
                        
                 </div>
                 
@@ -436,10 +435,10 @@ StudentInfoDao dao1 = new StudentInfoDao();
 			
 
 
-			  <div class="form-group row">
+			        <div class="form-group row">
                            <div class="col-md-offset-4 col-md-4 btn-center">
                                <div class="ui buttons">
-                               <input type="button" class="ui positive button" id="btn" name="btn" value="Save" onclick="StudValidation()" >Save</button>
+                               <input type="button" class="ui positive button" id="btn" name="btn" value="Save" onclick="StudValidation()" >
                                   
                                    <div class="or"></div>
                                     <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
@@ -447,6 +446,7 @@ StudentInfoDao dao1 = new StudentInfoDao();
                                    <input type="button" class="ui positive button" name="btn" value="Edit" onclick="editStudent()"  onclick="studentList()" >Edit</button>
                                     </div> -->
                            </div>
+                       </div>
                        </div>
 
 </form>

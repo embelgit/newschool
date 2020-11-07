@@ -129,9 +129,11 @@ function Back()
                                           <button class="ui positive button"  type="button" value="Back" id="listBtn"  onclick="Back()">Back</button>
                                     </div>
                                 </div>
-                            </div></div>
+                            </div>
+                            </div>
 			
 		</form>
+		</div>
 	</div>
 	</div>
 	</div>

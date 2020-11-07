@@ -153,16 +153,16 @@ function checkForDuplicateDivisionEntry(){
 		
 
 		
-<div class="tab-content" style="float: left">
+<div class="tab-content" >
 <!-- 	For class Name entry -->
 	<div id="home" class="tab-pane fade in active">
 		<form class="form-horizontal" name="classForName">
 			<div class="row">
 				<div class="form-group">
-				<div class="col-md-3 col-sm-offset-1"  align="right">
+				<div class="col-md-2 col-sm-offset-1"  align="right">
 						<label class="control-label">Class Room No:<sup>*</sup></label>
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							 <i class="glyphicon glyphicon-pencil"></i>
@@ -171,7 +171,7 @@ function checkForDuplicateDivisionEntry(){
 						</div>
 					</div>
 				
-					<div class="col-md-3 " align="right">
+					<div class="col-md-2 " align="right">
 						<label class="control-label">Class Name:<sup>*</sup></label>
 					</div>
 					
@@ -221,7 +221,7 @@ function checkForDuplicateDivisionEntry(){
 		
 			
 			 <div class="form-group row">
-                 <div class="col-md-offset-3 col-sm-4 btn-center">
+                 <div class="col-md-offset-4 col-sm-4 btn-center">
                                     <div class="ui buttons">
                                     <button class="ui positive button" name="btn" value="Save" onclick="ClassInfo(); return false;">Save</button>
                                        
@@ -289,10 +289,10 @@ function checkForDuplicateDivisionEntry(){
 			   </div>
 			</div>
 			<div class="row form-group">
-					<div class="col-md-4 col-sm-offset-1"  align="right">
+					<div class="col-md-2 col-sm-offset-1"  align="right">
 						<label class="control-label">Class Room No:<sup>*</sup></label>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							 <i class="glyphicon glyphicon-pencil"></i>
@@ -305,16 +305,16 @@ function checkForDuplicateDivisionEntry(){
 				
 		
                  <div class="form-group row">
-                                <div class="col-md-2 btn-center">
+                                <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="DivisionInfoValidation()">Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="DivisionInfoValidation()">
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>
                                          <div class="or"></div>
-                                          <button class="ui positive button"  type="button" value="Edit" id="listBtn"  onclick="editDivision()">Edit</button>
-                                   <div class="or"></div>
-                                          <button class="ui positive button"  type="button" value="Delete" id="listBtn"  onclick="deleteDivision()">Delete</button>
+                                          <button class="ui positive button"  type="button" id="listBtn"  onclick="editDivision()">Edit</button>
+                                          <div class="or"></div>
+                                          <button class="ui positive button"  type="button" id="listBtn"  onclick="deleteDivision()">Delete</button>
                                    
                                     </div>
                                 </div>

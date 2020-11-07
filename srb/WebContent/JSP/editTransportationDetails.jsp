@@ -75,7 +75,7 @@
 		    <div class="form-group">
 			   <div class="col-sm-2 col-sm-offset-1" align="center">
 			        <div align=center-left">
-				       <h5><b><u>Transportation Details</u></b></h5>
+				       <h5 style="width:250%"><b><u>Transportation Details</u></b></h5>
 			        </div>
 		       </div>
 			</div>
@@ -198,8 +198,12 @@
 				
 				<div class="row">
 					<div class="form-group">
-					<h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4>
-						<div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;">
+					<!-- <h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4> -->
+					 <div class="col-sm-2 col-sm-offset-1" align="right">
+							<label class="control-label">To:<sup>*</sup></label>
+						</div>
+					<!-- 	<div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;"> -->
+					<div class="col-sm-3">
 							<div class="input-group">
 								<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-calendar"></i>
@@ -263,24 +267,25 @@
 									<textarea id='Address12' name="Address12" class="form-control" placeholder="Enter Address"  rows="2" cols="10"></textarea>
 							</div>
 						</div>
-</div>
-						
-					</div>
+                     </div>
 				</div>
-				
-				
-			<div class="form-group row">
+			
+				<br>		
+			            <div class="form-group row">
                                  <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input class="ui positive button" name="btn" id="btn" value="Update"  onclick="validationUpdateTransportation3()" style="width: 90px;">save
+                                        <input type="button" class="ui positive button" name="btn" id="btn" value="Update"  onclick="validationUpdateTransportation3()" style="width: 90px;">
                                         <div class="or"></div>
-                                         <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
-                                        
+                                            <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                                          </div>
                                 </div>
-                            </div>
+                           </div>
                             
 		</form>
+		</div>
+		</div>
+		</div>
+		
                 
                 </div>
                 </div>

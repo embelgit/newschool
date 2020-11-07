@@ -59,7 +59,7 @@ td {
             <div class="panel-heading no-print">
                 
                  <div class="btn-group"> 
-                    <a class="btn btn-success"  onclick="Back()"> <i class="fa fa-plus"></i>Salary Slip</a>  
+                    <a class="btn btn-success" onclick="Back()"> <i class="fa fa-list"></i>Salary Slip</a>  
                 </div>
             </div> 
 
@@ -115,8 +115,8 @@ td {
 
 					<div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()"  >Save</button>
-                                    
+                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()"   >
+                                      
                                        
                                 </div>
                             </div>
@@ -126,6 +126,10 @@ td {
 	</div>
 	</div>
 </div>
+</div>
+</div>
+
+
 </body>
 
 

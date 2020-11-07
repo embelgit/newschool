@@ -136,8 +136,9 @@ function Back()
 						
 						</div>
 					</div>
+					</div>
 			
-<br><br><br>
+<br>
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
@@ -152,6 +153,9 @@ function Back()
                             </div>
 			
 		</form>
+		</div>
+		
+		
 	</div>
 	</div>
 	</div>

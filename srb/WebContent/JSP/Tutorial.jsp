@@ -1,128 +1,70 @@
-<!DOCTYPE html>
-<!-- <html lang="en"> -->
-
-<%@page import="com.srb.hibernate.ClassInfoHibernate"%>
-<%@page import="java.util.List"%>
-<%@page import="com.srb.dao.ClassInfoDao"%>
+<%@page import="com.srb.hibernate.StudentInfoHibernate"%>
+<%@page import="com.srb.dao.StudentInfoDao"%>
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
+
+<%@page import="com.srb.hibernate.DivisionInfoHibernate"%>
+<%@page import="com.srb.dao.DivisionInfoDao"%>
+<%@page import="com.srb.hibernate.ClassInfoHibernate"%>
+<%@page import="com.srb.dao.ClassInfoDao"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
 <head>
+        <script src="/srb/staticContent/JS/Student.js"></script>
+      <!--   <script type="text/javascript">
+	 function editStudent() {
+			 window.location = "editStudentInfo.jsp";
+	}
+	 function studentList() {
+		 window.location = "listForStudent2.jsp";
+}
+</script> -->
+<script type="text/javascript">
+	function TutorialList()
+	{
+		window.location="AddTutorial.jsp";
+	}
+	
+</script>
 
- <%-- <% 
-  	                   // out.println(""+session.getAttribute("user"));
-		             if (session.getAttribute("user")  != null) {
-			
-		            	 out.println("");
-		           }
-		             else {
-							
-					     response.sendRedirect("/srb/JSP/login.jsp");
-					     out.println("Please Login ");
-				        }
-	           %> --%>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Comoatible" content="IE=edge">
-  <title>Tutorial</title>
-<!--   <link rel="stylesheet" href="/srb/dashboard/css/main.css" type="text/css"> -->
-<link rel="stylesheet" type="text/css" href="/srb/staticContent/CSS/bootstrap_aniket.css">
-  <link rel="stylesheet" type="text/css" href="/srb/staticContent/CSS/style_aniket.css">
-  <script src="/srb/staticContent/JS/graph.js"></script>
-  
- 
-    <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-    <!-- Theme style -->
-        <link href="/srb/staticContent/new/css/custom.css" rel="stylesheet" type="text/css">
-        <link href="/srb/staticContent/new/css/font.css" rel="stylesheet" type="text/css">
-        <link href="/srb/staticContent/new/css/font2.css" rel="stylesheet" type="text/css">
-        <link href="/srb/staticContent/new/css/css.css" rel="stylesheet" type="text/css">
-        
-  
+
 </head>
-<body onload="getTotalStudentCountForGraph()"> 
-<!--  //getTotalStudentCount() -->
-
-<div class="container-fluid display-table" style="padding-left: 290px;padding-top: 40px;">  
-<div class="videoheading">
-   <h2>Tutorials</h2>
-   </div>
-   
-      <div id="myNav" class="overlay">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<div class="overlay-content" style="width: 90%;">
-			<div class="mailsystem">
-				<div class="tile">
-					<h3 class="tile-title">Upload Video</h3>
-					 <form action="" method="POST">
-    <div class="row">
-    <div class="col-md-6 pt-5">
-    <label>Main Title</label>
-    <input type="text" class="form-control" required placeholder="Main Title">
-    </div>
-    <div class="col-md-6 pt-5">
-    <label> Class</label>
-    <input type="text" class="form-control" required placeholder="Class">
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-md-6 pt-5">
-    <label> Subject Name</label>
-    <input type="text" class="form-control" required placeholder="Subject Name">
-    </div>
-    <div class="col-md-6 pt-5">
-    <label>Upload PDF</label>
-     <input type="file" required>
-    </div>
-   </div>
-   <!--  <div class="col-md-6 pt-5">
-    <label> Division</label>
-    <input type="text" class="form-control" required placeholder="Division">
-    </div>
-    -->
-      <!--  
-    <div class="col-md-12 pt-5">
-    <label>Message</label>
-    <textarea name="message" rows="4" style="
-    width: 100%;
-    border: 1px solid #c5c1c1;
-    border-radius: 10px;
-"></textarea>
-    </div> -->
-    
-    <div class="row">
-    <div class="col-md-6 pt-5">
-    <label>Video</label>
-   <input type="text" class="form-control" placeholder="YouTube Embel Video URL">
-    </div>
-     <div class="col-md-6 pt-5">
-    <label>Upload Video</label>
-    <input type="file" required>
-      </div>
-   
-    
-  
-                  <div class="col-md-12 pt-5" style="padding: 5px 0;"
-                align="center">
-                <input type="submit" class="btn btn-primary" value="Update">
-              </div>
-    </div>
-   
-    </form>
-</div>
-				</div>
-			</div>
-		</div>
+<body>
 
 
-		<button class="addnew" onclick="openNav()">
-			<i class='fa fa-plus-circle pr-1' style='color: #fff'></i>Upload Video
-		</button><hr>
-		
-		           
+<div class="content-wrapper" style="min-height: 1134px;">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
 
-<div class="row">
+                    <div class="p-l-30 p-r-30">
+                         <div class="header-icon"><img src="/srb/staticContent/Images/clipboard.png" style="width: 55px;"></div>
+                        <div class="header-title">
+                            <h1>Tutorial</h1>
+                            <small>Tutorial</small> 
+                        </div>
+                    </div>
+                </section>
+        
+                                        
+
+                    <!-- content -->
+                    <div class="row">
+                    
+                        <div class="col-sm-12">
+        <div class="panel panel-default thumbnail">
+ 
+            <div class="panel-heading no-print">
+                <div class="btn-group"> 
+                    <a class="btn btn-success"  onclick="TutorialList()" accesskey="t""> <i class="fa fa-plus"></i>Add Tutorial </a>
+                       
+                </div>
+                
+            </div> 
+
+            
+            <div class="panel-body panel-form">
+             <div class="row">
     <div class="col-md-3">
       <div class="vertical-class" align="center">
       <ul class="nav nav-pills">
@@ -1674,20 +1616,16 @@
   </div>
   </div>
   
-  </div>
-</div> 
-</div>   
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-<script>
-		function openNav() {
-			document.getElementById("myNav").style.width = "80%";
-		}
-
-		function closeNav() {
-			document.getElementById("myNav").style.width = "0%";
-		}
-	</script>
-	
 </body>
-
+</html>
+<%@include file="commons/newFooter.jsp" %> 

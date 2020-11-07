@@ -137,7 +137,7 @@ td {
 
 					<div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()"  >Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()"  >
                                  
                                        
                                 </div>

@@ -10,7 +10,7 @@
   	<script src="/srb/staticContent/JS/Teacher.js"></script>
 <script type="text/javascript">
 	 function Back() {
-			 window.location = "RFIDAttendance.jsp";
+			 window.location = "Penalty.jsp";
 	}
 
 </script>
@@ -42,8 +42,8 @@ td {
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/list.png" style="width: 55px;"></div>
                         <div class="header-title">
-                            <h1>RFID Attendance List</h1>
-                            <small>RFID Attendance List</small> 
+                            <h1>Penalty List</h1>
+                            <small>Penalty List</small> 
                         </div>
                     </div>
                 </section>
@@ -59,7 +59,7 @@ td {
             <div class="panel-heading no-print">
                 
                  <div class="btn-group"> 
-                    <a class="btn btn-success"  onclick="Back()"> <i class="fa fa-plus"></i>RFID Attendance</a>  
+                    <a class="btn btn-success"  onclick="Back()"> <i class="fa fa-plus"></i>Add Penalty</a>  
                 </div>
             </div> 
 
@@ -81,12 +81,13 @@ td {
 			<thead>
 				<tr>
 				    <th>Sr No</th>
-					<th>ID</th>
+					<th>Student ID</th>
 					<th>Student Name</th>
-					<th>Gender</th>
+					<th>Class Name</th>
+					<th>Devision Name</th>
 					<th>Date</th>
-					<th>Email</th>
-					<th>Mobile No</th>
+					<th>Amount</th>
+					<th>Reason</th>
 
 				</tr>
 			</thead>
@@ -98,10 +99,11 @@ td {
 				    <td class="align">1</td>
 					<td class="align">TS1234</td>
 					<td class="align">shdfh</td>
-					<td class="align">female</td>
-					<td class="align">02/12/2020</td>
-                    <td class="align">sgdhsgdhs@gmail.com</td>
-                    <td class="align">6735178390</td>
+					<td class="align"></td>
+					<td class="align"></td>
+                    <td class="align">02/12/2020</td>
+                    <td class="align"></td>
+                    <td class="align"></td>
 					
 				</tr>
 			</tbody>
@@ -113,7 +115,7 @@ td {
 
 					<div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()"  >Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()"  >
                                     
                                        
                                 </div>

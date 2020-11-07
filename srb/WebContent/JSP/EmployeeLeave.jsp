@@ -231,8 +231,12 @@
 				
 				<div class="row">
 					<div class="form-group">
-					<h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4>
-						<div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;">
+					<div class="col-sm-2 col-sm-offset-1" align="right">
+							<label class="control-label">To:<sup>*</sup></label>
+						</div>
+					<!-- <h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4> -->
+					<div class="col-sm-3">
+						<!-- <div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;"> -->
 							<div class="input-group">
 								<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-calendar"></i>
@@ -241,7 +245,6 @@
 							</div>
 							
 						</div>
-						
 						
 					</div>
 				</div>
@@ -262,7 +265,7 @@
 							</div>
 						</div>
 
-				<div class="col-sm-2" align="right">
+				      <div class="col-sm-2" align="right">
 							<label class="control-label">Approved By:</label>
 						</div>
 						<div class="col-sm-3">
@@ -273,27 +276,17 @@
 								
 									<input id="approvedBy" name="approvedBy" type="text" class="form-control" placeholder="Approved by">
 							</div>
-						</div>
-
-						
+						</div> 
 					</div>
 				</div>
-				</div>
 				
-				
-
-
 			<!-- <div class="container" align="center">
 				<input type="button"  class="btn btn-success btn-lg btnn " id ="btn" value="Submit" name="btn" onclick="validationEmployeeLeaveDetails()"> 
 				<input type="button"  class="btn btn-danger btn-lg btnn" value="Cancel" onclick="reset()">
-				<input type="button"  value="List" id="listBtn" class="btn btn-primary btn-lg btnn" onclick="employeeLeaveList()">
-				
-				
-				
-				
+				<input type="button"  value="List" id="listBtn" class="btn btn-primary btn-lg btnn" onclick="employeeLeaveList()">					
 			</div> -->
 			
-			<div class="form-group row">
+		        	<div class="form-group row">
                       <div class="col-md-offset-4 col-md-4 btn-center">
                           <div class="ui buttons">
                          	 <input type="button" class="ui positive button" name="btn" onclick="validationEmployeeLeaveDetails()" value="Save"/>
@@ -311,6 +304,12 @@
                       </div>
                      </div>
 		</form>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
 	</div>
 </body>
 </html>

@@ -237,7 +237,7 @@
     	  
       					%>	
                         <li class="">
-                            <a href="mailsystem.jsp" ><i class='fa fa-mail-bulk'></i> Attendance Alert</a>
+                            <a href="AttendanceToParents.jsp" ><i class='fa fa-mail-bulk'></i> Attendance Alert</a>
                         </li> 
 						<%}%>
 									<%
@@ -245,7 +245,7 @@
     	  
       					%>	
                         <li class="">
-                            <a href="idcardgeneration.jsp" ><i class="fa fa ti-home"></i> ID Card Generation</a>
+                            <a href="idcardgeneration.jsp" ><i class="fas fa-id-card-alt"></i> ID Card Generation</a>
                         </li> 
 						<%}%>
 						
@@ -274,7 +274,7 @@
       					%>	
       					
       					 <li class="">
-                            <a href="Penalty.jsp" ><i class="fa fa-edit"></i>Penalty</a>
+                            <a href="Penalty.jsp" ><i class="fa fa-money"></i>Penalty</a>
                         </li> 
 						<%}%>
 						
@@ -284,7 +284,7 @@
       					%>	
       					
       					 <li class="">
-                            <a href="Tutorial.jsp" ><i class="fa fa-edit"></i>Tutorial</a>
+                            <a href="Tutorial.jsp" ><i class="fa fa-file-movie-o"></i>Tutorial</a>
                         </li> 
 						<%}%>
 						<%

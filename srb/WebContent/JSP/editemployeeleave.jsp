@@ -107,7 +107,7 @@
                         <div class="header-icon"><img src="/srb/staticContent/Images/clipboard.png" style="width: 55px;"></div>
                         <div class="header-title">
                             <h1>Employee Leave Approval</h1>
-                            <small>Employee Leave </small> 
+                            <small>Employee Leave</small> 
                         </div>
                     </div>
                 </section>
@@ -167,11 +167,11 @@
 				</div>
 			</div>
 		
- 		<div class="row">
+ 		 <div class="row">
 				<div class="form-group">
-      				 <label class="col-md-3 control-label" for="employeename"> New Employee Name<sup>*</sup></label>  
+      				 <label class="col-md-3 control-label" for="employeename">New Employee Name<sup>*</sup></label>  
           				<div class="col-md-3">
-								<div class="input-group">
+						<div class="input-group">
 									<span class="input-group-addon">
 										<i class="glyphicon glyphicon-user"></i>
 									</span>
@@ -193,14 +193,14 @@
 										}
 									%>
 								</datalist>
-							</div>
+						</div>
 						</div>
 
 				</div>
 			</div> 
 
 
-				<div class="row">
+				<!-- <div class="row">
 					<div class="form-group">
 					
 						<div class="col-sm-2 col-sm-offset-1" align="right">
@@ -248,8 +248,7 @@
 						
 						
 					</div>
-				</div>
-
+				</div>-->
 		
 				<div class="row">
 					<div class="form-group">
@@ -266,7 +265,7 @@
 							</div>
 						</div>
 
-				<div class="col-sm-2" align="right">
+				        <div class="col-sm-2" align="right">
 							<label class="control-label">Leave Type:<sup>*</sup></label>
 						</div>
 						<div class="col-sm-3">
@@ -293,16 +292,20 @@
 				
 				<div class="row">
 					<div class="form-group">
-					<h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4>
-						<div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;">
+					    <div class="col-sm-2 col-sm-offset-1" align="right">
+							<label class="control-label">To:<sup>*</sup></label>
+						</div>
+					    <!-- <h4 style="margin-left: 80vh;margin-top: -5px;">TO</h4> -->
+					       <div class="col-sm-3">
+						<!-- <div class="col-sm-3 col-sm-offset-3" style="padding-top: 8px;"> -->
 							<div class="input-group">
 								<span class="input-group-addon"> <i
 									class="glyphicon glyphicon-calendar"></i>
 								</span>
-						 <input type="date" id='leaveDateTo1' name="leaveDateTo1" class="form-control" />
+						       <input type="date" id='leaveDateTo1' name="leaveDateTo1" class="form-control" />
 							</div>
 							
-						</div>
+						  </div>
 						
 						
 					</div>
@@ -324,7 +327,7 @@
 							</div>
 						</div>
 
-				<div class="col-sm-2" align="right">
+				        <div class="col-sm-2" align="right">
 							<label class="control-label">Approved By:</label>
 						</div>
 						<div class="col-sm-3">
@@ -340,7 +343,7 @@
 						
 					</div>
 				</div>
-				</div>
+			
 				
 				
 
@@ -366,11 +369,16 @@
                                	<input type="button" class="ui positive button" onclick="employeeLeaveList()" value="List">
                                	
                               </div>
-                              
-                              
+                                                           
                       </div>
-                     </div>
+             </div>
 		</form>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
 	</div>
 </body>
 </html>

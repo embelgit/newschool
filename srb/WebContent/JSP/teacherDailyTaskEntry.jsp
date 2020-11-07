@@ -294,7 +294,7 @@ function imageIsLoaded(e) {
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>
                                          <div class="or"></div>
-                                          <input class="ui positive button" style="width: 12vh"  value="View" target="popup" onclick="window.open('viewTeacherDailyTask.jsp','popup'); return false;"></button>
+                                          <input type="button"  class="ui positive button" style="width: 12vh"  value="View" target="popup" onclick="window.open('viewTeacherDailyTask.jsp','popup'); return false;"></button>
                                     </div>
                                 </div>
                             </div>

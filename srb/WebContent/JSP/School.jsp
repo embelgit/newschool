@@ -307,16 +307,16 @@
 			       </div>
 				</div>
 				
-			</div>             
+	         <br>
                             <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="addSchoolInfo()">Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="addSchoolInfo()">
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>
                                          <div class="or"></div>
-                                          <button class="ui positive button"  type="button" value="Edit" id="listBtn" onclick="editSchool()">Edit</button>
+                                          <button class="ui positive button"  type="button" id="listBtn" onclick="editSchool()">Edit</button>
                                     </div>
                                 </div>
                             </div>
@@ -329,8 +329,8 @@
     </div>
 
 </div>
-                </div> <!-- /.content -->
-            </div>
+                 <!-- /.content -->
+  
 
 
 </body>

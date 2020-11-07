@@ -118,10 +118,7 @@
 					</div>
 				</div>
 			</div>
-			
-			
-
-			</div>
+			<br>
 			
 			
 			     <div class="form-group row">
@@ -136,7 +133,13 @@
                                     </div>
                                 </div>
                             </div>
-		</form>		
+		</form>	
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+			
 </div>
 </body>
 </html>				

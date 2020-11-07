@@ -98,7 +98,7 @@
             <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input class="ui positive button" name="btn" id="btn" value="Delete"  onclick="ValidationdeleteNotice()" style="width: 95px;">
+                                    <input type="button" class="ui positive button" name="btn" id="btn" value="Delete"  onclick="ValidationdeleteNotice()" style="width: 95px;">
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>
@@ -106,7 +106,13 @@
                                 </div>
                             </div>
        </form>
-   
+   </div>
+   </div>
+   </div>
+   </div>
+   </div>
+   </div>
+   </body>
      
      <%@include file="commons/newFooter.jsp" %>
      

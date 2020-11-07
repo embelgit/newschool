@@ -84,7 +84,7 @@
 		    <div class="form-group">
 			   <div class="col-sm-2 col-sm-offset-1" align="center">
 			        <div align=center-left">
-				       <h5><b><u>Teacher task Details</u></b></h5>
+				       <h5 style="width:250px"><b><u>Teacher task Details</u></b></h5>
 			        </div>
 		       </div>
 			</div>
@@ -237,7 +237,7 @@
 			<div class="form-group row">
                                  <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input class="ui positive button" name="btn" value="Update"  onclick="delTeacherTask()" style="width: 75px;">Save
+                                    <input class="ui positive button" name="btn" value="Update"  onclick="delTeacherTask()" style="width: 90px;">
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                                         
@@ -245,6 +245,10 @@
                                 </div>
                             </div>
 		</form>
+		</div>
+		</div>
+		</div>
+		
                 
                 </div>
                 </div>

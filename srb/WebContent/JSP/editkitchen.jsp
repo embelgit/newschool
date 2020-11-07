@@ -79,10 +79,10 @@
 		    <div class="form-group">
 			   <div class="col-sm-2 col-sm-offset-1" align="center">
 			        <div align=center-left">
-				       <h5><b><u>Kitchen Inventory Details</u></b></h5>
+				       <h5 style="width:250px"><b><u>Kitchen Inventory Details</u></b></h5>
 			        </div>
 		       </div>
-			</div>
+			</div><hr>
 		  </div>
 		  <!-- <div class="row">
 		    <div class="row form-group">
