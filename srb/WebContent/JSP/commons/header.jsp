@@ -245,7 +245,7 @@
     	  
       					%>	
                         <li class="">
-                            <a href="idcardgeneration.jsp" ><i class="fas fa-id-card-alt"></i> ID Card Generation</a>
+                            <a href="NewIdcardGeneration.jsp" ><i class="fas fa-id-card-alt"></i> ID Card Generation</a>
                         </li> 
 						<%}%>
 						

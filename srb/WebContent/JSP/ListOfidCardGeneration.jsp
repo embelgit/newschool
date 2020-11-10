@@ -10,7 +10,7 @@
   	<script src="/srb/staticContent/JS/Teacher.js"></script>
 <script type="text/javascript">
 	 function Back() {
-			 window.location = "CashBankBook.jsp";
+			 window.location = "NewIdcardGeneration.jsp";
 	}
 
 </script>
@@ -42,8 +42,8 @@ td {
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/list.png" style="width: 55px;"></div>
                         <div class="header-title">
-                            <h1>Salary Slip List</h1>
-                            <small>Salary Slip List</small> 
+                            <h1>ID Card Generation List</h1>
+                            <small>ID Card Generation List</small> 
                         </div>
                     </div>
                 </section>
@@ -59,7 +59,7 @@ td {
             <div class="panel-heading no-print">
                 
                  <div class="btn-group"> 
-                    <a class="btn btn-success" onclick="Back()"> <i class="fa fa-list"></i>Salary Slip</a>  
+                    <a class="btn btn-success"  onclick="Back()"> <i class="fa fa-plus"></i>ID Card Generation</a>  
                 </div>
             </div> 
 
@@ -80,14 +80,15 @@ td {
 		<table id="list" class="table table-bordered display">
 			<thead>
 				<tr>
-				    <th>Sr No</th>
-					<th>ID</th>
-					<th>Employee Name</th>
-					<th>Designation</th>
-					<th>Date</th>
-					<th>Payment Type</th>
-					<th>Salary Amount</th>
-					<th>Amount in Words</th>
+					 <th>ID</th>
+					 <th>Student Name</th>
+					 <th>Address</th>
+					 <th>Mobile No</th>
+					 <th>DOB</th>
+					 <th>Gender</th>
+					 <th>Class</th>
+					 <th>Division</th>
+					
 
 				</tr>
 			</thead>
@@ -96,43 +97,39 @@ td {
    				
 				
 				<tr>
-				    <td class="align">1</td>
 					<td class="align">TS1234</td>
+					<td class="align">shdfh</td>
 					<td class="align"></td>
 					<td class="align"></td>
-					<td class="align">02/10/2020</td>
-                    <td class="align"></td>
+					<td class="align"></td>
+                    <td class="align">female</td>
                     <td class="align"></td>
                     <td class="align"></td>
 					
 				</tr>
 			</tbody>
-		</table>
-	</div>
-	</div>
-	<div class="row">
+		   </table>
+	     </div>
+	   </div>
+	       <div class="row">
 				<div class="form-group">
 
-					<div class="col-md-offset-4 col-md-4 btn-center">
+				            	<div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()"   >
-                                      
-                                       
+                                    <input type="button" class="ui positive button" name="btn" value="Back" onclick="Back()" >            
                                 </div>
                             </div>
 				</div>
 			</div>
-  </div>
+      </div>
 	</div>
 	</div>
 </div>
 </div>
 </div>
-
 
 </body>
 
 
 	<%@include file="commons/newFooter.jsp" %>
 	
-</div>

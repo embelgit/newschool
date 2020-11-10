@@ -37,9 +37,10 @@
 			function libraryPaymentList(){
 				window.location = "librarypaylist.jsp";
 			}
-			function ListOfSalarySlip(){
+			function SalarySliplist(){
 				window.location = "ListOfSalarySlip.jsp";
 			}
+			
 	</script>
 	<script type="text/javascript">
 			function isAlphabets(evt) {
@@ -1585,12 +1586,12 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 	                    <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" onclick="leavingCertificateGenerator()" value="Print">
+                                    <input type="button" class="ui positive button" name="btn" onclick="ValidationSalaryslip()" value="Print">
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
                                          	<div class="or"></div>
-                               	            <input type="button" class="ui positive button" onclick="ListOfSalarySlip()" value="List">  
+                               	            <input type="button" class="ui positive button" onclick="SalarySliplist()" value="List">  
                                         </div>
                                 </div>
                             </div>

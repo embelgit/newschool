@@ -234,7 +234,7 @@
 				<div class="form-group">
 					<div class="col-sm-2 col-md-offset-5">
                           <div class="ui buttons">
-                          	<input type="button" id="btn" class="ui positive button" name="btn" onclick="validateViewStudentWiseResult()" value="Print"></button>
+                          	<input type="button" id="btn" class="ui positive button" name="btn" onclick="validateViewStudentAdmitcard()" value="Print">
                            </div>
                       </div>
 				</div>
