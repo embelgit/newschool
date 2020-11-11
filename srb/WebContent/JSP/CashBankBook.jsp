@@ -141,12 +141,15 @@ SupplierPaymentDao data = new SupplierPaymentDao();
                 <div class="row">
 
     <div  class="col-md-12">
-       
+       <!------------ Employee Payment ---------->
     <div class="tab-content">
     	
     	     <div class="tab-pane " id="messages">
    
            		<form class="form-horizontal" method="post" action="" name="emp">
+           		<div class ="tabheading">
+					<h4 style="color:blue">Employee Payment</h4>
+					</div>
    	    		<%
 								Long Txid3 = 1l;
 						%>
@@ -165,8 +168,9 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 						%>
 						
 					<div>
+					<div class ="transheading">
 						
-						<div align="right">
+						<!-- <div align="right"> -->
 								<h3 style="color: black; padding-right: 100px;">
 								Transaction ID ::
 								<%
@@ -364,6 +368,9 @@ SupplierPaymentDao data = new SupplierPaymentDao();
        <!------------------   Expenditure Payment ------------>
        <div class="tab-pane" id="settings">
 		<form method="post" class="form-horizontal" action="" name="exp">
+		        	<div class ="tabheading">
+					<h4 style="color:blue">Expenditure Payment</h4>
+					</div>	
 		
 		<%
 								Long Txid4 = 1l;
@@ -385,8 +392,8 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 						%>
 						
 					<div>
-						
-						<div align="right">
+						<div class ="transheading">
+						<!-- <div align="right"> -->
 								<h3 style="color: black; padding-right: 100px;">
 								Transaction ID ::
 								<%
@@ -492,6 +499,9 @@ SupplierPaymentDao data = new SupplierPaymentDao();
                <!---------------------------- Transportation Form  ----------------------------------------------------->
  <div class="tab-pane" id="transportation">
 		<form method="post" class="form-horizontal" action="" name="trns">
+		            <div class ="tabheading">
+					<h4 style="color:blue">Transportation Payment</h4>
+					</div>
 		<%
 								Long Txid2 = 1l;
 						%>
@@ -512,8 +522,8 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 						%>
 						
 					<div>
-						
-						<div align="right">
+						<div class ="transheading">
+						<!-- <div align="right"> -->
 								<h3 style="color: black; padding-right: 100px;">
 								Transaction ID ::
 								<%
@@ -871,7 +881,9 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 	
 	    	<div class="tab-pane active " id="sup" >
   	<form  method="post" action="" name="spmt" class="form-horizontal">
-  
+                  <div class ="tabheading">
+					<h4 style="color:blue">Supplier Payment</h4>
+					</div>
 						
 				<%
 								Long Txid = 1l;
@@ -891,8 +903,8 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 						%>
 						
 						<div>
-						
-						<div align="right">
+						<div class ="transheading">
+						<!-- <div align="right"> -->
 								<h3 style="color: black; padding-right: 100px;">
 								Transaction ID ::
 								<%
@@ -1179,7 +1191,9 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 	
 	    	<div class="tab-pane active1 " id="lib" >
   	<form class="form-horizontal" method="post" action="" name="lmpt">
-  
+                    <div class ="tabheading">
+					<h4 style="color:blue">Library Payment</h4>
+					</div>
 						
 				<%
 								Long Txidl = 1l;
@@ -1199,8 +1213,8 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 						%>
 						
 						<div>
-						
-						<div align="right">
+						<div class ="transheading">
+						<!-- <div align="right"> -->
 								<h3 style="color: black; padding-right: 100px;">
 								Transaction ID ::
 								<%
@@ -1439,12 +1453,24 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 	</form>
 	
   </div>
+  <!-- ---------------------Salary slip-------------------- -->
   
   <div class="tab-pane" id="salaryslip" >
     
                 <form class="form-horizontal" name="salslip">
-		           
-		  
+		             <div class ="tabheading">
+					<h4 style="color:blue">Salary slip</h4>
+					</div>
+		              <div>
+						<div class ="transheading">
+						<!-- <div align="right"> -->
+								<%-- <h3 style="color: black; padding-right: 100px;">
+								Transaction ID ::
+								<%
+									out.println(Txidl);
+								%>
+								</h3> --%>
+						</div>
  			<div class="row">
 				<div class="form-group">
 				<div class="col-md-2 col-sm-offset-1" align="right">
@@ -1614,7 +1640,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 </div>
 </div>
 
-</div>
+
 
 </body>
 </html>		
