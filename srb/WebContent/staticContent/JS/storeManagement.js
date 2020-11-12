@@ -345,7 +345,7 @@ function addStoreManagement(){
 		var total = allRowsInGrid[i].total;
 		params["total"+i] = total;
 	}
-	
+	document.getElementById("btn1").disabled = true;
 	params["count"] = count;
 	
    /* var supplierName =$('#supplierName').val();*/
@@ -1093,8 +1093,8 @@ function getGridForKitchenInventoryAsPerProduct()
      		        	document.getElementById("subTotal2").value = Total;
      		        	document.getElementById("gst").value = "0";
     		        	document.getElementById("gstAmount").value = "0";
-     		        	document.getElementById("grossTotal2").value = Total;
-     		        	
+     		        	//document.getElementById("grossTotal2").value = Total;
+    		        	document.getElementById("grossTotal2").value = Total.toFixed(2);
 	                  }
 	                  
 	                    
@@ -1168,7 +1168,7 @@ function addKitcheninventory()
 	if(count < 1)
 	{
 	alert("Please Enter Product Name ");
-	document.getElementById("save").disabled = false;
+	document.getElementById("btn3").disabled = false;
 	return false;
 	}
 	var allRowsInGrid = $('#list5').getGridParam('data');//to get all rows of grid
@@ -1230,7 +1230,7 @@ function addKitcheninventory()
 		     }
  		}	
  		
- 		
+ 		document.getElementById("btn3").disabled = true;
  		
  		
  		
@@ -1655,7 +1655,8 @@ function getGridForhostelManagement(){
        		        		}
        		        		
        		        	}
-       		        	document.getElementById("grossTotall").value = Total;
+       		        	//document.getElementById("grossTotall").value = Total;
+       		        	document.getElementById("grossTotall").value = (Total).toFixed(2);
        		        	
 	                    	
 	        	},
@@ -1832,7 +1833,7 @@ function addhostelManagement(){
 		var total = allRowsInGrid[i].total;
 		params["total"+i] = total;
 	}
-	
+	document.getElementById("btn5").disabled = true;
 	params["count"] = count;
 	
    /* var supplierName =$('#supplierName').val();*/
@@ -2007,7 +2008,7 @@ function updatestoreInventory() {
 		return false;
 		}
 	
-	
+	document.getElementById("btn").disabled = true;
 	var params = {};
 	params["fkstoreId"] = fkstoreId;
 	params["productName4"] = productName4;
@@ -2159,6 +2160,7 @@ function updatekitchenInventory() {
 		alert("please select Date");
 		return false;
 		}
+	document.getElementById("btn").disabled=true;
 	var params = {};
 	params["fkstoreId1"] = fkstoreId1;
 	params["productName1"] = productName1;
@@ -2292,6 +2294,7 @@ function updateHostelInventory1(){
 		alert("please select Date");
 		return false;
 		}
+	document.getElementById("btn").disabled = true;
 	var params = {};
 	params["fkhostelreId"]= fkhostelreId;
 	params["productName2"] = productName2;

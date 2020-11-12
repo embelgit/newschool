@@ -44,14 +44,15 @@ if (document.tdvf.designation.value == "") {
 			alert("Please Select Joining Date");
 			return false;
 			}			
-			if(document.tdvf.percentage.value == "") {
+			if(document.tdvf.percentage.value == "" ) {
 		    	    alert(" Enter percentage.");
 		    	    return false;
 		    	    }			
 		//var letterNumber5 = /^-?\d*[.,]?\d*$/;
-			var letterNumber5 =/^([0-9][0-9])|([0-9]).([0-9][0-9])$/ ;
-			if(document.tdvf.percentage.value.match(letterNumber5))//5th
-		 {			
+			//var letterNumber5 =/^[0-9]{1,2}?((.)[0-9]{1,2})?$/ ;
+			var letterNumber5=/^([1-9]?[0-9])(\.(\d{0,2}))?$/;
+			if(document.tdvf.percentage.value.match(letterNumber5) && document.tdvf.percentage.value!="00" && document.tdvf.percentage.value!="0")//5th
+		 {		
 			  if(document.tdvf.mobnum.value == "" )
 		        	{
 		        	alert(" Enter mobile Number.");
@@ -95,23 +96,13 @@ if (document.tdvf.designation.value == "") {
 					        				return false;
 					        			}
 					        							
-					        			 var letterNumber9=/^[a-zA-Z0-9]+$/;	
-					        			if(document.tdvf.epfNumber.value.match(letterNumber9))//9th
-					        				{
 					        					if(document.tdvf.Salary.value=="")
 					        						{
 					        						alert("Enter a salary");
 					        						return false;
 					        						}
 					        					teacherInfo();
-					        				}
-					        				else//9th
-					        				{
-					        				alert("Enter a valid Epf number");				
-					        				return false;
-
-					        				}			
-					        	 
+					        									        	 
 			        			}
 				        			
 				        			else//8th
@@ -143,7 +134,7 @@ if (document.tdvf.designation.value == "") {
 		}
 		 else//5th
 	              	 {
-	                   	alert("Enter Number Only in Percentage/CGPA..!!");
+	                   	alert("Enter validate  Percentage/CGPA ..!!");
 	                   	return false;
 	                     }
 
@@ -539,6 +530,10 @@ function validationofTransportionDetails(){
 		alert("Please Select Student Name.");
 		return false;
 	}
+	if (document.tmpd.DriverName.value == "") {
+		alert("Please Enter Driver Name");
+		return false;
+	}
 	if (document.tmpd.leaveDateFrom.value == "") {
 		alert("Please Enter Date From.");
 		return false;
@@ -556,10 +551,7 @@ function validationofTransportionDetails(){
 			alert("Please Enter Date To.");
 			return false;
 		}
-		if (document.tmpd.DriverName.value == "") {
-			alert("Please Enter Driver Name");
-			return false;
-		}
+		
 		
 		if (document.tmpd.Pincode.value == "") {
 			alert("Please Enter Pincode.");
@@ -1357,7 +1349,7 @@ function getStudentDetails1() {
 
 // update teacher info
 function updateTeacherInfo() {
-
+	document.getElementById("btn").disabled = true;
 	var input = document.getElementById('fk_teacher_id'), list = document
 			.getElementById('teacherNameList'), i, fkRootTeacherId;
 	for (i = 0; i < list.options.length; ++i) {
@@ -1392,7 +1384,22 @@ function updateTeacherInfo() {
 	var epfNumber = $('#epfNumber').val();
 	var ptNumber = $('#ptNumber').val();
 	var Salary = $('#Salary').val(); 
-
+	if (mobnum == undefined || mobnum == null
+			|| landno == "") {
+		mobnum = "0";
+	}
+	if (landno == undefined || landno == null
+			|| landno == "") {
+		landno = "0";
+	}
+	if (preAddress == undefined || preAddress == null
+			|| preAddress == "") {
+		preAddress = "N/A";
+	}
+	if (perAddress == undefined || perAddress == null
+			|| perAddress == "") {
+		perAddress = "N/A";
+	}
 	if (accountNumber == undefined || accountNumber == null
 			|| accountNumber == "") {
 		accountNumber = "N/A";

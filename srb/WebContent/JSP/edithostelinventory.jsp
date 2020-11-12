@@ -256,7 +256,7 @@
 			<div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="update" onclick=" updateHostelInventory1() " >save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="update" id="btn" onclick=" updateHostelInventory1() " >save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>

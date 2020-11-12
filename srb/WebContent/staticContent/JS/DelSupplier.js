@@ -2,7 +2,7 @@ function delSupplier(){
 	
 	if(document.delSup.supplier.value == "")
 	{
-		alert("Please Enter Customer Name");
+		alert("Please Select Supplier");
 		return false;
 	}	
 	/*var letterNumber = /^[a-zA-Z]+$/;
@@ -19,7 +19,7 @@ function delSupplier(){
 }
 
 function deleteSupplier(){
-	
+	document.getElementById("btn").disabled = true;
 	var input = document.getElementById('supplier'),
     list = document.getElementById('sup_drop'),
     i,supplier;
@@ -70,7 +70,7 @@ function delproduct(){
 }
 
 function delproduct1(){
-	
+	document.getElementById("btn").disabled = true;
 	var input = document.getElementById('supplier'),
     list = document.getElementById('sup_drop'),
     i,supplier;
@@ -119,7 +119,7 @@ function delstoreproduct(){
 }
 
 function delstoreproduct1(){
-	
+	document.getElementById("btn").disabled = true;
 	var input = document.getElementById('supplier'),
     list = document.getElementById('sup_drop'),
     i,supplier;
@@ -168,7 +168,7 @@ function delkitchenproduct(){
 }
 
 function delkitchenproduct1(){
-	
+	document.getElementById("btn").disabled=true;
 	var input = document.getElementById('supplier'),
     list = document.getElementById('sup_drop'),
     i,supplier;
@@ -228,7 +228,7 @@ function delhostelproduct1(){
     	supplier = list.options[i].getAttribute('data-value');
     	}
 	}
-	
+	document.getElementById("btn").disabled=true;
 	var params = {};
 	
 	params["hostel_id"] =supplier;

@@ -189,8 +189,8 @@ function editParentsMeeting()
 {
 
 	var params = {};
-	var input = document.getElementById('clsid2'), list = document
-			.getElementById('clslist'), i,meetingId;
+	var input = document.getElementById('clsid5'), list = document
+			.getElementById('clslist5'), i,meetingId;
 	for (i = 0; i < list.options.length; ++i) {
 		if (list.options[i].value === input.value) {
 			meetingId= list.options[i].getAttribute('data-value');
@@ -201,7 +201,7 @@ function editParentsMeeting()
 	$("#DivisionName2").append($("<input/>").attr("value", "").text());
 	$("#date5").append($("<input/>").attr("value", "").text());
 	$("#taskInTextt2").append($("<input/>").attr("value", "").text());
-	params["meetingId1"] = meetingId1;
+	params["meetingId1"] = meetingId;
 	params["methodName"] = "getparentMeetigToEdit";
 	$
 			.post(
@@ -235,14 +235,14 @@ function UpdateParentMeeting()
 {
 	document.getElementById("btn").disabled = true;
 	var params = {};
-	var input = document.getElementById('clsid2'), list = document
-			.getElementById('clslist'), i,meetingId;
+	var input = document.getElementById('clsid5'), list = document
+			.getElementById('clslist5'), i,meetingId;
 	for (i = 0; i < list.options.length; ++i) {
 		if (list.options[i].value === input.value) {
 			meetingId = list.options[i].getAttribute('data-value');
 		}
 	}
-	var Meeting=$('#clsid2').val();
+	var Meeting=$('#clsid5').val();
 	var clsname2 = $('#clsname2').val();
 	var DivisionName2= $('#DivisionName2').val();
 	var date5 = $('#date5').val();
@@ -293,6 +293,7 @@ function delParentMeeting()
 }
 function delParentMeeting1()
 {
+	document.getElementById("btn").disabled = true;
 	var input = document.getElementById('field'),
     list = document.getElementById('field_drop'),
     i,fieldId1;

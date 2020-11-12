@@ -416,7 +416,7 @@
                  <div class="form-group row" style="margin-left: 280px;">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button"  class="ui positive button btn large" name="btn" value="Save" onclick="addExamTimeTable()">Save</button>
+                                    <input type="button"  class="ui positive button btn large" name="btn" value="Save" id="btn" onclick="addExamTimeTable()">Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Cancel</button>

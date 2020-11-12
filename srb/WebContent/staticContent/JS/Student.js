@@ -46,43 +46,10 @@ if(document.sdtv.city.value == "") {
 					alert("Please Enter city name");
 					return false;
 				}
-if(document.sdtv.taluka.value == "") {
-					alert("Please Enter taluka name");
-					return false;
-				}
-if(document.sdtv.district.value == "") {
-					alert("Please Enter district name");
-					return false;
-				}
-if(document.sdtv.state.value == "") {
-					alert("Please Enter state name");
-					return false;
-				}
-
-if(document.sdtv.country.value == "") {
-					alert("Please Enter country  name");
-					return false;
-				}
-
-if(document.sdtv.pinCode.value == "") {
-					alert("Please Enter pinCode");
-					return false;
-				}
-var number2= /^[0-9]{6}$/ ;
-if(document.sdtv.pinCode.value.match(number) && document.sdtv.pinCode.value != "000000"  && document.sdtv.pinCode.value!="999999")
-{
-	if(document.sdtv.mothertongue.value == "") {
-					alert("Please Enter mothertongue");
-					return false;
-				}
 if(document.sdtv.studentstatus.value == "") {
 					alert("Please select student status");
 					return false;
 				}
-
-if(document.sdtv.studentstatus.value=="exstudent")
-{
-
 if(document.sdtv.classname.value == "") {
 					alert("Please Enter classname");
 					return false;
@@ -92,88 +59,11 @@ if(document.sdtv.leavingyr.value == "") {
 					alert("Please Enter leavingyr");
 					return false;
 				}
-}
 
-if(document.sdtv.cast.value == "") {
-					alert("Please Enter cast");
-					return false;
-				}
-if(document.sdtv.subCast.value == "") {
-					alert("Please Enter subCast");
-					return false;
-				}
-if(document.sdtv.religion.value == "") {
-					alert("Please Enter religion");
-					return false;
-				}
-
-
-if(document.sdtv.studenttype.value == "") {
-					alert("Please Select Student Type");
-					return false;
-				}
-
-if(document.sdtv.fatherName.value == "") {
-					alert("Please Enter fatherName");
-					return false;
-				}
-
-if(document.sdtv.motherName.value == "") {
-					alert("Please Enter motherName");
-					return false;
-				}
-
-if(document.sdtv.contactNo.value == "") {
-					alert("Please Enter parent contactNo");
-					return false;
-				}
-var number= /^[0-9]{10}$/ ;
-if(document.sdtv.contactNo.value.match(number) && document.sdtv.contactNo.value != "0000000000"  && document.sdtv.contactNo.value!="9999999999") {
-					
-if(document.sdtv.siblings.value == "") {
-					alert("Please Select siblings");
-					return false;
-				}
-		
-
-if(document.sdtv.perAddress.value == "") {
-					alert("Please Enter perAddress");
-					return false;
-				}
 if(document.sdtv.annualFee.value == "") {
 					alert("Please Enter annualFee");
 					return false;
 				}
-
-if(document.sdtv.preSchoolN.value == "") {
-					alert("Please Enter Previous School Name ");
-					return false;
-				}
-if(document.sdtv.birthPlace.value == "") {
-					alert("Please Enter BirthPlace Name ");
-					return false;
-				}
-
-if(document.sdtv.birthtal.value == "") {
-					alert("Please Enter Birth Taluka Name");
-					return false;
-				}
-
-if(document.sdtv.birthdist.value == "") {
-					alert("Please Enter Birth District Name");
-					return false;
-				}
-
-if(document.sdtv.birthcountry.value == "") {
-					alert("Please Enter Birth Country Name ");
-					return false;
-				}
-
-if(document.sdtv.studId.value == "") {
-					alert("Please Enter Student Id ");
-					return false;
-				}
-
 if(document.sdtv.EmergencyContact.value == "") {
 					alert("Please Enter Emergency Contact Number");
 					return false;
@@ -192,20 +82,6 @@ return false;
 
 }
 
-					
-				}
-else
-{
-alert("Please enter a valid  mobile number");
-return false;
-
-}
-}
-else
-	{
-	alert("please enter a valid pin code");
-	return false;
-	}
 
 }
 

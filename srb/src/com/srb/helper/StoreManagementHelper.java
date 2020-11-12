@@ -1,5 +1,6 @@
 package com.srb.helper;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -80,7 +81,7 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 	        String supplierName = request.getParameter("supplierName");
 	        
 	        StoreManagementHibernate b = new StoreManagementHibernate();
-	    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+	    	/*SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-DD");
 	    	Date dateOfBirth = null;
 	    	
 	    	try{
@@ -90,8 +91,22 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 	    	catch(Exception e){
 	    		e.printStackTrace();
 	    	}
-	    	/*	b.setSupplierName(supplierName1);*/
-	    	
+	    	b.setSupplierName(supplierName1);*/
+	    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date sDate = null;
+		
+			try 
+			{
+				sDate = dateFormat.parse(storeDate);
+			} 
+			catch (ParseException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		
+			b.setStoreDate(sDate);
+		
 	    	b.setSupplierName(supplierName);
 	       b.setSupplier1(Long.parseLong(fkSupplierId));
 	       b.setGst(Double.parseDouble(gst));
@@ -537,10 +552,11 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 			b.setBuyPrice(o[3].toString());
 			b.setGst(Long.parseLong(o[4].toString()));
 			b.setSupplierName(o[5].toString());
-			String d = o[6].toString();
-			String dt[] = d.split("-");
-			String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
-			b.setInsertDate(insertDate);	
+			//String d = o[6].toString();
+			//String dt[] = d.split("-");
+			//String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
+			//b.setInsertDate(insertDate);
+			b.setInsertDate(o[6].toString());
 			map.put(b.getPkStoreManagementId(),b);
 		}
 		System.out.println("out of helper return map : "+map);
@@ -592,8 +608,8 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 		//		dateOfBirth = format.parse(dob);
 		//		det.setDob(dateOfBirth);
 				joiningDate = format.parse(date);
-				//det.setStoreDate(joiningDate);
-				det.setInsertDate(joiningDate);
+				det.setStoreDate(joiningDate);
+				//det.setInsertDate(joiningDate);
 				System.out.println("det.getJdate() -   "+det.getStoreDate());
 			}
 			catch(Exception e){
@@ -633,10 +649,11 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 			b.setPkhostelid(Long.parseLong(o[0].toString()));
 			b.setBillNo(o[1].toString());
 			b.setSupplierName(o[2].toString());
-			String d = o[3].toString();
+			/*String d = o[3].toString();
 			String dt[] = d.split("-");
 			String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
-			b.setInsertDate(insertDate);
+			b.setInsertDate(insertDate);*/
+			b.setInsertDate(o[3].toString());
 			b.setProductName(o[4].toString());
 			b.setBuyPrice(o[5].toString());
 			b.setQuantity(o[6].toString());
@@ -691,7 +708,7 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 		//		dateOfBirth = format.parse(dob);
 		//		det.setDob(dateOfBirth);
 				joiningDate = format.parse(date2);
-				//det.setStoreDate(joiningDate);
+				det.setStoreDate(joiningDate);
 				det.setInsertDate(joiningDate);
 				System.out.println("det.getJdate() -   ");
 			}

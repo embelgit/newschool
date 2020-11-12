@@ -421,7 +421,7 @@ function checkForDuplicateTeacherEntry(){
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Account Number:</label>
+						<label class="control-label">Account Number:<sup>*</sup></label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
@@ -434,7 +434,7 @@ function checkForDuplicateTeacherEntry(){
 				
 
 					<div class="col-sm-2" align="right">
-						<label class="control-label">Bank Name:</label>
+						<label class="control-label">Bank Name:<sup>*</sup></label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
@@ -450,7 +450,7 @@ function checkForDuplicateTeacherEntry(){
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">IFSC Code:</label>
+						<label class="control-label">IFSC Code:<sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
@@ -536,7 +536,7 @@ function checkForDuplicateTeacherEntry(){
 				  <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btnn" value="Save" onclick="TeacherValidation()" >Save</button>
+                                    <input type="button" class="ui positive button" name="btnn" id="btn" value="Save" onclick="TeacherValidation()" >Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>

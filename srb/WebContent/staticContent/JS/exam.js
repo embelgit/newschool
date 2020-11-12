@@ -2058,7 +2058,7 @@ function addExamTimeTable1(){
 			if(fk_division_id==undefined || fk_division_id== null || fk_division_id == "" ){
 				fk_division_id=0;
 			}
-			
+			document.getElementById("btn").disabled = true;
 			params["count"] = count;
 			params["className"] = className;
 			params["classId"] = fk_class_id;

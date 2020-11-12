@@ -24,7 +24,12 @@
 	   window.location = "nirgum.jsp";
    }
    </script>
-   
+   <script type="text/javascript">
+   function print()
+   {
+	   window.location="CopyleavingCertificate.jsp";
+   }
+   </script>
 </head>
 
 <body>
@@ -288,11 +293,13 @@
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" onclick="leavingCertificateGenerator()" value="Print">
+                                    <input type="button" class="ui positive button" name="btn" id="btn" onclick="leavingCertificateGenerator()" value="save">
                                        
                                         <div class="or"></div>
-                                         <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
-                                           
+                                         <button type="reset" onclick="location.reload()" class="ui button">Reset</button> 
+                                          <div class="or"></div>
+                                          <input type="button" class="ui positive button" name="btn"  onclick="print()" value="Print">
+                                         </div>
                                         </div>
                                 </div>
                             </div>

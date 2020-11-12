@@ -2320,7 +2320,7 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 	
 	public String getparentMeetigToEdit(HttpServletRequest request,
 			HttpServletResponse response) {
-		String teacherId = request.getParameter("meetingId");
+		String teacherId = request.getParameter("meetingId1");
 		Long fkteacherID=Long.parseLong(teacherId);
 		System.out.println("teacherId"+teacherId);
 		//String designation = request.getParameter("designation");

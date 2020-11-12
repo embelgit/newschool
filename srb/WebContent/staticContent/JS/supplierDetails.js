@@ -204,7 +204,7 @@ function supplierDetail() {
 function supDetails() 
 {
 
-	//document.getElementById('save').disabled = true;
+	document.getElementById('btn2').disabled = true;
 
 	var IdNo = $('#IdNo').val();
 	var dealerName = $('#dealerName').val();
@@ -245,9 +245,10 @@ function supDetails()
 	$.post('/srb/JSP/utility/controller.jsp',params,function(data) {
 		alert(data);
 		if (document.spld) {
+			
 			document.spld.reset();
+			location.reload();
 		}
-		document.getElementById('save').disabled = false;
 	}).error(function(jqXHR, textStatus, errorThrown) {
 		if (textStatus === "timeout") {
 			$(loaderObj).hide();
@@ -267,22 +268,19 @@ function getSupplierDetails() {
 	var params = {};
 
 	var input = document.getElementById('supplier'), list = document
-			.getElementById('sup_drop'), i, fkRootSupId;
+			.getElementById('SupplierList'), i, fkRootSupId;
 	for (i = 0; i < list.options.length; ++i) {
 		if (list.options[i].value === input.value) {
 			fkRootSupId = list.options[i].getAttribute('data-value');
 		}
 	}
 
-	$("#dealerName").append($("<input/>").attr("value", "").text());
-	$("#personName").append($("<input/>").attr("value", "").text());
-	$("#contactNo").append($("<input/>").attr("value", "").text());
-	$("#landline").append($("<input/>").attr("value", "").text());
-	$("#emailId").append($("<input/>").attr("value", "").text());
+	$("#prsn").append($("<input/>").attr("value", "").text());
+	$("#cntno").append($("<input/>").attr("value", "").text());
+	$("#lndline").append($("<input/>").attr("value", "").text());
+	$("#emlid").append($("<input/>").attr("value", "").text());
 	$("#city").append($("<input/>").attr("value", "").text());
-	$("#tinNo").append($("<input/>").attr("value","").text());
 	$("#address").append($("<input/>").attr("value", "").text());
-	$("#IdNo").append($("<input/>").attr("value", "").text());
 
 	params["SupplierId"] = fkRootSupId;
 	params["methodName"] = "getSupplierDetailsToEdit";
@@ -292,15 +290,12 @@ function getSupplierDetails() {
 		var jsonData = $.parseJSON(data);
 		var catmap = jsonData.list;
 		$.each(jsonData, function(i, v) {
-			document.getElementById("dealerName").value = v.dealerName;
-			document.getElementById("personName").value = v.personName;
-			document.getElementById("contactNo").value = v.contactNo;
-			//document.getElementById("landline").value = v.landline;
-			document.getElementById("emailId").value = v.email;
+			document.getElementById("prsn").value = v.personName;
+			document.getElementById("cntno").value = v.contactNo;
+			document.getElementById("lndline").value = v.landline;
+			document.getElementById("emlid").value = v.email;
 			document.getElementById("city").value = v.city;
-			document.getElementById("tinNo").value = v.tin;
 			document.getElementById("address").value = v.address;
-			document.getElementById("IdNo").value = v.IdNo;
 
 		});
 	}).error(function(jqXHR, textStatus, errorThrown) {
@@ -312,31 +307,28 @@ function getSupplierDetails() {
 }
 //Edit suplier details validation
 function supplierDetail1() {
-	if (document.spld1.dealerName.value != "") {
+	if(document.sde.supplier.value==null || document.sde.supplier.value=="" || document.sde.supplier.value==undefined)
+		{
+		alert("please select Supplier Name");
+		return false;
+		}
+	
+	if (document.sde.prsn.value != "") {
 		var letterNumber = /^[a-zA-Z, ]+$/;
-		if (document.spld1.dealerName.value.match(letterNumber)) {
+		if (document.sde.prsn.value.match(letterNumber)) {
 
-			if (document.spld1.contactNo.value != "") {
+			if (document.sde.cntno.value != "") {
 				var contactno = /^\d{10}$/;
-				if (document.spld1.contactNo.value.match(contactno)) {
-					if (document.spld1.city.value != "") {
+				if (document.sde.cntno.value.match(contactno) && document.sde.cntno.value!="0000000000" && document.sde.cntno.value!="9999999999") {
+					if (document.sde.city.value != "") {
 						var City = /^[a-zA-Z, ]+$/;
-						if (document.spld1.city.value.match(City)) {
-							if (document.spld1.tinNo.value != "") {
-								var GstNo = /^[a-zA-Z,0-9]+$/;
-								if (document.spld1.tinNo.value.match(GstNo)) {
-									updateSupplierDetails();
-								} else {
-									alert(" Alphanumerics Are allowed in GST");
-									return false;
-								}
-							} else {
-
-								alert("Please Enter GST Number");
-								return false;
-							}
-
-						} else {
+						if (document.sde.city.value.match(City)) {
+						
+							updateSupplierDetails();
+							} 
+						
+						
+						else {
 							alert("Only Alphabets Are allowed in City");
 							return false;
 						}
@@ -347,7 +339,7 @@ function supplierDetail1() {
 					}
 
 				} else {
-					alert("Enter 10 Digit Mobile Number ");
+					alert("Enter Valid Mobile Number ");
 					return false;
 				}
 
@@ -361,7 +353,7 @@ function supplierDetail1() {
 		}
 
 	} else {
-		alert("Enter supplier  Name.");
+		alert("Please Enter Dealer  Name.");
 		return false;
 	}
 
@@ -369,27 +361,22 @@ function supplierDetail1() {
 
 function updateSupplierDetails() {
 
-	document.spld1.btn.disabled = true;
+	document.getElementById("btn").disabled = true;
 
 	var input = document.getElementById('supplier'), list = document
-			.getElementById('sup_drop'), i, fkRootSupId;
-	for (i = 0; i < list.options.length; ++i) {
-		if (list.options[i].value === input.value) {
-			fkRootSupId = list.options[i].getAttribute('data-value');
-		}
-	}
-
-	//var customerId = document.getElementById("customerId").value;
+	.getElementById('SupplierList'), i, fkRootSupId;
+for (i = 0; i < list.options.length; ++i) {
+if (list.options[i].value === input.value) {
+	fkRootSupId = list.options[i].getAttribute('data-value');
+}
+}
 
 	
-	var dealerName = $('#dealerName').val();
-	var personName = $('#personName').val();
-	var contactNo = $('#contactNo').val();
-	//var salePrice = $('#salePrice').val();
-	var landline = $('#landline').val();
-	var emailId = $('#emailId').val();
+	var personName = $('#prsn').val();
+	var contactNo = $('#cntno').val();
+	var landline = $('#lndline').val();
+	var emailId = $('#emlid').val();
 	var city = $('#city').val();
-	var tinNo = $('#tinNo').val();
 	var address = $('#address').val();
 	//var IdNo = $('#IdNo').val();
 
@@ -406,25 +393,21 @@ function updateSupplierDetails() {
 
 	params["supplierId"] = fkRootSupId;
 
-	params["dealerName"] = dealerName;
 	params["personName"] = personName;
 	params["contactNo"] = contactNo;
-	//params["salePrice"] = salePrice;
 	params["landline"] = landline;
 	params["emailId"] = emailId;
 	params["city"] = city;
-	params["tinNo"] = tinNo;
 	params["address"] = address;
-	//params["IdNo"] = IdNo;
 
 	params["methodName"] = "updateSupplierDetails";
 
 	$.post('/srb/JSP/utility/controller.jsp',params,function(data) {
 		alert(data);
-		if (document.spld1) {
-			document.spld1.reset();
+		if (document.sde) {
+			document.sde.reset();
 		}
-		document.spld1.btn.disabled = false;
+		document.sde.btn.disabled = false;
 	}).error(function(jqXHR, textStatus, errorThrown) {
 
 		/*alert("Data Added Successfully..");

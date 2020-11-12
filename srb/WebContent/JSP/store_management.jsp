@@ -95,7 +95,13 @@
 		{
 			window.location = "editProductDetails.jsp";
 		}
-
+		</script>
+		<script type="text/javascript">
+		function editSupplier()
+		{
+			
+			window.location="editSupplierDetails.jsp";
+		}
   	</script>
   
   
@@ -522,7 +528,7 @@ StoreManagementDAO data = new StoreManagementDAO();
 			  <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input class="ui positive button" name="btn" value="Save"  onclick="addStoreManagementValidation()" style="width: 75px;">Save
+                                    <input class="ui positive button" name="btn" value="Save" id="btn1" onclick="addStoreManagementValidation()" style="width: 75px;">Save
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                                         
@@ -693,9 +699,11 @@ StoreManagementDAO data = new StoreManagementDAO();
          		<div class="form-group row">
                     <div class="col-md-offset-4 col-md-4 btn-center">
                         <div class="ui buttons">
-                        <input type="button" class="ui positive button" name="btn" value="Save" onclick="supplierDetail()" style="width: 75px;">Save
+                        <input type="button" class="ui positive button" name="btn" value="Save" id="btn2" onclick="supplierDetail()" style="width: 75px;">Save
                         <div class="or"></div>
                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
+                         <div class="or"></div>
+                         <input type="button" class="ui positive button" name="btn" value="Edit" onclick="editSupplier()" style="width: 75px;">Edit
                          <!-- <div class="or"></div>
                          <button type="reset" class="ui positive button" onclick="editSupplier()">Edit</button> -->
                          </div>
@@ -905,7 +913,7 @@ StoreManagementDAO data = new StoreManagementDAO();
 			  <div class="form-group row">
                   <div class="col-md-offset-4 col-md-4 btn-center">
                       <div class="ui buttons">
-                      <input type="button" class="ui positive button" name="btn" value="Save"  onclick="validationForKitcheninventory()" style="width: 75px;">Save
+                      <input type="button" class="ui positive button" name="btn" value="Save"  id="btn3" onclick="validationForKitcheninventory()" style="width: 75px;">Save
                           <div class="or"></div>
                            		<button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                           
@@ -1011,7 +1019,7 @@ StoreManagementDAO data = new StoreManagementDAO();
 		<div class="form-group row">
                  <div class="col-md-offset-4 col-md-4 btn-center">
                      <div class="ui buttons">
-                     <input type="button" class="ui positive button" name="btn" value="Save" onclick="validationProductDetailsNew()">Save</button>
+                     <input type="button" class="ui positive button" name="btn" id="btn4" value="Save" onclick="validationProductDetailsNew()">Save</button>
                         
                            <div class="or"></div>
                            	<button type="reset" class="ui button"onclick="location.reload()">Reset</button>
@@ -1138,7 +1146,7 @@ StoreManagementDAO data = new StoreManagementDAO();
 			  <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input class="ui positive button" name="btn" value="Save"  onclick="addhostelManagementValidation()" style="width: 75px;">Save
+                                    <input class="ui positive button" name="btn" value="Save" id="btn5" onclick="addhostelManagementValidation()" style="width: 75px;">Save
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                                         

@@ -279,10 +279,11 @@ public class KitchenInventoryHelper
 				b.setBuyPrice(o[3].toString());
 				b.setGst(o[4].toString());
 				b.setSupplierName(o[5].toString());
-				String d = o[6].toString();
+				/*String d = o[6].toString();
 				String dt[] = d.split("-");
 				String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
-				b.setDate(insertDate);
+				b.setDate(insertDate);*/
+				b.setDate(o[6].toString());
 				b.setPk_store_management_id(Long.parseLong(o[7].toString()));
 				map.put(b.getProductName(),b);
 			}

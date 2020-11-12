@@ -256,7 +256,7 @@ function reload()
 		        <div class="form-group row">
                         <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="updateExamName()">Save
+                                    <input type="button" class="ui positive button" name="btn" value="Save" id="btn" onclick="updateExamName()">Save
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button"  >Reset</button>

@@ -17,12 +17,23 @@ public class GetSupplierDetails {
 	private String email;
 	private String tin;
 	private BigInteger contactNo;
-	//private BigInteger landline;
+	private BigInteger landline;
 	private String productName;
 	private Double quantity;
-
+	private long supId;
 	
-	
+	public BigInteger getLandline() {
+		return landline;
+	}
+	public void setLandline(BigInteger landline) {
+		this.landline = landline;
+	}
+	public long getSupId() {
+		return supId;
+	}
+	public void setSupId(long supId) {
+		this.supId = supId;
+	}
 	
 
 	public String getProductName() {

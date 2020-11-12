@@ -183,15 +183,16 @@ public class MeetingScheduleHelper {
 		Map  map =  new HashMap();
 		for(int i=0;i<catList.size();i++)
 		{
-			Object[] o = (Object[])catList.get(i);
-			MeetingScheduleBean reports = new MeetingScheduleBean();
+		Object[] o = (Object[])catList.get(i);
+		MeetingScheduleBean reports = new MeetingScheduleBean();
 		reports.setClassName(o[0].toString());
 		reports.setDivisionName(o[1].toString());
 		reports.setMessage(o[2].toString());
-		String d = o[3].toString();
+		/*String d = o[3].toString();
 		String dt[] = d.split("-");
 		String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
-		reports.setInsertDate(insertDate);
+		reports.setInsertDate(insertDate);*/
+		reports.setInsertDate(o[3].toString());
 		reports.setPkScheduleMeetingsId(Long.parseLong(o[4].toString()));
 		reports.setFkclassId(Long.parseLong(o[5].toString()));
 		reports.setFkDivId(Long.parseLong(o[6].toString()));
@@ -278,10 +279,10 @@ public void deletesParentMeeting(HttpServletRequest request, HttpServletResponse
 		reports.setClassName(o[0].toString());
 		reports.setDivisionName(o[1].toString());
 		reports.setMessage(o[2].toString());
-		String d = o[3].toString();
+		/*String d = o[3].toString();
 		String dt[] = d.split("-");
-		String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
-		reports.setInsertDate(insertDate);
+		String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];*/
+		reports.setInsertDate(o[3].toString());
 		reports.setPkScheduleMeetingsId(Long.parseLong(o[4].toString()));
 		reports.setFkclassId(Long.parseLong(o[5].toString()));
 		reports.setFkDivId(Long.parseLong(o[6].toString()));

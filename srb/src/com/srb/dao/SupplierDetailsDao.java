@@ -127,7 +127,7 @@ public List getAllSupplierSetailsForEdit(String supplierID) {
 	 try {
 		 hbu = HibernateUtility.getInstance();
 		 session = hbu.getHibernateSession();
-		 query = session.createSQLQuery("select supplier_name, city, contact_no, alternate_no, contact_person_name, address, email_id, Id_No,tin_no from supplier_details WHERE pk_supplier_id ='"+supplierID+"'");
+		 query = session.createSQLQuery("select contact_person_name,city, contact_no, address, email_id,alternate_no from supplier_details WHERE pk_supplier_id ='"+supplierID+"'");
 		 list = query.list(); 
 	} catch (RuntimeException e) {
 		e.printStackTrace();
@@ -170,5 +170,40 @@ public void deleteSupplier(String supplier) {
 		}
 	 }
 	
+}
+//get edit supplier Details
+public List getSupplierListToEdit(){
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<GetSupplierDetails> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("SELECT supplier_name,pk_supplier_id from supplier_details");
+	//Query query = session.createQuery("from PurchaseBill2");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<GetSupplierDetails>(0);
+
+
+for (Object[] object : list) {	
+	GetSupplierDetails reports = new GetSupplierDetails();
+	reports.setDealerName(object[0].toString());
+	reports.setSupId(Long.parseLong(object[1].toString()));	
+	
+	supList.add(reports);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
 }
 }

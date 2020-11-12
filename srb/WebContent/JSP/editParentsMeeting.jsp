@@ -131,8 +131,8 @@
 						MeetingScheduleDao sd = new MeetingScheduleDao();
 							List sList3 = sd.getMeetingListtoEdit();
 							 %>
-							 <input list="clslist" id="clsid2" class="form-control" placeholder="please select techer Name" onchange="editParentsMeeting()"/>
-								<datalist id="clslist">
+							 <input list="clslist5" id="clsid5" class="form-control" placeholder="please select techer Name" onchange="editParentsMeeting()"/>
+								<datalist id="clslist5">
 								 <%
 									for (int i = 0; i < sList3.size(); i++) {
 										MeetingScheduleBean sup = (MeetingScheduleBean) sList3.get(i);
@@ -142,6 +142,7 @@
 									<%
 										}
 									%>
+	
 								</datalist>
 							</div>
 						</div>
@@ -208,7 +209,7 @@
 			<div class="form-group row">
                                  <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" id="btn" value="Update"  onclick="UpdateParentMeeting()" style="width: 90px;">
+                                    <input type="button" class="ui positive button" name="btn" id="btn" value="Update"  onclick= "UpdateParentMeeting()" style="width: 90px;">
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
                                         

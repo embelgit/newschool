@@ -120,19 +120,17 @@ public class SupplierDetailsHelper {
 			Object[] o = (Object[])catList.get(i);
 		
 			GetSupplierDetails bean = new GetSupplierDetails();
-			bean.setDealerName(o[0].toString());
+			bean.setPersonName(o[0].toString());
 			bean.setCity(o[1].toString());
 			bean.setContactNo((BigInteger)o[2]);
 			//bean.setLandline((BigInteger)o[3]);
-			bean.setPersonName(o[4].toString());
 			
-			bean.setAddress(o[5].toString());
-			bean.setEmail(o[6].toString());
-			bean.setIdNo(o[7].toString());
 			
-			bean.setTin(o[8].toString());
+			bean.setAddress(o[3].toString());
+			bean.setEmail(o[4].toString());
+			bean.setLandline((BigInteger)o[5]);
 			
-			map.put(bean.getDealerName(),bean);
+			map.put(bean.getPersonName(),bean);
 		}
 		System.out.println("out of helper return map : "+map);
 		return map;
@@ -145,15 +143,12 @@ public class SupplierDetailsHelper {
 	 
 		String supplierId = request.getParameter("supplierId");
 		
-		String dealerName = request.getParameter("dealerName");
 		String personName = request.getParameter("personName");
 		String contactNo = request.getParameter("contactNo");
 		//String salePrice = request.getParameter("salePrice");
 		String landline = request.getParameter("landline");
 		String emailId = request.getParameter("emailId");
 		String city = request.getParameter("city");
-		
-		String tinNo = request.getParameter("tinNo");
 		String address = request.getParameter("address");
 		
 		//String IdNo = request.getParameter("IdNo");
@@ -171,18 +166,13 @@ public class SupplierDetailsHelper {
 		//long customerId = Long.parseLong(customerId);
 		long supplierID =Long.parseLong(supplierId);
 		SupplierDetailsBean det = (SupplierDetailsBean) session.get(SupplierDetailsBean.class, supplierID);
-		
-		det.setDealerName(dealerName);
+
 		det.setAddress(address);
 		det.setContactNo(Long.parseLong(contactNo));
 		det.setEmailId(emailId);
 		det.setCity(city);
 		det.setPersonName(personName);
 		det.setLandline(Long.parseLong(landline));
-		det.setTinNo(tinNo);
-		//det.setIdNo(IdNo);
-		
-		
 	    session.saveOrUpdate(det);
 		transaction.commit();
 		

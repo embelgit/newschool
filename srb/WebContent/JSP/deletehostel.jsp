@@ -99,7 +99,7 @@
           <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Delete" onclick="delhostelproduct()" style="width: 95px;">
+                                    <input type="button" class="ui positive button" name="btn" value="Delete" id="btn" onclick="delhostelproduct()" style="width: 95px;">
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>

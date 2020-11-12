@@ -341,7 +341,7 @@
 				
 
 					<div class="col-sm-2" align="right">
-						<label class="control-label">Landline No.<sup>*</sup></label>
+						<label class="control-label">Landline No.</label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
@@ -357,7 +357,7 @@
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Permanent Address<sup>*</sup></label>
+						<label class="control-label">Permanent Address</label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
@@ -455,7 +455,7 @@
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">PAN Number<sup>*</sup></label>
+						<label class="control-label">PAN Number</label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
@@ -511,7 +511,7 @@
 			  <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="updateTeacherInfo()" >Save</button>
+                                    <input type="button" class="ui positive button" name="btn" id="btn" value="Save" onclick="updateTeacherInfo()" >Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>

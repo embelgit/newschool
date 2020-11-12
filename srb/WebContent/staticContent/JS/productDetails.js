@@ -29,6 +29,7 @@ function validationProductDetailsNew()
 
 function addProductDetails()
 {
+	document.getElementById("btn4").disabled = true;
 	var productNameDetail = $("#productNameDetail").val();
 	var unit = $("#unit").val();
 	var quantityLimit = $("#quantityLimit").val();
@@ -113,7 +114,7 @@ function getProductDetails()
 function updateProductDetails()
 {
 
-	
+	document.getElementById("btn").disabled = true;
 	var input = document.getElementById('productName2'),
 	list = document.getElementById('productName_drop'),
   	i,fkRootsupId;

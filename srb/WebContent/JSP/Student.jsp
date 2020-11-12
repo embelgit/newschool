@@ -934,7 +934,7 @@ StudentInfoDao dao1 = new StudentInfoDao();
 			<div class="row">
 			<div class="row form-group">
 				<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Annual Fee(INR):</label>
+						<label class="control-label">Annual Fee(INR):<sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
@@ -1075,7 +1075,7 @@ StudentInfoDao dao1 = new StudentInfoDao();
 					</div>
 					
 					<div class="col-sm-2 " align="right">
-						<label class="control-label">Emergency Contact :</label>
+						<label class="control-label">Emergency Contact :<sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
