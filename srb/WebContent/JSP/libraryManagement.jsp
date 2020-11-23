@@ -402,7 +402,7 @@ function checkForDuplicateBillEntry(){
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center" style="padding-top: 18px;">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="addingBookIssue()">Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Save" id="btn" onclick="addingBookIssue()">Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
@@ -592,7 +592,7 @@ function checkForDuplicateBillEntry(){
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="addBookReturn()">Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Save" id="btn1" onclick="addBookReturn()">Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
@@ -699,7 +699,7 @@ function checkForDuplicateBillEntry(){
 				 <div class="form-group row">
                        <div class="col-md-offset-4 col-md-4 btn-center">
                            <div class="ui buttons">
-                           <input type="button" class="ui positive button" name="btn" value="Save" onclick="addBookDetail()">Save</button>
+                           <input type="button" class="ui positive button" name="btn" value="Save" id="btn2" onclick="addBookDetail()">Save</button>
                               
                                <div class="or"></div>
                                 <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
@@ -805,7 +805,7 @@ function checkForDuplicateBillEntry(){
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="addBookReturnTeacherIssue()">Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Save" id="btn3" onclick="addBookReturnTeacherIssue()">Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
@@ -922,7 +922,7 @@ function checkForDuplicateBillEntry(){
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" onclick="addTeacherIssueBookReturn()">Save</button>
+                                    <input type="button" class="ui positive button" name="btn" value="Save" id="btn4" onclick="addTeacherIssueBookReturn()">Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>

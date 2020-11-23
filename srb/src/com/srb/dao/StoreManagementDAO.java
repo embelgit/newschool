@@ -19,6 +19,7 @@ import com.srb.bean.StoreMAnagementBean;
 import com.srb.bean.TeacherLeavebean;
 import com.srb.hibernate.SportParticipantDetails;
 import com.srb.hibernate.StoreManagementHibernate;
+import com.srb.hibernate.SupplierPaymentBean;
 import com.srb.hibernate.TrasnpotationSchollBus;
 import com.srb.utility.HibernateUtility;
 import com.srb.hibernate.hostelmanagementhibernate;
@@ -693,13 +694,34 @@ public List getHostelDetailsForEdit1(String product_name) {
 	
 }
 
+public List getAllStoreBill()
+{
+	HibernateUtility hbu = null;
+	Session session =  null;
+	Query query = null;
+	 List<GetStoreManagementDetailBean> stlist = null;
+	 try {
+		 hbu = HibernateUtility.getInstance();
+		 session = hbu.getHibernateSession();
+		 query = session.createQuery("select bill_no from  store_management");
+		 List<Object[]> list1 = query.list();
+		 stlist= new ArrayList<GetStoreManagementDetailBean>(0);
 
-	
-	
-	
-	
-	
-	
+		for (Object[] o : list1) 
+		{	
+			GetStoreManagementDetailBean reports = new GetStoreManagementDetailBean();
+			reports.setBillNo(o[0].toString());
+			stlist.add(reports);
+
+		}}catch(RuntimeException e){	
+
+		}
+		finally{
+
+		hbu.closeSession(session);	
+		}
+		return stlist;
+		}
 	
 	
 	

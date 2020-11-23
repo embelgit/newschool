@@ -1,6 +1,6 @@
 
-<%@page import="com.srb.bean.StudentCheckUpBean"%>
-<%@page import="com.srb.dao.StudentCheckUpDao"%>
+<%@page import="com.srb.bean.TrasnpotationSchollBusBean"%>
+<%@page import="com.srb.dao.TransportationInfoDao"%>
 
 <%@page import="java.util.List"%>
   	<% boolean isHome=false;%>
@@ -22,24 +22,27 @@
 <html>
 	<head>
 	
-		<title>Supplier List</title>
+		<title>Transport List</title>
 		
   		
   		<script type="text/javascript">
   			function back()
   			{
-  				window.location = "StudentHealthCheckup.jsp";
+  				window.location = "CashBankBook.jsp";
   			}
-		
+			function del()
+			{
+				window.location="DeleteTransportationPayment.jsp"
+			}
   		</script>
-		<script type="text/javascript">
-		function del()
-		{
-			window.location="deleteStudentHealthCheckup.jsp";
-		}
 		
-		</script>
+<style>
 
+.scroll{
+overflow-x: auto;
+}
+
+</style>
 	</head>
 
 	<body>
@@ -50,8 +53,8 @@
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/list.png" style="width: 55px;"></div>
                         <div class="header-title">
-                            <h1>Student CheckUp List</h1>
-                            <small>CheckUp List</small> 
+                            <h1>Transportation Payment List</h1>
+                            <small> Payment List</small> 
                         </div>
                     </div>
                 </section>
@@ -66,13 +69,11 @@
  
            <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="back()" accesskey="t""> <i class="fa fa-list"></i>Add Student ChechUp</a>  
+                    <a class="btn btn-primary"  onclick="back()" accesskey="t""> <i class="fa fa-list"></i>Add Transportation Payment</a>  
                 </div>
-                <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="del()" accesskey="t""> <i class="fa fa-list"></i>Delete Details</a>  
+					<div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="del()" accesskey="t""> <i class="fa fa-list"></i>Delete Transportation Payment</a>  
                 </div>
-                
-
                 </div>
                
             <div class="panel-body-search panel-form">
@@ -81,58 +82,80 @@
 	<script type="text/javascript"> 
 		$(document).ready(function () {
 	         var table=$("#list").dataTable();
-			 var tableTools = new $.fn.dataTable.TableTools(table, {
+
+				 var tableTools = new $.fn.dataTable.TableTools(table, {
 				 'sSwfPath':'//cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf',
-				 	'aButtons':['copy','print','csv',{
+				 	 'aButtons':['copy','print','csv',{
 					 'sExtends':'xls',
 					 'sFileName':'Data.xls',
 					 'sButtonText': 'Save to Excel'
-						}
-					]
+						
+					}],
+					   
+					   dom : 'Bfrtip',
+				          buttons : [ 
+
+		                     { extend: 'copyHtml5', footer: true },
+		                     { extend: 'excelHtml5', footer: true },
+		                     { extend: 'csvHtml5', footer: true },
+		                     { extend : 'pdfHtml5', footer: true,
+		                    	 title : function() {
+		                    		 return "Supplier Payment List";
+		                    	 },
+		                    	 orientation : 'landscape',
+		                    	 pageSize : 'LEGAL',
+		                    	 titleAttr : 'PDF' 
+		                     } ],
+		                     
+		                     "scrollY": "200px",
+		                	 "scrollCollapse": true,
+		                	 "paging": false,
 				});
 					$(tableTools.fnContainer()).insertBefore('#list_wrapper');
 			});
 	</script>
 
-<body id="dt_example" style="min-height:300px;">
+<div id="dt_example" style="min-height:300px;">
 		
 	<%
-		StudentCheckUpDao dao=new StudentCheckUpDao();
-		List list12=dao.getStudentCheckUpList();
+	TransportationInfoDao dao=new TransportationInfoDao();
+		List tid = dao.getTransportationPaymentList();
 	%>
-
+<div class="container-fluid"> 
+<div class="scroll">
 	<div id="demo_jui">
 		<table id="list" class="display" border="1">
 			<thead>
 				<tr>
 					<th>Sr No</th>
-					<th>Class Name</th>
-					<th>Division Name</th>
-					<th>First Name</th>
-	                <th>Last Name</th>
-	             	<th>Diagnosis</th>
-					<th>Remark</th>
-	               
+					<th>Student Name</th>
+	             	<th>Total Fees</th>
+					<th>Balance</th>
+	                <th>Paid Amount</th>
+	                <th>Accountant Name</th>
+					<th>Payment type</th>
+	               <th>Date</th>
+					
 				</tr>
 			</thead>
 			
 			<tbody>
    				<%
    					int k=0;
-					for(int i=0;i<list12.size();i++){
-						StudentCheckUpBean sr=(StudentCheckUpBean)list12.get(i);
+					for(int i=0;i<tid.size();i++){
+						TrasnpotationSchollBusBean sr=(TrasnpotationSchollBusBean)tid.get(i);
 						k++;
 				%>
 				
 				<tr>
 					<td class="align"><%=k%></td>
-					<td class="align"><%=sr.getClassName() %></td>
-					<td class="align"><%=sr.getDivisionName() %></td>
-					<td class="align"><%=sr.getfName() %></td>
-					<td class="align"><%=sr.getlName() %></td>
-					<td class="align"><%=sr.getDiagnosis() %></td>
-					<td class="align"><%=sr.getRmk() %></td>
-					
+					<td class="align"><%=sr.getStudentName() %></td>
+					<td class="align"><%=sr.getTotalAnnualFee() %></td>
+					<td class="align"><%=sr.getBalanceAmountT() %></td>
+					<td class="align"><%=sr.getPaidAmountT() %></td>
+					<td class="align"><%=sr.getPersonnameT() %></td>
+					<td class="align"><%=sr.getPaymentMode3() %></td>
+					<td class="align"><%=sr.getInsertDate() %></td>				
 				</tr>
 	
 				<%
@@ -141,8 +164,9 @@
 			</tbody>
 		</table>
 	</div>
-
-	
+	</div>
+</div>
+	</div>
 </body>
 
 </html>

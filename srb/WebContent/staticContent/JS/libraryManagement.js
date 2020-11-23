@@ -641,7 +641,7 @@ function addBookDetail1(){
 			}
 		}
 	 
-	 
+		document.getElementById("btn2").disabled = true;
 	 var supplierName = $('#supplierName').val();
 	 var grossTotal = $('#grossTotal').val();
 	 var billNo = $('#billNo').val();
@@ -2332,7 +2332,7 @@ function addingBookIssue1(){
 		var quantityInGrid = allRowsInGrid[i].quantityInGrid;
 		params["quantityInGrid"+i] = quantityInGrid;
 	}
-	
+	document.getElementById("btn").disabled = true;
 	var studentName = $('#studentName').val();
 	var dateOfBookIssue= $('#dateOfBookIssue').val();
 	var BookissueDate = $('#BookissueDate').val();
@@ -2432,7 +2432,7 @@ function addBookReturn1(){
 			//document.getElementById("save").disabled = false;
 					return false;
 			}
-		
+		document.getElementById("btn1").disabled = true;
 		params["bookName"+i] = bookName;
 	
 		var authorName = allRowsInGrid[i].authorName;
@@ -2554,7 +2554,7 @@ var params = {};
 		var quantityInGrid = allRowsInGrid[i].quantityInGrid;
 		params["quantityInGrid"+i] = quantityInGrid;
 	}
-	
+	document.getElementById("btn3").disabled = true;
 	//var fk_teacher_id = $('#fk_teacher_id').val();
 	var TeacherBookIssueDateNew= $('#TeacherBookIssueDateNew').val();
 	var TeacherBookReturneDateNew = $('#TeacherBookReturneDateNew').val();
@@ -2635,7 +2635,7 @@ var params = {};
 		var BookReturnDate = allRowsInGrid[i].BookReturnDate;
 		params["BookReturnDate"+i] = BookReturnDate;
 	}
-	
+	document.getElementById("btn4").disabled = true;
 	
 	
 	//var fk_teacher_id = $('#fk_teacher_id').val();

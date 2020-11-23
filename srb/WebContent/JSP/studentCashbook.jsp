@@ -251,7 +251,7 @@
 											<span class="input-group-addon">
 												<i class="glyphicon glyphicon-user"></i>
 											</span>
-           									  <input type="text" id="accountantName" name="totalAnnualFee" placeholder="Enter Accountant Name" class="form-control">
+           									  <input type="text" id="accountantName" name="totalAnnualFee" placeholder="Enter Accountant Name" onkeypress="return isAlphabetsWithSpace(event)" class="form-control">
            							 </div>
 								</div>
  							<label class="col-md-2 control-label " align="right">Paying Fee Amount<sup>*</sup></label>  
@@ -348,7 +348,7 @@
       <div class="row">        
           	<div class="form-group" >
 					<div class="col-md-3 control-label">
-	           				<label for="onlinepayment">Online Payment<sup>*</sup></label>  
+	           				<label for="onlinepayment">Online Payment</label>  
 	           		</div>
 	           		
 	           		<div class="col-md-3">

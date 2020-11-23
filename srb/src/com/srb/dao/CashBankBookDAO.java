@@ -363,7 +363,8 @@ public class CashBankBookDAO {
     		 hbu = HibernateUtility.getInstance();
     		 session = hbu.getHibernateSession();
     		// Query query = session.createSQLQuery("SELECT pk_student_payment_id,remaining_fee FROM student_payment WHERE fk_class_id ='"+fk_class_id+"' AND fk_division_id ='"+fk_division_id+"' AND student_id ='"+fk_Student_id+"' ORDER BY pk_student_payment_id DESC LIMIT 1 ");
-    		 Query query = session.createSQLQuery("SELECT pkTranspayment_Id,balanceAmountT FROM trasnportdetails_payment WHERE fkclassId ='"+fk_class_id+"' AND fkdivisionId ='"+fk_division_id+"' and studentName = '"+fk_Student_id+"'ORDER BY pkTranspayment_Id DESC LIMIT 1 ");
+    		 //Query query = session.createSQLQuery("SELECT pkTranspayment_Id,balanceAmountT FROM trasnportdetails_payment WHERE fkclassId ='"+fk_class_id+"' AND fkdivisionId ='"+fk_division_id+"' and studentName = '"+fk_Student_id+"'ORDER BY pkTranspayment_Id DESC LIMIT 1 ");
+    		 Query query = session.createSQLQuery("SELECT pkTranspayment_Id,balanceAmountT FROM trasnportdetails_payment WHERE fkclassId ='"+fk_class_id+"' AND fkdivisionId ='"+fk_division_id+"' and studentName = '"+fk_Student_id+"' ORDER BY pkTranspayment_Id DESC LIMIT 1 ");
 
  			list = query.list();
  			

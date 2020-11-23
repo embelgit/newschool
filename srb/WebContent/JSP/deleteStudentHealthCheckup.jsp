@@ -1,16 +1,21 @@
-<%@page import="com.srb.hibernate.ParentsComplaintHibernate"%>
-<%@page import="com.srb.dao.SchoolInfoDao"%>
+<%@page import="com.srb.bean.StudentCheckUpBean"%>
+<%@page import="com.srb.dao.StudentCheckUpDao"%>
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
-  <script src="/srb/staticContent/JS/School.js"></script>
+  <script src="/srb/staticContent/JS/Student.js"></script>
 	<script type="text/javascript">
 	function Back(){
-	window.location = "ParentsComplaint.jsp";
+	window.location = "StudentHealthCheckup.jsp";
 	}
+	function list()
+	{
+		window.location="StudentCheckUpList.jsp"
+	}
+	
 	</script>
 </head>
 <body>
@@ -22,8 +27,8 @@
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><i class="pe-7s-world"></i></div>
                         <div class="header-title">
-                            <h1>Delete Parent Complaint</h1>
-                            <small>Delete Parent Complaint</small> 
+                            <h1>Delete Health Checkup</h1>
+                            <small>Delete</small> 
                         </div>
                     </div>
                 </section>
@@ -38,13 +43,16 @@
  
             <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary" onclick="Back()"  accesskey="t""> <i class="fa fa-list"></i>Add Parent Complaint </a>  
+                    <a class="btn btn-primary" onclick="Back()"  accesskey="t""> <i class="fa fa-list"></i>Add Health Checkup </a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary" onclick="list()"  accesskey="t""> <i class="fa fa-list"></i>List </a>  
                 </div>
             </div> 
 
             <div class="panel-body panel-form class-list">
                 <div class="row">
-                	<form class="form-horizontal " name ="editSchool">
+                	<form class="form-horizontal " name ="hltcheckup">
 				<div class="row">
 	       			 <div class="row form-group">
     	     	
@@ -56,19 +64,19 @@
 									</span>
 							
 							 <%
-							 SchoolInfoDao eedd = new SchoolInfoDao();
-           						List mList =eedd.getAllStuName();
+							 StudentCheckUpDao chdao=new StudentCheckUpDao();
+								List clist=chdao.getStudentCheckUptoDelete();
 							
 							%>
-						<input list="schoolName_drop" id="schoolName"  class="form-control" >
-				<datalist id="schoolName_drop">
+						<input list="checkup_list" id="studId"  class="form-control" >
+				<datalist id="checkup_list">
 							
 							<%
-					           for(int i=0;i<mList.size();i++){
-					        	   ParentsComplaintHibernate detailsBean =(ParentsComplaintHibernate)mList.get(i);
+					           for(int i=0;i<clist.size();i++){
+					        	   StudentCheckUpBean detailsBean =(StudentCheckUpBean)clist.get(i);
 							%>
 		
-						<option data-value="<%=detailsBean.getPkParentsComplaintId()%>"><%=detailsBean.getFirstName()%> <%=detailsBean.getMiddleName()%> <%=detailsBean.getLastName()%></option>
+						<option data-value="<%=detailsBean.getPk_id()%>"><%=detailsBean.getfName()%> <%=detailsBean.getlName()%></option>
 							<%
 				      			}
 				    		%>
@@ -84,7 +92,7 @@
 			<div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <button class="ui positive button" name="btn" value="Delete" id="btn" onclick="deleteparentvalidation()"> Delete</button>
+                                    <button class="ui positive button" name="btn" value="Delete" id="btn" onclick="deleteHealthcheckup()"> Delete</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" value="Clear" >Reset</button>

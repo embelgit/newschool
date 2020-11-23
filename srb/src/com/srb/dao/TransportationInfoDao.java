@@ -9,6 +9,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.srb.bean.GetTransportationDetails;
+import com.srb.bean.SuppliersPaymentBean;
+import com.srb.bean.TrasnpotationSchollBusBean;
 import com.srb.hibernate.TrasnpotationSchollBus;
 import com.srb.utility.HibernateUtility;
 
@@ -278,5 +280,114 @@ finally{ if (session!=null) {
 return custList;
 
 }
+//get Transportation Payment Details
+public List getTransportationPaymentList()
+{
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<TrasnpotationSchollBusBean> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("SELECT balanceAmountT,paidAmountT, studentName, insert_date, totalAnnualFee, personnameT, paymentMode3 FROM trasnportdetails_payment where transaction_id > 0");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<TrasnpotationSchollBusBean>(0);
+
+
+for (Object[] o : list) 
+{	
+	TrasnpotationSchollBusBean reports = new TrasnpotationSchollBusBean();
+	reports.setBalanceAmountT(Double.parseDouble(o[0].toString()));
+	reports.setPaidAmountT(Double.parseDouble(o[1].toString()));
+	reports.setStudentName(o[2].toString());
+	reports.setInsertDate(o[3].toString());
+	reports.setTotalAnnualFee(Double.parseDouble(o[4].toString()));
+	reports.setPersonnameT(o[5].toString());
+	reports.setPaymentMode3(o[6].toString());
+	//reports.setBankName(o[7].toString());
+	supList.add(reports);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+//get Transportation payment List to delete
+public List getTransportPaymentListtoDelete()
+{
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<TrasnpotationSchollBusBean> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("SELECT studentName, paidAmountT,pkTranspayment_Id FROM trasnportdetails_payment where transaction_id > 0");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<TrasnpotationSchollBusBean>(0);
+
+
+for (Object[] o : list) 
+{	
+	TrasnpotationSchollBusBean reports = new TrasnpotationSchollBusBean();
+	reports.setPkTranspaymentId(Long.parseLong(o[2].toString()));
+	reports.setStudentName(o[0].toString());
+	reports.setPaidAmountT(Double.parseDouble(o[1].toString()));
+	supList.add(reports);
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+//Transportation Transaction Delete
+public void deletTransportPayment(String TransportId1) {
+	Long pkTranspayment_Id = Long.parseLong(TransportId1);
+	HibernateUtility hbu = null ;
+	org.hibernate.Transaction tx = null; 
+	Session session = null;
+	 List list  = null;
+	 try {
+		 hbu = HibernateUtility.getInstance();
+		 session = hbu.getHibernateSession();
+		 tx = session.beginTransaction();
+			Query query = session.createSQLQuery("DELETE FROM trasnportdetails_payment WHERE pkTranspayment_Id =:pkTranspayment_Id");
+			query.setParameter("pkTranspayment_Id",pkTranspayment_Id);
+			int seletedRecords = query.executeUpdate();
+			System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+			//list = query.list();
+			tx.commit();
+	} catch (Exception e) {
+		e.printStackTrace();
+		// TODO: handle exception
+	}
+		
+	 finally
+	 {
+		 if (session!=null) {
+			hbu.closeSession(session);
+		}
+	 }
+	
+}
+
+
+
 
 }

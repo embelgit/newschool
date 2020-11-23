@@ -16,9 +16,37 @@ public class TeacherPaymentDetailBean {
 		
 		private Double balanceamount;
 		private Double totalamount;
+		//newly Added
+		private String chequeNum;
+		private String cardNum;
+		private String accNum;
+		private String bankName;
 		
 		
-		
+		public String getChequeNum() {
+			return chequeNum;
+		}
+		public void setChequeNum(String chequeNum) {
+			this.chequeNum = chequeNum;
+		}
+		public String getCardNum() {
+			return cardNum;
+		}
+		public void setCardNum(String cardNum) {
+			this.cardNum = cardNum;
+		}
+		public String getAccNum() {
+			return accNum;
+		}
+		public void setAccNum(String accNum) {
+			this.accNum = accNum;
+		}
+		public String getBankName() {
+			return bankName;
+		}
+		public void setBankName(String bankName) {
+			this.bankName = bankName;
+		}
 		public Double getBalanceamount() {
 			return balanceamount;
 		}

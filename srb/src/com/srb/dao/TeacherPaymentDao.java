@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.jfree.util.Log;
 
+import com.srb.bean.SuppliersPaymentBean;
 import com.srb.bean.TeacherPaymentDetailBean;
 import com.srb.hibernate.LibraryPaymentBean;
 import com.srb.hibernate.TeacherPaymentBeanHibernate;
@@ -255,4 +256,121 @@ public class TeacherPaymentDao {
 		return emp1List;
 
 	}
+	
+	// employee payment List
+	public List getEmployeePaymentList()
+	{
+		
+		HibernateUtility hbu=null;
+		Session session=null;
+		List<TeacherPaymentDetailBean> supList=null;
+	try{	
+
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+
+		Query query=session.createSQLQuery("SELECT teacher_name,person_name, reason, payment, balanceAmounte, totalAmounte, payment_mode, insert_date,card_num,cheque_num, acc_num, bank_name FROM teacher_payment where transaction_id > 0");
+		List<Object[]> list = query.list();
+
+
+		supList= new ArrayList<TeacherPaymentDetailBean>(0);
+
+
+	for (Object[] o : list) 
+	{	
+		TeacherPaymentDetailBean reports = new TeacherPaymentDetailBean();
+		reports.setTeacherName(o[0].toString());
+		reports.setAccountantName(o[1].toString());
+		reports.setReason(o[2].toString());
+		reports.setPaymentAmount(Double.parseDouble(o[3].toString()));
+		reports.setBalanceamount(Double.parseDouble(o[4].toString()));
+		reports.setTotalamount(Double.parseDouble(o[5].toString()));
+		reports.setPaymentMode(o[6].toString());
+		reports.setInsertDate(o[7].toString());
+		reports.setCardNum(o[8].toString());
+		reports.setChequeNum(o[9].toString());
+		reports.setAccNum(o[10].toString());
+		reports.setBankName(o[11].toString());
+		supList.add(reports);
+
+	}}catch(RuntimeException e){	
+
+	}
+	finally{
+		
+		if (session!=null) {
+			hbu.closeSession(session);
+		}
+		hbu.closeSession(session);	
+	}
+	return supList;
+	}
+	//get employee payment to delete
+	public List getEmployeePaymentListtoDelete()
+	{
+		
+		HibernateUtility hbu=null;
+		Session session=null;
+		List<TeacherPaymentDetailBean> supList=null;
+	try{	
+
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+
+		Query query=session.createSQLQuery("SELECT teacher_name,pk_teacher_payment_id, payment FROM teacher_payment where transaction_id > 0");
+		List<Object[]> list = query.list();
+
+
+		supList= new ArrayList<TeacherPaymentDetailBean>(0);
+
+
+	for (Object[] o : list) 
+	{	
+		TeacherPaymentDetailBean reports = new TeacherPaymentDetailBean();
+		reports.setTeacherName(o[0].toString());
+		reports.setPkTeacherPaymentId(Long.parseLong(o[1].toString()));
+		reports.setPaymentAmount(Double.parseDouble(o[2].toString()));
+		supList.add(reports);
+	}}catch(RuntimeException e){	
+
+	}
+	finally{
+
+	hbu.closeSession(session);	
+	}
+	return supList;
+	}
+	//delete Teacher Payment
+	public void deletTeacherPaymentList(String teacherPayId) {
+		Long pk_teacher_payment_id = Long.parseLong(teacherPayId);
+		System.out.println(pk_teacher_payment_id);
+		HibernateUtility hbu = null ;
+		Transaction tx = null; 
+		Session session = null;
+		 List list  = null;
+		 try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 tx = session.beginTransaction();
+				Query query = session.createSQLQuery("DELETE FROM teacher_payment WHERE pk_teacher_payment_id =:pk_teacher_payment_id");
+				query.setParameter("pk_teacher_payment_id",pk_teacher_payment_id);
+				int seletedRecords = query.executeUpdate();
+				System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+				//list = query.list();
+				tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+			
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+		
+	}
+
+	
 }

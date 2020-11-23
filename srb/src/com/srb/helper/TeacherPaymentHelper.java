@@ -87,7 +87,6 @@ public class TeacherPaymentHelper {
 			bean.setPersonName("N/A");
 		}
 		bean.setReason(reason);
-
 		SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date dateobj = new Date();
 		System.out.println(dateFormat1.format(dateobj));
@@ -100,33 +99,36 @@ public class TeacherPaymentHelper {
 		} else {
 			bean.setPaymentMode(paymentMode);
 		}
-
 		if (paymentMode.equals("cheque")) {
-
-			if (chequeNum == null) {
-				bean.setChequeNum("N/A");
-			} else {
+			if (!"".equals(chequeNum))
+			 {
 				bean.setChequeNum(chequeNum);
-			}
-
-			if (nameOnCheck == null) {
-				bean.setNameOnCheck("N/A");
+				
 			} else {
-				bean.setNameOnCheck(nameOnCheck);
+				bean.setChequeNum("N/A");
+				
 			}
-		} else if (paymentMode.equals("card")) {
+			if (!"".equals(nameOnCheck))
+			{
+				bean.setNameOnCheck(nameOnCheck);
+				
+			} else {
+				
+				bean.setNameOnCheck("N/A");
+			}
+		} else if(paymentMode.equals("card")) {
 
 			int cardNumLength = cardNum.length();
-			if (cardNumLength > 0) {
+			if (cardNumLength > 0 && !"".equals(cardNum)) {
 
 				bean.setCardNum(Long.parseLong(cardNum));
 			} else {
-				bean.setCardNum(null);
+				bean.setCardNum(Long.parseLong("00"));
 			}
 		}
 
 		else if (paymentMode.equals("neft")) {
-			if (bankName == null) {
+			if(bankName == null) {
 				bean.setBankName("N/A");
 			} else {
 				bean.setBankName(bankName);
@@ -137,10 +139,18 @@ public class TeacherPaymentHelper {
 				bean.setAccNum(Long.parseLong(accNum));
 
 			} else {
-				bean.setAccNum(null);
+				bean.setAccNum(Long.parseLong("00"));
 			}
 		}
-
+		else
+		{
+			bean.setBankName("N/A");
+			bean.setCardNum(Long.parseLong("00"));
+			bean.setNameOnCheck("N/A");
+			bean.setChequeNum("N/A");
+			bean.setAccNum(Long.parseLong("00"));
+		}
+		
 		TeacherPaymentDao dao = new TeacherPaymentDao();
 		dao.regTeacherPayment(bean);
 
@@ -203,6 +213,18 @@ public class TeacherPaymentHelper {
 		return emp1List;
 
 	}
+	
+	//Delete Teacher Payment
+public void deletesTeacherPaymentDetails(HttpServletRequest request, HttpServletResponse response ) {
+		
+		String teacherPayId = request.getParameter("teacherPayId");
+		TeacherPaymentDao dao2 = new TeacherPaymentDao();
+		dao2.deletTeacherPaymentList(teacherPayId);
+			
+		}
+
+	
+	
 }
 
 

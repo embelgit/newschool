@@ -207,7 +207,7 @@
 			  <div class="form-group row">
                       <div class="col-md-offset-4 col-md-4 btn-center" style="padding-top: 15px;">
                           <div class="ui buttons">
-                          <input type="button" class="ui positive button" name="btn" value="Save" onclick="addStudentCheckUpInfo()" >Save</button>
+                          <input type="button" class="ui positive button" name="btn" value="Save" id="btn" onclick="addStudentCheckUpInfo()" >Save</button>
                              
                               <div class="or"></div>
                                <button type="reset" class="ui button" onclick="location.reload()">Reset</button>

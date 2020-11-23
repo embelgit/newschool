@@ -104,7 +104,11 @@ function doStudentPayment(){
 	var fk_Student_id = $('#fk_Student_id').val();
 	var studenttype = $('#studenttype').val();
 	var namankit = $('#namankit').val();
-	
+	if(Number(payingFee)>Number(remainingFee))
+		{
+		alert("Please Enter Valid Payingfees");
+		return false;
+		}
 	
 	if(paymentMode==undefined || paymentMode== null || paymentMode == "" ){
 		paymentMode="'N/A'";
@@ -595,6 +599,7 @@ function payingFeeCompaireWithRemainingFee(){
 	
 	if(Number(payingFee)>Number(remainingFee)){
 		alert("Paying Fee Should Be Less Than Remaining Fee");
+		document.getElementById("payingFee").value="";
 		document.prd.creditSalePrice.value = null;
 	}
 }

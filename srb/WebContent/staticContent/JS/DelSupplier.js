@@ -254,3 +254,93 @@ function delhostelproduct1(){
  	    	});
 	
 }
+// delete supplier payment
+function deleteSupplierPayment()
+{
+	document.getElementById("btn").disabled=true;
+	var input = document.getElementById('supplierpay'),
+    list = document.getElementById('supay_drop'),
+    i,suppId;
+
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input.value) {
+    	suppId= list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	var params = {};
+	params["suppId"] =suppId;
+	
+	params["methodName"] ="deletSupplierPayment";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});	
+
+}
+//delete Teacher Payment
+function deleteEmployeePayment()
+{
+if(document.delemppay.emppay.value==null ||	document.delemppay.emppay.value=="" || document.delemppay.emppay.value==undefined)
+	{
+	alert("Please Select TeacherName To Delete")
+	return false;
+	}
+deleteEmployeePaymenet1();
+}
+function deleteEmployeePaymenet1()
+{
+	document.getElementById("btn").disabled=true;
+	var input = document.getElementById('emppay'),
+    list = document.getElementById('Epay_drop'),
+    i,teacherPayId;
+
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input.value) {
+    	teacherPayId= list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	var params = {};
+	params["teacherPayId"] =teacherPayId;
+	
+	params["methodName"] ="deletTeacherPayment";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});	
+
+	
+
+
+
+}
+

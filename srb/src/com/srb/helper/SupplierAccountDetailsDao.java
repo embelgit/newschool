@@ -417,7 +417,9 @@ public class SupplierAccountDetailsDao {
 	    		 //Query query = session.createSQLQuery("select balance_amount,total from store_management WHERE bill_no="+billNo+" AND fk_supplier_id = '"+supplierId+"' UNION SELECT balance_amount, total FROM kitchen_inventory where bill_no="+billNo+" AND fk_supplier_id='"+supplierId+"' GROUP BY bill_no");
 	    		
 	    		// Query query = session.createSQLQuery("select balance_amount,sum(total)  from store_management WHERE  fk_supplier_id = '"+supplierId+"' UNION SELECT balance_amount, sum( total)  FROM kitchen_inventory where fk_supplier_id='"+supplierId+"' ");
-	    		 Query query = session.createSQLQuery("select  pk_supplier_payment_id, total_amount from supplier_payment where fk_supplier_id = '"+supplierId+"' and payment = 0 group by total_amount");
+	    		 //Query query = session.createSQLQuery("select  pk_supplier_payment_id, total_amount,balance, fk_supplier_id from supplier_payment where fk_supplier_id = '"+supplierId+"' and payment = 0 group by total_amount");
+	    		 Query query = session.createSQLQuery("select  pk_supplier_payment_id, sum(total_amount),balance, fk_supplier_id from supplier_payment where fk_supplier_id = '"+supplierId+"' and payment = 0");
+	    		 //Query query = session.createSQLQuery("select  pk_supplier_payment_id, MIN(total_amount),MIN(balance) from supplier_payment where fk_supplier_id = '"+supplierId+"'  Order By total_amount Asc");
 	    		 list = query.list();
 	    		
 	    		 

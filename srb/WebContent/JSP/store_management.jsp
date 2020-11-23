@@ -3,6 +3,7 @@
 <%@page import="com.srb.hibernate.SupplierDetailsBean"%>
 <%@page import="com.srb.dao.SupplierDetailsDao"%>
 <%@page import="com.srb.hibernate.StoreManagementHibernate"%>
+<%@page import="com.srb.bean.GetStoreManagementDetailBean"%>
 <%@page import="com.srb.dao.StoreManagementDAO"%>
 <%@page import="com.srb.hibernate.DivisionInfoHibernate"%>
 <%@page import="com.srb.dao.DivisionInfoDao"%>
@@ -304,6 +305,47 @@ function checkForDuplicateBillEntryForKitchenInventry()
 	var fksupid = "<%=bean.getSupplier1()%>";
 	var SupName = "<%=bean.getSupplier()%>"
 	var Bill = document.getElementById("billNo2").value;
+	//var	Bill = $('#billNo').val();
+	
+	//Bill = Integer.parseInt(request.getParameter("billNo"));
+	//var fk_supplier_id =document.getElementById("supplierName").value;
+	//var BillNo =Integer.toString(Bil); 
+	//var className1=className.toLowerCase();
+	//var cName1=cName.toLowerCase();
+	if(  Bill == Bill1 ){
+		alert("Bill No already exist...Duplicate Not allowed");
+		location.reload();
+		return false;
+	}
+	<%
+	}
+	%>
+	
+	}
+
+
+
+</script>
+ 
+<script type="text/javascript">
+function checkForDuplicateBillEntryForhostelInventry()
+{
+
+	<%
+	LibraryManagementDao dao6 = new LibraryManagementDao();
+	List lis6 = dao6.getAllMainSupplierpayment();
+	%>
+	
+	<%
+	int h = 0;
+	for(h=0;h<lis6.size();h++){
+		SupplierPaymentBean bean = (SupplierPaymentBean)lis6.get(h);
+	%>
+	var pksupPaymentId = "<%=bean.getPkSupPaymentId()%>";
+	var Bill1 = "<%=bean.getBillNo1()%>";
+	var fksupid = "<%=bean.getSupplier1()%>";
+	var SupName = "<%=bean.getSupplier()%>"
+	var Bill = document.getElementById("billNoo").value;
 	//var	Bill = $('#billNo').val();
 	
 	//Bill = Integer.parseInt(request.getParameter("billNo"));
@@ -1048,7 +1090,7 @@ StoreManagementDAO data = new StoreManagementDAO();
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id='billNoo' name="billNoo" class="form-control" placeholder="Enter Bill No" onchange="checkForDuplicateBillEntry()" >
+						    <input type="text" id='billNoo' name="billNoo" class="form-control" placeholder="Enter Bill No" onchange="checkForDuplicateBillEntryForhostelInventry()" >
 				        </div>
 			       </div>
 				

@@ -131,7 +131,6 @@ public class Controller
 			helper.deletecomp(request, response);
 			System.out.println("In controller Updateemployee");
 //			return toJson("Data Deleted Successfully");
-		
 			String data = "Complaint Deleted Sucessfully"; 
 		  return data;
 		 
@@ -1247,6 +1246,15 @@ public class Controller
 		System.out.println("going out of controller");
 		return xyz;
 	}
+	//Transportation Payment Transaction Delete
+	public String deletTransportationPayment(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("In Controller");
+		TransportationInfoHelper helper = new TransportationInfoHelper();
+		helper.deletesTransportationPaymentDetails(request, response);
+		
+		String data = " Transaction Deleted Sucessfully";
+		return data;
+	}
 	
 	// update division info details
 	public String updateDivisionDetails(HttpServletRequest request,
@@ -1605,7 +1613,6 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 		System.out.println(xyz);
 		return xyz;
 	}
-	
 	// Getting Total amount as per Bill number in Supplier Payment from goods
 		// receive table
 		public String getTotalAmtByBillNo(HttpServletRequest request, HttpServletResponse response) 
@@ -1619,6 +1626,17 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 			System.out.println(xyz);
 			return xyz;
 		}
+		//delete Supplier Payment
+		public String deletSupplierPayment(HttpServletRequest request, HttpServletResponse response) {
+			System.out.println("In Controller");
+			SupplierAccountBankHelper helper = new SupplierAccountBankHelper();
+			helper.deleteSupplierPaymentDetails(request, response);
+			
+			String data = "Supplier Payment Deleted Sucessfully";
+			return data;
+		}
+
+		
 		
 		// Library total amount
 		public String getLibraryTotalAmtByBillNo(HttpServletRequest request, HttpServletResponse response) 
@@ -1659,6 +1677,17 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 			System.out.println(xyz);
 			return xyz;
 		}
+		//geting Bill no as per supplier
+		public String getBillBySupplier(HttpServletRequest request, HttpServletResponse response) 
+		{
+			System.out.println("In controller");
+		
+			SupplierAccountBankHelper helper=new SupplierAccountBankHelper();
+			Map billno = helper.getBillNoAsPerSupplier(request,response);
+			String xyz = toJson(billno);
+			System.out.println("In controller == =  =" + xyz);
+			return xyz;
+		}		
 		
 		public String getRemainingAllBillsforemployee(HttpServletRequest request, HttpServletResponse response) 
 		{
@@ -2386,7 +2415,16 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 			helper.regTeacherPayment(request, response);
 			return toJson("Data Added Successfully");
 		}
-		
+		//delete teacher Payment List
+		public String deletTeacherPayment(HttpServletRequest request, HttpServletResponse response) {
+			System.out.println("In Controller");
+			TeacherPaymentHelper helper = new TeacherPaymentHelper();
+			helper.deletesTeacherPaymentDetails(request, response);
+			
+			String data = "Teacher Payment Deleted Sucessfully";
+			return data;
+		}
+
 		// Registering Expenditure Payment
 		public String regExpenseCashBook(HttpServletRequest request, HttpServletResponse response) {
 			System.out.println("IN CONTROLLER");
@@ -2782,7 +2820,15 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 				System.out.println("$$$$$$$$$$$$$$$$" + returnMap);
 				return toJson(returnMap);
 			}
-			
+
+				public String deletStudentCheckup(HttpServletRequest request, HttpServletResponse response) {
+					System.out.println("In Controller");
+					StudentCheckUpHelper helper = new StudentCheckUpHelper();
+					helper.deletesCheckupDetails(request, response);
+		
+					String data = "Student Checkup Deleted Sucessfully";
+					return data;
+	}
 			
 }
 

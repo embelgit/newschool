@@ -112,7 +112,15 @@ public void updateTransportationInfoDetail(HttpServletRequest request,
 	transaction.commit();
 	
 }
+	//Transportation Transaction Delete
+public void deletesTransportationPaymentDetails(HttpServletRequest request, HttpServletResponse response ) {
 	
+	String TransportId = request.getParameter("TransportPayId");
+	TransportationInfoDao dao2 = new TransportationInfoDao();
+	dao2.deletTransportPayment(TransportId);
+		
+	}
+
 	
 	
 }

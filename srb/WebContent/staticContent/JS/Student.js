@@ -50,28 +50,21 @@ if(document.sdtv.studentstatus.value == "") {
 					alert("Please select student status");
 					return false;
 				}
-if(document.sdtv.classname.value == "") {
-					alert("Please Enter classname");
-					return false;
-				}
 
-if(document.sdtv.leavingyr.value == "") {
-					alert("Please Enter leavingyr");
-					return false;
-				}
 
 if(document.sdtv.annualFee.value == "") {
 					alert("Please Enter annualFee");
 					return false;
 				}
-if(document.sdtv.EmergencyContact.value == "") {
+if(document.sdtv.EmergencyContact.value =="") {
 					alert("Please Enter Emergency Contact Number");
 					return false;
 				}
 var number=/^[0-9]{10}$/;
-if(document.sdtv.contactNo.value.match(number) && document.sdtv.contactNo.value != "0000000000"  && document.sdtv.contactNo.value!="9999999999")
+if(document.sdtv.EmergencyContact.value.match(number) && document.sdtv.EmergencyContact.value != "0000000000"  && document.sdtv.EmergencyContact.value!="9999999999")
 {
-StudentInfo();
+	StudentInfo();
+
 
 }
 else
@@ -82,12 +75,11 @@ return false;
 
 }
 
-
 }
 
 function StudentInfo() {
 
-	document.sdtv.btn.disabled = true;
+
 	var params = {};
 
 	var input = document.getElementById('fk_class_id1'), list = document
@@ -285,7 +277,7 @@ function StudentInfo() {
 		alert("please select class and leaving year of ex-student");
 		return false;
 	}
-	
+	document.getElementById("btn").disabled = true;
 	
 	
 	params["mothertongue"] = mothertongue;
@@ -1972,7 +1964,7 @@ function addStudentCheckUpInfo1()
 			fkDivisionId = list.options[i].getAttribute('data-value');
 		}
 	}
-	
+		document.getElementById("btn").disabled=true;
 		var className = $('#fk_class_id1').val();
 		var divisionName = $('#fk_division_id').val();
 
@@ -2506,5 +2498,46 @@ function DeleteSport()
  	    		}
  	    	});
 
+}
+
+// health checkup validation
+function deleteHealthcheckup()
+{
+if(document.hltcheckup.studId.value=="" || document.hltcheckup.studId.value==undefined || document.hltcheckup.studId.value==null)
+	{
+	alert("Please select Student Name to Delete");
+	return false;
+	}
+deleteHealthCheckup1();
+}
+function deleteHealthCheckup1()
+{
+document.getElementById("btn").disabled=true;
+var input=document.getElementById("studId"),
+list =document.getElementById("checkup_list"),
+i,checkupid;
+
+for(i=0;i<list.options.length;i++)
+	{
+	 if (list.options[i].value === input.value) {
+		 checkupid= list.options[i].getAttribute('data-value');
+	    	}
+	}
+var params = {};
+params["checkupid"] =checkupid;
+
+params["methodName"] ="deletStudentCheckup";
+
+$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+	    	{
+			alert(data);
+			location.reload();
+			}
+	    	).error(function(jqXHR, textStatus, errorThrown){
+	    		if(textStatus==="timeout") {
+	    			$(loaderObj).hide();
+	    			$(loaderObj).find('#errorDiv').show();
+	    		}
+	    	});
 
 }

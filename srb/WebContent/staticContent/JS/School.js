@@ -659,7 +659,15 @@ function DeleteSchoolInfo()
 
 }
 //
-
+function deleteparentvalidation()
+{
+	if(document.editSchool.schoolName.value=="" || document.editSchool.schoolName.value==undefined || document.editSchool.schoolName.value==null)
+		{
+		alert("please select to Delete");
+		return false;
+		}
+	DeleteparentInfo();
+}
 function DeleteparentInfo()
 {
 	var input = document.getElementById('schoolName'),
@@ -672,7 +680,7 @@ function DeleteparentInfo()
     	}
 	}
 //	var delschoolName = $("#schoolName").val();
-	
+	document.getElementById("btn").disabled = true;
 	var params = {};
 	params["fk_School_id"] = fk_School_id;
 	//params["delschoolName"] =delschoolName;
@@ -682,13 +690,14 @@ function DeleteparentInfo()
 	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
 
 			{
-		if(data=="↵↵↵↵↵↵↵"){
+		/*if(data=="↵↵↵↵↵↵↵"){
  			alert("Not Added");
  		}
  		else{
  			alert(data);
- 		}
- 			location.reload(true);
+ 		}*/
+		alert(data);
+ 			location.reload();
 
  			}
  	    	).error(function(jqXHR, textStatus, errorThrown){
@@ -698,7 +707,7 @@ function DeleteparentInfo()
  	    		}
  	    	});
 
-
+ 
 }
 
 

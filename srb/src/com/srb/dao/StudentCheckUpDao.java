@@ -266,5 +266,77 @@ public class StudentCheckUpDao
 		}
 		return studList;
 		}
+		// get to delete student health checkup
+		public List getStudentCheckUptoDelete()
+		{
+			
+			HibernateUtility hbu=null;
+			Session session=null;
+			List<StudentCheckUpBean> studList=null;
+		try{	
+
+			hbu = HibernateUtility.getInstance();
+			session = hbu.getHibernateSession();
+
+			Query query=session.createSQLQuery("SELECT pk_stud_checkup_Id, first_name, last_name FROM student_checkup_details");
+			List<Object[]> list = query.list();
+
+
+			studList= new ArrayList<StudentCheckUpBean>(0);
+
+
+		for (Object[] o : list) 
+		{	
+			StudentCheckUpBean reports = new StudentCheckUpBean();
+			reports.setPk_id(Long.parseLong(o[0].toString()));
+			reports.setfName(o[1].toString());
+			reports.setlName(o[2].toString());
+			
+			
+			studList.add(reports);
+
+		}}catch(RuntimeException e){	
+
+		}
+		finally{
+
+		hbu.closeSession(session);	
+		}
+		return studList;
+		}
+
+		
+		// delete student health checkup
+		public void deletcheckupList(String TransportId1) {
+			Long pk_stud_checkup_Id = Long.parseLong(TransportId1);
+			HibernateUtility hbu = null ;
+			Transaction tx = null; 
+			Session session = null;
+			 List list  = null;
+			 try {
+				 hbu = HibernateUtility.getInstance();
+				 session = hbu.getHibernateSession();
+				 tx = session.beginTransaction();
+					Query query = session.createSQLQuery("DELETE FROM student_checkup_details WHERE pk_stud_checkup_Id =:pk_stud_checkup_Id");
+					query.setParameter("pk_stud_checkup_Id",pk_stud_checkup_Id);
+					int seletedRecords = query.executeUpdate();
+					System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+					//list = query.list();
+					tx.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+				
+			 finally
+			 {
+				 if (session!=null) {
+					hbu.closeSession(session);
+				}
+			 }
+			
+		}
+
+		
 		
 }

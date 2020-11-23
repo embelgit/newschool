@@ -44,7 +44,7 @@ function validationSupplierPayment()
     		return false;
     	}
     	
-    	if(balAmount < pdAmount)
+    	if(balAmount < pdAmount && pdAmount!=0)
     	{
     		alert("Please enter paid amount less than or equal to balance amount");
     		return false;
@@ -58,7 +58,6 @@ function validationSupplierPayment()
    
   function	supplierPayment()
   {
-	  	
 			//var billNo = $('#billNo').val();
 			var balanceAmount = $("#balanceAmount").val();
 			var totalAmount = $('#totalAmount').val();
@@ -75,7 +74,6 @@ function validationSupplierPayment()
 			var totalAmounte = $('#totalAmounte').val();
 			var balanceAmounte = $('#balanceAmounte').val();
 			
-	
 			 var input = document.getElementById('supplierId'),
 			   list = document.getElementById('sup_drop'),
 		     	i,fkSupId;
@@ -88,6 +86,7 @@ function validationSupplierPayment()
 				     }
 		 		}
 	 			 	
+			 
 			var params= {};
 	
 			params ["supplier"] = supplierName;
@@ -493,6 +492,25 @@ function teacherPayment(){
 		fkteacherid = list.options[i].getAttribute('data-value');
 		}
 	}
+	/*if(cardNum==null || cardNum==undefined || cardNum=="")
+		{
+		cardNum="0";
+		}
+		
+	if(accNum==null || accNum==undefined || accNum=="")
+	{
+		accNum="0";
+	}
+
+	if(chequeNum==null || chequeNum==undefined || chequeNum=="")
+	{
+		chequeNum="N/A";
+	}
+	if(bankName==null || bankName==undefined || bankName=="")
+	{
+		bankName="N/A";
+	}*/
+	
 	
 	var params= {};
 
@@ -1015,9 +1033,19 @@ function BillHelper()
 			//var jsonData = jsonData.list;
 			$.each(jsonData,function(i,v)
 					{
-				//document.getElementById("totalAnnualFee").value = v.totalAmt;
-				document.getElementById("totalAnnualFee").value = v.totalAnnualFee;
-				//document.getElementById("remainingFee").value = v.totalAnnualFee;
+				
+				var inp1=v.totalAnnualFee;
+				if(inp1==null || inp1==undefined || inp1=="")
+					{
+					document.getElementById("totalAnnualFee").value = 0;
+					}
+				else
+					{
+					document.getElementById("totalAnnualFee").value = v.totalAnnualFee;
+					}
+				
+				//document.getElementById("totalAnnualFee").value = v.totalAnnualFee;
+				
 				
 				
 					});
@@ -1068,7 +1096,9 @@ function BillHelper()
 			fk_Student_id = list.options[i].getAttribute('data-value');
 			}
 		}
-		var studentName = fk_Student_id;
+		 
+		var studName=$("#fk_studentName_id").val();
+		//var studentName = fk_Student_id;
 //		var studentName = $('#studentName').val();
 		/*$("#studentName option:selected").each(function() {
 			   selectedVal = $(this).text();
@@ -1082,7 +1112,7 @@ function BillHelper()
 		$("#balanceAmountT").empty();
 		params["fk_class_id"] = fk_class_id;
 		params["fk_division_id"] = fk_division_id;
-		params["studentName"] = studentName;
+		params["studentName"] = studName;
 		/*params["firstName"] = firstName;
 		params["middleName"] = middleName;
 		params["lastName"] = lastName;*/
@@ -1098,8 +1128,18 @@ function BillHelper()
 			//var jsonData = jsonData.list;
 			$.each(jsonData,function(i,v)
 					{
-				//document.getElementById("totalAnnualFee").value = v.totalAmt;
-				document.getElementById("balanceAmountT").value = v.balanceFee;
+				var inp2=v.balanceFee;
+				if(inp2==null || inp2==undefined || inp2=="")
+					{
+					document.getElementById("balanceAmountT").value=0;
+					}
+				else
+					{
+					
+					document.getElementById("balanceAmountT").value = v.balanceFee;
+					}
+				
+				
 					});
 				})
 	}
@@ -1133,12 +1173,21 @@ function BillHelper()
 			var jsonData = $.parseJSON(data);
 			//var jsonData = jsonData.list;
 			$.each(jsonData,function(i,v)
-					{
-						//document.getElementById("totalAmount").value = v.grossTotal;
-						document.getElementById("totalAmount").value = v.total;
-				
-				
+					{	
+						//document.getElementById("totalAmount").value = v.total;
 						//document.getElementById("balanceAmount").value = v.balanceamount;
+						//document.getElementById("totalAmount").value = v.grossTotal;
+						var inp=v.total;
+						if(inp==undefined || inp==null || inp==0)
+							{
+							document.getElementById("totalAmount").value=0;
+							}
+						else
+							{
+							document.getElementById("totalAmount").value = v.total;
+							}
+				
+						
 				
 					});
 				})
@@ -1187,8 +1236,18 @@ function BillHelper()
 						//document.getElementById("totalAmount").value = v.grossTotal;
 						//document.getElementById("totalAmount").value = v.total;
 				
+				var inp2= v.balance;
+				if(inp2==undefined || inp2==null || inp2==0)
+				{
+				document.getElementById("balanceAmount").value=0;
+				}
+			else
+				{
+				document.getElementById("balanceAmount").value = v.balance
+				}
+	
+						//document.getElementById("balanceAmount").value = v.balance;
 				
-						document.getElementById("balanceAmount").value = v.balance;
 				
 					});
 				})
@@ -1223,10 +1282,16 @@ function BillHelper()
 			//var jsonData = jsonData.list;
 			$.each(jsonData,function(i,v)
 					{
-						//document.getElementById("totalAmount").value = v.grossTotal;
-						document.getElementById("totalAmounte").value = v.total
-						;
-				
+						//document.getElementById("totalAmounte").value = v.total;
+						var inp2= v.total;
+						if(inp2==undefined || inp2==null || inp2==0)
+						{
+						document.getElementById("totalAmounte").value=0;
+						}
+					else
+						{
+						document.getElementById("totalAmounte").value = v.total;
+						}
 				
 						//document.getElementById("balanceAmounte").value = v.balanceAmount;
 				
@@ -1266,11 +1331,18 @@ function BillHelper()
 			//var jsonData = jsonData.list;
 			$.each(jsonData,function(i,v)
 					{
-						//document.getElementById("totalAmount").value = v.grossTotal;
-						//document.getElementById("totalAmounte").value = v.total;
-				
-				
-						document.getElementById("balanceAmounte").value = v.balanceamount;
+				//document.getElementById("balanceAmounte").value = v.balanceamount;
+				var inp2= v.balanceamount;
+				if(inp2==undefined || inp2==null || inp2==0)
+				{
+				document.getElementById("balanceAmounte").value=0;
+				}
+			else
+				{
+				document.getElementById("balanceAmounte").value = v.balanceamount;
+				}
+		
+						
 				
 					});
 				})
@@ -1626,3 +1698,96 @@ function gettransportBetTwoDays(){
 				}
 			});
 }
+
+//get biiil no by supplier payment
+function getbillbysupplierPayment()
+{
+	$("#bill1").empty();
+	$("#bill1").append($("<option></option>").attr("value","").text("Select Bill"));
+	
+	var params= {};
+	
+	
+		var input = document.getElementById('supplierId'), list = document
+		.getElementById('sup_drop'), i, fkRootStudentId;
+		for (i = 0; i < list.options.length; ++i)
+		{
+			if (list.options[i].value === input.value) 
+			{
+				fkClassId = list.options[i].getAttribute('data-value');
+			}
+		}
+		
+	var supplierName = $('#supplierId').val();
+	
+	params["supplierName"] = supplierName;
+	params["supplierId"] = fkClassId;
+	
+	params["methodName"] = "getBillBySupplier";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) 	
+			{ var count = 1;
+
+			var jsonData = $.parseJSON(data);
+			$.each(jsonData,function(i,v)
+					{
+						/*$("#vendorList_Drop").append($("<option></option>").attr("value",(v.vendorName))); */
+						$("#bill1").append($("<option></option>").attr("value",(v.billNo)).attr("data-value",(v.supId)));
+						count++;
+					});
+			}).error(function(jqXHR, textStatus, errorThrown){
+				if(textStatus==="timeout") {
+
+				}
+			});
+
+}
+//delete Transportastion Payment
+function deleteTransportPayment()
+{
+if(document.deltransport.transpay.value==null || document.deltransport.transpay.value==undefined || document.deltransport.transpay.value=="")
+	{
+	alert("Please select Student Name");
+	return false;
+	
+	}
+deleteTransportPayment1();
+}
+function deleteTransportPayment1()
+{
+	document.getElementById("btn").disabled=true;
+	var input = document.getElementById('transpay'),
+    list = document.getElementById('transpay_drop'),
+    i,TransportPayId;
+
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input.value) {
+    	TransportPayId= list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	var params = {};
+	params["TransportPayId"] =TransportPayId;
+	
+	params["methodName"] ="deletTransportationPayment";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+	
+
+}
+

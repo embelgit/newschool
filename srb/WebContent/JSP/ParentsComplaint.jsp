@@ -195,10 +195,10 @@ function classList1(){
 							<span class="input-group-addon"> <i
 								class="glyphicon glyphicon-user"></i>
 							</span>
-							<select class="form-control input-md" id="parentName"  name="parentName" class="form-control" placeholder="Parent Name" >
-									</select>
-							<!-- <input type="text" id='parentName' name="parentName" class="form-control" placeholder="Enter Parent Name"/>
-							</div> -->
+							<!-- <select class="form-control input-md" id="parentName"  name="parentName" class="form-control" placeholder="Parent Name" >
+									</select> -->
+							<input type="text" id='parentName' name="parentName" class="form-control" placeholder="Enter Parent Name"/>
+							</div>
 						</div>
 						
 				</div>
@@ -262,7 +262,7 @@ function classList1(){
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <button class="ui positive button" name="btn" value="Save" onclick="parentsComplaintInfo(); return false;">Save</button>
+                                    <button class="ui positive button" name="btn" value="Save" id="btn" onclick="parentsComplaintInfo(); return false;">Save</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>

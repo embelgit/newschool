@@ -2,6 +2,7 @@ package com.srb.bean;
 
 public class SuppliersPaymentBean 
 {
+	private long supId;//newly added
 	private String supplierName;
 	private String billNo;
 	private String totalAmount;
@@ -15,7 +16,12 @@ public class SuppliersPaymentBean
 	private String bankName;
 	private String nameOnCheck;
 	
-	
+	public long getSupId() {
+		return supId;
+	}
+	public void setSupId(long supId) {
+		this.supId = supId;
+	}
 	public String getSupplierName() {
 		return supplierName;
 	}

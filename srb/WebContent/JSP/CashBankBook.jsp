@@ -40,6 +40,14 @@
 			function SalarySliplist(){
 				window.location = "ListOfSalarySlip.jsp";
 			}
+			function employeePaymentList()
+			{
+				window.location="EmployeePayementList.jsp";
+			}
+			function TransportationList()
+			{
+				window.location="TransportPaymentList.jsp";
+			}
 			
 	</script>
 	<script type="text/javascript">
@@ -236,7 +244,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-user"></i>
 							</span>
-	           		 	 <input id="personName2" name="personName" placeholder="Accountant Name" class="form-control input-md" type="text">
+	           		 	 <input id="personName2" name="personName" placeholder="Accountant Name" class="form-control input-md" type="text" onkeypress="return isAlphabetsWithSpace(event)">
 	           		 </div>
 				</div>
 			</div>
@@ -356,6 +364,8 @@ SupplierPaymentDao data = new SupplierPaymentDao();
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button">Reset</button>
+                                         <div class="or"></div>
+                                    <input type="button"  class="ui positive button" name="btn"   onclick="employeePaymentList()" value="List"></button>     
                                          </div>
                                 </div>
                             </div>   
@@ -801,7 +811,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 											<span class="input-group-addon">
 												Rs
 											</span>
-           									  <input  id="paidAmountT" name="paidAmount" class="form-control" placeholder="Enter Paid Amount">
+           									  <input  id="paidAmountT" name="paidAmount" class="form-control" placeholder="Enter Paid Amount" onkeypress="return isNumber(event)">
            							 </div>
 						</div>
 		  						
@@ -870,6 +880,8 @@ SupplierPaymentDao data = new SupplierPaymentDao();
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" onclick="location.reload()">Reset</button>
+                                         <div class="or"></div>
+                                         <input type="button" class="ui positive button" name="btn"  onclick="TransportationList()" value="List"></button>
                                          </div>
                                 </div>
                             </div>    	
@@ -1002,7 +1014,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 									<span class="input-group-addon">
 										<i class="glyphicon glyphicon-user"></i>
 									</span>
-			           		   <input id="personname" name="personname" placeholder="Accountant Name" class="form-control input-md" type="text" >
+			           		   <input id="personname" name="personname" placeholder="Accountant Name" class="form-control input-md" type="text" onkeypress="return isAlphabetsWithSpace(event)" >
 			           		 </div>
 						</div>
 				
@@ -1107,7 +1119,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 											<span class="input-group-addon">
 												Rs
 											</span>
-           									  <input  id="paidAmount" name="paidAmount" class="form-control" placeholder="Enter Paid Amount">
+           									  <input  id="paidAmount" name="paidAmount" class="form-control" placeholder="Enter Paid Amount" onkeypress="return isNumber(event)">
            							 </div>
 						</div>
 		  						
@@ -1283,7 +1295,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 									<span class="input-group-addon">
 										<i class="glyphicon glyphicon-user"></i>
 									</span>
-			           		   <input id="personnamel" name="personname" placeholder="Accountant Name" class="form-control input-md" type="text" >
+			           		   <input id="personnamel" name="personname" placeholder="Accountant Name" class="form-control input-md" type="text"  onkeypress="return isAlphabetsWithSpace(event)">
 			           		 </div>
 						</div>
 				
@@ -1388,7 +1400,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 											<span class="input-group-addon">
 												Rs
 											</span>
-           									  <input  id="paidAmountl" name="paidAmount" class="form-control" placeholder="Enter Paid Amount">
+           									  <input  id="paidAmountl" name="paidAmount" class="form-control" placeholder="Enter Paid Amount" onkeypress="return isNumber(event)">
            							 </div>
 						</div>
 		  						

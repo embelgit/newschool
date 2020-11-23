@@ -482,7 +482,7 @@ StudentInfoDao dao1 = new StudentInfoDao();
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">City/Village:</label>
+						<label class="control-label">City/Village:<sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
@@ -1093,7 +1093,7 @@ StudentInfoDao dao1 = new StudentInfoDao();
 			  <div class="form-group row">
                            <div class="col-md-offset-4 col-md-4 btn-center">
                                <div class="ui buttons">
-                               <input type="button" class="ui positive button" id="btn" name="btn" value="Save" onclick="StudValidation()" >Save</button>
+                               <input type="button" class="ui positive button" id="btn" name="btn" value="Save" id="btn" onclick="StudValidation()" >Save</button>
                                   
                                    <div class="or"></div>
                                     <button type="reset" class="ui button" onclick="location.reload()">Reset</button>

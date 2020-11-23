@@ -1,5 +1,5 @@
-<%@page import="com.srb.dao.SupplierPaymentDao"%>
-<%@page import="com.srb.bean.SuppliersPaymentBean"%>
+<%@page import="com.srb.dao.TeacherPaymentDao"%>
+<%@page import="com.srb.bean.TeacherPaymentDetailBean"%>
 <%@page import="com.srb.bean.GetTransportationDetails"%>
 <%@page import="com.srb.bean.TeacherLeavebean"%>
 <%@page import="com.srb.dao.TeacherInfoLeaveDao"%>
@@ -21,7 +21,7 @@
 
 	 function deletePayment()
 	 {
-		 window.location="DeleteCashBankBook.jsp";
+		 window.location="DeleteEmployeePaymentDetails.jsp";
 	 }
 </script>
 	<!-- For datatable to pdf,print,excel etc conversion -->
@@ -53,8 +53,8 @@ td {
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/list.png" style="width: 55px;"></div>
                         <div class="header-title">
-                            <h1>Supplier Payment List</h1>
-                            <small>Supplier Payment List</small> 
+                            <h1>Employee Payment List</h1>
+                            <small> Payment List</small> 
                         </div>
                     </div>
                 </section>
@@ -69,10 +69,10 @@ td {
  
 	 <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="Back()" accesskey="t""> <i class="fa fa-list"></i>Add Supplier Payment</a>  
+                    <a class="btn btn-primary"  onclick="Back()" accesskey="t""> <i class="fa fa-list"></i>Add Employee Payment</a>  
                 </div>
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="deletePayment()" accesskey="t""> <i class="fa fa-list"></i>Delete Supplier Payment</a>  
+                    <a class="btn btn-primary"  onclick="deletePayment()" accesskey="t""> <i class="fa fa-list"></i>Delete Employee Payment</a>  
                 </div>
             </div> 
 
@@ -81,8 +81,8 @@ td {
 			   
 		
 	<%
-		SupplierPaymentDao dao=new SupplierPaymentDao();
-		List list12 = dao.getSupplierPaymentList();
+		TeacherPaymentDao dao1=new TeacherPaymentDao();
+		List listtp = dao1.getEmployeePaymentList();
 	%>
 	
 	<div id="demo_jui">
@@ -91,18 +91,18 @@ td {
 			<thead>
 				<tr>
 					<th>Sr No</th>
-					<th>Supplier_Name</th>
-	                <th>Bill No</th>
-	             	<th>Total Amount</th>
-					<th>Balance</th>
-	                <th>Paid Amount</th>
-	                <th>Person_Name</th>
+					<th>Teacher_Name</th>
+	                <th>Accountant Name</th>
+	             	<th>Reason</th>
+					<th>Paid Amount</th>
+	                <th>Balance Amount</th>
+	                <th>Total Amount</th>
 					<th>Payment type</th>
 	                <th>Cheque No</th>
 					<th>Card No</th>
 					<th>Account No</th>
 					<th>Bank Name</th>
-					<th>Name On Cheque</th>
+					<th>Payment Date</th>
 					
 				</tr>
 			</thead>
@@ -110,26 +110,25 @@ td {
 			<tbody>
    				<%
    					int k = 0;
-   				for(int i=0;i<list12.size();i++){
-					SuppliersPaymentBean sr=(SuppliersPaymentBean)list12.get(i);
+   				for(int i=0;i<listtp.size();i++){
+   					TeacherPaymentDetailBean sr1=(TeacherPaymentDetailBean)listtp.get(i);
 					k++;
 				%>
 				
 				<tr>
 				 	<td class="align"><%=k%></td>
-					<td class="align"><%=sr.getSupplierName() %></td>
-					<td class="align"><%=sr.getBillNo() %></td>
-					<td class="align"><%=sr.getTotalAmount() %></td>
-					<td class="align"><%=sr.getBalance() %></td>
-					<td class="align"><%=sr.getPaidAmount() %></td>
-					<td class="align"><%=sr.getPersonName() %></td>
-					<td class="align"><%=sr.getPaymentType()  %></td>
-					<td class="align"><%=sr.getChequeNum() %></td>
-					<td class="align"><%=sr.getCardNum() %></td>
-					<td class="align"><%=sr.getAccNum() %></td>
-					<td class="align"><%=sr.getBankName() %></td>
-					<td class="align"><%=sr.getNameOnCheck() %></td>
-					
+					<td class="align"><%=sr1.getTeacherName() %></td>
+					<td class="align"><%=sr1.getAccountantName() %></td>
+					<td class="align"><%=sr1.getReason() %></td>
+					<td class="align"><%=sr1.getPaymentAmount() %></td>
+					<td class="align"><%=sr1.getBalanceamount() %></td>
+					<td class="align"><%=sr1.getTotalamount() %></td>
+					<td class="align"><%=sr1.getPaymentMode()  %></td>
+					<td class="align"><%=sr1.getChequeNum() %></td>
+					<td class="align"><%=sr1.getCardNum() %></td>
+					<td class="align"><%=sr1.getAccNum() %></td>
+					<td class="align"><%=sr1.getBankName() %></td>
+					<td class="align"><%=sr1.getInsertDate() %></td>
 				</tr>
 	
 				<%

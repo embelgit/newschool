@@ -238,4 +238,113 @@ public List getLastBillNo() {
 			return supList;
 			}
 
+			//getting bill no as per supplier payment
+			public List getBillasperSupplier(String classId)
+			{
+				Long fk_supplier_id=Long.parseLong(classId);
+				HibernateUtility hbu = null ;
+				Session session = null;
+				List list  = null;
+				
+				try 
+				{
+					hbu = HibernateUtility.getInstance();
+					session = hbu.getHibernateSession();
+					Query query = session.createSQLQuery("SELECT DISTINCT\r\n" + 
+							"    bill_no,fk_supplier_id\r\n" + 
+							"FROM\r\n" + 
+							"    supplier_payment WHERE fk_supplier_id = '"+fk_supplier_id+"' ");
+			
+					list = query.list();
+			
+					System.out.println("----- LIST -DAO---- jsp  ::  "+list.size());
+					
+				}
+				catch (Exception e) 
+				{
+					e.printStackTrace();
+				}
+			
+				finally
+				{
+					if (session!=null) {
+						hbu.closeSession(session);
+					}
+					hbu.closeSession(session);
+				}
+				
+				System.out.println("----- LIST --LAST--- jsp  ::  "+list.size());
+
+				return list;
+				
+				
+			}
+
+			//delete supplier payment
+			public List getSupplierPaymentListtoDelete()
+			{
+				
+				HibernateUtility hbu=null;
+				Session session=null;
+				List<SuppliersPaymentBean> supList=null;
+			try{	
+		
+				hbu = HibernateUtility.getInstance();
+				session = hbu.getHibernateSession();
+		
+				Query query=session.createSQLQuery("SELECT supplier, bill_no, pk_supplier_payment_id FROM supplier_payment where transaction_id > 0");
+				List<Object[]> list = query.list();
+		
+		
+				supList= new ArrayList<SuppliersPaymentBean>(0);
+		
+		
+			for (Object[] o : list) 
+			{	
+				SuppliersPaymentBean reports = new SuppliersPaymentBean();
+				
+				reports.setSupplierName(o[0].toString());
+				reports.setBillNo(o[1].toString());
+				reports.setSupId(Long.parseLong(o[2].toString()));
+				supList.add(reports);
+			}}catch(RuntimeException e){	
+		
+			}
+			finally{
+		
+			hbu.closeSession(session);	
+			}
+			return supList;
+			}
+// delete supplier payment
+			public void deletsupplierPayment(String TransportId1) {
+				Long pk_supplier_payment_id= Long.parseLong(TransportId1);
+				HibernateUtility hbu = null ;
+				Transaction tx = null; 
+				Session session = null;
+				 List list  = null;
+				 try {
+					 hbu = HibernateUtility.getInstance();
+					 session = hbu.getHibernateSession();
+					 tx = session.beginTransaction();
+						Query query = session.createSQLQuery("DELETE FROM supplier_payment WHERE pk_supplier_payment_id =:pk_supplier_payment_id");
+						query.setParameter("pk_supplier_payment_id",pk_supplier_payment_id);
+						int seletedRecords = query.executeUpdate();
+						System.out.println("Deleted Successfully");
+						System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+						//list = query.list();
+						tx.commit();
+				} catch (Exception e) {
+					e.printStackTrace();
+					// TODO: handle exception
+				}
+					
+				 finally
+				 {
+					 if (session!=null) {
+						hbu.closeSession(session);
+					}
+				 }
+				
+			}			
 }

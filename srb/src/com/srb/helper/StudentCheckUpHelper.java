@@ -161,5 +161,15 @@ public class StudentCheckUpHelper
 		 		return expList;
 			
 			}
+			
+			public void deletesCheckupDetails(HttpServletRequest request, HttpServletResponse response ) {
+				
+				String TransportId = request.getParameter("checkupid");
+				StudentCheckUpDao dao2 = new StudentCheckUpDao();
+				dao2.deletcheckupList(TransportId);
+					
+				}
+
+
 
 }

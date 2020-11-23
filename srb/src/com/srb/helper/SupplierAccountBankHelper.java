@@ -22,6 +22,8 @@ import org.hibernate.Session;
 import com.srb.bean.GestSupplyerDetailsForCashBook;
 import com.srb.bean.LibraryPayment;
 import com.srb.bean.SupplierPayemnt;
+import com.srb.bean.SuppliersPaymentBean;
+import com.srb.dao.SupplierPaymentDao;
 import com.srb.hibernate.LibraryPaymentBean;
 import com.srb.hibernate.StoreManagementHibernate;
 
@@ -87,11 +89,12 @@ public class SupplierAccountBankHelper {
 				System.out.println(" hit this is BAlance==  "+i+" "+(o[0].toString()));
 				bean.setTotal(Double.parseDouble(o[1].toString()));
 				System.out.println(" hit this is Total== "+i+" "+(o[1].toString()));*/
-				
-				totbalAmt = totbalAmt + Double.parseDouble(o[0].toString());
+				//totbalAmt = totbalAmt + Double.parseDouble(o[0].toString());
+				totbalAmt = totbalAmt + Double.parseDouble(o[2].toString());
 				bean.setBalanceamount(totbalAmt);
 				totAmt = totAmt + Double.parseDouble(o[1].toString());
 				bean.setTotal(totAmt);
+				bean.setSupid(o[3].toString());
 				//map.put(bean.getSupid(), bean);
 			}
 			map.put(bean.getSupid(), bean);
@@ -377,4 +380,52 @@ public class SupplierAccountBankHelper {
 
 			return map;
 		}
+		
+		//getting bill as per Supplier
+		
+		public Map getBillNoAsPerSupplier(HttpServletRequest request,HttpServletResponse response) 
+		{
+			int count = 1;
+			
+			String supplierId = request.getParameter("supplierId");	
+			String supplierName = request.getParameter("supplierName");	
+			
+			
+			System.out.println("--------------supplierId---------  :: "+supplierId);
+			System.out.println("---------------supplierName------------------  ::  "+supplierName);
+			
+			
+			
+			SupplierPaymentDao dao=new SupplierPaymentDao();
+			List list= dao.getBillasperSupplier(supplierId);
+
+			System.out.println("---------------- List ----------------- ::  "+list.size());
+			
+			Map  map =  new HashMap();
+			for(int i=0;i<list.size();i++)
+			{
+				Object[] o = (Object[])list.get(i);
+
+				SuppliersPaymentBean bean = new SuppliersPaymentBean();
+				System.out.println("result - "+Arrays.toString(o));
+				bean.setBillNo(o[0].toString());
+				bean.setSupId(Long.parseLong(o[1].toString()));
+				System.out.println("***************"+o[0]);
+				System.out.println("***************"+o[1]);
+				
+				map.put(bean.getBillNo() ,bean);
+				count++;
+			}
+			return map;
+		}
+//delete Supplier Payment
+		public void deleteSupplierPaymentDetails(HttpServletRequest request, HttpServletResponse response ) {
+			
+			String suppId = request.getParameter("suppId");
+			SupplierPaymentDao dao2 = new SupplierPaymentDao();
+			dao2.deletsupplierPayment(suppId);
+				
+			}
+
+		
 }

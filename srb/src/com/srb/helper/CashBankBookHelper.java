@@ -341,6 +341,7 @@ public Map getStudentNameCopy(String fk_class_id, String fk_division_id) {
 		Map  map =  new HashMap();
 		//System.out.println(list.size()+"LIST SIZE");
 		int sic = list.size();
+		System.out.println(list);
 		if(sic==0)
 		{
 			StudentInformationForReport bean = new StudentInformationForReport();
