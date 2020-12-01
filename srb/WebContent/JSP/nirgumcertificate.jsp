@@ -375,12 +375,10 @@ System.out.println(todayDate);
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" onclick="nirgumCertificateGenerator()" value="Print">
+                                    <input type="button" class="ui positive button" name="btn" onclick="nirgumCertificateGenerator()" value="print">
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
-                                        
-
                                         </div>
                                 </div>
                             </div>

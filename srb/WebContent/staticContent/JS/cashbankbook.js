@@ -1790,4 +1790,55 @@ function deleteTransportPayment1()
 	
 
 }
+function deleteLibraryPayment()
+{
+if(document.dellibpay.libpay.value==null || document.dellibpay.libpay.value==undefined || document.dellibpay.libpay.value=="")
+	
+	{
+	alert("please select supplier");
+	return false;
+	}
+deleteLibraryPayment1();
+}
+function deleteLibraryPayment1()
+{
+	document.getElementById("btn").disabled=true;
+	var input = document.getElementById('libpay'),
+    list = document.getElementById('libpay_drop'),
+    i,LibraryPayId;
+
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input.value) {
+    	LibraryPayId= list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	var params = {};
+	params["LibraryPayId"] =LibraryPayId;
+	
+	params["methodName"] ="deleteLibraryPayment";
+	
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		if(data=="↵↵↵↵↵↵↵"){
+ 			alert("Not Added");
+ 		}
+ 		else{
+ 			alert(data);
+ 		}
+ 			location.reload();
+
+ 			}
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+
+
+
+}
+
+
 

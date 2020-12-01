@@ -754,6 +754,15 @@ public class Controller
 		System.out.println("$$$$$$$$$$$$$$$$" + returnMap);
 		return toJson(returnMap);
 	}
+	//sport Certificate Generate
+	public String viewSportCertificate(HttpServletRequest request,HttpServletResponse response)
+	{
+		System.out.println("In controller");
+		CertificatesHelper scf = new CertificatesHelper();
+		scf.genrateSportCertificate(request, response);
+		return toJson("Data Added Successfully");
+	}
+	
 	//
 	public String getLCGeneratedStudentListrangewise(HttpServletRequest request, HttpServletResponse response) {
 		CertificatesHelper helper = new CertificatesHelper();
@@ -1748,7 +1757,19 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 					return toJson("Data Added Successfully");
 				}
 				
-		
+		//Delete Library Payment
+				public String deleteLibraryPayment(HttpServletRequest request, HttpServletResponse response) {
+					System.out.println("In Controller");
+					LibraryManagementHelper helper = new LibraryManagementHelper();
+					helper.deletesLibraryPaymentDetails(request, response);
+					
+					String data = "Transaction Deleted Sucessfully";
+					return data;
+				}
+
+
+				
+				
 		// Trasnportation Details 
 		
 		public String TransportationDetails(HttpServletRequest request, HttpServletResponse response) 

@@ -12,6 +12,7 @@ import com.srb.bean.CertificateBean;
 import com.srb.bean.StudentInformationForReport;
 import com.srb.hibernate.BonafideCertificateHibernate;
 import com.srb.hibernate.LeavingCertificateHibernate;
+import com.srb.hibernate.SportcertificateHibernate;
 import com.srb.hibernate.nirgumCertificateHibernate;
 import com.srb.utility.HibernateUtility;
 
@@ -299,4 +300,31 @@ public List<CertificateBean> getnirgumGeneratedStudentInformationAsPerrangewise(
 	}
 	return saleList;	
 }
+
+public void addSportCertificateDetails(SportcertificateHibernate b) {
+	HibernateUtility hbu=null;
+	Session session=null;
+	Transaction transaction=null;
+	
+	try{
+	 hbu = HibernateUtility.getInstance();
+	 session = hbu.getHibernateSession();
+	 transaction = session.beginTransaction();
+	session.save(b);
+	transaction.commit();
+	System.out.println("Update in Dao");
+	}
+	
+	catch(RuntimeException e){
+		try{
+			transaction.rollback();
+		}catch(RuntimeException rbe)
+		{
+			rbe.printStackTrace();
+		}	
+	}finally{
+	hbu.closeSession(session);
+	}
+}
+
 }

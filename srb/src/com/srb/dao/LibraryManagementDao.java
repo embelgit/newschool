@@ -750,5 +750,35 @@ public class LibraryManagementDao {
 		
 	}
 	
-	
+	//delete Library Payment List
+	public void deletLibPaymentDetails(String TransportId1) {
+		Long pk_supplier_payment_id = Long.parseLong(TransportId1);
+		HibernateUtility hbu = null ;
+		Transaction tx = null; 
+		Session session = null;
+		 List list  = null;
+		 try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 tx = session.beginTransaction();
+				Query query = session.createSQLQuery("DELETE FROM library_payment WHERE pk_supplier_payment_id =:pk_supplier_payment_id");
+				query.setParameter("pk_supplier_payment_id",pk_supplier_payment_id);
+				int seletedRecords = query.executeUpdate();
+				System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+				//list = query.list();
+				tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+			
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+		
+	}
+
 }

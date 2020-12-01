@@ -79,6 +79,7 @@
          <mapping resource ="com/srb/hibernate/AccessControl.hbm.xml"/>
           <mapping resource ="com/srb/hibernate/hostelManagement.hbm.xml"/>
           <mapping resource="com/srb/hibernate/nirgumCertificate.hbm.xml"/>
+          <mapping resource="com/srb/hibernate/SportCertificate.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

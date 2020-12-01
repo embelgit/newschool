@@ -274,11 +274,12 @@ function nirgumCertificateGenerator1()
  			
  	    	{
  				alert(data);
- 				location.reload();
+ 				
 //	 			window.open("view_leaving_certificate.jsp");
 // 				window.open("leaving_certificate.jsp"); 			
  				window.open("nirgum.jsp");	
  				/*location.reload();*/
+ 				location.reload();
  			}
  		
  	

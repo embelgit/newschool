@@ -11,7 +11,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.*;
 import javax.mail.internet.MimeMessage;
-import javax.sql.DataSource;
+//import javax.sql.DataSource;
 
 public class Mailer {
 
@@ -77,7 +77,7 @@ public class Mailer {
 		
 			
 			String filename = "D:/dumpbackup/school.sql";//change accordingly  
-			DataSource source = new FileDataSource(filename);  
+			DataSource source = new FileDataSource(filename);
 			message.setDataHandler(new DataHandler(source));
 			message.setFileName(filename);
 			

@@ -21,6 +21,7 @@ import com.srb.dao.CertificatesDao;
 import com.srb.dao.StudentInfoDao;
 import com.srb.hibernate.BonafideCertificateHibernate;
 import com.srb.hibernate.LeavingCertificateHibernate;
+import com.srb.hibernate.SportcertificateHibernate;
 import com.srb.hibernate.StudentInfoHibernate;
 import com.srb.utility.HibernateUtility;
 import com.srb.hibernate.nirgumCertificateHibernate;;
@@ -441,6 +442,91 @@ public class CertificatesHelper {
 		session3.setAttribute("fk_student_id", fk_student_id);
 		
 		System.out.println("----------------Credit cust Bill No before session create::"+session3.getAttribute("fk_student_id"));
+	}
+
+	//generate Sport Certificate
+	public void genrateSportCertificate(HttpServletRequest request, HttpServletResponse response) 
+	{
+		String pkStudentId = request.getParameter("pkStudentId");
+		String grade = request.getParameter("grade");
+		String sport = request.getParameter("sport");
+		String dateOfLeaving =request.getParameter("dateOfLeaving");
+		String fk_class_id =request.getParameter("fk_class_id");
+		String fk_div_id =request.getParameter("fk_div_id");
+		System.out.println("classid------"+fk_class_id);
+		System.out.println("grade------"+grade);
+		System.out.println("sport------"+sport);
+		System.out.println("fk_div_id------"+fk_div_id);
+		System.out.println("dateOfLeaving------"+dateOfLeaving);
+		System.out.println("pkStudentId------"+pkStudentId);
+		HttpSession sessionToViewTask = request.getSession();
+		HibernateUtility hbu=null;
+		Transaction transaction = null;
+		Session session=null;
+		List<Object[]> list=null;
+		try{
+			 hbu=HibernateUtility.getInstance();
+			 session=hbu.getHibernateSession();
+
+					 
+			}catch(RuntimeException e){
+				
+			System.out.println("error in getStudentInfo()");
+		}
+		finally{
+			if(session!=null){
+				
+				hbu.closeSession(session);
+			}
+			
+		}
+		Long pkStudentId1=Long.parseLong(pkStudentId);
+		sessionToViewTask.setAttribute("DateofSport", dateOfLeaving);
+		sessionToViewTask.setAttribute("SportName", sport);
+		sessionToViewTask.setAttribute("Grade", grade);
+		sessionToViewTask.setAttribute("StudentIdforSport", pkStudentId1);
+		//to add to table
+		//Transaction transaction = session.beginTransaction();
+			 SportcertificateHibernate b = new SportcertificateHibernate();
+			 //b.setPkSportId(Long.parseLong(pkStudentId));
+			 b.setFkstudid(Long.parseLong(pkStudentId));
+			 b.setFkclassId(Long.parseLong(fk_class_id));
+			 b.setFkdivId(Long.parseLong(fk_div_id));
+			 SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+				Date leaveDate = null;
+				try{
+					leaveDate = format1.parse(dateOfLeaving);
+					b.setInsertDate(leaveDate);
+				}
+				catch(Exception e){
+					e.printStackTrace();
+					System.out.println("Exception in date parsing");
+					
+				}
+		/*if(!"".equals(dateOfLeaving)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(dateOfLeaving);
+				b.setInsertDate(joiningDate);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}*/
+		b.setSportName(sport);
+		 b.setGradename(grade);
+		System.out.println("updated Sport Certificate hibernate  bean");
+		// session.saveOrUpdate(b);
+		//transaction.commit();
+		CertificatesDao dao=new CertificatesDao();
+		dao.addSportCertificateDetails(b);
+		
+		
 	}
 
 }

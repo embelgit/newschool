@@ -1073,5 +1073,105 @@ function getDivisionNameByClassNameCopyBonafide()
 			});
 }
 
+function SportCertificateGenerator()
+{
+if(document.sportcertificate.fk_class_id1.value==null || document.sportcertificate.fk_class_id1.value==undefined || document.sportcertificate.fk_class_id1.value=="")
+{
+	alert("Please Select Class");
+	return false;
+}	
+if(document.sportcertificate.fk_division_id.value==null || document.sportcertificate.fk_division_id.value==undefined || document.sportcertificate.fk_division_id.value=="")
+	{
+	alert("Please Select Devision");
+	return false;
+	}
+if(document.sportcertificate.fk_Student_id.value==null || document.sportcertificate.fk_Student_id.value==undefined || document.sportcertificate.fk_Student_id.value=="")
+{
+alert("Please Select StudentName")
+return false;
+}
+
+if(document.sportcertificate.dateOfLeaving.value==null || document.sportcertificate.dateOfLeaving.value==undefined || document.sportcertificate.dateOfLeaving.value=="")
+{
+alert("Please Insert Date");
+return false;
+
+}
+if(document.sportcertificate.sport.value==null || document.sportcertificate.sport.value==undefined || document.sportcertificate.sport.value=="")
+{
+alert("Please Enter Sport Name");
+return false;
+}
+SportCertificateGenerator1();
+}
+
+function SportCertificateGenerator1()
+{
+	
+	var pkStudentId = $('#fk_Student_id').val();
+	var input = document.getElementById('fk_class_id1'),
+	list = document.getElementById('classes'),
+	i,fk_class_id;
 
 
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_class_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	
+	var input = document.getElementById('fk_division_id'),
+	list = document.getElementById('division'),
+	i,fk_div_id;
+
+	
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_div_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	
+	
+	var grade = $('#grade').val();
+	if(grade == "" || grade == null || grade == undefined){
+		grade = "NA";
+	}
+	document.getElementById("btn").disabled=true;
+	var dateOfLeaving = $('#dateOfLeaving').val();
+	var sport = $('#sport').val();
+	var params= {};
+	params["pkStudentId"]=pkStudentId;
+	params["fk_class_id"] = fk_class_id;
+	params["fk_div_id"] = fk_div_id;
+	params["grade"] = grade;
+	params["sport"] = sport;
+	params["dateOfLeaving"] = dateOfLeaving;
+	
+ 	params["methodName"] = "viewSportCertificate";
+ 	$.post('/srb/JSP/utility/controller.jsp',params,function(data) 
+ 			
+ 	    	{
+ 				//alert(data);
+ 				//location.reload();
+	 			window.open("sport_certificatepdf.jsp");
+ 				//window.open("leaving_certificate.jsp"); 			
+ 
+ 				//				window.open("nirgum.jsp");	
+ 			location.reload();
+ 			}
+ 		
+ 	
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	
+ 	    	})
+
+
+
+
+}

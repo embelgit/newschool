@@ -10,8 +10,7 @@
 <head>
  <script type="text/javascript" src="/srb/staticContent/JS/cashbook.js"></script>
   <script src="/srb/staticContent/JS/Student.js"></script>
-  
-   <script src="/srb/staticContent/JS/certificate.js"></script>
+  <script src="/srb/staticContent/JS/certificate.js"></script>
    
    <script type="text/javascript">
 	function leavingCertificate()
@@ -62,7 +61,7 @@
 	
 	
 
- <form class="form-horizontal" name="LeavingCertificate">
+ <form class="form-horizontal" name="sportcertificate">
  			<div class="row">
 				<div class="form-group">
 					<div class="col-md-2 col-sm-offset-1" align="right">
@@ -264,7 +263,7 @@
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="attendance" name="attendance" class="form-control" placeholder="Enter Sport Name">
+						    <input type="text" id="sport" name="sport" class="form-control" placeholder="Enter Sport Name">
 					 	</div>
 					 </div>
 
@@ -276,7 +275,7 @@
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="workingday" name="workingday" class="form-control" placeholder="Grade">
+						    <input type="text" id="grade" name="grade" class="form-control" placeholder="Grade">
 					 	</div>
 					 </div>
 				</div>
@@ -288,11 +287,11 @@
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" onclick="leavingCertificateGenerator()" value="Print">
+                                    <input type="button" class="ui positive button" name="btn" id="btn" onclick="SportCertificateGenerator()" value="Print">
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
-                                           
+                                          
                                         </div>
                                 </div>
                             </div>

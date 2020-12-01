@@ -347,4 +347,45 @@ public List getLastBillNo() {
 				 }
 				
 			}			
+
+//get Library Payment to Delete
+			public List getlibraryPaymentListtoDelete()
+			{
+				
+				HibernateUtility hbu=null;
+				Session session=null;
+				List<LibraryPaymentBean> supList=null;
+			try{	
+		
+				hbu = HibernateUtility.getInstance();
+				session = hbu.getHibernateSession();
+		
+				Query query=session.createSQLQuery("SELECT supplier, bill_no, paid_amount,pk_supplier_payment_id FROM library_payment where transaction_id > 0");
+				List<Object[]> list = query.list();
+		
+		
+				supList= new ArrayList<LibraryPaymentBean>(0);
+		
+		
+			for (Object[] o : list) 
+			{	
+				LibraryPaymentBean reports = new LibraryPaymentBean();
+				
+				reports.setSupplier(o[0].toString());
+				reports.setBillNo(Double.parseDouble(o[1].toString()));
+				reports.setPaidAmount(Double.parseDouble(o[2].toString()));
+				reports.setPkSupPaymentId(Long.parseLong(o[3].toString()));
+				supList.add(reports);
+		
+			}}catch(RuntimeException e){	
+		
+			}
+			finally{
+		
+			hbu.closeSession(session);	
+			}
+			return supList;
+			}
+
+			
 }

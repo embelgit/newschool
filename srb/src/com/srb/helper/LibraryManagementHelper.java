@@ -1417,7 +1417,14 @@ Long NEwQuantity =  (long) 0;
 		return exp1List;
 	}
 	
-	
+	//delete Library Payment
+public void deletesLibraryPaymentDetails(HttpServletRequest request, HttpServletResponse response ) {
+		
+		String LibraryPayId = request.getParameter("LibraryPayId");
+		LibraryManagementDao dao2 = new LibraryManagementDao();
+		dao2.deletLibPaymentDetails(LibraryPayId);
+			
+		}
 	
 	
 }

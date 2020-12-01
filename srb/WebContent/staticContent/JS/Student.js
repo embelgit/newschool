@@ -2541,3 +2541,51 @@ $.post('/srb/JSP/utility/controller.jsp',params,function(data)
 	    	});
 
 }
+
+// for Sport Certificate
+function getDivisionNameByClassName1()
+{
+//var type = document.getElementById('vendor').value;
+	
+	$("#fk_division_id").empty();
+	$("#fk_division_id").append($("<option></option>").attr("value","").text("Select product"));
+	
+	var params= {};
+	
+	
+		var input = document.getElementById('fk_class_id1'), list = document
+		.getElementById('clas'), i, fkRootStudentId;
+		for (i = 0; i < list.options.length; ++i)
+		{
+			if (list.options[i].value === input.value) 
+			{
+				fkClassId = list.options[i].getAttribute('data-value');
+			}
+		}
+		
+	var className = $('#fk_class_id1').val();
+	
+	params["fkClassId"] = fkClassId;
+	params["className"] = className;
+	
+	params["methodName"] = "getDivisionNameByClassName";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) 	
+			{ var count = 1;
+
+			var jsonData = $.parseJSON(data);
+			$.each(jsonData,function(i,v)
+					{
+				
+						
+						/*$("#vendorList_Drop").append($("<option></option>").attr("value",(v.vendorName))); */
+						$("#fk_division_id").append($("<option></option>").attr("value",(v.divisionName)).attr("data-value",(v.pkDivisionId)));
+						count++;
+					});
+			}).error(function(jqXHR, textStatus, errorThrown){
+				if(textStatus==="timeout") {
+
+				}
+			});
+}
+
+
