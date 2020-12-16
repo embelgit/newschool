@@ -1,5 +1,6 @@
-<%@page import="com.srb.hibernate.TeacherInfoHibernate"%>
+<%@page import="com.srb.hibernate.TeacherInfoLeaveHibernate"%>
 <%@page import="com.srb.dao.TeacherInfoDao"%>
+<%@page import="com.srb.hibernate.TeacherInfoHibernate"%>
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
 
@@ -56,6 +57,48 @@
 					input.value = input.value.replace(regex, "");
 				} */
 		</script>
+		<script type="text/javascript">
+function checkForDuplicateLeave(){
+          			<%
+          			TeacherInfoDao dao2 = new TeacherInfoDao();
+          			List list1 = dao2.getLeaveTeacherDetails();
+          			%>
+          			
+          			<%
+          			int z = 0;
+          			for(z=0;z<list1.size();z++){
+          				TeacherInfoLeaveHibernate   bean = (TeacherInfoLeaveHibernate)list1.get(z);
+          			%>
+          			var id = "<%=bean.getFkTeacherid()%>";
+          			var firstDate = "<%=bean.getFirstDate()%>";
+          			var fdate=document.getElementById("leaveDateFrom").value;
+          			 var splitFrom = firstDate.split('/');
+          	        var splitTo = fdate.split('/');
+          	      var fromDate = Date.parse(splitFrom[0], splitFrom[1] - 1, splitFrom[2]);
+                  var toDate = Date.parse(splitTo[0], splitTo[1] - 1, splitTo[2]);
+          			
+          			var input1 = document.getElementById('fk_employee_id'), list = document
+          			.getElementById('employeeNameList'), i, fk_employee_id;
+
+          		for (i = 0; i < list.options.length; ++i) {
+          		if (list.options[i].value === input1.value) {
+          			fk_employee_id = list.options[i].getAttribute('data-value');
+          		}
+          		}
+          			if(fk_employee_id==id && fromDate==toDate)
+          				{
+          				alert("Teacher already In leave on that Date");
+          				location.reload();
+          				return false;
+          				}
+          			
+          			<%
+          			}
+          			%>
+          			
+          			}
+</script>
+
 		
 		<script type="text/javascript">
 			function isNumber(evt) {
@@ -200,7 +243,7 @@
 								<span class="input-group-addon"> 
 								<i class="glyphicon glyphicon-calendar"></i>
 								</span>
-								<input type="date" id='leaveDateFrom' name="leaveDateFrom" class="form-control">
+								<input type="date" id='leaveDateFrom' name="leaveDateFrom" class="form-control" onchange="checkForDuplicateLeave()">
 							</div>
 						</div>
 

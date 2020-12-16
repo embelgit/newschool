@@ -204,7 +204,7 @@ function bonafideCertificateGenerator1(){
 	params["fk_class_id"] = fk_class_id;
 	params["fk_div_id"] = fk_div_id;
 	params["studentName"] = pkStudentId;
- 	params["methodName"] = "viewBonafideCertificate";
+ 	params["methodName"] = "viewcopySportCertificate";
  	$.post('/srb/JSP/utility/controller.jsp',params,function(data) 
  			
  	    	{
@@ -1174,4 +1174,452 @@ function SportCertificateGenerator1()
 
 
 
+}
+
+function CopySportCertificateGenerator()
+{
+
+	if(document.sportcertificate.fk_class_id1.value == "")
+	{
+		alert("Please Enter Class Name.");
+		return false;
+	}
+	if(document.sportcertificate.fk_division_id.value == "")
+		{
+		alert("Please Enter Division Name");
+		return false;
+		}
+	if(document.sportcertificate.fk_Student_id.value =="")
+		{
+		alert("Please Select Student Name");
+		return false;
+		}
+	CopySportCertificateGenerator1();
+	
+}
+
+
+function CopySportCertificateGenerator1(){
+
+	var params= {};
+	
+	var input = document.getElementById('fk_class_id1'),
+	list = document.getElementById('classes'),
+	i,fk_class_id;
+
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_class_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	var input = document.getElementById('fk_division_id'),
+	list = document.getElementById('division'),
+	i,fk_div_id;
+
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_div_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+//	var input = document.getElementById('fk_Student_id'),
+//	list = document.getElementById('studentNameList'),
+//	i,fk_Student_id;
+//
+//	for (i = 0; i < list.options.length; ++i) {
+//	if (list.options[i].value === input.value) {
+//		fk_Student_id = list.options[i].getAttribute('data-value');
+//		}
+//	}
+	
+	var pkStudentId = $('#fk_Student_id').val();
+
+	
+	params["fk_class_id"] = fk_class_id;
+	params["fk_div_id"] = fk_div_id;
+	params["studentName"] = pkStudentId;
+ 	params["methodName"] = "viewcopySportCertificate";
+ 	$.post('/srb/JSP/utility/controller.jsp',params,function(data) 
+ 			
+ 	    	{
+// 			window.open("view_bonafide_certificate.jsp");
+ 		window.open("cpysport_certificatepdf.jsp");			
+ 			location.reload();
+ 			}
+ 		
+ 	
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	
+ 	    	})	
+}
+ 
+function CopynirgumCertificateGenerator()
+{
+	if(document.nirgumcertificate.fk_class_id1.value == "")
+	{
+		alert("Please Select Class Name.");
+		return false;
+	}
+	if(document.nirgumcertificate.fk_division_id.value == "")
+		{
+		alert("Please Select Division Name");
+		return false;
+		}
+	if(document.nirgumcertificate.fk_Student_id.value =="")
+		{
+		alert("Please Select Student Name");
+		return false;
+		}
+	if(document.nirgumcertificate.addclass.value =="")
+	{
+	alert("Please Select Class at the Time of Admission");
+	return false;
+	}
+	if(document.nirgumcertificate.officer.value =="")
+	{
+	alert("Please Enter Officer Name");
+	return false;
+	}
+	if(document.nirgumcertificate.nirgumclass.value =="")
+	{
+	alert("Please Select Class");
+	return false;
+	}
+
+	
+	
+	CopynirgumCertificateGenerator1()
+
+}
+function CopynirgumCertificateGenerator1()
+{
+	
+	var params= {};
+	
+	var input = document.getElementById('fk_class_id1'),
+	list = document.getElementById('classes'),
+	i,fk_class_id;
+
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_class_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	var input = document.getElementById('fk_division_id'),
+	list = document.getElementById('division'),
+	i,fk_div_id;
+
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_div_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	var addclass = $('#addclass').val();
+	var officer = $('#officer').val();
+	var nirgumclass = $('#nirgumclass').val();
+	var nirgumdate = $('#nirgumdate').val();
+	var dateOfLeaving = $('#dateOfLeaving').val();
+	var place= $('#place').val();
+	
+//	var input = document.getElementById('fk_Student_id'),
+//	list = document.getElementById('studentNameList'),
+//	i,fk_Student_id;
+//
+//	for (i = 0; i < list.options.length; ++i) {
+//	if (list.options[i].value === input.value) {
+//		fk_Student_id = list.options[i].getAttribute('data-value');
+//		}
+//	}
+	
+	var pkStudentId = $('#fk_Student_id').val();
+
+	params["addclass"]=addclass;
+	params["officer"]=officer;
+	params["nirgumclass"]=nirgumclass;
+	params["nirgumdate"]=nirgumdate;
+	params["place"]=place;
+	params["dateOfLeaving"]=dateOfLeaving;
+	params["fk_class_id"] = fk_class_id;
+	params["fk_div_id"] = fk_div_id;
+	params["studentName1"] = pkStudentId;
+ 	params["methodName"] = "viewcopyNirgumCertificate";
+ 	$.post('/srb/JSP/utility/controller.jsp',params,function(data) 
+ 			
+ 	    	{
+
+ 		window.open("cpy_nirgumcertifiactepdf.jsp");			
+ 			location.reload();
+ 			}
+ 		
+ 	
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	
+ 	    	})
+
+}
+
+function getNirgumCertificateDetails()
+{
+	var params= {};
+	var pkStudentId = $('#fk_Student_id').val();
+	params["studentName"] = pkStudentId;
+ 	params["methodName"] = "getcopyofNirgumCertificate";
+ 	$.post('/srb/JSP/utility/controller.jsp',params,function(data) 
+ 			
+ 	    	{
+ 		var jsonData = $.parseJSON(data);
+		var catmap = jsonData.list;
+		$
+				.each(
+						jsonData,
+						function(i, v) {
+							
+							document.getElementById("reason").value = v.reason;
+							document.getElementById("promotion").value = v.promotion;
+							document.getElementById("progress").value = v.progress;
+							document.getElementById("dateOfLeaving").value = v.dateOfLeaving;
+							document.getElementById("conduct").value = v.conduct;
+							document.getElementById("attendance").value = v.attendance;
+							document.getElementById("workingday").value =v.workingday;
+							document.getElementById("idMarks").value = v.idMarks;
+							document.getElementById("nirgumdate").value =v.insertdate;
+							
+						});
+ 		
+ 			}
+ 		
+ 	
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	
+ 	    	})
+
+
+}
+
+//view Sport
+function viewsportIssued(){
+
+	var params = {};
+	var input = document.getElementById('fk_class_id_sport'),
+	list = document.getElementById('classes_sport'),
+	i,fk_class_id;
+
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_class_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	
+	var input1 = document.getElementById('fk_division_id_Student_spo'),
+    list = document.getElementById('division_Student_spo'),
+    i,fk_division_id;
+
+	for (i = 0; i < list.options.length; ++i) {
+    if (list.options[i].value === input1.value) {
+    	fk_division_id = list.options[i].getAttribute('data-value');
+    	}
+	}
+	
+	//var academicYear = $("#academicYear4").val();
+	//params["academicYear"]= academicYear;
+	params["fk_class_id"]= fk_class_id;
+	params["fk_division_id"]= fk_division_id;
+	params["methodName"] = "getSportcertificateGeneratedStudentList";
+
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+			{
+		
+		$('#sporttable').dataTable().fnClearTable();
+		
+		var jsonData = $.parseJSON(data);
+		//alert(data.length);
+		if(data.length <= 28){
+			alert("Embel Technologies Says --> Data Not Found Your Selection.");
+			 return true;
+		}
+		var catmap = jsonData.list;
+		/*$(document).ready(function() {
+		    
+		} );
+		*/
+		
+		$(document).ready(function() {
+		 var total =   $('#sporttable').DataTable( {
+			 
+			 fnRowCallback : function(nRow, aData, iDisplayIndex){
+	                $("th:first", nRow).html(iDisplayIndex +1);
+	               return nRow;
+	            },
+		    	
+		    	destroy: true,
+		        searching: true,
+		      
+		columns: [
+		          	{"data": "firstName", "width": "5%"},
+		            {"data": "middleName", "width": "5%"},
+		            {"data": "lastName", "width": "5%"},
+		           // {"data": "leavingDate" , "width": "5%"},
+		            {"data": "issuedDate" , "width": "5%"},
+		            
+		        ],
+		        
+		        dom : 'Bfrtip',
+		          buttons : [ 
+
+		                     { extend: 'copyHtml5', footer: true },
+		                     { extend: 'excelHtml5', footer: true },
+		                     { extend: 'csvHtml5', footer: true },
+		                     { extend : 'pdfHtml5', footer: true,
+		                    	 title : function() {
+		                    		 return "Bonafied Certificate issued Report";
+		                    	 },
+		                    	 orientation : 'landscape',
+		                    	 pageSize : 'LEGAL',
+		                    	 titleAttr : 'PDF' 
+		                     } ]  
+		    } );
+		
+		} );
+		
+	var mydata = catmap;
+	$('#sporttable').dataTable().fnAddData(mydata);
+	
+		}
+	);
+}
+
+//get devision name by classname for sport
+function getDivisionNameByClassNameCopySport()
+{
+//var type = document.getElementById('vendor').value;
+	
+	$("#division_Student_spo").empty();
+	$("#division_Student_spo").append($("<option></option>").attr("value","").text("Select devision"));
+	var params= {};
+	
+	
+		var input = document.getElementById('fk_class_id_sport'), list = document
+		.getElementById('classes_sport'), i, fkClassId;
+		for (i = 0; i < list.options.length; ++i)
+		{
+			if (list.options[i].value === input.value) 
+			{
+				fkClassId = list.options[i].getAttribute('data-value');
+			}
+		}
+		
+	var className = $('#fk_class_id_sport').val();
+	
+	params["fkClassId"] = fkClassId;
+	params["className"] = className;
+	
+	params["methodName"] = "getDivisionNameByClassName";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) 	
+			{ var count = 1;
+
+			var jsonData = $.parseJSON(data);
+			$.each(jsonData,function(i,v)
+					{
+				
+						
+						/*$("#vendorList_Drop").append($("<option></option>").attr("value",(v.vendorName))); */
+						$("#division_Student_spo").append($("<option></option>").attr("value",(v.divisionName)).attr("data-value",(v.pkDivisionId)));
+						count++;
+					});
+			}).error(function(jqXHR, textStatus, errorThrown){
+				if(textStatus==="timeout") {
+
+				}
+			});
+}
+
+//date range wise sport certificate
+function viewBSportscertiIssuedrangewise(){
+
+	var params = {};
+	var stdatee = $('#stdatee').val();
+	var endatee = $('#endatee').val();
+	
+	params["stdatee"]= stdatee;
+	params["endatee"]= endatee;
+	params["methodName"] = "getSportCertificateListrangewise";
+
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+			{
+		
+		$('#sporttablerange').dataTable().fnClearTable();
+		
+		var jsonData = $.parseJSON(data);
+		//alert(data.length);
+		if(data.length <= 28){
+			alert("Embel Technologies Says --> Data Not Found Your Selection.");
+			 return true;
+		}
+		var catmap = jsonData.list;
+		if(catmap == null || catmap == "" || catmap == undefined){
+			alert("No data available for selected dates");
+			return false;
+		}
+		/*$(document).ready(function() {
+		    
+		} );
+		*/
+		
+		$(document).ready(function() {
+		 var total =   $('#sporttablerange').DataTable( {
+			 
+			 fnRowCallback : function(nRow, aData, iDisplayIndex){
+	                $("th:first", nRow).html(iDisplayIndex +1);
+	               return nRow;
+	            },
+		    	
+		    	destroy: true,
+		        searching: true,
+		      
+		columns: [
+		          	{"data": "firstName", "width": "5%"},
+		            {"data": "middleName", "width": "5%"},
+		            {"data": "lastName", "width": "5%"},
+		            {"data": "issuedDate" , "width": "5%"},
+		            
+		        ],
+		        
+		        dom : 'Bfrtip',
+		          buttons : [ 
+
+		                     { extend: 'copyHtml5', footer: true },
+		                     { extend: 'excelHtml5', footer: true },
+		                     { extend: 'csvHtml5', footer: true },
+		                     { extend : 'pdfHtml5', footer: true,
+		                    	 title : function() {
+		                    		 return "Bonafied Certificate issued Report";
+		                    	 },
+		                    	 orientation : 'landscape',
+		                    	 pageSize : 'LEGAL',
+		                    	 titleAttr : 'PDF' 
+		                     } ]  
+		    } );
+		
+		} );
+		
+	var mydata = catmap;
+	$('#sporttablerange').dataTable().fnAddData(mydata);
+	
+		}
+	);
 }

@@ -351,14 +351,17 @@ public class DailyTimeTableHelper {
 		
 		public void deletetimeDetail(HttpServletRequest request,
 				HttpServletResponse response) {
-
-			String fk_class_id = request.getParameter("fk_class_id");
-			String division = request.getParameter("division");
+			System.out.println("IN DAILy Time Table Helper");
+			String fk_class_id = request.getParameter("fkClassId");
+			String division = request.getParameter("fkdivid");
+			String examid = request.getParameter("examid");
 			
-			
+			System.out.println("classid-------"+fk_class_id);
+			System.out.println("division-------"+division);
+			System.out.println("examid-------"+examid);
 //			ClassInfoDao dao = new ClassInfoDao(); 	
 			DailyTimeTableDAO dao = new DailyTimeTableDAO();
-			dao.deletediv(fk_class_id,division);	
+			dao.deletediv(fk_class_id,division,examid);	
 		
 			
 		}

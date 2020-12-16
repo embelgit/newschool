@@ -41,6 +41,12 @@ function imageIsLoaded(e) {
 	 function deleteTeacherTaskList(){
 		 window.location = "deleteTeacherTask.jsp";
 }
+	 function reset()
+	 {
+		 document.getElementById("DailyTask").reset();
+		 document.getElementById("myImg").reset();
+		 
+	 }
 </script>
 </head>
 <body>
@@ -292,7 +298,7 @@ function imageIsLoaded(e) {
                                     <input type="button" class="ui positive button" name="btn" value="Save" onclick="TeacherDailyTaskValidation()">Save</button>
                                        
                                         <div class="or"></div>
-                                         <button type="reset" class="ui button">Reset</button>
+                                         <input type="button" class="ui button" onclick="reset()" value="Reset">Reset</button>
                                          <div class="or"></div>
                                           <input type="button"  class="ui positive button" style="width: 12vh"  value="View" target="popup" onclick="window.open('viewTeacherDailyTask.jsp','popup'); return false;"></button>
                                     </div>

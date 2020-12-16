@@ -258,9 +258,11 @@ public class Controller
 		}
 		//del str pro
 		public String deletstoreproducts(HttpServletRequest request, HttpServletResponse response) {
+			System.out.println("IN CONTROLLER ");
 			StoreManagementHelper helper = new StoreManagementHelper();
-			helper.deletestrproduct(request, response);
 			
+			helper.deletestrproduct(request, response);
+			System.out.println("Out OF CONTROLLER");
 			String data = "Product Deleted Sucessfully";
 			return data;
 		}
@@ -384,6 +386,7 @@ public class Controller
 		return data;
 	}
 
+	//update Exam Details
 	
 	
 	
@@ -784,6 +787,21 @@ public class Controller
 		System.out.println("$$$$$$$$$$$$$$$$" + returnMap);
 		return toJson(returnMap);
 	}
+	//sport certificate rangewise
+	
+	public String getSportcertificateGeneratedStudentList(
+			HttpServletRequest request, HttpServletResponse response) {
+		CertificatesHelper helper = new CertificatesHelper();
+		List categories = helper.getSportGeneratedStudentInfoAsPerClassAndDiv(
+				request, response);
+		Map<String, List> returnMap = new HashMap<String, List>();
+		returnMap.put("list", categories);
+		System.out.println("$$$$$$$$$$$$$$$$" + returnMap);
+		return toJson(returnMap);
+	}
+	
+	
+	
 	//
 	public String getnirgumGeneratedStudentList(HttpServletRequest request, HttpServletResponse response) {
 		CertificatesHelper helper = new CertificatesHelper();
@@ -799,6 +817,15 @@ public class Controller
 	public String getBonafideGeneratedStudentListrangewise(HttpServletRequest request, HttpServletResponse response) {
 		CertificatesHelper helper = new CertificatesHelper();
 		List categories = helper.getBonafideGeneratedStudentInfoAsPerrangewise(request, response);
+		Map<String, List> returnMap = new HashMap<String, List>();
+		returnMap.put("list", categories);
+		System.out.println("$$$$$$$$$$$$$$$$" + returnMap);
+		return toJson(returnMap);
+	}
+	//sport certrificate range wise
+	public String getSportCertificateListrangewise(HttpServletRequest request, HttpServletResponse response) {
+		CertificatesHelper helper = new CertificatesHelper();
+		List categories = helper.getSportcertificateInfoAsPerDAte(request, response);
 		Map<String, List> returnMap = new HashMap<String, List>();
 		returnMap.put("list", categories);
 		System.out.println("$$$$$$$$$$$$$$$$" + returnMap);
@@ -940,6 +967,35 @@ public class Controller
 		scf.viewnirgum(request, response);
 		return toJson("Data Added Successfully");
 	}
+	//get details of nirgum
+	public String getcopyofNirgumCertificate(HttpServletRequest request,
+			HttpServletResponse response) {
+		String teacherId = request.getParameter("studentName");
+		Long storeId1=Long.parseLong(teacherId);
+		System.out.println("teacherId"+teacherId);
+		//String designation = request.getParameter("designation");
+		//System.out.println("designation"+designation);
+		CertificatesHelper scf = new CertificatesHelper();
+		Map map = scf.getcopyofNirgumDetails(storeId1);
+		Map<Long, List> returnMap = new HashMap<Long, List>();
+		String xyz = toJson(map);
+		System.out.println(xyz);
+		System.out.println("going out of controller");
+		return xyz;
+	}
+	
+	
+	
+	
+	//copy of nirgum Certificate
+	public String viewcopyNirgumCertificate(HttpServletRequest request,HttpServletResponse response)
+	{
+		System.out.println("In controller");
+		CertificatesHelper scf = new CertificatesHelper();
+		scf.viewCpyNirgumCertificate(request, response);
+		return toJson("Data Added Successfully");
+	}
+
 	
 	
 	//generate Bonafide certificate
@@ -950,6 +1006,33 @@ public class Controller
 		scf.viewBonafide(request, response);
 		return toJson("Data Added Successfully");
 	}
+	
+	
+	//to get cpy of sport certifricate
+	public String viewcopySportCertificate(HttpServletRequest request,HttpServletResponse response)
+	{
+		System.out.println("In controller");
+		CertificatesHelper scf = new CertificatesHelper();
+		scf.viewCpyofSportcertificate(request, response);
+		return toJson("Data Added Successfully");
+	}
+	
+	//Print Admit card
+	public String AdmitcardDetails(HttpServletRequest request,HttpServletResponse response)
+	{
+		System.out.println("In controller");
+		ExamInfoHelper scf = new ExamInfoHelper();
+		scf.AdmitCardDetails(request, response);
+		return toJson("Data Added Successfully");
+	}
+	
+	
+//fetching examdetails to Edit
+
+
+	
+	
+	
 	//to get passing marks
 	public String getPassingMarks(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -1598,11 +1681,11 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 		return toJson("Data Updated Successfully");
 	}
 // Update  Exam Details
-	public String updateExamDetails(HttpServletRequest request,
+	public String updateExamDetails1(HttpServletRequest request,
 			HttpServletResponse response) {
-		System.out.println("In controller update Supplier Details");
+		System.out.println("In controller update Exam Details");
 		ExamInfoHelper helper = new ExamInfoHelper();
-		helper.updateExamInfoDetail(request, response);
+		helper.updateExamInfoDetail1(request, response);
 		System.out.println("In controller Updateemployee");
 		return toJson("Data Updated Successfully");
 	}
@@ -2078,13 +2161,13 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 	}
 	
 	
-	// adding Sport Participiant Details addStoreManagementParticipantDetails\
-	public String addStoreManagementParticipantDetails(HttpServletRequest request,HttpServletResponse response)
+	// adding Sport Participiant Details \
+	public String addSportParticipantDetails(HttpServletRequest request,HttpServletResponse response)
 	{
 		System.out.println("In controller");
 		StoreManagementHelper cdst = new StoreManagementHelper();
 		cdst.addStoreManagementParticipantDetails(request, response);
-		return toJson("Store Inventory Added Successfully");
+		return toJson("Sport Participant Added Successfully");
 	}
 	// delete Participant
 	
@@ -2662,7 +2745,7 @@ public String updateStoreInventoryDetails(HttpServletRequest request,
 			//get Division Name By Class Name 
 			public String getDivisionNameByClassName(HttpServletRequest request, HttpServletResponse response) 
 			{
-			
+				System.out.println("In Controller");
 				ClassDivisionAssocHelper helper=new ClassDivisionAssocHelper();
 				Map divisionName = helper.getDivisionNameByClassName(request,response);
 				String xyz = toJson(divisionName);

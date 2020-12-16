@@ -64,21 +64,28 @@
 	Connection conn = null;
 	String acdemicYear = null;
 	try {
-		Long studId=(Long)session.getAttribute("StudentIdforSport");
-		String grade=(String)session.getAttribute("Grade");
-		String Sport=(String)session.getAttribute("SportName");
-		String strDate1=(String)session.getAttribute("DateofSport");
-		Long SportDiv=(Long)session.getAttribute("sportdivId");
-		
-		String[] words=strDate1.split("-");
+		String classs=(String)session.getAttribute("classNameForAdmitCard");
+		String DivisionNameForAdmitCard=(String)session.getAttribute("DivisionNameForAdmitCard");
+		String Academic=(String)session.getAttribute("AcademicForAdmitCard");
+		String studentNameForAdmitCard=(String)session.getAttribute("studentNameForAdmitCard");
+		String ToDateForAdmitCard=(String)session.getAttribute("ToDateForAdmitCard");
+		String FromDateForAdmitCard=(String)session.getAttribute("FromDateForAdmitCard");
+		String[] words=ToDateForAdmitCard.split("-");
 		String year = words[0];
 		String month = words[1];
 		String date = words[2];
-		String SportDate = date+"/"+month+"/"+year;
-
-		System.out.println("studentId===="+studId);
-		System.out.println("Sport===="+Sport);
-		System.out.println("grade===="+grade);
+		String todate = date+"/"+month+"/"+year;
+		String[] words1=FromDateForAdmitCard.split("-");
+		String year1 = words1[0];
+		String month1 = words1[1];
+		String date1 = words1[2];
+		String fromdate1 = date1+"/"+month1+"/"+year1;
+		System.out.println("classs----------"+classs);
+		System.out.println("DivisionNameForAdmitCard------------"+DivisionNameForAdmitCard);
+		System.out.println("Academic--------"+Academic);
+		System.out.println("studentNameForAdmitCard-------------"+studentNameForAdmitCard);
+		System.out.println("todate------------"+todate);
+		System.out.println("fromdate1-------"+fromdate1 );
 		// step 1
 		Document document = new Document(PageSize.A5,10,10,20,10);
 
@@ -88,25 +95,6 @@
 
 		// step 3
 		document.open();
-
-		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "root");
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select Distinct s.first_name,s.middle_name,s.last_name,s.gender,m.class_name from student_master s, sport_certificate d,class_master m  where s.pk_student_id="+studId+" and m.pk_class_id="+SportDiv);
-
-		
-	/* 	while (rs.next()) {
-			acdemicYear = rs.getString("academic_year");
-		} */
-		int size= 0;
-		if (rs != null)   
-		{  
-		  rs.beforeFirst();  
-		  rs.last();  
-		  size = rs.getRow();  
-		} 
-		System.out.println("Query Execute size ++  "+size);
-		rs.first();
 		
 		System.out.println("Query Execute");
 		Date d1 = new Date();
@@ -173,12 +161,8 @@
 		table_cell = new PdfPCell(new Phrase("", Normalfont11));
 		table_cell.setBorder(table_cell.NO_BORDER);
 		table.addCell(table_cell);
-		String classs=rs.getString("class_name");
-		//String classs  = "8th";
-		//String classs  = rs.getString("className");
-	//	String a = "8";
-	//	Long  c = Long.valueOf(classs);
-//		long cs = Long.parseLong(classs);
+		
+		
 		System.out.println("classs - "+classs);
 		if(classs.equals("11th") || classs.equals("12th")){
 		table_cell = new PdfPCell(new Phrase("Godavari Manar Public Jr. College, Shankarnagar", font15Bold));
@@ -226,22 +210,11 @@
 		table_cell.setBorder(table_cell.NO_BORDER);
 		table.addCell(table_cell);
 
-		
-
-		//-------------
-
-		//String examName = rs.getString("exam_name");
-		
-		/* table_cell = new PdfPCell();
-		table_cell.setPaddingBottom(10f);
-		table_cell.setBorder(Rectangle.NO_BORDER);
-		table_cell.setPaddingBottom(20f);
-		table.addCell(table_cell); */
 		table_cell = new PdfPCell(new Phrase("", Normalfont11));
 		table_cell.setBorder(table_cell.NO_BORDER);
 		table.addCell(table_cell);
 		
-		table_cell = new PdfPCell(new Phrase("SPORT CERTIFICATE",ufont14));
+		table_cell = new PdfPCell(new Phrase("Admit Card For Exam",ufont14));
 		table_cell.setBorder(table_cell.NO_BORDER);
 		table_cell.setPaddingTop(5f);
 		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -265,7 +238,7 @@
 		table_cell.setBorder(table_cell.NO_BORDER);
 		table.addCell(table_cell);
 		
-		table_cell = new PdfPCell(new Phrase("Date:- "+SportDate));
+		table_cell = new PdfPCell(new Phrase("Date:- "+strDate));
 		table_cell.setPaddingTop(10f);
 		table_cell.setPaddingBottom(20f);
 		table_cell.setBorder(table_cell.NO_BORDER);
@@ -282,26 +255,9 @@
 		table.addCell(table_cell);*/
 
 		document.add(table);
-
-		String first_name  = rs.getString("first_name");
-		String middle_name  = rs.getString("middle_name");
-		String last_name  = rs.getString("last_name");
-		String fullname = first_name+" "+middle_name+" "+last_name;
 		
-		/*String city  = rs.getString("city");
-		String taluka  = rs.getString("taluka");
-		String district  = rs.getString("district");
-		String className  = rs.getString("className");
-		String cast  = rs.getString("cast");
-		String date_of_birth  = rs.getString("date_of_birth");
-		String generalRegNo = rs.getString("general_reg_number");
-		String gender = rs.getString("gender");
-		String mother_name = rs.getString("mother_name");
-		String gn  ="Male";
-		System.out.println("gender - "+gender+" , mother_name"+mother_name);*/
-		//third table for note
-		String gender = rs.getString("gender");
-		String gn  ="Male";
+		
+		
 		PdfPTable tableThird = new PdfPTable(1);
 		tableThird.setWidthPercentage(70);
 
@@ -313,27 +269,26 @@
 		
 		
 		
-		table_cellThird = new PdfPCell(new Phrase("        This  is  to  Certify  that,  "));
+		table_cellThird = new PdfPCell(new Phrase("    This  Admit  Card  is  For  Exam  Of  Academic  Year  "));
 		table_cellThird.setPaddingBottom(20f);
 		table_cellThird.setBorder(table_cellThird.NO_BORDER);
 		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tableThird.addCell(table_cellThird);
 		
-		if(gender.equals(gn)){
-		table_cellThird = new PdfPCell(new Phrase("Master :- "+fullname+"   is  a "));
+		table_cellThird = new PdfPCell(new Phrase("   Academic  Year   "+Academic));
 		table_cellThird.setPaddingBottom(20f);
 		table_cellThird.setBorder(table_cellThird.NO_BORDER);
 		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tableThird.addCell(table_cellThird);
-		}
-		else{
-			table_cellThird = new PdfPCell(new Phrase("Miss :- "+fullname+"  is  a "));
+		
+		
+			table_cellThird = new PdfPCell(new Phrase(" With  Name  of Mr :- "+studentNameForAdmitCard+"  is  a "));
 			table_cellThird.setPaddingBottom(20f);
 			table_cellThird.setBorder(table_cellThird.NO_BORDER);
 			table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			tableThird.addCell(table_cellThird);
-		}
-		table_cellThird = new PdfPCell(new Phrase("  Of   Sport   Name  "+Sport+"  With  Grade "+grade));
+		
+		table_cellThird = new PdfPCell(new Phrase("  Which is Held From   "+fromdate1+"  TO   "+fromdate1));
 		table_cellThird.setPaddingBottom(20f);
 		table_cellThird.setBorder(table_cellThird.NO_BORDER);
 		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -344,7 +299,7 @@
 		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tableThird.addCell(table_cellThird); */
 		
-		table_cellThird = new PdfPCell(new Phrase("certified  student  of  this  school  studying  in  Std  "+classs));
+		table_cellThird = new PdfPCell(new Phrase(" Student  of  Class  Name  is "+classs));
 		table_cellThird.setPaddingBottom(20f);
 		table_cellThird.setBorder(table_cellThird.NO_BORDER);
 		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -355,24 +310,13 @@
         String strDatee = dateFormatt.format(d);
         System.out.println("strDatee - "+strDatee);
 	//	Long a = Long.valueOf(strDate);
-		Long a = Long.parseLong(strDatee);		
-		Long b = a+1;
-		 System.out.println("b - "+b);
-        if(gender.equals(gn)){
-		table_cellThird = new PdfPCell(new Phrase("in  the  academic  year  "+strDatee+"-"+b+".  His  date-of-birth"));
+		
+		table_cellThird = new PdfPCell(new Phrase("Please Carry This Admit Card On Exam Center"));
 		table_cellThird.setPaddingBottom(20f);
 		table_cellThird.setBorder(table_cellThird.NO_BORDER);
 		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tableThird.addCell(table_cellThird);
-        }
-        else{
-        	table_cellThird = new PdfPCell(new Phrase("in  the  academic  year  "+strDatee+"-"+b+".  Her  date-of-birth"));
-    		table_cellThird.setPaddingBottom(20f);
-    		table_cellThird.setBorder(table_cellThird.NO_BORDER);
-    		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-    		tableThird.addCell(table_cellThird);
-        }
-		
+       
 		
 		document.add(tableThird);
 		
@@ -391,116 +335,12 @@
 //		table_cell.setBorder(Rectangle.TOP );
 		tableFour.addCell(table_cellFour);
 
-		table_cellFour = new PdfPCell(new Phrase("          PRINCIPAL"));
+		table_cellFour = new PdfPCell(new Phrase("       PRINCIPAL"));
 		table_cellFour.setPaddingTop(15f);
 		table_cellFour.setPaddingBottom(20f);
 		table_cellFour.setBorder(Rectangle.BOTTOM);
 		tableFour.addCell(table_cellFour);
-		document.add(tableFour);
-/* 		//seventh table for note
-		PdfPTable tableSeven = new PdfPTable(1);
-		tableSeven.setWidthPercentage(100);
-
-		float[] columnWidthsSeven = {0.5f};
-		tableSeven.setWidths(columnWidthsSeven);
-
-		PdfPCell table_cellSeven;
-		
-		table_cellSeven = new PdfPCell(new Phrase("Certified that the above information is in accordance with the school general register", font13));
-		table_cellSeven.setBorder(table_cellSeven.NO_BORDER);
-		table_cellSeven.setPaddingBottom(50f);
-		tableSeven.addCell(table_cellSeven);
-		document.add(tableSeven); */
-		
-		
-		
-		//Eighth table for sign
-      /*    Date d = Calendar.getInstance().getTime();  
-         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");  
-         String strDate = dateFormat.format(d);   */
-		
-/*  		PdfPTable tableEight = new PdfPTable(3);
-		tableEight.setWidthPercentage(70);
-
-		float[] columnWidthsEight = {0.3f,0.3f,0.3f};
-		tableEight.setWidths(columnWidthsEight);
-
-		PdfPCell table_cellEight;
-		
-		
-		table_cellEight = new PdfPCell(new Phrase("General Register No:-  ",font13));
-		table_cellEight.setPaddingTop(15f);
-		table_cellEight.setPaddingBottom(5f);
-		table_cellEight.setBorder(table_cellEight.NO_BORDER); 
-		table_cell.setBorder(Rectangle.TOP );
-		tableEight.addCell(table_cellEight);
-
-		table_cellEight = new PdfPCell(new Phrase(""+generalRegNo,font13));
-		table_cellEight.setPaddingTop(15f);
-		table_cellEight.setPaddingBottom(5f);
-		table_cellEight.setBorder(table_cellEight.NO_BORDER);
-		tableEight.addCell(table_cellEight);
-		
-
-		table_cellEight = new PdfPCell(new Phrase(""));
-		table_cellEight.setPaddingTop(15f);
-		table_cellEight.setPaddingBottom(5f);
-		table_cellEight.setBorder(table_cellEight.NO_BORDER);
-		tableEight.addCell(table_cellEight);
-		
-//		table_cellEight = new PdfPCell(new Phrase("Place :- Ambala", font13));
-		table_cellEight.setPaddingTop(15f);
-		table_cellEight.setPaddingBottom(5f);
-		table_cellEight.setBorder(table_cellEight.NO_BORDER);
-		tableEight.addCell(table_cellEight);
-	
-		table_cellEight = new PdfPCell(new Phrase(""));
-		table_cellEight.setPaddingTop(15f);
-		table_cellEight.setPaddingBottom(5f);
-		table_cellEight.setBorder(table_cellEight.NO_BORDER);
-		tableEight.addCell(table_cellEight);
-		
-		
-		table_cellEight = new PdfPCell(new Phrase());
-		table_cellEight.setPaddingTop(15f);
-		table_cellEight.setPaddingBottom(5f);
-		table_cellEight.setBorder(table_cellEight.NO_BORDER);
-		tableEight.addCell(table_cellEight);
-		
-	//	table_cellEight = new PdfPCell(new Phrase("Date:- "+strDate, font13));
-		table_cellEight.setPaddingBottom(20f);
-		table_cellEight.setBorder(Rectangle.BOTTOM);
-		tableEight.addCell(table_cellEight);
-	
-		table_cellEight = new PdfPCell(new Phrase("    Clerk"));
-		table_cellEight.setPaddingBottom(20f);
-		table_cellEight.setBorder(Rectangle.BOTTOM);
-		tableEight.addCell(table_cellEight);
-		
-		
-		table_cellEight = new PdfPCell(new Phrase("  PRINCIPAL"));
-		table_cellEight.setPaddingBottom(20f);
-		table_cellEight.setBorder(Rectangle.BOTTOM);
-		tableEight.addCell(table_cellEight);
-		
-		document.add(tableEight);  */
-
-		// Gross Total in Words
-		//String paymentAmountInWords = rs.getString("payment");
-		//Double totalInLong = Math.round(obtained_marks);
-		/*String grossTotal = String.valueOf(obtained_marks);
-	 	int grossTotalInInteger = Integer.parseInt(grossTotal); */
-		// int grossTotalInInteger = (int)grandTotalMarks;
-/* 		NumToWord w = new NumToWord();
-		String amtInWord = w.convert(grossTotalInInteger);
-
-		table_cell3 = new PdfPCell(new Phrase("\n Secured Marks in words: "
-				+ amtInWord + " Only/-\n ")); */
-
-
-		rs.close();
-		stmt.close();
-		conn.close();
+		document.add(tableFour);		
 		document.close();
 
 	} catch (DocumentException de) {

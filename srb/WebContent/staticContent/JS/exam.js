@@ -44,7 +44,7 @@ function ExamNameEntryValidation(){
 function MarksInfoEntryValidation(){
 	if(document.marksEntry.fk_examName_id1.value == "")
 	{
-		alert("Please Enter Exam Name.");
+		alert("Please Select Exam Name.");
 		return false;
 	}
 	if(document.marksEntry.academicYear4.value == "")
@@ -62,11 +62,11 @@ function MarksInfoEntryValidation(){
 		alert("Please Enter Division Name.");
 		return false;
 	}
-	/*if(document.marksEntry.fk_subject_id.value == "")
+	if(document.marksEntry.fk_subject_id.value == "")
 	{
-		alert("Please Enter Subject Name.");
+		alert("Please Select Subject Name.");
 		return false;
-	}*/
+	}
 	if(document.marksEntry.passingMarks.value == ""){
 		alert("Passing marks required");
 		return false;
@@ -331,11 +331,17 @@ function addMarksPerSubject(){
 		params["passingMarks"+i] = passingMarks;*/
 		
 		var obtainedMarks = allRowsInGrid[i].obtainedMarks;
+		var totalMarks = $('#totalMarks').val();
 		if(obtainedMarks =="" || obtainedMarks ==null || obtainedMarks== undefined)
 			{
 			alert("Please Enter Obtained Marks In Grid");
 			return false;
 			
+			}
+		if(Number(obtainedMarks)>Number(totalMarks))
+			{
+			alert("Obtain Marks Should Be Less Than Total Marks");
+			return false;
 			}
 		params["obtainedMarks"+i] = obtainedMarks;
 	}
@@ -1298,7 +1304,25 @@ function getPassingMarks(){
 		//var jsonData = jsonData.list;
 		$.each(jsonData,function(i,v)
 				{
-			document.getElementById("passingMarks").value = v.passingMarks;
+			var temp=v.passingMarks;
+			if(temp==null||temp==undefined || temp=="")
+				{
+				document.getElementById("passingMarks").value = 0;
+				}
+			else
+				{
+				document.getElementById("passingMarks").value = v.passingMarks;
+				}
+			var temp1=v.totalMarks; 
+			if(temp1==null||temp1==undefined || temp1=="")
+				{
+				document.getElementById("totalMarks").value = 0;
+				}
+			else
+				{
+				document.getElementById("totalMarks").value =v.totalMarks;
+				}
+			//document.getElementById("passingMarks").value = v.passingMarks;
 			document.getElementById("totalMarks").value =v.totalMarks;
 				});
 			})
@@ -1353,25 +1377,15 @@ function gridForExamTimeTable(){
 		     var rowdata =$("#list4").jqGrid('getGridParam','data');
 		     var ids = jQuery("#list4").jqGrid('getDataIDs');
 		     
-		     var subjectName,com,packing,unit;
+		     var subjectName,com,packing,unit,strttime,endtime;
 			  for (var j = 0; j < count; j++) 
 			  {
 				  subjectName = rowdata[j].subjetName;
-				
 				 var rowId = ids[j];
 				 var rowData = jQuery('#list4').jqGrid ('getRowData', rowId);
-				
 				if (subjectName == jsonData.offer.subjetName) 
 				{
-					
-				
-			    	/*ori_quantity = +rowdata[j].quantity+1;
-			    	
-			    	$("#list4").jqGrid("setCell", rowId, "quantity", ori_quantity);
-			    	var grid = jQuery("#list4");
-			    	grid.trigger("reloadGrid");*/
-					
-					
+							
 			    	newrow=false;
 					alert("Subject Name Already Inserted !!!");
 					return false;
@@ -1560,43 +1574,33 @@ function gridForExamTimeTabletoedit(){
 			  for (var j = 0; j < count; j++) 
 			  {
 				  subjectName = rowdata[j].subjetName;
-				
-				 var rowId = ids[j];
-				 var rowData = jQuery('#list4').jqGrid ('getRowData', rowId);
-				
-				if (subjectName == jsonData.offer.subjetName) 
-				{
-					
-				
-			    	/*ori_quantity = +rowdata[j].quantity+1;
-			    	
-			    	$("#list4").jqGrid("setCell", rowId, "quantity", ori_quantity);
-			    	var grid = jQuery("#list4");
-			    	grid.trigger("reloadGrid");*/
-					
-					
-			    	newrow=false;
-					alert("Subject Name Already Inserted !!!");
-					return false;
-					var grid = jQuery("#list4");
-				    grid.trigger("reloadGrid");
-			    	break;
-				}
-				else
-				{
-					newrow = true;
-				}
-			 }
-			  
-			  if(newrow == true)
-				 {
-					
-				  //$("#list4").addRowData(i,jsonData[i]);
-				  $("#list4").addRowData(count,jsonData.offer);
-					
+					 var rowId = ids[j];
+					 var rowData = jQuery('#list4').jqGrid ('getRowData', rowId);
+					if (subjectName == jsonData.offer.subjetName) 
+					{
+								
+				    	newrow=false;
+						alert("Subject Name Already Inserted !!!");
+						return false;
+						var grid = jQuery("#list4");
+					    grid.trigger("reloadGrid");
+				    	break;
+					}
+					else
+					{
+						newrow = true;
+					}
 				 }
-			  document.getElementById('fk_subject_id').value = "";	
-		
+				  
+				  if(newrow == true)
+					 {
+						
+					  //$("#list4").addRowData(i,jsonData[i]);
+					  $("#list4").addRowData(count,jsonData.offer);
+						
+					 }
+				  document.getElementById('fk_subject_id').value = "";	
+			
 			  $("#list4").jqGrid({
 					datatype: "local",
 					
@@ -1952,6 +1956,31 @@ function gridForExamTimeTable(){
 	 			})
 
 }*/
+function ValidationOfexamTableEntry()
+{
+if(document.ExamTimeTable.fk_examName_id.value ==""){
+	alert("Please Select Exam Name ");
+	return false;
+}	
+if(document.ExamTimeTable.academicYear.value ==""){
+	alert("Please Select Academic Year ");
+	return false;
+}
+if(document.ExamTimeTable.fk_class_id1.value ==""){
+	alert("Please Select Class Name ");
+	return false;
+}
+if(document.ExamTimeTable.fk_division_id.value ==""){
+	alert("Please Select Division Name ");
+	return false;
+}
+if(document.ExamTimeTable.examDate.value ==""){
+	alert("Please Select Exam Date ");
+	return false;
+}
+return true;
+}
+
 function addExamTimeTable()
 {
 if(document.ExamTimeTable.fk_examName_id.value ==""){
@@ -2086,9 +2115,61 @@ $.post('/srb/JSP/utility/controller.jsp',params,function(data)
 	    	})
 
 }
-//
+// validation of edit exam time table
+function validateeditExamTimeTable1()
+{
+	if(document.ExamTimeTable.fk_examName_id.value ==""){
+		alert("Please Select Exam Name ");
+		return false;
+	}	
+	if(document.ExamTimeTable.academicYear.value ==""){
+		alert("Please Select Academic Year ");
+		return false;
+	}
+	if(document.ExamTimeTable.fk_class_id1.value ==""){
+		alert("Please Select Class Name ");
+		return false;
+	}
+	if(document.ExamTimeTable.fk_division_id.value ==""){
+		alert("Please Select Division Name ");
+		return false;
+	}
+	if(document.ExamTimeTable.examDate.value ==""){
+		alert("Please Select Exam Date ");
+		return false;
+	}	
+	return true;
+}
 
-function editExamTimeTable1(){
+
+
+
+function editExamTimeTable1()
+{
+	if(document.ExamTimeTable.fk_examName_id.value ==""){
+		alert("Please Select Exam Name ");
+		return false;
+	}	
+	if(document.ExamTimeTable.academicYear.value ==""){
+		alert("Please Select Academic Year ");
+		return false;
+	}
+	if(document.ExamTimeTable.fk_class_id1.value ==""){
+		alert("Please Select Class Name ");
+		return false;
+	}
+	if(document.ExamTimeTable.fk_division_id.value ==""){
+		alert("Please Select Division Name ");
+		return false;
+	}
+	if(document.ExamTimeTable.examDate.value ==""){
+		alert("Please Select Exam Date ");
+		return false;
+	}	
+	editExamTimeTable2();
+}
+
+function editExamTimeTable2(){
 
 
 	var params = {};
@@ -2623,19 +2704,21 @@ function getSudentName(){
 	params["fk_class_id"] = fk_class_id;
 	params["fk_division_id"] = fk_division_id;
 	
-	var count=0;
+	
 	var newrow;
 	var rowId;
 	
 	params["methodName"] = "getStudentNameAsPerClassAndDiv";
 	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
 	{
+		var count=1;
 		var jsonData = $.parseJSON(data);
 		//var jsonData = jsonData.list;
 		$.each(jsonData,function(i,v)
 				{
 			//document.getElementById("totalAnnualFee").value = v.totalAmt;
-			$("#studentName_student_result").append($("<option></option>").attr("value",v.pkStudentId).text(v.firstName+" "+v.middleName+" "+v.lastName));
+			$("#studlist").append($("<option></option>").attr("value",(v.firstName+" "+v.middleName+" "+v.lastName)).attr("data-value",(v.pkStudentId)));
+			count++;
 				});
 			})
 		
@@ -2731,8 +2814,8 @@ function getexamdetails()
 	$("#fk_class_id").append($("<input/>").attr("value", "").text());
 	$("#fk_division_id").append($("<input/>").attr("value", "").text());
 	$("#SubjectName").append($("<input/>").attr("value", "").text());
-	$("#totalmarks").append($("<input/>").attr("value", "").text());
-	$("#Passingmarks").append($("<input/>").attr("value", "").text());
+	//$("#totalmarks").append($("<input/>").attr("value", "").text());
+	//$("#Passingmarks").append($("<input/>").attr("value", "").text());
 	
 	
 
@@ -2765,11 +2848,29 @@ function getexamdetails()
 			});
 
 }
-function updateExamName() {
-	
-	//document.getElementById("save").disabled = true;
-	
-	
+
+//validation of exam details
+function updateExamName1()
+{
+	if(document.updatedx.examName_id.value==null || document.updatedx.examName_id.value==undefined || document.updatedx.examName_id.value=="")
+		{
+		alert("Please Select Exam Name");
+		return false;
+		}
+	if(document.updatedx.fk_class_id.value==null || document.updatedx.fk_class_id.value==undefined || document.updatedx.fk_class_id.value=="")
+	{
+	alert("Please Select Class Name");
+	return false;
+	}
+	if(document.updatedx.fk_division_id.value==null || document.updatedx.fk_division_id.value==undefined || document.updatedx.fk_division_id.value=="")
+	{
+	alert("Please Select Division");
+	return false;
+	}
+	updateExamName2();
+}
+
+function updateExamName2() {
 	var params = {};
 	
 	var input = document.getElementById('fk_class_id'),
@@ -2826,12 +2927,13 @@ function updateExamName() {
 			//$("#passingMarks").jqGrid("setCell",rowId,"abc",abc);
 			document.getElementById("btn1").disabled = false;
 			location.reload();
-			return false;
-		
-		
-			
+			return false;			
 		}
 		params["passingMarks"+i] = passingMarks;
+	
+	}
+		document.getElementById("btn").disabled = true;
+		
 
 
 		params["count"] = count;
@@ -2858,7 +2960,7 @@ function updateExamName() {
 /*	params["SubjectName"] = SubjectName;
 	params["totalmarks"] = totalmarks;
 	params["Passingmarks"] = Passingmarks;*/
-	params["methodName"] = "updateExamDetails";
+	params["methodName"] = "updateExamDetails1";
 
 	$.post('/srb/JSP/utility/controller.jsp', params, function(data) {
 		alert(data);
@@ -2871,7 +2973,6 @@ function updateExamName() {
 		}
 	});
 
-}
 }
 
 
@@ -3211,6 +3312,96 @@ function getDivisionNameByClassNameExam()
 				}
 			});
 }
+//Validation of Admit Card
+function StudentAdmitCard()
+{
+	if(document.admitcard.fk_class_id_Student.value=="" || document.admitcard.fk_class_id_Student.value==null || document.admitcard.fk_class_id_Student.value==undefined)
+		{		
+		alert("Please Select Class Name");
+		return false;
+		}
+	if(document.admitcard.fk_division_id_Student.value=="" || document.admitcard.fk_division_id_Student.value==null || document.admitcard.fk_division_id_Student.value==undefined)
+	{		
+	alert("Please Select Division");
+	return false;
+	}
+	if(document.admitcard.studentName_student_result.value=="" || document.admitcard.studentName_student_result.value==null || document.admitcard.studentName_student_result.value==undefined)
+	{		
+	alert("Please Select Student Name");
+	return false;
+	}
+	if(document.admitcard.examDate.value=="" || document.admitcard.examDate.value==null || document.admitcard.examDate.value==undefined)
+	{		
+	alert("Please Enter Exam Date From ");
+	return false;
+	}
+	if(document.admitcard.examDate1.value=="" || document.admitcard.examDate1.value==null || document.admitcard.examDate1.value==undefined)
+	{		
+	alert("Please Enter Exam Date To");
+	return false;
+	}
+	StudentAdmitCard1();
+
+}
+//print Admit Card Function
+function StudentAdmitCard1()
+{
+var params= {};
+	
+	var input = document.getElementById('fk_class_id_Student'),
+	list = document.getElementById('classes_Student'),
+	i,fk_class_id;
+
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		fk_class_id = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	var input = document.getElementById('fk_class_id_Student'),
+	list = document.getElementById('studlist'),
+	i,studNameId;
+
+	for (i = 0; i < list.options.length; ++i) {
+	if (list.options[i].value === input.value) {
+		studNameId = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	var className = $('#fk_class_id_Student').val();
+	var divsion = $('#fk_division_id_Student').val();
+	var studName = $('#studentName_student_result').val();
+	var Academic = $('#academicYear').val();
+	var fromDate = $('#examDate').val();
+	var Todate = $('#examDate1').val();
+	params["studNameId"] = studNameId;
+	params["className"] = className;
+	params["divsion"] = divsion;
+	params["studName"] = studName;
+	params["Academic"] = Academic;
+	params["fromDate"] = fromDate;
+	params["Todate"] = Todate;
+ 	params["methodName"] = "AdmitcardDetails";
+ 	$.post('/srb/JSP/utility/controller.jsp',params,function(data) 
+ 			
+ 	    	{
+// 			window.open("view_bonafide_certificate.jsp");
+ 		window.open("printAdmitCard.jsp");			
+ 			location.reload();
+ 			}
+ 		
+ 	
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	
+ 	    	})		
+
+}
+
+
 
 //get div
 /*
@@ -3258,4 +3449,101 @@ function getDivisionAsPerClass()
 
 }*/
 
+//get Exam Details to Edit
 
+/*function getExamDetailsToEdit()
+{
+	var input = document.getElementById('examName_id'), 
+	list = document.getElementById('examNameId'), 
+	i, examId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			examId = list.options[i].getAttribute('data-value');
+		}
+	}
+
+	var input = document.getElementById('fk_class_id'), 
+	list = document.getElementById('clas'), 
+	i, class_id;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			class_id = list.options[i].getAttribute('data-value');
+		}
+	}
+
+	var input = document.getElementById('fk_subject_id'), 
+	list = document.getElementById('subjectList'), 
+	i, subId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			subId = list.options[i].getAttribute('data-value');
+		}
+	}
+
+	var params= {};
+	$("#totalmarks").append($("<input/>").attr("value","").text());
+	$("#Passingmarks").append($("<input/>").attr("value","").text());
+	
+	params["subId"]= subId;
+	params["examId"]= examId;
+	params["class_id"]= class_id;
+	
+	params["methodName"] = "getexamDetailsToEdit";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data) {
+		var jsonData = $.parseJSON(data);
+		var catmap = jsonData.list;
+		$.each(jsonData,function(i,v)
+				{
+				document.getElementById("totalmarks").value = v.TotalMarks;
+				document.getElementById("Passingmarks").value = v.passingMarks;
+								
+				});
+	}).error(function(jqXHR, textStatus, errorThrown){
+		if(textStatus==="timeout") {
+		}
+	});
+
+
+
+}
+
+//update Exam Details
+function updateExam12()
+{
+	var totalmarks = $('#totalmarks').val();
+	var Passingmarks = $('#Passingmarks').val();
+	if(totalmarks==null || totalmarks==undefined || totalmarks=="")
+	{
+		totalmarks="0";
+	}
+	if(Passingmarks==null || Passingmarks==undefined || Passingmarks=="")
+	{
+		Passingmarks="0";
+	}
+	if(Number(Passingmarks)>Number(totalmarks))
+		{
+		alert("Please Enter Passing Marks less Than Total");
+		return false;
+		}
+	var params = {};
+	
+	params['totalmarks'] = totalmarks;
+	params['Passingmarks'] = Passingmarks;
+	
+	
+	params["methodName"] = "updateExamsDetailas";
+	$.post('/srb/JSP/utility/controller.jsp', params, function(data)
+ 	    	{
+			alert(data);
+			location.reload();
+		}
+ 	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+
+
+}
+*/

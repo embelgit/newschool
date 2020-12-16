@@ -263,16 +263,15 @@ function getSportIntoGrid(){
 			     var rowdata =$("#list4").jqGrid('getGridParam','data');
 			     var ids = jQuery("#list4").jqGrid('getDataIDs');
 				
-				  var subject1,com,packing;
+				  var subject1,com,packing,lose1,win1;
 				  for (var j = 0; j < count; j++) 
 				  {
 					  subject1 = rowdata[j].subject;
 					 /* com = rowdata[j].manufacturer;
 					  packing = rowdata[j].weight;*/
-					
 					 var rowId = ids[j];
 					 var rowData = jQuery('#list4').jqGrid ('getRowData', rowId);
-					
+						
 					if (subject1 == jsonData[i].subject) {
 				    	
 				    	//newrow=false;
@@ -286,6 +285,8 @@ function getSportIntoGrid(){
 					{
 						newrow = true;
 					}
+					
+					
 				   }
 				
 			
@@ -502,7 +503,7 @@ function addSportInfoDetails1()
 
 		var Lose = allRowsInGrid[i].Lose;
 		if(Lose==undefined || Lose== null || Lose == "" ){
-			alert("Enter Lose Status")
+			alert("Enter Lose Status in Y/N")
 			return false;
 		}
 		else{
@@ -511,7 +512,7 @@ function addSportInfoDetails1()
 		
 		var win = allRowsInGrid[i].win;
 		if(win==undefined || win== null || win == "" ){
-			alert("Enter Win Status")
+			alert("Enter Win Status in Y/N")
 			return false;
 		}
 		else{
@@ -549,7 +550,7 @@ function addSportInfoDetails1()
 	 params["fk_class_id"] = fkRootclassId;
 
 	 
- 	params["methodName"] = "addStoreManagementParticipantDetails";
+ 	params["methodName"] = "addSportParticipantDetails";
  	
  	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
  	    	{

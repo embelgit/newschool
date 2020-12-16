@@ -123,6 +123,43 @@ public class ResultDao {
 
 	}
 
+	//Check For Duplicate Entry OF Result
+	public List getResultEntry()
+	{
+		HibernateUtility hbu = null;
+		Session session =  null;
+		Query query = null;
+		 List<ResultHibernate> list = null;
+		 try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 String abc="Teaching Staff";
+				/*
+				 * query = session.
+				 * createQuery("from TeacherInfoHibernate where designation IN('Teaching Staff') "
+				 * );
+				 */
+			//query = session.createQuery("from TeacherInfoHibernate where designation IN('Principal', 'Teaching Staff', 'Non-Teaching Staff') ");
+			 query = session.createQuery("from ResultHibernate");
+			 /*query.setParameter("abc", abc);*/
+			 list = query.list(); 
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			
+		}
+		 
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+				return list;
+		
+	}
+
+
+
 
 
 }

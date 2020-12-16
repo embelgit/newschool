@@ -59,7 +59,7 @@
                 <div class="row">
 	
 
-		<form class="form-horizontal">
+		<form class="form-horizontal" name="admitcard">
 
 			<div class="row">
 				<div class="form-group">
@@ -142,8 +142,9 @@
 											<span class="input-group-addon">
 												<i class="glyphicon glyphicon-user"></i>
 											</span>
-											<select id="studentName_student_result" class="form-control">
-											</select>
+											<input list="studlist" id="studentName_student_result" class="form-control" onchange="getSudentName()">
+													<datalist id="studlist"></datalist>
+									
            							 </div>
 								</div> 
 								<%-- <div class="col-md-3">
@@ -179,7 +180,7 @@
 					  			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
 					  			String todayDate = simpleDateFormat.format(new Date());
 //					  			String nxt = todayDate+"1";
-					  			Long n = Long.parseLong(todayDate)+1;
+					  			Long n = Long.parseLong(todayDate)-1;
 					  			System.out.println("year "+n);
 					  	%>
 					<div class="col-sm-3">
@@ -187,7 +188,7 @@
 							<span class="input-group-addon">
 							 <i class="glyphicon glyphicon-calendar"></i>
 							</span> 
-							<input type="text" id='academicYear' list="academicYear1" value="<%=todayDate%>-<%=n%>" name="academicYear" class="form-control">
+							<input type="text" id='academicYear' list="academicYear1" value="<%=n%>-<%=todayDate%>" name="academicYear" class="form-control">
                                    <!-- <datalist id="academicYear1">
                                     
                                      <option data-value="2017-2018" value="2017-2018">
@@ -222,7 +223,7 @@
 							<span class="input-group-addon">
 							 <i class="glyphicon glyphicon-calendar"></i>
 							</span>
-							 <input type="date" id='examDate' name="examDate" class="form-control" />
+							 <input type="date" id='examDate1' name="examDate1" class="form-control" />
 						</div>
 					</div>
 					
@@ -234,7 +235,7 @@
 				<div class="form-group">
 					<div class="col-sm-2 col-md-offset-5">
                           <div class="ui buttons">
-                          	<input type="button" id="btn" class="ui positive button" name="btn" onclick="validateViewStudentAdmitcard()" value="Print">
+                          	<input type="button" id="btn" class="ui positive button" name="btn" onclick="StudentAdmitCard()" value="Print">
                            </div>
                       </div>
 				</div>

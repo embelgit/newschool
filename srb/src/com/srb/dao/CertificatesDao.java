@@ -326,5 +326,110 @@ public void addSportCertificateDetails(SportcertificateHibernate b) {
 	hbu.closeSession(session);
 	}
 }
+//get nirgum certificate to print cpy
+public List getnirgumcertificateDetail(Long fk_student_id) {
+
+	HibernateUtility hbu = null;
+	Session session =  null;
+	Query query = null;
+	 List list = null;
+	 try {
+		 hbu = HibernateUtility.getInstance();
+		 session = hbu.getHibernateSession();
+		 //query = session.createSQLQuery("SELECT pk_teacher_id,designation,first_name,middle_name,last_name,date_of_birth,education,specialization,percentage,joining_date,mobile_number,landline_number,present_address,permanent_address,aadhar_number,account_number,bank_name,ifsc,pan_number,epf_number,pt_number,Salary FROM teacher_master WHERE designation =:designation ");
+		 query = session.createSQLQuery("SELECT pk_lc_id,reason,promotion,progress,conduct,date_of_leaving,attendance,workingday,idMarks,insert_date FROM nirgum_certificate WHERE fk_student_id =:fk_student_id ORDER BY pk_lc_id DESC LIMIT 1");
+		//query.setParameter("designation", designation);
+		query.setParameter("fk_student_id", fk_student_id);
+		 list = query.list(); 
+	} catch (RuntimeException e) {
+		e.printStackTrace();
+	}
+	 
+	 finally
+	 {
+		 if (session!=null) {
+			hbu.closeSession(session);
+		}
+	 }
+	 System.out.println("out of dao - return getAllTeacherDetailsForEdit List : "+list);
+			return list;
+
+	
+}
+
+
+public List<CertificateBean> getSportGeneratedStudentInformationAsPerClassNdDiv(
+		String fkClassId, String fkDivId) {
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<CertificateBean> saleList=null;
+	try
+	{
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		Query query = session.createSQLQuery("SELECT s.first_name,s.middle_name,s.last_name,b.insert_date FROM sport_certificate b LEFT JOIN student_master s on b.fk_student_id = s.pk_student_id where b.fk_class_id ="+fkClassId+" AND b.fk_div_id ="+fkDivId);
+		List<Object[]> list = query.list();
+		 saleList= new ArrayList<CertificateBean>(0);
+		
+		for (Object[] object : list) {
+			
+			CertificateBean s = new CertificateBean();
+			s.setFirstName(object[0].toString());
+			s.setMiddleName(object[1].toString());
+			s.setLastName(object[2].toString());
+			//s.setLeavingDate(object[3].toString());
+			s.setIssuedDate(object[3].toString());
+			saleList.add(s);
+			}
+		}
+	catch(Exception e)
+	{
+		e.printStackTrace();	
+	}
+	return saleList;	
+}
+
+
+//date wise sport certificate range
+public List<CertificateBean> getSportCertificateInformationAsPerrangewise(String stdatee, String endatee) {
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<CertificateBean> saleList=null;
+	try
+	{
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		Query query = session.createSQLQuery("SELECT s.first_name,s.middle_name,s.last_name,b.insert_date FROM sport_certificate b LEFT JOIN student_master s on b.fk_student_id = s.pk_student_id where b.insert_date BETWEEN '"+stdatee+"' AND '"+endatee+"'");
+		List<Object[]> list = query.list();
+		 saleList= new ArrayList<CertificateBean>(0);
+		
+		for (Object[] object : list) {
+			System.out.println("result - "+Arrays.toString(object));
+			CertificateBean s = new CertificateBean();
+			s.setFirstName(object[0].toString());
+			s.setMiddleName(object[1].toString());
+			s.setLastName(object[2].toString());
+			s.setIssuedDate(object[3].toString());
+			saleList.add(s);
+			}
+		}
+	catch(Exception e)
+	{
+		e.printStackTrace();	
+	}
+	return saleList;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

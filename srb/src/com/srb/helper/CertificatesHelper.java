@@ -15,7 +15,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.itextpdf.text.log.SysoCounter;
 import com.srb.bean.CertificateBean;
+import com.srb.bean.NirgumCertificateBean;
 import com.srb.bean.StudentInformationForReport;
 import com.srb.dao.CertificatesDao;
 import com.srb.dao.StudentInfoDao;
@@ -481,10 +483,13 @@ public class CertificatesHelper {
 			
 		}
 		Long pkStudentId1=Long.parseLong(pkStudentId);
+		Long divId=Long.parseLong(fk_div_id);
 		sessionToViewTask.setAttribute("DateofSport", dateOfLeaving);
 		sessionToViewTask.setAttribute("SportName", sport);
 		sessionToViewTask.setAttribute("Grade", grade);
 		sessionToViewTask.setAttribute("StudentIdforSport", pkStudentId1);
+		sessionToViewTask.setAttribute("sportdivId", divId);
+		
 		//to add to table
 		//Transaction transaction = session.beginTransaction();
 			 SportcertificateHibernate b = new SportcertificateHibernate();
@@ -528,5 +533,157 @@ public class CertificatesHelper {
 		
 		
 	}
+	
+	// to get cpy of sport certificate
+	public void viewCpyofSportcertificate(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		String pkStudentId = request.getParameter("studentName");
+		System.out.println(" hi this is pkStudentId====="+pkStudentId);
+		String fk_class_id =request.getParameter("fk_class_id");
+		String fk_div_id =request.getParameter("fk_div_id");
+		Long studentId = Long.parseLong(pkStudentId);
+		//for pdf
+		System.out.println("Student Id after Long"+studentId);
+		HttpSession sessionToViewTask = request.getSession();
+		sessionToViewTask.setAttribute("StudentIdforSport2", studentId);
+
+		}
+	
+	//cpy of nirgum certificate
+	public void viewCpyNirgumCertificate(HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		String pkStudentId1 = request.getParameter("studentName1");
+		String idMarks = request.getParameter("idMarks");
+		String reason = request.getParameter("reason");
+		String promotion = request.getParameter("promotion");
+		String progress = request.getParameter("progress");
+		String conduct = request.getParameter("conduct");
+		String dateOfLeaving =request.getParameter("dateOfLeaving");
+		String fk_class_id =request.getParameter("fk_class_id");
+		String fk_div_id =request.getParameter("fk_div_id");
+		String attendance1 = request.getParameter("attendance");
+		String workingday1  = request.getParameter("workingday");
+		
+		String addclass1 = request.getParameter("addclass");
+		String officer1 = request.getParameter("officer");
+		String nirgumclass1 = request.getParameter("nirgumclass");
+		String nirgumdate1 = request.getParameter("nirgumdate");
+		String place1= request.getParameter("place");
+		System.out.println("StudentID--------------"+pkStudentId1);
+		System.out.println("idMarks--------------"+idMarks);
+		System.out.println("reason--------------"+reason);
+		System.out.println("promotion--------------"+promotion);
+		System.out.println("progress--------------"+progress);
+		System.out.println("conduct--------------"+conduct);
+		System.out.println("dateOfLeaving--------------"+dateOfLeaving);
+		System.out.println("fk_class_id--------------"+fk_class_id);
+		System.out.println("fk_div_id--------------"+fk_div_id);
+		System.out.println("attendance--------------"+attendance1);
+		System.out.println("workingday--------------"+workingday1);
+		System.out.println("addclass1--------------"+addclass1);
+		System.out.println("officer1--------------"+officer1);
+		System.out.println("nirgumclass1--------------"+nirgumclass1);
+		System.out.println("nirgumdate1--------------"+nirgumdate1);
+		System.out.println("place1--------------"+place1);
+		Long studentId1 = Long.parseLong(pkStudentId1);
+		System.out.println("AFter convert into Long Database");
+		System.out.println(studentId1);
+		
+		HttpSession sessionToViewTask12 = request.getSession();
+		sessionToViewTask12.setAttribute("StudentIdforNc1", studentId1);
+		sessionToViewTask12.setAttribute("idMarksForNc", idMarks);
+		sessionToViewTask12.setAttribute("reasonForNC", reason);
+		sessionToViewTask12.setAttribute("promotionForNC", promotion);
+		sessionToViewTask12.setAttribute("progressForNC", progress);
+		sessionToViewTask12.setAttribute("conductForNC", conduct);
+		sessionToViewTask12.setAttribute("dateOfLeavingForNC", dateOfLeaving);
+		sessionToViewTask12.setAttribute("addclass1", addclass1);
+		sessionToViewTask12.setAttribute("officer1", officer1);
+		sessionToViewTask12.setAttribute("nirgumclass1", nirgumclass1);
+		sessionToViewTask12.setAttribute("place1", place1);
+		sessionToViewTask12.setAttribute("attendance1", attendance1);
+		sessionToViewTask12.setAttribute("workingday1", workingday1);
+		sessionToViewTask12.setAttribute("nirgumdate1", nirgumdate1);
+		
+	}
+	//get details of nirgum certificate to print copy
+	public Map getcopyofNirgumDetails(Long fkTeacherId) {
+
+	 	System.out.println("into helper class");
+	 	System.out.println(fkTeacherId);
+	 	CertificatesDao dao1 = new CertificatesDao();
+		List catList = dao1.getnirgumcertificateDetail(fkTeacherId);
+		
+		Map  map =  new HashMap();
+		for(int i=0;i<catList.size();i++)
+		{
+			Object[] o = (Object[])catList.get(i);
+		
+			NirgumCertificateBean b = new NirgumCertificateBean();
+			b.setPkLcId(Long.parseLong(o[0].toString()));
+			b.setReason(o[1].toString());
+			b.setPromotion(o[2].toString());
+			b.setProgress(o[3].toString());
+			b.setConduct(o[4].toString());
+			b.setDateOfLeaving(o[5].toString());
+			b.setAttendance(Long.parseLong(o[6].toString()));
+			b.setWorkingday(Long.parseLong(o[7].toString()));
+			b.setIdMarks(o[8].toString());
+			b.setInsertdate(o[9].toString());
+			/*String d = o[5].toString();
+			String dt[] = d.split("-");
+			String insertDate = dt[2]+"-"+dt[1]+"-"+dt[0];
+			b.setDateOfLeaving(insertDate);
+			String i1 = o[9].toString();
+			String it[] = i1.split("-");
+			String insertDate1 = it[2]+"-"+it[1]+"-"+it[0];
+			b.setInsertdate(insertDate1);*/
+			map.put(b.getPkLcId(),b);
+		}
+		System.out.println("out of helper return map : "+map);
+		return map;
+	
+	
+	}
+		
+	//sport certificate range wise
+	public List getSportGeneratedStudentInfoAsPerClassAndDiv(
+			HttpServletRequest request, HttpServletResponse response) {
+
+		//String academicYear = request.getParameter("academicYear");
+		String fkClassId = request.getParameter("fk_class_id");
+		String fkDivId = request.getParameter("fk_division_id");
+		
+         Map<Long,StudentInformationForReport> map = new HashMap<Long,StudentInformationForReport>();
+ 		
+         CertificatesDao dao = new CertificatesDao();
+ 		List<CertificateBean> expList = dao.getSportGeneratedStudentInformationAsPerClassNdDiv(fkClassId,fkDivId);
+ 		
+ 		return expList;
+	
+	
+	}
+
+	//sport certificate date wise range
+	public List getSportcertificateInfoAsPerDAte(HttpServletRequest request, HttpServletResponse response) {
+
+		String stdatee = request.getParameter("stdatee");
+		String endatee = request.getParameter("endatee");
+		System.out.println("dates - "+stdatee+" & "+endatee);
+         Map<Long,StudentInformationForReport> map = new HashMap<Long,StudentInformationForReport>();
+ 		
+         CertificatesDao dao = new CertificatesDao();
+ 		List<CertificateBean> expList = dao.getSportCertificateInformationAsPerrangewise(stdatee,endatee);
+ 		
+ 		return expList;
+	
+	
+	}
+	
+	
+	
+	
 
 }

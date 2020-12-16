@@ -561,7 +561,7 @@ public class StoreManagementDAO {
 	
 //del
 	public void deletstreproductss(String strpro_id) {
-		
+		System.out.println("IN DAO OF STORE MANAGEMENT ");
 		HibernateUtility hbu = null ;
 		Transaction tx = null; 
 		Session session = null;
@@ -573,6 +573,7 @@ public class StoreManagementDAO {
 				Query query = session.createSQLQuery("DELETE FROM store_management WHERE pk_store_management_id = "+strpro_id);
 				int seletedRecords = query.executeUpdate();
 				System.out.println("Number of credit Cusr deleted = = "+seletedRecords);
+				System.out.println("OUT OF DAO");
 				//list = query.list();
 				tx.commit();
 		} catch (Exception e) {

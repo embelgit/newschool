@@ -362,7 +362,7 @@
 			
 	<!-- 	<br><br>	 -->
         
-		  <div class="table-responsive	row col-md-offset-1" style="margin-top: 20px;margin-left: 420px;">
+		  <div class="table-responsive	row col-md-offset-1" style="margin-top: 20px;margin-left: 180px;">
 				<table id="list4" ></table>
 				<div id="jqGridPager"></div>
 			<!-- </div> -->
@@ -372,7 +372,7 @@
 				 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center" style=" padding-top: 15px;">
                                     <div class="ui buttons">
-                                    <button class="ui positive button" name="btn" value="Save" style=" font-size: 15px;" onclick="dailyTimeTableVal(); return false;">Save</button>
+                                    <button class="ui positive button" id="btn" name="btn" value="Save" style=" font-size: 15px;" onclick="dailyTimeTableVal(); return false;">Save</button>
                                         <div class="or"></div>
                                        <input type="button"  class="ui button" value="Cancel" style=" font-size: 15px;" onclick="location.reload();">
                                          <div class="or"></div>

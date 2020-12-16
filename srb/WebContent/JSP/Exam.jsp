@@ -220,7 +220,7 @@
 					  			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
 					  			String todayDate = simpleDateFormat.format(new Date());
 //					  			String nxt = todayDate+"1";
-					  			Long n = Long.parseLong(todayDate)+1;
+					  			Long n = Long.parseLong(todayDate)-1;
 					  			System.out.println("year "+n);
 					  	%>
 					<div class="col-sm-3">
@@ -228,7 +228,7 @@
 							<span class="input-group-addon">
 							 <i class="glyphicon glyphicon-calendar"></i>
 							</span> 
-							<input type="text" id='academicYear' list="academicYear1" value="<%=todayDate%>-<%=n%>" name="academicYear" class="form-control">
+							<input type="text" id='academicYear' list="academicYear1" value="<%=n%>-<%=todayDate%>" name="academicYear" class="form-control">
                                    <!-- <datalist id="academicYear1">
                                     
                                      <option data-value="2017-2018" value="2017-2018">

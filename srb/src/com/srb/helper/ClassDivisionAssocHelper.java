@@ -47,7 +47,7 @@ public class ClassDivisionAssocHelper {
 			System.out.println("--------------classId---------  :: "+classId);
 			System.out.println("---------------className------------------  ::  "+className);
 			
-			
+			System.out.println("IN HELPER");
 			
 			ClassDivisionAssocDao dao=new ClassDivisionAssocDao();
 			List list= dao.getDivisionNameByClassName(classId,className);

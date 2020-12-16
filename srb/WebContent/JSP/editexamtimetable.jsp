@@ -66,7 +66,21 @@
                  <script type="text/javascript">
          function listt(){
         	 window.location = "examtimetablelist.jsp";
-         }</script>
+         }
+         function check()
+         {
+        	 var temp=validateeditExamTimeTable1();
+        	 if(temp==true)
+        		 {
+        		 gridForExamTimeTable();
+        		 }
+        	 else
+        		 {
+        		 document.getElementById("fk_subject_id").value="";
+        		 }
+         }
+         
+         </script>
         
       <!--   <script type="text/javascript">
         Calendar now = Calendar.getInstance();
@@ -221,7 +235,7 @@
 								List sList2 = sdd1.getAllMainDivision();
 							     %>
 
-							<input list="division" id="fk_division_id" class="form-control"  onchange="gridForExamTimeTabletoedit()">
+							<input list="division" id="fk_division_id" class="form-control">
 							<datalist id="division"> <%
 									for (int i = 0; i < sList2.size(); i++) {
 										DivisionInfoHibernate sup = (DivisionInfoHibernate) sList2.get(i);
@@ -375,7 +389,7 @@
 							List sList3 = sdd2.getAllMainSubject();
 							 %>
 
-								<input list="subjectList" id="fk_subject_id" class="form-control" onchange="gridForExamTimeTable()">
+								<input list="subjectList" id="fk_subject_id" class="form-control" onchange="check()">
 								<datalist id="subjectList">
 								 <%
 									for (int i = 0; i < sList3.size(); i++) {

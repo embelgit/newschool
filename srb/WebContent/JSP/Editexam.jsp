@@ -1,8 +1,5 @@
 <%@page import="com.srb.hibernate.ExamInfoHibernate"%>
 <%@page import="com.srb.dao.ExamInfoDao"%>
-<%@page import="com.srb.hibernate.SubjectInfoHibernate"%>
-<%@page import="com.srb.dao.SubjectInfoDao"%>
-
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
 
@@ -46,7 +43,7 @@ function reload()
 </head>
 <body>
 <div class="content-wrapper" style="min-height: 597px;">
-              <section class="content-header">
+<section class="content-header">
 
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/clipboard.png" style="width: 55px;"></div>
@@ -73,7 +70,7 @@ function reload()
             <div class="panel-body panel-form">
                 <div class="row">
 	
-         <form class="form-horizontal" name="updatesdtv">
+         <form class="form-horizontal" name="updatedx">
 			<div class="row form-group">
 				<div class="col-sm-2 col-sm-offset-1" align="right">
 						<label class="control-label" >Select Exam Name:</label>
@@ -165,7 +162,7 @@ function reload()
 								List sList2 = sdd1.getAllMainDivision();
 							     %>
 
-							<input list="division" id="fk_division_id" class="form-control" >
+							<input list="division" id="fk_division_id" class="form-control" onchange="getGridForSubjectEdit()">
 							<datalist id="division"> <%
 									for (int i = 0; i < sList2.size(); i++) {
 										DivisionInfoHibernate sup = (DivisionInfoHibernate) sList2.get(i);
@@ -185,45 +182,38 @@ function reload()
 				</div>
 			</div>
 			
- 		<div class="row">
-				<div class="form-group">
-					<div class="col-md-2 col-sm-offset-1" align="right">
-						<label class="control-label">Subject Name:<sup>*</sup></label>
-					</div>
-					<div class="col-md-3">
-						<div class="input-group">
-							<span class="input-group-addon"> <i
-								class="glyphicon glyphicon-book"></i>
-							</span>
-
-							<%
-							SubjectInfoDao sdd2 = new SubjectInfoDao();
-							List sList3 = sdd2.getAllMainSubject();
-							 %>
-
-							<input list="subjectList" id="fk_subject_id" class="form-control" autofocus="autofocus">
-							<datalist id="subjectList"> <%
-									for (int i = 0; i < sList3.size(); i++) {
-									SubjectInfoHibernate sup = (SubjectInfoHibernate) sList3.get(i);
-								 %>
-
-							<option data-value="<%=sup.getPkSubjectId()%>"
-								value="<%=sup.getSubject()%>">
-								<%
-										}
-									%>
-							
-							</datalist>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			
-		<div class="row">
+<!-- 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Total Marks:</label>
+						<label class="control-label">Division Name:</label>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							<i class="glyphicon glyphicon-hand-right"></i>
+							</span> 
+							<input type="text" id='divisionName' name="divisionName" class="form-control" placeholder="Division Name" />
+						</div>
+					</div>
+
+					 <div class="col-sm-2" align="right">
+						<label class="control-label">Subject Name:</label>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							<i class="glyphicon glyphicon-book"></i>
+							</span>
+							 <input type="text" id='SubjectName' name="subjectName" class="form-control"  placeholder="subjectName">
+						</div>
+					</div> 
+				</div>
+			</div> -->
+			
+<!-- 			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-2 col-sm-offset-1" align="right">
+						<label class="control-label">ToTal Marks:</label>
 					</div>
 					<div class="col-sm-3">
 						<div class="input-group">
@@ -246,30 +236,30 @@ function reload()
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 					  <div class="table-responsive	row col-md-offset-1" style="margin-left: 260px">
 				<table id="list5" ></table>
 				<div id="jqGridPager1"></div>
 			<!-- </div> -->
 		  </div>
-		<br><br>
-		        <div class="form-group row">
-                        <div class="col-md-offset-4 col-md-4 btn-center">
+			<br><br>
+<div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" value="Save" id="btn" onclick="updateExamName()">Save
+                                    <input type="button" class="ui positive button" id="btn" name="btn" value="update" onclick="updateExamName1()">
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button"  >Reset</button>
                                         </div>
                                 </div>
-                   </div>
+
 </form>
+
+
 </div>
 </div>
-</div>
- </div>
- </div>
- </div>
+
+
+ </div></div></div>
 <%-- 
 <div class="container-fluid">
 

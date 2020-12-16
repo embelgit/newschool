@@ -559,7 +559,7 @@ function addDailyTimeTable(){
 		var endTime = allRowsInGrid[i].endTime;
 		params["endTime"+i] = endTime;
 	}
-
+          document.getElementById("btn").disabled=true;
 			var day = $('#day').val();
 			var academicYear = $('#academicYear').val();
 			var className = $('#fk_class_id1').val();
@@ -1998,12 +1998,36 @@ function deltimetable(){
 			fkClassId = list.options[i].getAttribute('data-value');
 		}
 	}
+	
+	var input = document.getElementById('fk_div_id'), 
+	list = document.getElementById('divId'), 
+	i, fkdivid;
+	for (i = 0; i < list.options.length; ++i)
+	{
+		if (list.options[i].value === input.value) 
+		{
+			fkdivid = list.options[i].getAttribute('data-value');
+		}
+	}
 		
-		var division = $('#fk_div_id').val();
+	var input = document.getElementById('examid'), 
+	list = document.getElementById('exmid'), 
+	i, examid;
+	for (i = 0; i < list.options.length; ++i)
+	{
+		if (list.options[i].value === input.value) 
+		{
+			examid = list.options[i].getAttribute('data-value');
+		}
+	}
+		
+		
+		
 
-		params["fk_class_id"] = fkClassId;
+		params["fkClassId"] = fkClassId;
 
-		params["division"] = division;
+		params["fkdivid"] = fkdivid;
+		params["examid"] = examid;
 	
 		params["methodName"] = "deletetimetableDetails";
 		
@@ -2023,4 +2047,370 @@ function deltimetable(){
 	 	    	})
 	 	
 
+}
+
+//Library JS
+function getBookDetailIntoGrid(){
+	 /*if(document.bookEntryForm.bookName.value=="" ||document.bookEntryForm.bookName.value==null){
+		 alert("Please Enter Book Name")
+		 return false;
+	 }*/
+	getBookIntoGrid();
+}
+
+function getBookIntoGrid(){
+	
+	var params= {};
+	var count=0;
+	var newrow;
+	var rowId;
+
+	var bookName = $('#bookName').val();
+	params["bookName"]=bookName;
+	params["methodName"] ="gridForBookEnrtyInLibraryManagement";
+
+	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
+			{
+		
+		  var jsonData = $.parseJSON(data);
+			
+	     $.each(jsonData,function(i,v)
+			{
+	    	 
+	         count = jQuery("#list44").jqGrid('getGridParam', 'records'); 
+		     var rowdata =$("#list44").jqGrid('getGridParam','data');
+		     var ids = jQuery("#list44").jqGrid('getDataIDs');
+
+			
+			  var prodName,com,packing,unit;
+			  for (var j = 0; j < count; j++) 
+			  {
+				  prodName = rowdata[j].bookName;
+					
+				 var rowId = ids[j];
+				 var rowData = jQuery('#list44').jqGrid ('getRowData', rowId);
+				
+				if (prodName == jsonData.offer.bookName) {
+			    	newrow=false;
+			    	alert("Book Name Already Inserted !!!");
+			    	return false;
+					var grid = jQuery("#list44");
+				    grid.trigger("reloadGrid");
+			    	break;
+				}
+				else
+				{
+					newrow = true;
+				}
+			 }
+			  
+			  if(newrow == true)
+				 {
+					
+				  //$("#list4").addRowData(i,jsonData[i]);
+				  $("#list44").addRowData(count,jsonData.offer);
+					
+				 }
+			  document.getElementById('bookName').value = "";
+
+		
+		$("#list44").jqGrid({
+			datatype: "local",
+			
+			colNames:['Book Name','Author Name','Publisher Name','Buy Price','Quantity','Total'],
+			colModel:[ 
+				
+              
+			     {	name:'bookName',
+			    	 width:150,
+					
+				},
+				 {	name:'authorName',
+			    	 width:150,
+			    	 editable: true
+				},
+				
+				 {	name:'publisherName',
+			    	 width:150,
+			    	 editable: true
+				},
+				
+	/*		     {	name:'supplierName',
+			    	 width:150,
+			    	 editable: true
+				},
+				*/
+				
+				{	name:'buyPrice',
+			    	 width:150,
+			    	 editable: true
+				},
+			       
+			   
+				{	name:'quantity',
+					width:100,
+					editable: true
+					
+				},
+				{	name:'total',
+					width:100,
+				}
+				
+			],
+				
+			
+			sortorder : 'desc',
+			loadonce: false,
+			viewrecords: true,
+			width: 1000,
+           //height: 350,
+			shrinkToFit:true,
+           rowheight: 300,
+           hoverrows: true,
+	        rownumbers: true,
+           rowNum: 10,
+           'cellEdit':true,
+           
+           
+           
+        	 afterSaveCell: function  grossTotal() {
+			       /* 	Calculation of total after editing quantity*/
+			        	   
+			        	   // $(this).trigger('reloadGrid');
+        		 
+		 					var rowId =$("#list44").jqGrid('getGridParam','selrow');  
+		 					var rowData = jQuery("#list44").getRowData(rowId);
+                   
+/*			        	   var rowId =$("#list4").jqGrid('getGridParam','selrow');  
+	                       var rowData = jQuery("#list4").getRowData(rowId);*/
+	                       
+	                    	var quantity = rowData['quantity'];
+	                    	var buyPrice = rowData['buyPrice'];
+	                    	
+	                    	var authorName = rowData['authorName'];
+	                    	var publisherName = rowData['publisherName'];
+	                    	
+	                    	if(quantity !=""){
+	                    		var Decs = /^[0-9]+$/;
+	                    		if(quantity.match(Decs))
+	                    		{
+	                    			
+	                    		}
+	                    		else {
+	                    				newrow=false;
+	                    				var buy ="0";
+										alert("Please enter number in quantity");
+										return false;
+										var grid = jQuery("#list44");
+									    grid.trigger("reloadGrid");
+								    	break;
+										
+									
+
+	                    		}
+	                    		
+	                    	}
+	                    	if(buyPrice !=""){
+	                    		var Decs = /^[0-9]+$/;
+	                    		if(buyPrice.match(Decs))
+	                    		{
+	                    			
+	                    		}
+	                    		else {
+                   				var buy ="0";
+	                    			alert("Please enter number in buy price");
+				//					$("#jqGrid").jqGrid("setCell",rowId, "buyPrice", buy);
+									location.reload();
+//	                    		    $("#list44").jqGrid("reloadGrid");
+									return false;
+	                    		}             		
+	                    	}
+	                    	
+	                    	if(authorName !="")
+							{
+							var Decs = /^[a-zA-Z, ]+$/;
+							//var Decs = /^[yY, ]+$/;
+							if(authorName.match(Decs))
+							{}
+							else
+							{
+								var setDesc="";
+								alert("Please Enter  Alphabates In Author Name ....");
+								location.reload();
+				//				$("#jqGrid").jqGrid("setCell",rowId, "authorName", setDesc);
+		//					    $("#list44").jqGrid("reloadGrid");
+								return false;
+								
+							}
+							}
+							
+	                    	if(publisherName !="")
+							{
+							var Decs = /^[a-zA-Z, ]+$/;
+							
+							if(publisherName.match(Decs))
+							{
+								
+							}
+							else
+							{
+								var setDesc="";
+								alert("Please Enter  Alphabates In Publisher Name ....");
+								return false;
+								
+							}
+							}
+	                    	
+	                    	var tota = quantity * buyPrice;
+                   		$("#list44").jqGrid("setCell", rowId, "total", tota);
+                   		
+                   		var Total =0;
+                   		var count = jQuery("#list44").jqGrid('getGridParam', 'records');
+       		        	var allRowsInGrid1 = $('#list44').getGridParam('data');
+       		        	var AllRows=JSON.stringify(allRowsInGrid1);
+       		        	for (var k = 0; k < count; k++) {
+       		        		var Total1 = allRowsInGrid1[k].total;
+       		        		if(Total1 != null){
+       		        			Total = Total + Total1;
+       		        		}
+       		        		//Total = +Total + +Total1;
+       		        	}
+       		        	document.getElementById("grossTotal").value = Total;
+	                    	
+	        	},
+          
+			pager: "#jqGridPager",
+			
+			
+			
+		});
+		
+	
+		//$("#list4").addRowData(i+1,jsonData[i]);
+		if(count==0 || count==null)
+		{
+			 // $("#list4").addRowData(i,jsonData[i]);
+			  $("#list44").addRowData(0,jsonData.offer);
+		}
+		
+
+    
+		 $('#list44').navGrid('#jqGridPager',
+	                
+	                { edit: true, add: false, del: true, search: true, refresh: true, view: true, position: "left", cloneToTop: false },
+	                
+	               {
+	                    editCaption: "The Edit Dialog",
+	                   
+	                    afterSubmit: function () {
+							
+	                      var grid = $("#list44"),
+						  intervalId = setInterval(
+							 function() {
+							         grid.trigger("reloadGrid",[{current:true}]);
+							   },
+							   500);
+	                         
+	                      
+						},
+						
+						 recreateForm: true,
+						 checkOnUpdate : true,
+						 checkOnSubmit : true,
+		                 closeAfterEdit: true,
+						
+	                    errorTextFormat: function (data) {
+	                        return 'Error: ' + data.responseText
+	                    }
+						
+						
+	                },
+	                
+	                
+	                  {
+	                    closeAfterAdd: true,
+	                    recreateForm: true,
+	                    errorTextFormat: function (data) {
+	                        return 'Error: ' + data.responseText
+	                        
+	                    }
+	                },
+	                
+	                /*       {
+	                	closeAfterdel:true,
+	                	checkOnUpdate : true,
+						checkOnSubmit : true,
+						recreateForm: true,
+	                	
+						reloadAftersubmit:true,	
+	                    errorTextFormat: function (data) {
+	                        return 'Error: ' + data.responseText
+	                    }*/
+                   
+					// options for the Delete Dialogue
+	                {
+	                	closeAfterdel:true,
+	                	checkOnUpdate : true,
+						checkOnSubmit : true,
+						recreateForm: true,
+						
+
+						afterComplete : function() {
+						
+							
+							
+							  var rowId =$("#list44").jqGrid('getGridParam','selrow');  
+		                       var rowData = jQuery("#list44").getRowData(rowId);
+		                       
+		                    	var quantity = rowData['quantity'];
+		                    	var buyPrice = rowData['buyPrice'];
+		                    	
+		                    	var tota = quantity * buyPrice;
+	                    		$("#list44").jqGrid("setCell", rowId, "total", tota);
+	                    		
+	                    		var Total =0;
+	                    		var count = jQuery("#list44").jqGrid('getGridParam', 'records');
+	        		        	var allRowsInGrid1 = $('#list44').getGridParam('data');
+	        		        	var AllRows=JSON.stringify(allRowsInGrid1);
+	        		        	for (var k = 0; k < count; k++) {
+	        		        		var Total1 = allRowsInGrid1[k].total;
+	        		        		Total = +Total + +Total1;
+	        		        	}
+	        		        	document.getElementById("grossTotal").value = Total;
+		                    	
+
+						},
+	                	
+						reloadAftersubmit:true,	
+	                    errorTextFormat: function (data) {
+	                        return 'Error: ' + data.responseText
+	                    },
+						
+						onSelectRow : function(
+								id) {
+							if (id
+									&& id !== lastSel) {
+								jQuery(
+										"#list44")
+										.saveRow(
+												lastSel,
+												true,
+												'clientArray');
+								jQuery(
+										"#list44")
+										.editRow(
+												id,
+												true);
+								lastSel = id;
+								console
+										.log(id);
+							}
+						}
+	                		
+	                });
+		 
+		 
+			   });
+			
+		})
 }

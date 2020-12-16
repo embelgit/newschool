@@ -29,13 +29,46 @@
          <script type="text/javascript" src="/srb/staticContent/JS/exam.js"></script>
 </head>
 
+<body>
+ <!-- <div class="container col-md-offset-2" style="float: left">  -->
+ <div class="content-wrapper" style="min-height: 1134px;">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
 
- <div class="container col-md-offset-2" style="float: left"> 
+                    <div class="p-l-30 p-r-30">
+                        <div class="header-icon"><img src="/srb/staticContent/Images/list.png" style="width: 55px;"></div>
+                        <div class="header-title">
+                            <h1>Certificate Issued Report</h1>
+                            <small>Report</small> 
+                        </div>
+                    </div>
+                </section>
+        
+                                        
+
+                    <!-- content -->
+                    <div class="row">
+    <!--  form area -->
+    <div class="col-sm-12">
+        <div class="panel panel-default thumbnail">
+ 
+            <div class="panel-heading no-print">
+                <!-- <div class="btn-group"> 
+                    <a class="btn btn-primary"  onclick="classList1()" accesskey="t""> <i class="fa fa-list"></i>Class List </a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary" onclick="divList()" accesskey="t""> <i class="fa fa-list"></i>Division List </a>  
+                </div> -->
+            </div> 
+
+            <div class="panel-body panel-form">
+                <div class="row">
+ 
  		
  		<div class="row">
-			<div align="center" style="margin-top: 75px">
+			<!-- <div align="center" style="margin-top: 75px">
 				  <h2 class="form-name style_heading">Certificate Issued Report</h2>
-			</div>
+			</div> -->
 			<div id="report" style="text-align: center">
 				<label id="demo" align=></label>
 				<script>
@@ -49,17 +82,20 @@
 	    	<li class="active"><a data-toggle="tab" href="#home"><h4 style="color:blue">Leaving Certificate</h4></a></li>
 	    	<li><a data-toggle="tab" href="#bonafide"><h4 style="color:blue">Bonafide Certificate</h4></a></li>
 	    	<li><a data-toggle="tab" href="#nirgum"><h4 style="color:blue">Nirgum Certificate</h4></a></li>
+	    	<li><a data-toggle="tab" href="#sport"><h4 style="color:blue">Sport Certificate</h4></a></li>
+	    	
 		</ul>
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-sm-offset-1 col-md-10" align="right">
 				<hr style="border-top-color: #c1b1b1;">
 			</div>
-		</div>
-		<div class="row"></div>
+		</div> -->
+		
 		
 <div class="tab-content" style="float: left">
 <!-- 	For class Name entry -->
 	<div id="home" class="tab-pane fade in active">
+	<div class="row"></div>
 		<form class="form-horizontal">
 
 			<div class="row">
@@ -254,6 +290,113 @@
 		</form>	
 		
 		</div>
+<!-- ------------Sport certificate------------------------------------  -->
+
+<div id="sport" class="tab-pane">
+		<form class="form-horizontal">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-2 col-sm-offset-1" align="right">
+						<label class="control-label">Class Name:</label>
+					</div>
+					<div class="col-md-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							 <i class="glyphicon glyphicon-stats"></i>
+							</span>
+
+							<%
+								ClassInfoDao spdao = new ClassInfoDao();
+								List spList = spdao.getAllMainClass();
+							%>
+
+							<input list="classes_sport" id="fk_class_id_sport" class="form-control" onchange="getDivisionNameByClassNameCopySport()">
+							<datalist id="classes_sport">
+							 <%
+ 	                            for (int i = 0; i < spList.size(); i++) {
+ 		                        ClassInfoHibernate spbean = (ClassInfoHibernate) spList.get(i);
+                             %>
+
+							<option data-value="<%=spbean.getPkClassId()%>"
+								value="<%=spbean.getClas()%>">
+								<%
+									}
+								%>
+							
+							</datalist>
+						</div>
+					</div>
+
+
+					<div class="col-sm-2" align="right">
+						<label class="control-label">Division Name:</label>
+					</div>
+					<div class="col-md-3">
+						<div class="input-group">
+							<span class="input-group-addon"> <i
+								class="glyphicon glyphicon-pencil"></i>
+							</span>
+
+							<%-- <%
+								DivisionInfoDao divBonaDao = new DivisionInfoDao();
+								List divBonaList = divBonaDao.getAllMainDivision();
+							     %>
+
+							<input list="division_Student_bona" id="fk_division_id_Student_bona" class="form-control" onchange="getSudentName()">
+							<datalist id="division_Student_bona"> <%
+									for (int i = 0; i < divBonaList.size(); i++) {
+										DivisionInfoHibernate divBonaBean = (DivisionInfoHibernate) divBonaList.get(i);
+								%>
+
+							<option data-value="<%=divBonaBean.getPkDivisionId()%>"
+								value="<%=divBonaBean.getDivision() %>">
+								<%
+										}
+									%>
+							
+							</datalist> --%>
+							
+							
+							<input list="division_Student_spo" id="fk_division_id_Student_spo" class="form-control" />
+							<datalist id="division_Student_spo"></datalist>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-2 col-md-offset-5" >
+						<input type="button" id="btn" name="save" class="btn btn-lg btn-success btn-md button_hw button_margin_right"
+								onclick="viewsportIssued()" value="View Sport Report" />
+					</div>
+				</div>
+			</div>
+						<div class="table-responsive">
+					<table id="sporttable" class="display" style=" border: 2px solid black;border-collapse: collapse;">
+						<thead>
+							<tr>
+								<th>First Name</th>
+								<th>Middle Name</th>
+								<th>Last Name</th>
+								<th>Issued date</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+		</form>	
+		
+		</div>
+
+
+
+
+
+
+
+
+
 
 	<!-- nirgum -------------------------------  -->
 	
@@ -338,4 +481,12 @@
 		
 	</div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
 	<%@include file="commons/newFooter.jsp" %>

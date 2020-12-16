@@ -541,7 +541,7 @@ public class DailyTimeTableDAO {
 	
 	//
 	
-	public void deletediv(String fk_class_id, String division) {
+	public void deletediv(String fk_class_id, String division,String examid) {
 		
 		
 		System.out.println("In delete grid data method of temp DAO tempID is --- >  "+fk_class_id);
@@ -554,7 +554,7 @@ public class DailyTimeTableDAO {
 			 hbu = HibernateUtility.getInstance();
 			 session = hbu.getHibernateSession();
 			 transaction = session.beginTransaction();
-				Query query = session.createSQLQuery("delete from daily_time_table where fk_class_id = '"+fk_class_id+"' AND division_name = '"+division+"'");
+				Query query = session.createSQLQuery("delete from daily_time_table where fk_class_id = '"+fk_class_id+"' AND division_name = '"+division+"'AND pk_daily_time_table_id='"+examid+"'");
 				 query.executeUpdate();
 				 transaction.commit();
 			//	System.out.println("Number of credit Cusr deleted == + =   "+seletedRecord);

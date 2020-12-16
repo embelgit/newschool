@@ -391,6 +391,7 @@ public class LibraryManagementHelper {
 			      String quantity = request.getParameter("quantityInGrid"+i);
 			      String BookissueDateReturn = request.getParameter("BookIssuedate"+i);
 				  String BookReturneDateReturn = request.getParameter("BookReturnDate"+i);
+				  String status = request.getParameter("status"+i);
 			     
 			      BookReturnHibernate b = new BookReturnHibernate();
 					b.setBookName(bookName);
@@ -405,7 +406,7 @@ public class LibraryManagementHelper {
 					b.setBookReturneDateReturn(BookReturneDateReturn);
 					b.setTeacherIssueReturnId(Long.parseLong(TeacherId));
 					//b.setLateCharges(LateCharges);
-					
+					b.setStatus(status);
 					Date d = new Date();
 					b.setInsertDate(d);
 			

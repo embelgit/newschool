@@ -235,8 +235,8 @@ public void deleteclass(String fk_class_id, String className) {
 		 hbu = HibernateUtility.getInstance();
 		 session = hbu.getHibernateSession();
 		 transaction = session.beginTransaction();
-			Query query = session.createSQLQuery("delete from class_master where pk_class_id = '"+fk_class_id+"'");
-			 query.executeUpdate();
+		 Query query1 = session.createSQLQuery("delete from class_master where pk_class_id = '"+fk_class_id+"'");
+			 query1.executeUpdate();
 			 transaction.commit();
 		//	System.out.println("Number of credit Cusr deleted == + =   "+seletedRecord);
 			 System.out.println("deleted from class table+++++++++ +++++++++++++++ +++++++++++++ ");

@@ -10,11 +10,13 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.srb.bean.ClassAndDivisionBean;
+import com.srb.bean.ExamNameList;
 import com.srb.bean.GetExamDetails;
 import com.srb.bean.GetStudentDetailsBean;
 import com.srb.dao.ClassDivisionAssocDao;
@@ -135,7 +137,7 @@ public class ExamInfoHelper {
 	}
 
 	//Update Details  Exam by kishor 
-	public void updateExamInfoDetail(HttpServletRequest request,
+	public void updateExamInfoDetail1(HttpServletRequest request,
 			HttpServletResponse response) {
 		//ExamInfoHibernate ex=new ExamInfoHibernate();
 		Integer count = Integer.parseInt(request.getParameter("count"));
@@ -269,4 +271,32 @@ public class ExamInfoHelper {
 		}
 		return map;
 	}
+	
+	//Print Admit Card For Exam
+	public void AdmitCardDetails(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		String className = request.getParameter("className");
+		String divName = request.getParameter("divsion");
+		String studName = request.getParameter("studName");
+		String Academic = request.getParameter("Academic");
+		String fromDate = request.getParameter("fromDate");
+		String Todate = request.getParameter("Todate");
+		System.out.println(" hi this is className====="+className);
+		System.out.println(" hi this is divName====="+divName);
+		System.out.println(" hi this is studName====="+studName);
+		System.out.println(" hi this is Academic====="+Academic);
+		System.out.println(" hi this is fromDate====="+fromDate);
+		System.out.println(" hi this is Todate====="+Todate);
+		//for pdf
+		HttpSession sessionToViewTask = request.getSession();
+		sessionToViewTask.setAttribute("classNameForAdmitCard", className);
+		sessionToViewTask.setAttribute("DivisionNameForAdmitCard", divName);
+		sessionToViewTask.setAttribute("AcademicForAdmitCard", Academic);
+		sessionToViewTask.setAttribute("studentNameForAdmitCard", studName);
+		sessionToViewTask.setAttribute("FromDateForAdmitCard", fromDate);
+		sessionToViewTask.setAttribute("ToDateForAdmitCard", Todate);
+
+		}
+	
 }

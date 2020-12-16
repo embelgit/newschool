@@ -160,7 +160,8 @@ function checkForDuplicateBillEntry(){
 			function isAlphabets(evt) {
 		    evt = (evt) ? evt : window.event;
 		    var charCode = (evt.which) ? evt.which : evt.keyCode;
-		    if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+		    if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122))
+		    {
 		        return false;
 		    }
 		    return true;
@@ -584,7 +585,7 @@ function checkForDuplicateBillEntry(){
 				</div>
 			</div> -->
 			
-			<div class="table-responsive row col-md-offset-1" style="margin-left: 400px;margin-top: 20px;margin-bottom: 20px;">
+			<div class="table-responsive row col-md-offset-1" style="margin-left: 80px;margin-top: 20px;margin-bottom: 20px;">
 				<table id="gridForBookReturn" ></table>
 				<div id="jqGridPagerForBookReturn"></div>
 		  </div>
@@ -668,7 +669,7 @@ function checkForDuplicateBillEntry(){
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span> 
 							<!-- <input type="text" id='bookName' name="bookName" autofocus="autofocus"; class="form-control" placeholder="Enter Book name" onchange="getBookDetailIntoGrid();clearFiled()"/> -->
-							<input type="text" id='bookName' name="bookName" autofocus="autofocus"; class="form-control" placeholder="Enter Book name" onchange="getBookDetailIntoGrid()"/>
+							<input type="text" id='bookName' name="bookName"  class="form-control" placeholder="Select Book name" onchange="getBookDetailIntoGrid()"/>
 						</div>
 					</div>
 
@@ -914,7 +915,7 @@ function checkForDuplicateBillEntry(){
 				</div>
 			</div> -->
 			
-			<div class="table-responsive row col-md-offset-1" style="margin-left: 400px;margin-top: 20px;margin-bottom: 20px;">
+			<div class="table-responsive row col-md-offset-1" style="margin-left: 80px;margin-top: 20px;margin-bottom: 20px;">
 				<table id="employeegridForBookReturn" ></table>
 				<div id="employeejqGridPagerForBookReturn"></div>
 		  </div>

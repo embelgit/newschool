@@ -301,7 +301,7 @@ function validationEmployeeLeaveDetails()
 	
 	
 	var input1 = document.getElementById('fk_employee_id'), list = document
-	.getElementById('employeeNameList'), i, fkClassId;
+	.getElementById('employeeNameList'), i, fk_employee_id;
 
 for (i = 0; i < list.options.length; ++i) {
 if (list.options[i].value === input1.value) {

@@ -13,9 +13,9 @@
   <script src="/srb/staticContent/JS/certificate.js"></script>
    
    <script type="text/javascript">
-	function leavingCertificate()
+	function SportCertificate()
 	{
-		window.location="CopyleavingCertificate.jsp";
+		window.location="CopySportCertificate.jsp";
 	}
 
    </script>
@@ -49,13 +49,14 @@
         <div class="panel panel-default thumbnail">
  
             
-         <!--    <div class="panel-heading no-print">
+         <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="leavingCertificate()"  accesskey="t""> <i class="fa fa-list"></i>Copy</a>  
+                    <a class="btn btn-primary"  onclick="SportCertificate()"  accesskey="t""> <i class="fa fa-certificate"></i>Copy</a>  
                 </div>
 
                 
-            </div>-->
+            </div>
+
             <div class="panel-body panel-form">
                 <div class="row">
 	

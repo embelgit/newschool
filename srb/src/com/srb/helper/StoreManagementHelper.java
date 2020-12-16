@@ -526,12 +526,12 @@ public gethostelmanagementdetailbean getGridForhostelManagement(String productNa
 	
 	//
 	public void deletestrproduct(HttpServletRequest request, HttpServletResponse response ) {
-		
+		System.out.println("IN HELPER OF STORE MANAGEMENT");
 		String strpro_id = request.getParameter("strpro_id");
-		   
+		System.out.println(" ------------strpro_id----"+strpro_id);   
 		StoreManagementDAO dao2 = new StoreManagementDAO();
 		dao2.deletstreproductss(strpro_id);
-			
+		System.out.println("OUT OF HELPER");	
 		}
 	
 	public Map getstoreDetailsForEdit1(Long fkTeacherId) {

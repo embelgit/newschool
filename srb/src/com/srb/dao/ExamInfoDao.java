@@ -337,6 +337,44 @@ public List getDivisiontoeditexam(String examid, String classid)
 	
 	
 }
+//get Daily time table to Delete
+public List getDailyTimeTableListToDelete()
+{
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<GetExamTimeTableDetail> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("select pk_daily_time_table_id,subject_name from daily_time_table");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<GetExamTimeTableDetail>(0);
+
+
+for (Object[] o : list) 
+{	
+	GetExamTimeTableDetail reports = new GetExamTimeTableDetail();
+	reports.setPkExamTimeTableId(Long.parseLong(o[0].toString()));
+	reports.setSubjetName(o[1].toString());
+	
+	supList.add(reports);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+
+
 
 
 }

@@ -70,6 +70,18 @@
          function editt(){
         	 window.location = "editexamtimetable.jsp";
          }
+         function check()
+         {
+        	 var temp=ValidationOfexamTableEntry();
+        	 if(temp==true)
+        		 {
+        		 gridForExamTimeTable();
+        		 }
+        	 else
+        		 {
+        		 document.getElementById("fk_subject_id").value="";
+        		 }
+         }
          </script>
         
       <!--   <script type="text/javascript">
@@ -379,7 +391,7 @@
 							List sList3 = sdd2.getAllMainSubject();
 							 %>
 
-								<input list="subjectList" id="fk_subject_id" class="form-control" onchange="gridForExamTimeTable()">
+								<input list="subjectList" id="fk_subject_id" class="form-control" onchange="check()">
 								<datalist id="subjectList">
 								 <%
 									for (int i = 0; i < sList3.size(); i++) {

@@ -9,6 +9,9 @@
 <%@page import="com.srb.dao.DivisionInfoDao"%>
 <%@page import="com.srb.hibernate.ClassInfoHibernate"%>
 <%@page import="com.srb.dao.ClassInfoDao"%>
+<%@page import="com.srb.dao.ResultDao" %>
+<%@page import="com.srb.hibernate.ResultHibernate"%>
+
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
 
@@ -38,7 +41,38 @@
 						window.location="Exam.jsp";
 					}
           		</script>
-		
+			<script type="text/javascript">
+function checkForDuplicateEntryOfResult(){
+          			<%
+          			ResultDao dao2 = new ResultDao();
+          			List list1 = dao2.getResultEntry();
+          			%>
+          			
+          			<%
+          			int z = 0;
+          			for(z=0;z<list1.size();z++){
+          				ResultHibernate   bean = (ResultHibernate)list1.get(z);
+          			%>
+          			var className= "<%=bean.getClassName()%>";
+          			var DevisionName = "<%=bean.getDivisionName()%>";
+          			var SubjectName = "<%=bean.getSubjectName()%>";
+          			var cname=document.getElementById("fk_class_id1").value;
+          			var dname=document.getElementById("fk_division_id").value;
+          			var sname=document.getElementById("fk_subject_id").value;
+          			if(className== cname && DevisionName==dname && SubjectName==sname)
+          				{
+          				alert("Result already Inserted for this Subject");
+          				document.getElementById("fk_subject_id").value="";
+          				return false;
+          				}
+          			
+          			<%
+          			}
+          			%>
+          			
+          			}
+</script>
+			
 		
 </head>
 <body>
@@ -118,7 +152,7 @@
 					<%
 					  			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
 					  			String todayDate = simpleDateFormat.format(new Date());
-					  			Long n = Long.parseLong(todayDate)+1;
+					  			Long n = Long.parseLong(todayDate)-1;
 					  			System.out.println("year "+n);
 					  	%>
 					<div class="col-sm-3">
@@ -126,7 +160,7 @@
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span> 
-							<input type="text" id='academicYear4' list="academicYear1" value="<%= todayDate%>-<%=n %>" name="academicYear" class="form-control">
+							<input type="text" id='academicYear4' list="academicYear1" value="<%=n%>-<%=todayDate %>" name="academicYear" class="form-control">
                                    <datalist id="academicYear1">
                                      <option data-value="2011-2015" value="2017-2018">
                                      <option data-value="2016-2020" value="2018-2019">
@@ -228,7 +262,7 @@
 							List sList3 = sdd2.getAllMainSubject();
 							 %>
 
-							<input list="subjectList" id="fk_subject_id" class="form-control" onchange="getPassingMarks()">
+							<input list="subjectList" id="fk_subject_id" class="form-control" onchange="checkForDuplicateEntryOfResult();getPassingMarks(); return false">
 							<datalist id="subjectList"> <%
 									for (int i = 0; i < sList3.size(); i++) {
 									SubjectInfoHibernate sup = (SubjectInfoHibernate) sList3.get(i);
@@ -252,7 +286,7 @@
 											<span class="input-group-addon">
 												No
 											</span>
-           									  <input readonly="readonly" id="passingMarks" name="passingMarks" class="form-control">
+           									  <input readonly id="passingMarks" name="passingMarks" class="form-control" value=40>
            							 </div>
 								</div>
 				</div>
@@ -266,7 +300,7 @@
 											<span class="input-group-addon">
 												No
 											</span>
-           									  <input readonly="readonly" id="totalMarks" name="totalMarks" class="form-control">
+           									  <input readonly id="totalMarks" name="totalMarks" class="form-control" value=100>
            							 </div>
 								</div>
 		</div>

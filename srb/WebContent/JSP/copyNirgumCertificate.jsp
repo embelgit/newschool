@@ -42,6 +42,18 @@ String todayDate = simpleDateFormat.format(new Date());
 System.out.println(todayDate);
 %>
 </script>
+<script type="text/javascript">
+			function isAlphabetsWithSpace(evt) {
+		    evt = (evt) ? evt : window.event;
+		    var charCode = (evt.which) ? evt.which : evt.keyCode;
+		    if (charCode!=32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+		        return false;
+		    }
+		    return true;
+			}
+
+
+		</script>
 
 </head>
 
@@ -54,8 +66,8 @@ System.out.println(todayDate);
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><img src="/srb/staticContent/Images/clipboard.png" style="width: 55px;"></div>
                         <div class="header-title">
-                            <h1>Nirgam Certificate</h1>
-                            <small>Nirgam Certificate</small> 
+                            <h1>Duplicate Nirgam Certificate</h1>
+                            <small>Certificate</small> 
                         </div>
                     </div>
                 </section>
@@ -65,13 +77,7 @@ System.out.println(todayDate);
     <!--  form area -->
     <div class="col-sm-12">
         <div class="panel panel-default thumbnail">
- 	 <div class="panel-heading no-print">
-                <div class="btn-group"> 
-                    <a class="btn btn-primary"  onclick="nirgumCertificate()"  accesskey="t""> <i class="fa fa-certificate"></i>Copy</a>  
-                </div>
 
-                
-            </div>
             
             <div class="panel-heading no-print">
 <!--                 <div class=""> 
@@ -86,7 +92,7 @@ System.out.println(todayDate);
 	
 	
 
- <form class="form-horizontal" name="LeavingCertificate">
+ <form class="form-horizontal" name="nirgumcertificate">
  			<div class="row">
 				<div class="form-group">
 					<div class="col-md-2 col-sm-offset-1" align="right">
@@ -166,7 +172,7 @@ System.out.println(todayDate);
 											<span class="input-group-addon">
 												<i class="glyphicon glyphicon-user"></i>
 											</span>
-											<select id="fk_Student_id" class="form-control" >
+											<select id="fk_Student_id" class="form-control" onchange="getNirgumCertificateDetails()">
 											</select>
            							 </div>
 								</div>
@@ -180,7 +186,7 @@ System.out.println(todayDate);
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
 					<!-- 	    <textarea type="text" id="reason"  rows="3" cols="35" name="reason" class="form-control" placeholder="Enter Reason"></textarea> -->
-   					 <input type="text" id="reason" name="reason" class="form-control" placeholder="Enter Reason">
+   					 <input type="text" id="reason" name="reason" class="form-control" placeholder="Enter Reason" readonly="readonly">
 					 	</div>
 					 </div>			
  				
@@ -226,7 +232,7 @@ System.out.println(todayDate);
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="promotion" name="promotion" class="form-control" placeholder="Enter Promotion">
+						    <input type="text" id="promotion" name="promotion" class="form-control" placeholder="Enter Promotion" readonly="readonly">
 					 	</div>
 					 </div>
 
@@ -238,7 +244,7 @@ System.out.println(todayDate);
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="progress"name="progress" class="form-control" placeholder="Enter Progress of Student">
+						    <input type="text" id="progress"name="progress" class="form-control" placeholder="Enter Progress of Student" readonly="readonly">
 					 	</div>
 					 </div>
 				</div>
@@ -254,7 +260,7 @@ System.out.println(todayDate);
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="date" id="dateOfLeaving" name="dateOfLeaving" class="form-control" placeholder="Enter Date Of Leaving">
+						    <input type="date" id="dateOfLeaving" name="dateOfLeaving" class="form-control" placeholder="Enter Date Of Leaving" readonly="readonly">
 					 	</div>
 					 </div>
 
@@ -266,7 +272,7 @@ System.out.println(todayDate);
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="conduct"name="conduct" class="form-control" placeholder="Enter Conduct">
+						    <input type="text" id="conduct"name="conduct" class="form-control" placeholder="Enter Conduct" readonly="readonly">
 					 	</div>
 					 </div>
 				</div>
@@ -293,7 +299,7 @@ System.out.println(todayDate);
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="workingday" name="workingday" class="form-control" placeholder="Enter Working days">
+						    <input type="text" id="workingday" name="workingday" class="form-control" placeholder="Enter Working days" readonly="readonly">
 					 	</div>
 					 </div>
 				</div>
@@ -309,18 +315,37 @@ System.out.println(todayDate);
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="idMarks" name="idMarks" class="form-control" placeholder="Enter Identity marks">
+						    <input type="text" id="idMarks" name="idMarks" class="form-control" placeholder="Enter Identity marks" readonly="readonly">
 					 	</div>
 					 </div>
 						<div class="col-sm-2" align="right">
-						<label class="control-label">Class at the time of Admission:</label>
+						<label class="control-label">Class at the time of Admission:<sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="addclass" name="addclass" class="form-control" placeholder="Enter admission class">
+							
+							<%
+								ClassInfoDao sdd1 = new ClassInfoDao();
+								List sList2 = sdd1.getAllMainClass();
+							%>
+
+							<input list="classes" id="addclass" class="form-control" placeholder="Select class">
+							<datalist id="classes">
+							 <%
+ 	                            for (int i = 0; i < sList2.size(); i++) {
+ 		                        ClassInfoHibernate sup1 = (ClassInfoHibernate) sList2.get(i);
+                             %>
+
+							<option data-value="<%=sup1.getPkClassId()%>"
+								value="<%=sup1.getClas()%>">
+								<%
+									}
+								%>
+							
+							</datalist>
 					 	</div>
 					 </div>
 			
@@ -329,25 +354,43 @@ System.out.println(todayDate);
 			<div class="row">
 				<div class="form-group"> 
 					 <div class="col-sm-2 col-sm-offset-1" align="right">
-						<label class="control-label">Admission Officer: </label>
+						<label class="control-label">Admission Officer:<sup>*</sup> </label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="officer" name="officer" class="form-control" placeholder="Enter admisssion officer">
+						    <input type="text" id="officer" name="officer" class="form-control" placeholder="Enter admisssion officer" onkeypress="return isAlphabetsWithSpace(event)" />
 					 	</div>
 					 </div>
 						<div class="col-sm-2" align="right">
-						<label class="control-label">Class at the time of Nirgum:</label>
+						<label class="control-label">Class at the time of Nirgum:<sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="text" id="nirgumclass" name="nirgumclass" class="form-control" placeholder="Enter class of nirgum">
+						   							<%
+								ClassInfoDao sdd12 = new ClassInfoDao();
+								List sList48 = sdd12.getAllMainClass();
+							%>
+
+							<input list="nirgumclass" id="nirgumclass" class="form-control" placeholder="Select class">
+							<datalist id="nirgumclass">
+							 <%
+ 	                            for (int i = 0; i < sList48.size(); i++) {
+ 		                        ClassInfoHibernate sup43 = (ClassInfoHibernate) sList48.get(i);
+                             %>
+
+							<option data-value="<%=sup43.getPkClassId()%>"
+								value="<%=sup43.getClas()%>">
+								<%
+									}
+								%>
+							
+							</datalist>
 					 	</div>
 					 </div>
 			
@@ -364,7 +407,7 @@ System.out.println(todayDate);
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 							</span>
-						    <input type="date" id="nirgumdate" name="nirgumdate" class="form-control" value="<%=todayDate%>" >
+						    <input type="date" id="nirgumdate" name="nirgumdate" class="form-control" readonly="readonly" >
 					 	</div>
 					 </div>
 						<div class="col-sm-2" align="right">
@@ -385,7 +428,7 @@ System.out.println(todayDate);
 			 <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <input type="button" class="ui positive button" name="btn" onclick="nirgumCertificateGenerator()" value="print">
+                                    <input type="button" class="ui positive button" name="btn" onclick="CopynirgumCertificateGenerator()" value="print">
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>

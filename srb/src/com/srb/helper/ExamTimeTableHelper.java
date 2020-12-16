@@ -179,6 +179,7 @@ public class ExamTimeTableHelper {
 				System.out.println("className "+className);
 				System.out.println("divisionName "+divisionName);
 				System.out.println("examDate "+examDate);
+				System.out.println("examId "+examId);
 				//
 				
 				com.srb.utility.HibernateUtility hbu=null;
@@ -190,26 +191,31 @@ public class ExamTimeTableHelper {
 				 transaction = session.beginTransaction();
 			
 				//long customerId = Long.parseLong(customerId);
-				long examName_id = Long.parseLong(fkSubId);
+				long examName_id = Long.parseLong(examId);
 				
 				ExamTimeTableHibernate cdst = (ExamTimeTableHibernate) session.load(ExamTimeTableHibernate.class, examName_id);
+				cdst.setPkExamTimeTableId(examName_id);
 				
-				
-				
-				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-				Date newDate = null;
-				try {
-					newDate =	format.parse(examDate);
-					} 
-				catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				cdst.setExamDate(newDate);
-				
+				if(!"".equals(examDate)) {
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			//		Date dateOfBirth = null;
+					Date joiningDate = null;
+					try{
+				//		dateOfBirth = format.parse(dob);
+				//		det.setDob(dateOfBirth);
+						joiningDate = format.parse(examDate);
+						cdst.setExamDate(joiningDate);
+						//det.setInsertDate(joiningDate);
+						System.out.println("det.getJdate() -   "+cdst.getExamDate());
+					}
+					catch(Exception e){
+						e.printStackTrace();
+						System.out.println("Exception in date parsing");
+					}
+					}
 				cdst.setClassName(className);
 				cdst.setFkClassId(Long.parseLong(classId));
-				cdst.setFkSubjectId(Long.parseLong(fkSubId));
+				//cdst.setFkSubjectId(Long.parseLong(fkSubId));
 				cdst.setSubjetName(subjectName);
 				cdst.setFkDivisionId(Long.parseLong(fkDivisionId));
 				cdst.setDivisionName(divisionName);

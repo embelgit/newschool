@@ -64,21 +64,18 @@
 	Connection conn = null;
 	String acdemicYear = null;
 	try {
-		Long studId=(Long)session.getAttribute("StudentIdforSport");
-		String grade=(String)session.getAttribute("Grade");
-		String Sport=(String)session.getAttribute("SportName");
-		String strDate1=(String)session.getAttribute("DateofSport");
-		Long SportDiv=(Long)session.getAttribute("sportdivId");
-		
-		String[] words=strDate1.split("-");
+		Long studId=(Long)session.getAttribute("StudentIdforSport2");
+		//String grade=(String)session.getAttribute("Grade");
+		//String Sport=(String)session.getAttribute("SportName");
+		//String strDate1=(String)session.getAttribute("DateofSport");
+		/*String[] words=strDate1.split("-");
 		String year = words[0];
 		String month = words[1];
 		String date = words[2];
-		String SportDate = date+"/"+month+"/"+year;
+		String SportDate = date+"/"+month+"/"+year;*/
 
 		System.out.println("studentId===="+studId);
-		System.out.println("Sport===="+Sport);
-		System.out.println("grade===="+grade);
+		
 		// step 1
 		Document document = new Document(PageSize.A5,10,10,20,10);
 
@@ -92,7 +89,7 @@
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "root");
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select Distinct s.first_name,s.middle_name,s.last_name,s.gender,m.class_name from student_master s, sport_certificate d,class_master m  where s.pk_student_id="+studId+" and m.pk_class_id="+SportDiv);
+		ResultSet rs = stmt.executeQuery("select Distinct s.first_name,s.middle_name,s.last_name,s.gender,d.sport_name,d.grade from student_master s, sport_certificate d where s.pk_student_id="+studId);
 
 		
 	/* 	while (rs.next()) {
@@ -173,8 +170,8 @@
 		table_cell = new PdfPCell(new Phrase("", Normalfont11));
 		table_cell.setBorder(table_cell.NO_BORDER);
 		table.addCell(table_cell);
-		String classs=rs.getString("class_name");
-		//String classs  = "8th";
+		
+		String classs  = "8th";
 		//String classs  = rs.getString("className");
 	//	String a = "8";
 	//	Long  c = Long.valueOf(classs);
@@ -265,7 +262,7 @@
 		table_cell.setBorder(table_cell.NO_BORDER);
 		table.addCell(table_cell);
 		
-		table_cell = new PdfPCell(new Phrase("Date:- "+SportDate));
+		table_cell = new PdfPCell(new Phrase("Date:- "+strDate));
 		table_cell.setPaddingTop(10f);
 		table_cell.setPaddingBottom(20f);
 		table_cell.setBorder(table_cell.NO_BORDER);
@@ -282,12 +279,10 @@
 		table.addCell(table_cell);*/
 
 		document.add(table);
-
 		String first_name  = rs.getString("first_name");
 		String middle_name  = rs.getString("middle_name");
 		String last_name  = rs.getString("last_name");
 		String fullname = first_name+" "+middle_name+" "+last_name;
-		
 		/*String city  = rs.getString("city");
 		String taluka  = rs.getString("taluka");
 		String district  = rs.getString("district");
@@ -300,7 +295,10 @@
 		String gn  ="Male";
 		System.out.println("gender - "+gender+" , mother_name"+mother_name);*/
 		//third table for note
+	
 		String gender = rs.getString("gender");
+		String Sport=rs.getString("sport_name");
+		String grade=rs.getString("grade");
 		String gn  ="Male";
 		PdfPTable tableThird = new PdfPTable(1);
 		tableThird.setWidthPercentage(70);

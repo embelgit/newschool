@@ -1,6 +1,9 @@
 .<%@page import="com.srb.dao.DailyTimeTableDAO"%>
 <%@page import="com.srb.hibernate.DailyTimeTableHibernate"%>
 <%@page import="com.srb.dao.DailyTimeTableDAO"%>
+<%@page import="com.srb.bean.GetExamTimeTableDetail"%>
+<%@page import="com.srb.dao.ExamInfoDao"%>
+
 <% boolean isHome=false;%>
 <%@include file="commons/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -49,7 +52,7 @@
 				<div class="row">
 	       			 <div class="row form-group">
     	     	
-           				 <label class="col-md-2 control-label col-sm-offset-1">Select Employee Name:</label>  
+           				 <label class="col-md-2 control-label col-sm-offset-1">Select Class:</label>  
           					  <div class="col-md-3">
 								<div class="input-group">
 									<span class="input-group-addon">
@@ -86,30 +89,7 @@
 							 <i class="glyphicon glyphicon-hand-right"></i>
 							</span>
 
-						<%-- 	<%
-							DivisionInfoDao divDAO = new DivisionInfoDao();
-								List divList = divDAO.getAllMainDivision();
-							%>
 
-							<input list="divId" id="fk_div_id" class="form-control" onchange="getClassRoomDetails()">
-							<datalist id="divId">
-							 <%
- 	                            for (int i = 0; i < divList.size(); i++) {
- 	                            	DivisionInfoHibernate divBean = (DivisionInfoHibernate) divList.get(i);
-                             %>
-
-							<option data-value="<%=divBean.getPkDivisionId()%>"
-								value="<%=divBean.getDivision()%>">
-								<%
-									}
-								%>
-							
-							</datalist> --%>
-							
-						<!-- 	<select id="divId" class="form-control"></select> -->
-						<!-- <select name="divId" class="form-control selectpicker" id='divId'>
-									<option value="">Select Class</option>	
-									</select> -->
 				<input list="divId" id="fk_div_id" class="form-control">
 							<datalist id="divId">					
 							
@@ -120,13 +100,46 @@
            		</div>
            		</div>
            		
-       
+       </div>
 			</div>
-			
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-2 col-sm-offset-1" align="right">
+						<label class="control-label">Teacher Name:</label>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">
+							 <i class="glyphicon glyphicon-user"></i>
+							</span> 
+							 <%
+							 ExamInfoDao dtt = new ExamInfoDao();
+           						List TimeList =dtt.getDailyTimeTableListToDelete();
+							
+							%>
+						<input list="exmid" id="examid"  class="form-control" onchange="getDivisionNameByClass()">
+				<datalist id="exmid">
+							
+							<%
+					           for(int i=0;i<TimeList.size();i++){
+					        	   GetExamTimeTableDetail detailsBean1 =(GetExamTimeTableDetail)TimeList.get(i);
+							%>
+		
+						<option data-value="<%=detailsBean1.getPkExamTimeTableId()%>"><%=detailsBean1.getSubjetName()%></option>
+							<%
+				      			}
+				    		%>
+						</datalist> 
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
 			<div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">
                                     <div class="ui buttons">
-                                    <button class="ui positive button" name="btn" value="Delete" onclick="deltimetable()">Delete</button>
+                                    <button class="ui positive button" name="btn" id="btn"value="Delete" onclick="deltimetable()">Delete</button>
                                        
                                         <div class="or"></div>
                                          <button type="reset" class="ui button" value="Clear" >Reset</button>

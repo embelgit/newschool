@@ -34,14 +34,14 @@ function getBookIntoGrid(){
 			  var prodName,com,packing,unit;
 			  for (var j = 0; j < count; j++) 
 			  {
-				  prodName = rowdata[j].productName;
+				  prodName = rowdata[j].bookName;
 					
 				 var rowId = ids[j];
 				 var rowData = jQuery('#list44').jqGrid ('getRowData', rowId);
 				
-				if (prodName == jsonData.offer.productName) {
-			    	newrow=true;
-					//alert("Book Name Already Inserted !!!");
+				if (prodName == jsonData.offer.bookName) {
+			    	newrow=false;
+					alert("Book Name Already Inserted !!!");
 					var grid = jQuery("#list44");
 				    grid.trigger("reloadGrid");
 			    	break;
@@ -139,6 +139,8 @@ function getBookIntoGrid(){
 	                    	var publisherName = rowData['publisherName'];
 	                    	
 	                    	if(quantity !=""){
+
+	                    		
 	                    		var Decs = /^[0-9]+$/;
 	                    		if(quantity.match(Decs))
 	                    		{}
@@ -146,9 +148,9 @@ function getBookIntoGrid(){
 	                    			
 	                    				var buy ="0";
 										alert("Please enter number in quantity");
-			//							$("#jqGrid").jqGrid("setCell",rowId, "quantity", buy);
-										location.reload();
-	//								    $("#list44").jqGrid("reloadGrid");
+										$("#jqGrid").jqGrid("setCell",rowId, "quantity", buy);
+			//							location.reload();
+							//		    $("#list44").jqGrid("reloadGrid");
 										return false;
 	                    			
 
@@ -156,15 +158,16 @@ function getBookIntoGrid(){
 	                    		
 	                    	}
 	                    	if(buyPrice !=""){
-	                    		var Decs = /^[0-9]+$/;
+	                    		var Decs =/^([1-9]?[0-9])(\.(\d{0,2}))?$/;
+	                    		//var Decs = /^[0-9]+$/;
 	                    		if(buyPrice.match(Decs))
 	                    		{}
 	                    		else {
                     				var buy ="0";
-	                    			alert("Please enter number in buy price");
-				//					$("#jqGrid").jqGrid("setCell",rowId, "buyPrice", buy);
-									location.reload();
-//	                    		    $("#list44").jqGrid("reloadGrid");
+	                    			alert("Please enter Buy Price in Numbers Only");
+									$("#jqGrid").jqGrid("setCell",rowId, "buyPrice", buy);
+				//					location.reload();
+                    	//	    $("#list44").jqGrid("reloadGrid");
 									return false;
 	                    		}             		
 	                    	}
@@ -177,11 +180,11 @@ function getBookIntoGrid(){
 							{}
 							else
 							{
-								var setDesc="";
-								alert("Please Enter  Alphabates In Author Name ....");
-								location.reload();
-				//				$("#jqGrid").jqGrid("setCell",rowId, "authorName", setDesc);
-		//					    $("#list44").jqGrid("reloadGrid");
+								var setDesc=null;
+								alert("Please Enter  Author Name In Alphabhet ....");
+				//				location.reload();
+								$("#jqGrid").jqGrid("setCell",rowId, "authorName", setDesc);
+			//				    $("#list44").jqGrid("reloadGrid");
 								return false;
 								
 							}
@@ -195,12 +198,12 @@ function getBookIntoGrid(){
 							{}
 							else
 							{
-								var setDesc="";
-								alert("Please Enter  Alphabates In Publisher Name ....");
-								location.reload();
-					//			$("#jqGrid").jqGrid("setCell",rowId, "publisherName", setDesc);
+								var setDesc=null;
+								alert("Please Enter  publisher Name In Alphabet....");
+					//			location.reload();
+								$("#jqGrid").jqGrid("setCell",rowId, "publisherName", setDesc);
 						
-			//				    $("#list44").jqGrid("reloadGrid");
+							 //   $("#list44").jqGrid("reloadGrid");
 								return false;
 								
 							}
@@ -218,9 +221,16 @@ function getBookIntoGrid(){
         		        		if(Total1 != null){
         		        			Total = Total + Total1;
         		        		}
+        		        		else
+        		        			{
+        		        			alert("Enter values of Buy Price And Quantity");
+        		        			return false;
+        		        			}
         		        		//Total = +Total + +Total1;
         		        	}
-        		        	document.getElementById("grossTotal").value = Total;
+        		        	//document.getElementById("grossTotal").value = Total;
+
+        		        	document.getElementById("grossTotal").value = (Total).toFixed(2);
 	                    	
 	        	},
            
@@ -309,7 +319,6 @@ function getBookIntoGrid(){
 		                       
 		                    	var quantity = rowData['quantity'];
 		                    	var buyPrice = rowData['buyPrice'];
-		                    	
 		                    	var tota = quantity * buyPrice;
 	                    		$("#list44").jqGrid("setCell", rowId, "total", tota);
 	                    		
@@ -321,7 +330,8 @@ function getBookIntoGrid(){
 	        		        		var Total1 = allRowsInGrid1[k].total;
 	        		        		Total = +Total + +Total1;
 	        		        	}
-	        		        	document.getElementById("grossTotal").value = Total;
+	        		        	//document.getElementById("grossTotal").value = Total;
+	        		        	document.getElementById("grossTotal").value = (Total).toFixed(2);
 		                    	
 
 						},
@@ -591,7 +601,7 @@ function addBookDetail(){
 function addBookDetail1(){
 	//document.bookEntryForm.btn.disabled = true;
 	var params = {};
-	var count = jQuery("#list4").jqGrid('getGridParam', 'records');
+	var count = jQuery("#list44").jqGrid('getGridParam', 'records');
 	
 	if(count < 1)
 	{
@@ -599,7 +609,7 @@ function addBookDetail1(){
 	document.getElementById("save").disabled = false;
 	return false;
 	}
-	var allRowsInGrid = $('#list4').getGridParam('data');//to get all rows of grid
+	var allRowsInGrid = $('#list44').getGridParam('data');//to get all rows of grid
 	var AllRows=JSON.stringify(allRowsInGrid);
 	for (var i = 0; i < count; i++) {
 
@@ -607,23 +617,110 @@ function addBookDetail1(){
 		params["bookName"+i] = bookName;
 	
 		var authorName = allRowsInGrid[i].authorName;
-		params["authorName"+i] = authorName;
+		if(authorName=="" || authorName==undefined || authorName==null)
+			{
+			alert("Please enter Author Name");
+			return false;
+			}
+		else
+			{
+			var Decs1 = /^[a-zA-Z, ]+$/;
+			if(authorName.match(Decs1))
+				{
+				params["authorName"+i] = authorName;
+				}
+			else
+				{
+				alert("Please Enter Author Name In Alphabet");
+				return false;
+				}
+			}
+		
 		
 		var publisherName = allRowsInGrid[i].publisherName;
-		params["publisherName"+i] = publisherName;
+		if(publisherName=="" || publisherName==undefined || publisherName==null)
+		{
+		alert("Please enter Publisher  Name");
+		//location.reload();
+		return false;
+		}
+	else
+		{
+		var Decs = /^[a-zA-Z, ]+$/;
+		if(publisherName.match(Decs))
+			{
+			params["publisherName"+i] = publisherName;
+			}
+		else
+		{
+			alert("Please Enter Publisher Name In Alphabet");
+			return false;
+		}
+		}
 		
-/*		var supplierName = allRowsInGrid[i].supplierName;
-		params["supplierName"+i] = supplierName;
-		
-*/	
+	
 		var buyPrice = allRowsInGrid[i].buyPrice;
-		params["buyPrice"+i] = buyPrice;
+		if(buyPrice=="" || buyPrice==undefined || buyPrice=="0")
+		{
+		alert("Please enter BuyPrice");
+		//location.reload();
+		return false;
+		}
+	else
+		{
+
+		var Decs =/^([1-9]?[0-9])(\.(\d{0,2}))?$/;
+		//var Decs = /^[0-9]+$/;
+		if(buyPrice.match(Decs))
+			{
+			params["buyPrice"+i] = buyPrice;
+			}
+		else
+			{
+			alert("Please Enter Buy Price In Number");
+			return false;
+			
+			}
+		
+		}
+		
+		
 	
 		var quantity = allRowsInGrid[i].quantity;
-		params["quantity"+i] = quantity;
-
+		if(quantity=="" || quantity==undefined || quantity=="0")
+		{
+		alert("Please enter quantity");
+		//location.reload();
+		return false;
+		}
+	else
+		{
+		var Decs = /^[0-9]+$/;
+		if(quantity.match(Decs))
+			{
+			params["quantity"+i] = quantity;
+			}
+		else
+			{
+			alert("Please Enter quantity In Number");
+			return false;
+			
+			}
+		
+		}
+		
+		
 		var total = allRowsInGrid[i].total;
-		params["total"+i] = total;
+		if(total==null || total=="0" || total==undefined)
+			{
+			alert("Plese Enter Quantity And Buy Price");
+			return false;
+			}
+		else
+			{
+			params["total"+i] = total;
+			}
+		
 	}
 	
 	 params["count"] = count;
@@ -641,7 +738,7 @@ function addBookDetail1(){
 			}
 		}
 	 
-		document.getElementById("btn2").disabled = true;
+	 
 	 var supplierName = $('#supplierName').val();
 	 var grossTotal = $('#grossTotal').val();
 	 var billNo = $('#billNo').val();
@@ -2118,32 +2215,32 @@ function getBookDetailGridForBookReturnemployeeReturn()
 				datatype:"local",
 
 				/*colNames: ['Book Name','Author Name','Publisher Name','Supplier Name','Quantity'],*/
-				colNames: ['Book Name','Author Name','Publisher Name','Supplier Name','Quantity','BookIssuedate','BookReturnDate'],
+				colNames: ['Book Name','Author Name','Publisher Name','Supplier Name','Quantity','BookIssuedate','BookReturnDate','Status'],
 
 				colModel: [ 
 						     {	name:'bookName',
-						    	 width:100,
+						    	 width:80,
 								
 							},
 							 {	name:'authorName',
-						    	 width:100,
+						    	 width:80,
 						    	 editable: true
 							},
 							
 							 {	name:'publisherName',
-						    	 width:100,
+						    	 width:80,
 						    	 editable: true
 							},
 							
 						     {	name:'supplierName',
-						    	 width:100,
+						    	 width:50,
 						    	 //editable: true
 						    	 hidden: true
 							},
 					
 						   
 							{	name:'quantityInGrid',
-								width:100,
+								width:50,
 								//editable: true
 								hidden: true
 								
@@ -2160,6 +2257,13 @@ function getBookDetailGridForBookReturnemployeeReturn()
 								//hidden: true
 								
 							},
+							{	name:'Status',
+								width:80,
+								editable: true
+								//hidden: true
+								
+							},
+
 				           ],
 
 
@@ -2332,7 +2436,7 @@ function addingBookIssue1(){
 		var quantityInGrid = allRowsInGrid[i].quantityInGrid;
 		params["quantityInGrid"+i] = quantityInGrid;
 	}
-	document.getElementById("btn").disabled = true;
+	
 	var studentName = $('#studentName').val();
 	var dateOfBookIssue= $('#dateOfBookIssue').val();
 	var BookissueDate = $('#BookissueDate').val();
@@ -2432,7 +2536,7 @@ function addBookReturn1(){
 			//document.getElementById("save").disabled = false;
 					return false;
 			}
-		document.getElementById("btn1").disabled = true;
+		
 		params["bookName"+i] = bookName;
 	
 		var authorName = allRowsInGrid[i].authorName;
@@ -2554,7 +2658,7 @@ var params = {};
 		var quantityInGrid = allRowsInGrid[i].quantityInGrid;
 		params["quantityInGrid"+i] = quantityInGrid;
 	}
-	document.getElementById("btn3").disabled = true;
+	
 	//var fk_teacher_id = $('#fk_teacher_id').val();
 	var TeacherBookIssueDateNew= $('#TeacherBookIssueDateNew').val();
 	var TeacherBookReturneDateNew = $('#TeacherBookReturneDateNew').val();
@@ -2634,8 +2738,29 @@ var params = {};
 		
 		var BookReturnDate = allRowsInGrid[i].BookReturnDate;
 		params["BookReturnDate"+i] = BookReturnDate;
+		
+		var status = allRowsInGrid[i].Status;
+		if(status==null || status=="" || status==undefined)
+			{
+			alert("Please Enter Status");
+			return false;
+			}
+		if(status!=null)
+			{
+			var Decs = /^[yYnN, ]+$/;
+			if(status.match(Decs))
+				{
+				params["status"+i] = status;
+				}
+			else{
+				alert("Please Status in Y an N only");
+				return false;
+			}
+			}
+		
+		
 	}
-	document.getElementById("btn4").disabled = true;
+	
 	
 	
 	//var fk_teacher_id = $('#fk_teacher_id').val();

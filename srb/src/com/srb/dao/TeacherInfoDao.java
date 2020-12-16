@@ -540,6 +540,44 @@ public void deleteemp(String empid) {
 	
 }
 
+//Teacher Leave Details
+public List getLeaveTeacherDetails()
+{
+	HibernateUtility hbu = null;
+	Session session =  null;
+	Query query = null;
+	 List<SubjectInfoHibernate> list = null;
+	 try {
+		 hbu = HibernateUtility.getInstance();
+		 session = hbu.getHibernateSession();
+		 String abc="Teaching Staff";
+			/*
+			 * query = session.
+			 * createQuery("from TeacherInfoHibernate where designation IN('Teaching Staff') "
+			 * );
+			 */
+		//query = session.createQuery("from TeacherInfoHibernate where designation IN('Principal', 'Teaching Staff', 'Non-Teaching Staff') ");
+		 query = session.createQuery("from TeacherInfoLeaveHibernate ");
+		 /*query.setParameter("abc", abc);*/
+		 list = query.list(); 
+	} catch (RuntimeException e) {
+		e.printStackTrace();
+		
+	}
+	 
+	 finally
+	 {
+		 if (session!=null) {
+			hbu.closeSession(session);
+		}
+	 }
+			return list;
+	
+}
+
+
+
+
 }
 
 

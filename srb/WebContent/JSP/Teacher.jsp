@@ -491,7 +491,7 @@ function checkForDuplicateTeacherEntry(){
 					 </div>
 
 					<div class="col-sm-2" align="right">
-						<label class="control-label">EPF Number:</label>
+						<label class="control-label">EPF Number:<sup>*</sup></label>
 					</div>
 					<div class="col-md-3">
 						<div class="input-group">
@@ -519,7 +519,7 @@ function checkForDuplicateTeacherEntry(){
 					 </div>
 					 
 					 <div class="col-sm-2 " align="right">
-						<label class="control-label">Salary:</label>
+						<label class="control-label">Salary:<sup>*</sup></label>
 					</div>
 					 <div class="col-md-3">
 						<div class="input-group">
