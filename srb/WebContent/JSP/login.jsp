@@ -49,15 +49,17 @@
 
         <!-- style css -->
         <link href="/srb/staticContent/new/css/custom.css" rel="stylesheet" type="text/css">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 </head>
 
 
  <body>
+ 
         <!-- Content Wrapper -->
-        <div class="login-wrapper"> 
-            <div class="container-center">
+        <div class="login-wrapper" style="background-image:url(/srb/staticContent/Images/schoolnew.jpg);background-position: center;background-repeat: no-repeat;background-size: cover;"> 
+            <div class="container-center"style="margin-left:400px;margin-top:100px:margi-bottom:150px">
                 <div class="panel panel-bd">
                     <div class="panel-heading">
                         <div class="view-header">
@@ -72,7 +74,7 @@
                             </div>
                         </div>
                         <div class="">
-                        <br><br>
+                      
                             <!-- alert message -->
                                                         
                                                         
@@ -85,11 +87,11 @@
                         <form name="Login" action="http://hospitalnew.bdtask.com/demo6/login" id="loginForm" novalidate="" method="post" accept-charset="utf-8">
 <input type="hidden" name="csrf_stream_token" value="8fca9ec16bb8b44790d437776804814a">                             
                             <div class="form-group">
-                                <label class="control-label" for="email">User Name</label>
+                                <label class="control-label" for="email" style="font-size:20px">User Name</label>
                                 <input type="text" placeholder="User Name" name="uname" id="uname" type="text" autofocus class="form-control"> 
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="password">Password</label>
+                                <label class="control-label" for="password" style="font-size:20px">Password</label>
                                 <input type="password" placeholder="Password" name="pass" id="pass"  value="" class="form-control"> 
                             </div>
                             <!-- <div class="form-group">
@@ -103,8 +105,8 @@
 </select>
                             </div>  -->
                             <div> 
-                                <button type="button" onclick="login()" class="btn btn-success">Log In</button> 
-                                 <button type="reset"  class="btn btn-md  btn-danger"> <span class=""></span>Reset</button>
+                                <button type="button" onclick="login()" class="btn btn-success" style="font-size:15px">Log In</button> 
+                                 <button type="reset"  class="btn btn-md  btn-danger" style="font-size:15px"> <span class=""></span>Reset</button>
                                  <!--  <button type="reset"  class="btn btn-md  btn-success"> <span class=""></span>Clear</button> -->
                             </div>
                         </form>

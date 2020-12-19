@@ -10,8 +10,10 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.srb.bean.BookIssueBean;
 import com.srb.bean.GetBookDetails;
 import com.srb.bean.GetLibraryManagementDetails;
+import com.srb.bean.MeetingScheduleBean;
 import com.srb.bean.StockBean;
 import com.srb.hibernate.BookIssueHibernate;
 import com.srb.hibernate.BookReturnHibernate;
@@ -780,5 +782,50 @@ public class LibraryManagementDao {
 		 }
 		
 	}
+	// To Get List Of STudent BOOK isue
+public List getBookIssueList(){
 
+		
+		HibernateUtility hbu=null;
+		Session session=null;
+		List<BookIssueBean>custList=null;
+	try{	
+
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+
+		Query query=session.createSQLQuery("select b.insert_date,CONCAT(s.first_name,' ',s.middle_name,' ',s.last_name) AS StudentName,b.BookReturneDate_new,c.class_name,d.division_name,b.book_name from division_master d,class_master c,book_issue_master b,student_master s where c.pk_class_id =b.fk_class_id AND d.pk_division_id=b.fk_div_id  and s.pk_student_id=b.fk_student_id");
+		//Query query = session.createQuery("from PurchaseBill2");
+		List<Object[]> list = query.list();
+
+
+		custList= new ArrayList<BookIssueBean>(0);
+
+
+	for (Object[] object : list) {	
+		BookIssueBean reports = new BookIssueBean();
+		reports.setInsertDate(object[0].toString());
+		reports.setStudName(object[1].toString());
+		reports.setReturnDate(object[2].toString());
+		reports.setClassName(object[3].toString());
+		reports.setDivisionName(object[4].toString());
+		reports.setBookName(object[5].toString());
+		custList.add(reports);
+		System.out.println(reports.getBookName());
+		System.out.println(reports.getClassName());
+		System.out.println(reports.getInsertDate());
+		System.out.println(reports.getDivisionName());
+		System.out.println(reports.getStudName());
+		System.out.println(reports.getReturnDate());
+
+	}}catch(RuntimeException e){	
+
+	}
+	finally{
+
+	hbu.closeSession(session);	
+	}
+	return custList;
+
+	}
 }

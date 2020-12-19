@@ -2,13 +2,43 @@ function delSupplier(){
 	
 	if(document.delSup.supplier.value == "")
 	{
-		alert("Please Select Supplier");
+		//alert("Please Select Supplier");
+		//return false;
+		/*$.getScript('/srb/staticContent/js/bootbox.min.js', function() 
+				{
+	
+			var msg="Please Enter Supplier name";
+			var dialog = bootbox.dialog({
+				//title: "Embel Technologies Says :",
+			    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5)+'<img src="/srb/staticContent/images/s1.jpg" height="50" width="50"/></p>',
+			    closeButton: false
+			});
+			
+			setTimeout(function() {
+				dialog.modal('hide');
+			}, 1500);
+			
+			return false;
+			
+				});*/
+		
+		var msg="Please Enter Supplier name";
+		var dialog = bootbox.dialog({
+			//title: "Embel Technologies Says :",
+		    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5)+'</p>',
+		    closeButton: false
+		});
+		
+		/*setTimeout(function() {
+			dialog.modal('hide');
+		}, 1500);									
+	 */
 		return false;
 	}	
 	/*var letterNumber = /^[a-zA-Z]+$/;
 	if(document.delCust.delCustName.value.match(letterNumber))
 	{*/
-	deleteSupplier();
+	//deleteSupplier();
 
 	
 	/*else

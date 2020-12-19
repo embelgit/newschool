@@ -582,14 +582,32 @@ function getPaperDtailsGrid(){
 function addBookDetail(){
 	if(document.bookEntryForm.billNo.value == ""){
 		
-		alert("Please Enter Bill No");
-		return false;
+		//alert("Please Enter Bill No");
+		//return false;
+		$.getScript('/srb/staticContent/js/bootbox.min.js', function() 
+				{
+	
+			var msg="Please Enter Billll Number";
+			var dialog = bootbox.dialog({
+				//title: "Embel Technologies Says :",
+			    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5)+'<img src="/srb/staticContent/images/s1.jpg" height="50" width="50"/></p>',
+			    closeButton: false
+			});
+			
+			setTimeout(function() {
+				dialog.modal('hide');
+			}, 1500);
+			
+			return false;
+			
+				});
+		
 	}
 
-	if(document.bookEntryForm.supplierName.value == ""){
-		alert("Please Select  Supplier Name");
-		return false;
-	}
+	//if(document.bookEntryForm.supplierName.value == ""){
+		//alert("Please Select  Supplier Name");
+		//return false;
+//	}
 	/*if(document.bookEntryForm.bookName.value ==""){
 		alert("Please Enter Book Name");
 		return false;

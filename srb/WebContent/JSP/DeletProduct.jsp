@@ -9,6 +9,9 @@
 <!-- <link rel="stylesheet" href="/Fertilizer/staticContent/css/bootstrap.min.css"> -->
 <meta charset="utf-8">
 <script type="text/javascript" src="/srb/staticContent/JS/DelSupplier.js"></script>
+<script type="text/javascript" src="/srb/staticContent/JS/bootbox.min.js.js"></script>
+<script type="text/javascript" src="/srb/staticContent/JS/bootbox.js"></script>
+
 
 <script type="text/javascript">
 	function Back()

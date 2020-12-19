@@ -12,7 +12,7 @@ public class MyJob implements Job {
 	 @Override
 	  public void execute(JobExecutionContext context) throws JobExecutionException {
 	    try { 
-
+	    	System.out.println("IN MY JOB CLASS");
 	    	String to="embelbackup@gmail.com";
 			//for database backup
 			try{

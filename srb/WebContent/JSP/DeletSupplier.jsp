@@ -6,9 +6,15 @@
 <%@include file="commons/header.jsp"%>
  
 <head>
-<!-- <link rel="stylesheet" href="/Fertilizer/staticContent/css/bootstrap.min.css"> -->
+ 
 <meta charset="utf-8">
+
+
 <script type="text/javascript" src="/srb/staticContent/JS/DelSupplier.js"></script>
+<script type="text/javascript" src="/srb/staticContent/JS/bootbox.js"></script>
+<link rel="stylesheet" href="/srb/staticContent/css/bootstrap.min.css"> 
+<script type="text/javascript" src="/srb/staticContent/js/bootstrap.js"></script>
+<script type="text/javascript" src="/srb/staticContent/js/bootbox.min.js"></script> 
 
 <script type="text/javascript">
 	function Back()

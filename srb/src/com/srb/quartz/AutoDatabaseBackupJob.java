@@ -27,6 +27,7 @@ public class AutoDatabaseBackupJob {
 			}*/
 			
 			f = new File("C:/dumpbackup/school.sql");
+			System.out.println("IN BACKUP CLASS");
 	    } 
 		      catch (Exception ex) {
 	      LoggerFactory.getLogger(getClass()).error(ex.getMessage());
