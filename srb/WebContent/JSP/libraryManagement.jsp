@@ -19,8 +19,6 @@
 <html>
 <head>
 <title>Library Management</title>
-<link rel="stylesheet"
-	href="/srb/staticContent/css/RadioButtonStyle.css">
     <!-- <script type="text/javascript" src="/srb/staticContent/JS/jquery-1.12.3.min.js"></script> -->
    <!-- <link rel="stylesheet" href="/srb/staticContent/CSS/jquery-ui.min.css">
      <link rel="stylesheet" href="/srb/staticContent/CSS/ui.jqgrid.min.css">
@@ -39,6 +37,7 @@
     <link rel="stylesheet" href="/srb/staticContent/CSS/jquery-ui.min.css">
      <link rel="stylesheet" href="/srb/staticContent/CSS/ui.jqgrid.min.css">
      
+     <!-- <link rel="stylesheet" href="/AgriSoft/staticContent/css/ui.jqgrid.css"> -->
      
      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/cupertino/jquery-ui.css" type="text/css"/>
      <link rel="stylesheet" href="/srb/staticContent/CSS/ui.jqgrid.css">
@@ -48,8 +47,6 @@
     <script type="text/javascript" src="/srb/staticContent/JS/jquery-ui.js"></script>
     <script type="text/javascript" src="/srb/staticContent/JS/jqueryUi.js"></script>
     <script type="text/javascript" src="/srb/staticContent/JS/jquery.jqgrid.min.js"></script>
-    <script type="text/javascript" src="/srb/staticContent/JS/bootbox.js"></script>
-    <script type="text/javascript" src="/srb/staticContent/JS/bootbox.min.js"></script>
     
     
     
@@ -73,12 +70,20 @@
 		window.location="LibraryStockList.jsp";
 		
 	}
-	function BookissueList()
-	{
-		window.location="ListBookStudentIssue.jsp";
-	}
+</script>
+<script type="text/javascript">
+          		 function EmployeeBookIssueList()
+          		 {
+          		 	window.location = "EmployeeBookIssueList.jsp";
+          		 }
 </script>
 
+<script type="text/javascript">
+          		 function EmployeeBookReturnList()
+          		 {
+          		 	window.location = "EmployeeBookReturnList.jsp";
+          		 }
+</script>
 <script type="text/javascript">
 function checkForDuplicateBillEntry(){
           			
@@ -414,8 +419,6 @@ function checkForDuplicateBillEntry(){
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
-                                        <div class="or"></div>
-                                          <input type="button" class="ui positive button" name="btn" value="List" id="btn" onclick="BookissueList()">Save</button>
                                         </div>
                                 </div>
                             </div>
@@ -819,6 +822,8 @@ function checkForDuplicateBillEntry(){
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
+                                         <div class="or"></div>
+                                         <input type="button" class="ui positive button" name="btn" value="List" id="btn4" onclick="EmployeeBookIssueList()">List</button>
                                         </div>
                                 </div>
                             </div>
@@ -936,7 +941,9 @@ function checkForDuplicateBillEntry(){
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
-                                        </div>
+                                         <div class="or"></div>
+                                         <input type="button" class="ui positive button" name="btn" value="List" id="btn4" onclick="EmployeeBookReturnList()">List</button>
+                                         </div>
                                 </div>
                             </div>
 		</form>

@@ -828,4 +828,100 @@ public List getBookIssueList(){
 	return custList;
 
 	}
+
+
+public List getEmployeeBookIssueList(){
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<GetBookDetails> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("SELECT CONCAT(t.first_name,' ',t.middle_name,' ',t.last_name) AS employeeName,b.BookissueDate_New ,b.BookReturneDate_New ,b.book_name,b.author_name,b.publisher_name,b.supplier_name,b.quantity from teacher_master t,book_issue_master b where t.pk_teacher_id=b.TeacherIssue_Id");
+	//Query query = session.createQuery("from PurchaseBill2");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<GetBookDetails>(0);
+
+
+for (Object[] object : list) {	
+	GetBookDetails reports = new GetBookDetails();
+	reports.setEmployeeName(object[0].toString());
+	reports.setBookIssuedate(object[1].toString());
+	reports.setBookReturnDate(object[2].toString());
+	//reports.setLandline((BigInteger)object[3]);
+	reports.setBookName(object[3].toString());
+	reports.setAuthorName((object[4].toString()));
+	reports.setPublisherName(object[5].toString());
+	reports.setSupplierName((object[6].toString()));
+	reports.setQuantity((object[7].toString()));
+	//reports.setTin(object[6].toString());
+
+	System.out.println(reports.getEmployeeName());
+	
+	supList.add(reports);
+
+}}catch(RuntimeException e){	
+
 }
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+
+
+
+public List getEmployeeBookReturnList(){
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<GetBookDetails> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("SELECT CONCAT(t.first_name,' ',t.middle_name,' ',t.last_name) AS employeeName,b.BookissueDate_Return ,b.BookReturneDate_Return ,b.book_name,b.author_name,b.publisher_name,b.supplier_name,b.quantity from teacher_master t,book_return b where t.pk_teacher_id=b.TeacherIssueReturn_Id ");
+	//Query query = session.createQuery("from PurchaseBill2");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<GetBookDetails>(0);
+
+
+for (Object[] object : list) {	
+	GetBookDetails reports = new GetBookDetails();
+	reports.setEmployeeName(object[0].toString());
+	reports.setBookIssuedate(object[1].toString());
+	reports.setBookReturnDate(object[2].toString());
+	//reports.setLandline((BigInteger)object[3]);
+	reports.setBookName(object[3].toString());
+	reports.setAuthorName((object[4].toString()));
+	reports.setPublisherName(object[5].toString());
+	reports.setSupplierName((object[6].toString()));
+	reports.setQuantity((object[7].toString()));
+	//reports.setTin(object[6].toString());
+
+	System.out.println(reports.getEmployeeName());
+	
+	supList.add(reports);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+}
+
+
+
