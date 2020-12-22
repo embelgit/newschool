@@ -84,6 +84,20 @@
           		 	window.location = "EmployeeBookReturnList.jsp";
           		 }
 </script>
+
+<script type="text/javascript">
+          		 function BookIssueList()
+          		 {
+          		 	window.location = "bookissuelist.jsp";
+          		 }
+</script>
+
+<script type="text/javascript">
+          		 function BookReturnList()
+          		 {
+          		 	window.location = "bookReturnlist.jsp";
+          		 }
+</script>
 <script type="text/javascript">
 function checkForDuplicateBillEntry(){
           			
@@ -416,11 +430,17 @@ function checkForDuplicateBillEntry(){
                                 <div class="col-md-offset-4 col-md-4 btn-center" style="padding-top: 18px;">
                                     <div class="ui buttons">
                                     <input type="button" class="ui positive button" name="btn" value="Save" id="btn" onclick="addingBookIssue()">Save</button>
+                                    
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
+                                        
+                                        <div class="or"></div>
+                                    
+                                                <input type="button" class="ui positive button" name="btn" value="List" id="btn" onclick="BookIssueList()">List</button>
                                         </div>
-                                </div>
+                                        </div>
+                              
                             </div>
 		</form>
 	</div>
@@ -609,8 +629,15 @@ function checkForDuplicateBillEntry(){
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
+                                         
+                                         <div class="or"></div>
+                                          <input type="button" class="ui positive button" name="btn" value="List" id="btn1" onclick="BookReturnList()">List</button>
+                                       
+                                        
                                         </div>
-                                </div>
+                                        </div>
+                                         
+                  
                             </div>
 		</form>
 		</div>
