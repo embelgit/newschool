@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+
+<class 
+    name="com.srb.hibernate.SportcertificateHibernate" 
+    table="sport_certificate"
+>
+
+    <id
+        name="pkSportId"
+        type="java.lang.Long"
+        column="pk_sport_id1"
+        
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="fkdivId"
+        type="java.lang.Long"
+        column="fk_div_id"
+    />
+    
+    <property
+        name="fkstudid"
+        type="java.lang.Long"
+        column="fk_student_id"
+    />
+    
+    <property
+        name="fkclassId"
+        type="java.lang.Long"
+        column="fk_class_id"
+    />
+    <property 
+		name="insertDate" 
+		type="java.sql.Date" 
+		column="insert_date"
+		/>
+		<property
+        name="sportName"
+        type="java.lang.String"
+        column="sport_name"
+    />
+	
+		<property 
+		name="gradename" 
+		type="java.lang.String"
+		column="grade"
+		/>
+    
+     </class>
+</hibernate-mapping>
+    

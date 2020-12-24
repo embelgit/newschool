@@ -20,7 +20,7 @@ public class GetBookDetails {
 	private String BookReturnDate;
 	private Long DateDifference;
 	private String Status;
-	private Long Quantity;
+	private String employeeName;
 	private String employeename;
 	
 	
@@ -38,9 +38,7 @@ public class GetBookDetails {
 	public void setPkbookissueid(Long pkbookissueid) {
 		this.pkbookissueid = pkbookissueid;
 	}
-	public void setQuantity(Long quantity) {
-		Quantity = quantity;
-	}
+	
 	public String getStatus() {
 		return Status;
 	}
@@ -132,6 +130,12 @@ public class GetBookDetails {
 	public void setInsertDate(Date d) {
 		// TODO Auto-generated method stub
 		
+	}
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 	
 	
