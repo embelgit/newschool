@@ -21,11 +21,17 @@ public class GetBookDetails {
 	private Long DateDifference;
 	private String Status;
 	private Long Quantity;
+	private String employeename;
 	
 	
 	
 	
-	
+	public String getEmployeename() {
+		return employeename;
+	}
+	public void setEmployeename(String employeename) {
+		this.employeename = employeename;
+	}
 	public Long getPkbookissueid() {
 		return pkbookissueid;
 	}

@@ -3098,9 +3098,10 @@ function getLibRemainingBalane(){
 	$("#balanceAmount").empty();
 	$("#balanceAmount").append($("<input/>").attr("value","").text());
 	var params= {};
+	params["supplier"]= fkRootsupId;
 	params["methodName"] = "getLibraryBalanceAmtBySupplierWise";
 	//params["billNo"]= billNo;
-	params["supplier"]= fkRootsupId;
+	
 	
 	$.post('/srb/JSP/utility/controller.jsp',params,function(data)
 			{

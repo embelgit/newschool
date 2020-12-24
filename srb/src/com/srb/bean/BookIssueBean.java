@@ -7,6 +7,13 @@ public class BookIssueBean {
 	private String BookName;
 	private String InsertDate;
 	private String ReturnDate;
+	private String AuthorName; 
+	public String getAuthorName() {
+		return AuthorName;
+	}
+	public void setAuthorName(String authorName) {
+		AuthorName = authorName;
+	}
 	public String getStudName() {
 		return StudName;
 	}

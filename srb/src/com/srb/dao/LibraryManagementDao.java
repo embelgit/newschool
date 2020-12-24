@@ -828,4 +828,140 @@ public List getBookIssueList(){
 	return custList;
 
 	}
+public List getEmployeeBookIssueList(){
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<GetBookDetails> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("SELECT CONCAT(t.first_name,' ',t.middle_name,' ',t.last_name) AS employeeName,b.BookissueDate_New ,b.BookReturneDate_New ,b.book_name,b.author_name,b.publisher_name,b.supplier_name,b.quantity from teacher_master t,book_issue_master b where t.pk_teacher_id=b.TeacherIssue_Id");
+	//Query query = session.createQuery("from PurchaseBill2");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<GetBookDetails>(0);
+
+
+for (Object[] object : list) {	
+	GetBookDetails reports = new GetBookDetails();
+	reports.setEmployeename(object[0].toString());
+	reports.setBookIssuedate(object[1].toString());
+	reports.setBookReturnDate(object[2].toString());
+	//reports.setLandline((BigInteger)object[3]);
+	reports.setBookName(object[3].toString());
+	reports.setAuthorName((object[4].toString()));
+	reports.setPublisherName(object[5].toString());
+	reports.setSupplierName((object[6].toString()));
+	reports.setQuantity((object[7].toString()));
+	//reports.setTin(object[6].toString());
+
+	System.out.println(reports.getEmployeename());
+	
+	supList.add(reports);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+
+
+
+public List getEmployeeBookReturnList(){
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<GetBookDetails> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("SELECT CONCAT(t.first_name,' ',t.middle_name,' ',t.last_name) AS employeeName,b.BookissueDate_Return ,b.BookReturneDate_Return ,b.book_name,b.author_name,b.publisher_name,b.supplier_name,b.quantity from teacher_master t,book_return b where t.pk_teacher_id=b.TeacherIssueReturn_Id ");
+	//Query query = session.createQuery("from PurchaseBill2");
+	List<Object[]> list = query.list();
+
+
+	supList= new ArrayList<GetBookDetails>(0);
+
+
+for (Object[] object : list) {	
+	GetBookDetails reports = new GetBookDetails();
+	reports.setEmployeename(object[0].toString());
+	reports.setBookIssuedate(object[1].toString());
+	reports.setBookReturnDate(object[2].toString());
+	//reports.setLandline((BigInteger)object[3]);
+	reports.setBookName(object[3].toString());
+	reports.setAuthorName((object[4].toString()));
+	reports.setPublisherName(object[5].toString());
+	reports.setSupplierName((object[6].toString()));
+	reports.setQuantity((object[7].toString()));
+	//reports.setTin(object[6].toString());
+
+	System.out.println(reports.getEmployeename());
+	
+	supList.add(reports);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+
+//Return List Of Student Book
+public List getbookReturnlist()
+{
+	
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<BookIssueBean> supList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	//Query query = session.createSQLQuery("select b.insert_date,CONCAT(s.first_name,' ',s.middle_name,' ',s.last_name) AS StudentName,b.BookReturneDate_new as ActualDate,c.class_name ,d.division_name,b.book_name from division_master d,class_master c,book_issue_master b,student_master s where c.pk_class_id =b.fk_class_id AND d.pk_division_id=b.fk_div_id  and s.pk_student_id=b.fk_student_id");
+
+	//Query query=session.createSQLQuery("select CONCAT(s.first_name,' ',s.middle_name,' ',s.last_name) AS StudentName,b.BookReturneDate_new,c.class_name as className,d.division_name from division_master d,class_master c,book_issue_master b,student_master s where c.pk_class_id =b.fk_class_id AND d.pk_division_id=b.fk_div_id");
+	Query query=session.createSQLQuery("select DISTINCT CONCAT(s.first_name,' ',s.middle_name,' ',s.last_name) AS Student_Name,b.BookReturneDate_Return,c.class_name,d.division_name,b.book_name,b.author_name from division_master d,class_master c,book_return b,student_master s where c.pk_class_id =b.fk_class_id AND d.pk_division_id=b.fk_div_id");
+	List<Object[]> list = query.list();
+	supList= new ArrayList<BookIssueBean>(0);
+
+for (Object[] o : list) 
+{	
+	BookIssueBean b = new BookIssueBean();
+	b.setStudName(o[0].toString());
+	b.setInsertDate(o[1].toString());
+	b.setClassName(o[2].toString());
+	b.setDivisionName(o[3].toString());
+	b.setBookName(o[4].toString());
+	b.setAuthorName(o[5].toString());
+	
+	
+	supList.add(b);
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return supList;
+}
+
+
+
 }

@@ -76,6 +76,19 @@
 	function BookissueList()
 	{
 		window.location="ListBookStudentIssue.jsp";
+		
+	}
+	function employeebookisue()
+	{
+		window.location="EmployeeBookIssueList.jsp";
+	}
+	function employeebooReturn()
+	{
+		window.location="EmployeeBookReturnList.jsp";
+	}
+	function StudentBookReturnList()
+	{
+		window.location="bookReturnlist.jsp";
 	}
 </script>
 
@@ -606,6 +619,8 @@ function checkForDuplicateBillEntry(){
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
+                                         <div class="or"></div>
+                                         <input type="button" class="ui positive button" name="btn" value="List" id="btn1" onclick="StudentBookReturnList()">Save</button>
                                         </div>
                                 </div>
                             </div>
@@ -819,6 +834,9 @@ function checkForDuplicateBillEntry(){
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
+                                         <div class="or"></div>
+                                         <input type="button" class="ui positive button" name="btn" value="List" id="btn3" onclick="employeebookisue()">List</button>
+                                         
                                         </div>
                                 </div>
                             </div>
@@ -936,6 +954,8 @@ function checkForDuplicateBillEntry(){
                                        
                                         <div class="or"></div>
                                          <button type="reset" onclick="location.reload()" class="ui button">Reset</button>
+                                         <div class="or"></div>
+                                         <input type="button" class="ui positive button" name="btn" value="List" id="btn3" onclick="employeebooReturn()">List</button>
                                         </div>
                                 </div>
                             </div>
