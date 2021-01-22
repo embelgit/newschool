@@ -16,10 +16,12 @@ public class AdmissionEnquiryHibernate {
 	public Date insertDate;
 	private String Status;
 	private String comments;
+	public Long alternateContactNumber;
 	
 	public AdmissionEnquiryHibernate(Long pkAdmissionEnquiryId, Long fkClassId, Long contactNumber, String studentName,
 			String className, String parentName, String email, String city, String address, String preSchoolN,
-			Date insertDate, String Status, String comments) {
+			Date insertDate, String Status, String comments,Long alternateContactNumber) {
+		
 		super();
 		this.pkAdmissionEnquiryId = pkAdmissionEnquiryId;
 		this.fkClassId = fkClassId;
@@ -34,7 +36,9 @@ public class AdmissionEnquiryHibernate {
 		this.insertDate = insertDate;
 		this.Status = Status;
 		this.comments = comments;
+		this.alternateContactNumber = alternateContactNumber;
 	}
+	
 	public AdmissionEnquiryHibernate() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -119,6 +123,11 @@ public class AdmissionEnquiryHibernate {
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}
-	
+	public Long getAlternateContactNumber() {
+		return alternateContactNumber;
+	}
+	public void setAlternateContactNumber(Long alternateContactNumber) {
+		this.alternateContactNumber = alternateContactNumber;
+	}
 	
 }

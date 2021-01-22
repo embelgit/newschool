@@ -58,7 +58,7 @@ public class TransportationInfoDao {
 				 * createSQLQuery("select sm.first_name,sm.middle_name,sm.last_name,cm.class_name,dm.division_name,leave_DateFrom,leaveDate_To,Contact_No,Pincode,payement,Address from trasnpotation_school_bus join student_master sm join class_master cm join division_master dm on studentName = sm.pk_student_id and fk_class_id1 = cm.pk_class_id  "
 				 * );
 				 */
-		Query query=session.createSQLQuery("select q.first_name,q.middle_name,q.last_name,m.class_name,s.division_name,d.leave_DateFrom,d.leaveDate_To,d.Contact_No,d.Pincode,d.payement,d.Address from division_master s, \r\n" + 
+		Query query=session.createSQLQuery("select q.first_name,q.middle_name,q.last_name,m.class_name,s.division_name,d.leave_DateFrom,d.leaveDate_To,d.Contact_No,d.Pincode,d.payement,d.Address,d.chargesPerKm from division_master s, \r\n" + 
 				"class_master m, trasnpotation_school_bus d, student_master q \r\n" + 
 				"where d.fk_class_id1 = m.pk_class_id and \r\n" + 
 				"d.fk_division_id1 = s.pk_division_id  and q.pk_student_id=d.studentID;");
@@ -87,6 +87,7 @@ public class TransportationInfoDao {
 		reports.setPincode(Long.parseLong(object[8].toString()));
 		reports.setPayement(Double.parseDouble(object[9].toString()));
 		reports.setAddress(object[10].toString());
+		reports.setChargesPerKm(Integer.parseInt(object[11].toString()));
 		
 		//reports.setPkleaveId(object[0].toString());
 		//System.out.println(""+(object[0].toString()));

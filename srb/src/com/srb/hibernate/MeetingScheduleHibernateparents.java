@@ -10,6 +10,9 @@ public class MeetingScheduleHibernateparents {
 	private Long fkDivId;
 	private String message;
 	private Date insertDate;
+	private String startTime;
+	private String endTime;
+	
 	public Long getPkScheduleMeetingsId() {
 		return pkScheduleMeetingsId;
 	}
@@ -39,6 +42,18 @@ public class MeetingScheduleHibernateparents {
 	}
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	
 	

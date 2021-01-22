@@ -2589,3 +2589,14 @@ function getDivisionNameByClassName1()
 }
 
 
+function transportationChargesCaluculation()
+{
+	var charges = document.getElementById ("charges").value;	
+	
+	var total = (charges)*(charges)*30;
+	
+	document.getElementById("payement").value = total;
+ 	
+	
+	
+}

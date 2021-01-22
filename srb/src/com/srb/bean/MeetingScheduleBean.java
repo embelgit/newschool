@@ -14,6 +14,8 @@ public class MeetingScheduleBean  {
 	private String insertDate;
 	private String className;
 	private String divisionName;
+	private String startTime;
+	private String endTime;
 	
 	public Long getPkScheduleMeetingsId() {
 		return pkScheduleMeetingsId;
@@ -56,6 +58,18 @@ public class MeetingScheduleBean  {
 	}
 	public void setDivisionName(String divisionName) {
 		this.divisionName = divisionName;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 
 	

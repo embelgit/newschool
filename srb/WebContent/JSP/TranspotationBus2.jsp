@@ -253,7 +253,7 @@
 						</div>
 						
 						<div class="col-sm-2" align="right">
-							<label class="control-label">Driver Name:<sup>*</sup></label>
+							<label class="control-label">Route Name:<sup>*</sup></label>
 						</div>
 						<div class="col-sm-3">
 							<div class="input-group">
@@ -261,7 +261,7 @@
 									class="glyphicon glyphicon-hand-right"></i>
 								</span>
 								
-									<input id="DriverName" name="DriverName" type="text" class="form-control" onkeypress="return isAlphabetsWithSpace(event)" placeholder="Enter DriverName">
+									<input id="DriverName" name="DriverName" type="text" class="form-control" onkeypress="return isAlphabetsWithSpace(event)" placeholder="Enter Route Name">
 							</div>
 						</div>
  				
@@ -354,14 +354,14 @@
 					<div class="form-group">
 					
 						<div class="col-sm-2 col-sm-offset-1" align="right">
-							<label class="control-label">Fees:<sup>*</sup></label>
+							<label class="control-label">Charges per km:<sup>*</sup></label>
 						</div>
 						<div class="col-sm-3">
 							<div class="input-group">
 								<span class="input-group-addon"> 
 								<i class="glyphicon glyphicon-hand-right"></i>
 								</span>
-								<input type="text" id="payement" name="payement" class ="form-control" onkeypress="return isNumber(event)" placeholder="Enter Fees">
+								<input type="text" id="charges" name="charges" class ="form-control" onchange="transportationChargesCaluculation()"  onkeypress="return isNumber(event)" placeholder="Enter charges per km">
 								<!-- <textarea id='description' name="description" class="form-control" placeholder="enter description" onchange="getHrBillingGrid();clearHrCalculation();clearField()" rows="2" cols="10"></textarea> -->
 							</div>
 						</div>
@@ -384,6 +384,23 @@
 					</div>
 				</div>
 			
+			<div class="row">
+					<div class="form-group">
+					
+						<div class="col-sm-2 col-sm-offset-1" align="right">
+							<label class="control-label">Transportation Charges:<sup>*</sup></label>
+						</div>
+						<div class="col-sm-3">
+							<div class="input-group">
+								<span class="input-group-addon"> 
+								<i class="glyphicon glyphicon-hand-right"></i>
+								</span>
+								<input type="text" id="payement" name="payement" class ="form-control" onkeypress="return isNumber(event)" placeholder="Transportation Charges">
+								<!-- <textarea id='description' name="description" class="form-control" placeholder="enter description" onchange="getHrBillingGrid();clearHrCalculation();clearField()" rows="2" cols="10"></textarea> -->
+							</div>
+						</div>
+			</div>
+			</div>
 				
 				
 

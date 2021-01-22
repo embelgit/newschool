@@ -83,7 +83,7 @@ public List getSupplierList(){
 		hbu = HibernateUtility.getInstance();
 		session = hbu.getHibernateSession();
 
-		Query query=session.createSQLQuery("SELECT supplier_name, city, contact_no, alternate_no, email_id, contact_person_name, address from supplier_details");
+		Query query=session.createSQLQuery("SELECT supplier_name, city, contact_no, alternate_no, email_id, contact_person_name, address,pk_supplier_id from supplier_details");
 		//Query query = session.createQuery("from PurchaseBill2");
 		List<Object[]> list = query.list();
 
@@ -101,6 +101,7 @@ public List getSupplierList(){
 		reports.setPersonName(object[5].toString());
 		//reports.setTin(object[6].toString());
 		reports.setAddress(object[6].toString());
+		reports.setSupId(Long.parseLong(object[7].toString()));
 		
 		
 		supList.add(reports);

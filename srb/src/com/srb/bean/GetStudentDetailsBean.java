@@ -11,7 +11,7 @@ public class GetStudentDetailsBean {
 	private String generalRegNumber;
 	private String firstName;
 	private String middleName;
-	
+	private int count;
 	private String lastName;
 	private String dob;
 	
@@ -209,6 +209,12 @@ public class GetStudentDetailsBean {
 	}
 	public void setArea(String area) {
 		this.area = area;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	
 	

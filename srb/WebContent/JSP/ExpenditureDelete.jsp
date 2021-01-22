@@ -73,9 +73,9 @@
 						</span>
 						<%
 							ExpenditureDetailsDao cdd = new ExpenditureDetailsDao();
-           						List cList =cdd.getAllExpenseNames();
+           						List cList =cdd.getAllExpenseNames1();
 							%>
-						<input list="cat_drop" id="expenseName" class="form-control" onchange="cheakForExpenditure()">
+						<input list="cat_drop" id="expenseName" class="form-control">
 						<datalist id="cat_drop">
 							<%
 					           for(int i=0;i<cList.size();i++){

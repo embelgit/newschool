@@ -215,7 +215,30 @@ public void deleteExp(String expenseName) {
 				hbu.closeSession(session);
 			}
 		 }
-		
-	}
+}	
 	
+	
+
+public List getAllExpenseNames1() {
+	HibernateUtility hbu = null;
+	Session session = null;
+	Query query = null;
+	List list = null;
+	try {
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
+		query = session.createQuery("from ExpenditureDetailsBean");
+		list = query.list();
+	} catch (RuntimeException e) {
+		Log.error("Error in getAllExpenseNames", e);
+	}
+
+	finally {
+		if (session != null) {
+			hbu.closeSession(session);
+		}
+	}
+	return list;
 }
+}
+

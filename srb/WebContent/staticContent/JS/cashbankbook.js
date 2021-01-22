@@ -14,7 +14,7 @@ function validationSupplierPayment()
 		var personname = $('#personname').val();
 		var balanceAmount = $("#balanceAmount").val();
 		var paidAmount = $('#paidAmount').val();
-		
+		var payment = $('#payment').val();
 		
 		
 		var balAmount =+balanceAmount;
@@ -73,6 +73,7 @@ function validationSupplierPayment()
 			var supplierName = $("#supplierId").val();
 			var totalAmounte = $('#totalAmounte').val();
 			var balanceAmounte = $('#balanceAmounte').val();
+			var payment = $('#payment').val();
 			
 			 var input = document.getElementById('supplierId'),
 			   list = document.getElementById('sup_drop'),
@@ -105,7 +106,7 @@ function validationSupplierPayment()
 			params ["paidAmount"] = paidAmount;
 			params ["totalAmounte"] = totalAmounte;
 			params ["balanceAmounte"] = balanceAmounte;
-			
+			params ["payment"] = payment;
 			
 			
 			params["methodName"] = "regSupCashBook";

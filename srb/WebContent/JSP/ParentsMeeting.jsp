@@ -8,6 +8,8 @@
 <%@include file="commons/header.jsp"%>
 <head>
 <title>Parent Meeting</title>
+
+<script type="text/javascript" src="/srb/staticContent/JS/bootstrap-timepicker.min.js"></script>
  <script type="text/javascript" src="/srb/staticContent/JS/schoolMeetings.js"></script>
  <script type="text/javascript">
  function List()
@@ -29,7 +31,10 @@
 </head>
 
 <body>
+<script type="text/javascript">
 
+		$('.clockpicker').clockpicker();
+</script>
 <div class="content-wrapper" style="min-height: 1134px;">
                 <!-- Content Header (Page header) -->
                 
@@ -111,6 +116,10 @@
 							<span class="input-group-addon"> <i
 								class="glyphicon glyphicon-pencil"></i>
 							</span>
+							
+														
+							
+							
 
 						<%-- 	<%
 								DivisionInfoDao sdd1 = new DivisionInfoDao();
@@ -139,7 +148,58 @@
 					</div>
 				</div>
 			</div>
+		
+			<div class="row form-group">
+			<div class="col-md-2 col-sm-offset-1" align="right">
+					<label class="control-label" for="message">Date:</label>
+			</div>
+		 	 <div class="col-md-3">
+      			<div class="input-group">
+							<span class="input-group-addon">
+							<i class="glyphicon glyphicon-user"></i>
+							</span> 
+							<input type="date" id='date31' name="date31" class="form-control"  placeholder="select Date"> 
+						</div>
+			</div>
+		</div>											
+			<div class="row">
+			<div class="form-group">
+			           <!--  <label class="col-md-2 col-sm-offset-1  control-label"  style="margin-left: 108px;">Start Time:<sup>*</sup>
+						</label> -->
+						<div class="col-sm-2 col-sm-offset-1" align="right">
+						<label class="control-label">Start Time:<sup>*</sup></label>
+				     	</div>
+						<div class="col-md-3  bootstrap-timepicker timepicker" >
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-time"></i>
+								</span> 
+								 <input id="startTime" type="text" class="form-control input-small">
+							</div>
+						</div>
 
+			  <!--   <label class="col-md-2  control-label" for="endDate" align="right">End Time:<sup>*</sup>
+				</label> -->
+				     <div class="col-sm-2" align="right">
+						<label class="control-label">End Time:<sup>*</sup></label>
+				     	</div>
+				      <div class="col-md-3 bootstrap-timepicker timepicker">
+						<div class="input-group">
+							<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-time"></i>
+								</span>
+								  <input id="endTime" type="text" class="form-control input-small" >
+							</div>
+						</div>
+			</div>
+			</div>
+	        <script type="text/javascript">
+	       		 $('#startTime').timepicker();
+ 	            $('#endTime').timepicker(); 
+
+/* 			 document.getElementById("endTime").value = "2:15 PM"; */
+	        
+	        </script>
 		<div class="row form-group">
 			<div class="col-md-2 col-sm-offset-1" align="right">
 					<label class="control-label" for="message">Message:</label>

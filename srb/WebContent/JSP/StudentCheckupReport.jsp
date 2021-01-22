@@ -135,7 +135,7 @@
 				<div class="form-group">
 					<div class="col-sm-2 col-md-offset-5" >
 							
-					 	<input type="button" class="ui positive button" name="btn" value="Search" onclick="checkUpReportByClassAndDivision()" style="margin-left: 185px;"/>
+					 	<input type="button" class="ui positive button" name="btn" value="Search" onclick="checkUpReportByClassAndDivision()"/>
                                     
                     </div>
 					</div>

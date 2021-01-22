@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <meta name="description" content="" />
 <% String type1= "";
     String type2= "";
@@ -219,79 +220,25 @@
     			  			if(type1.equals("admin")){
     	  
       					%>	
-                        <li class="">
-                            <a href="gallary.jsp" ><i class='fa fa-image'></i> Gallery</a>
-                        </li> 
-                        <%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
+      					<li class="treeview active">
+                            <a >
+                                <i class="fa fa-sitemap"></i> <span>Other</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+      		                 <ul class="treeview-menu" style="display: none;">
+                                <li><a href="<%=path%>gallary.jsp" accesskey="t" >  Gallery</a></li>
+                                <li><a  href="<%=path%>RFIDAttendance.jsp" accesskey="t" >  RFID Attendance</a></li>
+                                <li><a  href="<%=path%>AttendanceToParents.jsp" accesskey="t" >  Attendance Alert</a></li>
+                                <li><a  href="<%=path%>NewIdcardGeneration.jsp" accesskey="t" >  ID Card Generation</a></li>
+                                <li><a  href="<%=path%>NewsSection.jsp" accesskey="t" >  News Section</a></li>
+                                <li><a  href="<%=path%>Thoughts.jsp" accesskey="t" >  Thoughts</a></li>
+                                <li><a  href="<%=path%>Penalty.jsp" accesskey="t" >  Penalty</a></li>
+                                <li><a  href="<%=path%>Tutorial.jsp" accesskey="t" >  Tutorial</a></li>
+                           </ul> 
       					
-      					 <li class="">
-                            <a href="RFIDAttendance.jsp" ><i class="fa fa-edit"></i>RFID Attendance</a>
-                        </li> 
-						<%}%>
-						<%}%>
-												<%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
-                        <li class="">
-                            <a href="AttendanceToParents.jsp" ><i class='fa fa-mail-bulk'></i> Attendance Alert</a>
-                        </li> 
-						<%}%>
-									<%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
-                        <li class="">
-                            <a href="NewIdcardGeneration.jsp" ><i class="fas fa-id-card-alt"></i> ID Card Generation</a>
-                        </li> 
-						<%}%>
-						
-							<%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
-                        <li class="">
-                            <a href="NewsSection.jsp" ><i class="fa fa-newspaper"></i> News Section</a>
-                        </li> 
-						<%}%>
-						
-						<%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
-      					
-      					 <li class="">
-                            <a href="Thoughts.jsp" ><i class="fa fa-edit"></i>Thoughts</a>
-                        </li> 
-						<%}%>
-						
-						<%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
-      					
-      					 <li class="">
-                            <a href="Penalty.jsp" ><i class="fa fa-money"></i>Penalty</a>
-                        </li> 
-						<%}%>
-						
-						<%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
-      					
-      					 <li class="">
-                            <a href="Tutorial.jsp" ><i class="fa fa-file-movie-o"></i>Tutorial</a>
-                        </li> 
-						<%}%>
-						<%
-    			  			if(type1.equals("admin")){
-    	  
-      					%>	
-      		
+ 
       					
       					<%-- <li><a href="<%=path%>School.jsp" accesskey="t">School Details</a></li> --%>
                         <li class="treeview active">
@@ -303,18 +250,17 @@
                             </a>
                             <ul class="treeview-menu" style="display: none;">
                                 <li><a href="<%=path%>School.jsp" accesskey="t">School Details</a></li>
+                                <li><a  href="<%=path%>Subject.jsp" accesskey="t">Subject Details</a></li>
                                 <li><a  href="<%=path%>Class.jsp" accesskey="t">Class Entry</a></li> 
                                 <li><a  href="<%=path%>Teacher.jsp" accesskey="t">Employee Details </a></li>
-                                <li><a  href="<%=path%>Subject.jsp" accesskey="t">Subject Details</a></li> 
-                                <li><a  href="<%=path%>EmployeeLeave.jsp" accesskey="t">Employee Leave Details </a></li>
                                 <li><a  href="<%=path%>Student.jsp" accesskey="t">Student Details</a></li> 
-                                <li><a  href="<%=path%>admission_enquiry_form.jsp" accesskey="t">Addmission Enquiry</a></li>
+                                <li><a  href="<%=path%>admission_enquiry_form.jsp" accesskey="t">Admission Enquiry</a></li>
                                  <li><a  href="<%=path%>store_management.jsp" accesskey="t">Store Management</a></li>
                                 <li><a  href="<%=path%>expenditureDetails.jsp" accesskey="t">Expenditure Details</a></li> 
                               	<li><a class="padding" href="<%=path%>ParentsComplaint.jsp" accesskey="n">Parents Complaint</a></li>
                                <%--  <li><a class="padding" href="<%=path%>productDetails.jsp" accesskey="n">Product Details</a></li> --%>
                                 <li><a class="padding" href="<%=path%>StudentHealthCheckup.jsp" accesskey="n">Student Health Checkup</a></li>
-                    
+                                  <li><a class="padding" href="<%=path%>studentCashbook.jsp" accesskey="t">Student Fee</a></li>
                                 
                               <%--   <li><a  href="<%=path%>cancellationOFStudentAdmission.jsp" accesskey="t">Cancle Admission</a></li> --%> 
                                 
@@ -371,7 +317,7 @@
                             </a>
                             <ul class="treeview-menu">
                                  <li><a class="padding" href="<%=path%>CashBankBook.jsp" accesskey="n">Cash Book</a></li>
-      	  						 <li><a class="padding" href="<%=path%>studentCashbook.jsp" accesskey="t">Student Fee</a></li>
+      	  						 
                             </ul>
                         </li> 
                          <%}%>

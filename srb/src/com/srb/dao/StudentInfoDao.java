@@ -608,7 +608,7 @@ public List<AdmissionEnquiryBean> getAdmissionEnquiryInformationAsPerClassNdDiv(
 			s.setAddress(object[3].toString());
 			s.setPreSchoolN(object[4].toString());
 			s.setEmail(object[5].toString());
-			s.setContactNumber(object[6].toString());
+			s.setContactNumber(Long.parseLong(object[6].toString()));
 			s.setInsertDate(object[7].toString());
 			saleList.add(s);
 			}
@@ -675,7 +675,7 @@ public List getStudentResultForDashboard(String fkClassId) {
 }
 
 //fetch student count for graph
-public List fetchStudentCountForGraph() {
+public List fetchStudentCountForGraph(HttpServletRequest request) {
 	HibernateUtility hbu=null;
 	Session session=null;
 	List<StudentResultForGraph> weekSaleBeans=null;
@@ -738,5 +738,44 @@ public List getAutoSerialNumber(){
 	}
 	return sList;
 }
+
+ public List getNoOfStudent() {
+	 {
+			HibernateUtility hbu = null;
+			Session session =  null;
+			Query query = null;
+			 List<GetStudentDetailsBean> list1 = null;
+			 try {
+				 hbu = HibernateUtility.getInstance();
+				 session = hbu.getHibernateSession();
+				 query = session.createQuery("SELECT * FROM student_master");
+				 List<Object[]>  list=query.list();
+				 list1=new ArrayList<GetStudentDetailsBean>(0);
+				
+				for (Object[] object : list) {
+					GetStudentDetailsBean gdv = new GetStudentDetailsBean();
+					//gdv.setCount(Integer.parseInt(object[0].toString()));
+				    int count = list.size();
+				    gdv.setCount(count);
+					list1.add(gdv);
+				}
+				 
+			} catch (RuntimeException e) {
+				e.printStackTrace();
+				
+			}
+			 
+			 finally
+			 {
+				 if (session!=null) {
+					hbu.closeSession(session);
+				}
+			 }
+					return list1;
+			
+		}
+	 
+
+	 
+ }
 }
-	

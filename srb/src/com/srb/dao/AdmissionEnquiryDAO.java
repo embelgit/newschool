@@ -9,8 +9,9 @@ import org.hibernate.Transaction;
 
 import com.srb.bean.GetSchoolDetailBean;
 import com.srb.hibernate.AdmissionEnquiryHibernate;
+//import com.srb.hibernate.AdmissionEnquiryHibernate;
 import com.srb.utility.HibernateUtility;
-
+import com.srb.bean.AdmissionEnquiryBean;
 public class AdmissionEnquiryDAO {
 
 	public void addAdmissionEnquiry(AdmissionEnquiryHibernate b) {
@@ -48,21 +49,21 @@ public class AdmissionEnquiryDAO {
 
 		HibernateUtility hbu=null;
 		Session session=null;
-		List<AdmissionEnquiryHibernate> custList=null;
+		List<AdmissionEnquiryBean> custList=null;
 	try{	
 
 		hbu = HibernateUtility.getInstance();
 		session = hbu.getHibernateSession();
 
-		Query query=session.createSQLQuery("select pk_admission_enquiry_id,class_name,student_name,parent_name,email,contact_number,address,previous_school_name,city from admission_enquiry");
+		Query query=session.createSQLQuery("select pk_admission_enquiry_id,class_name,student_name,parent_name,email,contact_number,address,previous_school_name,city,alternate_contact_number from admission_enquiry");
 
 		List<Object[]> list = query.list();
+       System.out.println(list.size());
 
-
-		custList= new ArrayList<AdmissionEnquiryHibernate>(0);
+		custList= new ArrayList<AdmissionEnquiryBean>(0);
 
 	for (Object[] o : list) {	
-		AdmissionEnquiryHibernate rp = new AdmissionEnquiryHibernate();
+		AdmissionEnquiryBean rp = new AdmissionEnquiryBean();
 		rp.setPkAdmissionEnquiryId(Long.parseLong(o[0].toString()));
 		rp.setClassName(o[1].toString());
 		rp.setStudentName(o[2].toString());
@@ -72,8 +73,10 @@ public class AdmissionEnquiryDAO {
 		rp.setAddress(o[6].toString());
 		rp.setPreSchoolN(o[7].toString());
 		rp.setCity(o[8].toString());
+		rp.setAlternateContactNumber(Long.parseLong(o[9].toString()));
 //		rp.setInsertDate(o[9].toString());
 		custList.add(rp);
+		System.out.println("alternate contact no" +rp.getAlternateContactNumber());
 
 	}}catch(RuntimeException e){	
 
@@ -191,4 +194,49 @@ public class AdmissionEnquiryDAO {
 				return list;
 
 		}
+
+
+public List getAlladmissionenquiryForList1(){
+
+	HibernateUtility hbu=null;
+	Session session=null;
+	List<AdmissionEnquiryBean> custList=null;
+try{	
+
+	hbu = HibernateUtility.getInstance();
+	session = hbu.getHibernateSession();
+
+	Query query=session.createSQLQuery("select pk_admission_enquiry_id,class_name,student_name,parent_name,email,contact_number,address,previous_school_name,city,alternate_contact_number from admission_enquiry");
+
+	List<Object[]> list = query.list();
+   System.out.println(list.size());
+
+	custList= new ArrayList<AdmissionEnquiryBean>(0);
+
+for (Object[] o : list) {	
+	AdmissionEnquiryBean rp = new AdmissionEnquiryBean();
+	rp.setPkAdmissionEnquiryId(Long.parseLong(o[0].toString()));
+	rp.setClassName(o[1].toString());
+	rp.setStudentName(o[2].toString());
+	rp.setParentName(o[3].toString());
+	rp.setEmail(o[4].toString());
+	rp.setContactNumber(Long.parseLong(o[5].toString()));
+	rp.setAddress(o[6].toString());
+	rp.setPreSchoolN(o[7].toString());
+	rp.setCity(o[8].toString());
+	rp.setAlternateContactNumber(Long.parseLong(o[9].toString()));
+//	rp.setInsertDate(o[9].toString());
+	custList.add(rp);
+	System.out.println("alternate contact no" +rp.getAlternateContactNumber());
+
+}}catch(RuntimeException e){	
+
+}
+finally{
+
+hbu.closeSession(session);	
+}
+return custList;
+
+}
 }

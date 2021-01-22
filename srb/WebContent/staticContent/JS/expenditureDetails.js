@@ -42,6 +42,15 @@ function addExpense() {
 
 //For deleting expenditure
 function deleteExp(){
+if(document.expenseDetails.expenseName.value == "")
+{
+	alert("Please Enter Expenditure Name");
+	return false;
+}
+   deleteExp1();
+}
+
+function deleteExp1(){
 	
 	var input = document.getElementById('expenseName'),
     list = document.getElementById('cat_drop'),

@@ -81,7 +81,7 @@ public class MeetingScheduleDao {
 		hbu = HibernateUtility.getInstance();
 		session = hbu.getHibernateSession();
 
-		Query query=session.createSQLQuery("select class_name, division_name,d.message,d.insert_date from division_master s, \r\n" + 
+		Query query=session.createSQLQuery("select class_name, division_name,d.message,d.insert_date,d.start_time,d.end_time from division_master s, \r\n" + 
 				"class_master m, parents_meetings d where d.fk_class_id = m.pk_class_id and \r\n" + 
 				"d.fk_div_id = s.pk_division_id;");
 		//Query query = session.createQuery("from PurchaseBill2");
@@ -97,6 +97,8 @@ public class MeetingScheduleDao {
 		reports.setDivisionName(object[1].toString());
 		reports.setMessage(object[2].toString());
 		reports.setInsertDate(object[3].toString());
+		reports.setStartTime(object[4].toString());
+		reports.setEndTime(object[5].toString());
 		custList.add(reports);
 
 	}}catch(RuntimeException e){	

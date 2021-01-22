@@ -116,14 +116,35 @@ public class MeetingScheduleHelper {
 		
 		String fkclassId = request.getParameter("fk_class_id");
 		String fkDivId = request.getParameter("fk_division_id");
+		System.out.println("fkid"+fkDivId);
+		String insertDate = request.getParameter("date31");
+		String startTime = request.getParameter("startTime");
+		String endTime = request.getParameter("endTime");
 		String message = request.getParameter("message");
 		
 		MeetingScheduleHibernateparents b = new MeetingScheduleHibernateparents();
 
-		Date date = new Date();
-		b.setInsertDate(date);
+		if(!"".equals(insertDate)) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	//		Date dateOfBirth = null;
+			Date joiningDate = null;
+			try{
+		//		dateOfBirth = format.parse(dob);
+		//		det.setDob(dateOfBirth);
+				joiningDate = format.parse(insertDate);
+				//det.setStoreDate(joiningDate);
+				b.setInsertDate(joiningDate);
+				System.out.println("det.getJdate() -   "+b.getInsertDate());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Exception in date parsing");
+			}
+			}
 		b.setFkclassId(Long.parseLong(fkclassId));
 		b.setFkDivId(Long.parseLong(fkDivId));
+		b.setStartTime(startTime);
+		b.setEndTime(endTime);
 		b.setMessage(message);
 		
 		MeetingScheduleDao dao = new MeetingScheduleDao();

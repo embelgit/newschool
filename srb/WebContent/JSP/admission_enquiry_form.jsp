@@ -226,7 +226,7 @@
 					</div>
 				</div>
 			</div>
-		
+		    
 			
 			 <div class="row">
 				<div class="form-group">
@@ -269,8 +269,20 @@
 							<input type="text" id='comments' name="comments" class="form-control" placeholder="Enter Comment" />
 						</div>
 					</div>
+					<div class="col-sm-2" align="right">
+						<label class="control-label">Alternate Contact Number:<sup></sup></label>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon"> 
+							<i class="glyphicon  glyphicon-phone"></i>
+							</span>
+							 <input type="text" id='alternateContactNumber' name="alternateContactNumber" class="form-control" placeholder="Alternate Contact Number" maxlength="10" onkeypress="return isNumber(event)" />
+						</div>
 					</div>
 					</div>
+					</div>
+					
 					
           <div class="form-group row">
                                 <div class="col-md-offset-4 col-md-4 btn-center">

@@ -2,7 +2,7 @@ package com.srb.bean;
 
 
 public class AdmissionEnquiryBean {
-	public String contactNumber;
+	public long contactNumber;
 	public String studentName;
 	public String className;
 	public String parentName;
@@ -11,12 +11,10 @@ public class AdmissionEnquiryBean {
 	public String address;
 	public String preSchoolN;
 	public String insertDate;
-	public String getContactNumber() {
-		return contactNumber;
-	}
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
+	public long alternateContactNumber;
+	public long pkAdmissionEnquiryId;
+	
+	
 	public String getStudentName() {
 		return studentName;
 	}
@@ -64,6 +62,24 @@ public class AdmissionEnquiryBean {
 	}
 	public void setInsertDate(String insertDate) {
 		this.insertDate = insertDate;
+	}
+	public long getContactNumber() {
+		return contactNumber;
+	}
+	public void setContactNumber(long contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+	public long getAlternateContactNumber() {
+		return alternateContactNumber;
+	}
+	public void setAlternateContactNumber(long alternateContactNumber) {
+		this.alternateContactNumber = alternateContactNumber;
+	}
+	public long getPkAdmissionEnquiryId() {
+		return pkAdmissionEnquiryId;
+	}
+	public void setPkAdmissionEnquiryId(long pkAdmissionEnquiryId) {
+		this.pkAdmissionEnquiryId = pkAdmissionEnquiryId;
 	}
 	
 	

@@ -5,8 +5,7 @@
     
 <hibernate-mapping>
 
-
-<class 
+ <class
     name="com.srb.hibernate.AdmissionEnquiryHibernate" 
     table="admission_enquiry"
 >
@@ -92,7 +91,16 @@
         column="comment"
         
     />
+    
+        <property
+        name="alternateContactNumber"
+        type="java.lang.Long"
+        column="alternate_contact_number"
+        
+    />
 
      </class>
 </hibernate-mapping>
     
+
+

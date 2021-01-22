@@ -349,7 +349,7 @@ public class LibraryManagementHelper {
 				bean.setSupplierName(o[3].toString());
 				bean.setPkBookId(o[4].toString());
 				bean.setQuantityInGrid(1l);
-				bean.setQuantity(Long.parseLong(o[5].toString()));
+				bean.setQuantity(o[5].toString());
 				map1.put(bean.getPkBookId(),bean);
 			}
 			return map1;
@@ -1429,3 +1429,5 @@ public void deletesLibraryPaymentDetails(HttpServletRequest request, HttpServlet
 	
 	
 }
+
+

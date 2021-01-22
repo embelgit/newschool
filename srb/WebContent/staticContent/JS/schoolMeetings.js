@@ -72,6 +72,11 @@ function addMeetingScheduleDetails2(){
 function addMeetingScheduleDetailsParents()
 {
 
+	var startTime = $('#startTime').val();
+	var endTime = $('#endTime').val();
+	var message = $('#message').val();
+	//alert(message);
+	
 	if(document.SheduleMeeting.fk_class_id_meetings.value == ""){
 		alert("Please Select Class Name");
 		return false;
@@ -80,6 +85,21 @@ function addMeetingScheduleDetailsParents()
 		alert("Please Select Division Name");
 		return false;
 	}
+	if(document.SheduleMeeting.date31.value == ""){
+		alert("Please Select Date");
+		return false;
+	}
+
+	if(document.SheduleMeeting.startTime.value == ""){
+		alert("Please Select Start Time");
+		return false;
+	}
+
+	if(document.SheduleMeeting.endTime.value == ""){
+		alert("Please Select End Time");
+		return false;
+	}
+
 	if(document.SheduleMeeting.message.value == ""){
 		alert("Please Enter Message");
 		return false;
@@ -111,11 +131,21 @@ function addMeetingScheduleDetailsParents1()
     	}
 	}
 	
+	var date31 = $('#date31').val();
+	var startTime = $('#startTime').val();
+	var endTime = $('#endTime').val();
+	
+	
 	var message = $('#message').val();
 
 	params["fk_class_id"] = fk_class_id;
 	params["fk_division_id"] = fk_division_id;
+	params["date31"] = date31;
+	params["startTime"] = startTime;
+	params["endTime"] = endTime;
 	params["message"] = message;
+	
+	
 
  	params["methodName"] = "scheduleMeetingAndSendMessageParents";
  	$.post('/srb/JSP/utility/controller.jsp',params,function(data)

@@ -304,6 +304,15 @@ function BillHelper(){
 				getRemainingFeeForSelectedStudent()
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	function Trasnsportationfee(){
 		
 		var params= {};

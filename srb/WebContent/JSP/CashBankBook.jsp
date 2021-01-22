@@ -141,7 +141,9 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 	    	<li><a data-toggle="tab" href="#settings"><h4 style="color:blue">Expenditure Payment</h4></a></li>
 	    	<li><a data-toggle="tab" href="#transportation"><h4 style="color:blue">Transportation Payment</h4></a></li>
 	    	<li><a data-toggle="tab" href="#lib"><h4 style="color:blue">Library Payment</h4></a></li>
+	    	<!--  
 	    	<li><a data-toggle="tab" href="#salaryslip"><h4 style="color:blue">Salary Slip</h4></a></li>
+	    	-->
 		</ul>
      
 
@@ -1030,8 +1032,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 								</div>
 									  						
 					</div>
-      	  
-						  
+      	    
 	 <div class="row form-group">
 				
 				<label class="col-md-2 name col-md-offset-1" for="paymentMode"> Payment Mode<sup>*</sup></label>  
@@ -1095,6 +1096,7 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 		</script>
 				
 			          </div>  
+			          
 		
 			     <div class="row form-group">
 				
@@ -1126,8 +1128,18 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 			     
 			     </div>
 			     
-			     
-			          
+			 <div class="row form-group">
+					<label class="col-md-3 control-label" for="reason2">Payment Description<sup></sup></label>  
+	          			<div class="col-md-3">
+							<div class="input-group">
+								<span class="input-group-addon">
+								 <i class="glyphicon glyphicon-user"></i>
+								</span>
+	           		 	<textarea id="payment" rows="3" cols="40"></textarea>
+	           		       </div>
+				      </div> 
+						      
+			          </div>
 		    	<div class="row form-group" >
 
             					<div id="cheque_no" >
@@ -1180,11 +1192,10 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 								</div>
 			          
 		
-
  			<div class="form-group row">
                       <div class="col-md-offset-4 col-md-4 btn-center">
                           <div class="ui buttons">
-                         	 <input type="button" class="ui positive button" name="btn" onclick="validationSupplierPayment()" value="Save"/>
+                         	 <input type="button" class="ui positive button" name="btn" onclick="validationSupplierPayment()" value="Print"/>
                              
                               <div class="or"></div>
                                	<button type="reset" class="ui button" onclick="location.reload()">Reset</button>
@@ -1444,8 +1455,17 @@ SupplierPaymentDao data = new SupplierPaymentDao();
 						</div>
 			     
 				
-			          
-		
+			         <div class="row form-group">
+					<label class="col-md-3 control-label" for="reason2">Payment Description<sup></sup></label>  
+	          			<div class="col-md-3">
+							<div class="input-group">
+								<span class="input-group-addon">
+								 <i class="glyphicon glyphicon-user"></i>
+								</span>
+	           		 	<textarea id="taskInText" rows="3" cols="40"></textarea>
+	           		       </div>
+				      </div> 
+		</div>
 
  			<div class="form-group row">
                       <div class="col-md-offset-4 col-md-4 btn-center">

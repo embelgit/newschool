@@ -104,6 +104,8 @@
 	                <th>Division</th>
 					<th>Message</th>
 	                <th>Date</th>
+	                <th>startTime</th>
+	                <th>endTime</th>
 					
 				</tr>
 			</thead>
@@ -122,6 +124,8 @@
 					<td class="align"><%=sr.getDivisionName()%></td>
 					<td class="align"><%=sr.getMessage() %></td>
 					<td class="align"><%=sr.getInsertDate()%></td>
+					<td class="align"><%=sr.getStartTime() %></td>
+					<td class="align"><%=sr.getEndTime() %></td>
 				</tr>
 	
 				<%

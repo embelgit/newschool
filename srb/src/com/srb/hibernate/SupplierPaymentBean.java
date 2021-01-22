@@ -39,7 +39,7 @@ public class SupplierPaymentBean {
 	
 	
 	private String paymentinventory;
-	
+	private String paymentDescription;
 	
 	
 	public String getPaymentinventory() {
@@ -235,6 +235,12 @@ public class SupplierPaymentBean {
 	public void setInsertDate(java.util.Date dateobj) {
 		// TODO Auto-generated method stub
 		
+	}
+	public String getPaymentDescription() {
+		return paymentDescription;
+	}
+	public void setPaymentDescription(String paymentDescription) {
+		this.paymentDescription = paymentDescription;
 	}
 	
 	

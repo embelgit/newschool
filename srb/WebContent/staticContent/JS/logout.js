@@ -46,6 +46,19 @@ function login(){
 		alert("Please Enter Passward");
 		return false;
 	}
+	/*
+	if(document.Login.uname.value !=="admin")
+	{
+	alert("Please Enter correct Username");
+	return false;
+	
+	}
+	
+	if(document.Login.pass.value !=="admin"){
+		alert("Please Enter correct Password");
+		return false;
+	}*/
+	
 	/*if(document.Login.user_role.value=="")
 		{
 		alert("Please Select User Role");

@@ -124,7 +124,7 @@
 								
 						<%
 						SupplierDetailsDao dao=new SupplierDetailsDao();
-					List list19=dao.getSupplierListToEdit();
+					List list19=dao.getSupplierList();
 							%>
 							 <input list="SupplierList" id="supplier" class="form-control" onchange="getSupplierDetails()"/>
 								<datalist id="SupplierList">

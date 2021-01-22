@@ -395,7 +395,7 @@ function getstudentDetails(){
 	$("#address1").append($("<input/>").attr("value","").text());
 	$("#preSchoolN1").append($("<input/>").attr("value","").text());
 	$("#comments1").append($("<input/>").attr("value","").text());
-	
+
 	
 	params["stuId"]= fkRootstuId;
 	
@@ -453,7 +453,7 @@ function addAdmissionEnquiryInfo(){
 		var preSchoolN = $('#preSchoolN').val();
 		
 		var comments = $('#comments').val();
-		
+		var alternateContactNumber = $('#alternateContactNumber').val();
 		
 		if(email==undefined || email== null || email == "" ){
 			email="'N/A'";
@@ -484,6 +484,9 @@ function addAdmissionEnquiryInfo(){
 		if(comments==undefined || comments== null || comments == "" ){
 			comments="N/A";
 		}
+		if(alternateContactNumber==undefined || alternateContactNumber== null || alternateContactNumber == "" ){
+			contactNumber=0;
+		}
 		
 		params["email"] = email;
 		params["address"] = address;
@@ -495,7 +498,7 @@ function addAdmissionEnquiryInfo(){
 		params["preSchoolN"] = preSchoolN;
 		params["fkClassId"] = fkClassId;
 		params["comments"] = comments;
-		
+		params["alternateContactNumber"] = alternateContactNumber;
 	params["methodName"] = "addAdmissionEnquiryInfo";
 	 	
 	 	$.post('/srb/JSP/utility/controller.jsp',params,function(data)

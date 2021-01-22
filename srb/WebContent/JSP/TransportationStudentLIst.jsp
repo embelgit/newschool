@@ -102,6 +102,7 @@ td {
 								<th>PinCode </th>
 								<th>Payment</th>
 								<th>Address </th>
+								<th>ChargesPerKm</th>
 								
 				</tr>
 			</thead>
@@ -126,6 +127,7 @@ td {
 					<td class="align"><%=sr.getPincode()%></td>
 					<td class="align"><%=sr.getPayement()%></td>
 					<td class="align"><%=sr.getAddress()%></td>
+					<td class="align"><%=sr.getChargesPerKm()%></td>
 					
 				</tr>
 	

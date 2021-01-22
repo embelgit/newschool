@@ -41,6 +41,19 @@
         column="insert_date"
         
     />
+    
+    
+       <property
+        name="startTime"
+        type="java.lang.String"
+        column="start_time"
+    />
+    
+    <property
+        name="endTime"
+        type="java.lang.String"
+        column="end_time"
+    />
      </class>
 </hibernate-mapping>
     

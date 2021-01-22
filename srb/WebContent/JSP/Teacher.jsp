@@ -12,6 +12,9 @@
 	 function editTeacher() {
 		 window.location = "editTeacherDetail_new.jsp";
 }
+	function employeeLeaveDetails(){
+		window.location = "EmployeeLeave.jsp";
+	}
 </script>
 
 <script type="text/javascript">
@@ -167,7 +170,10 @@ function checkForDuplicateTeacherEntry(){
  
             <div class="panel-heading no-print">
                 <div class="btn-group"> 
-                    <a class="btn btn-primary"   onclick="teacherList()"  accesskey="t""> <i class="fa fa-list"></i>Employee List </a>  
+                    <a class="btn btn-primary"   onclick="teacherList()"  accesskey="t"> <i class="fa fa-list"></i>Employee List </a>  
+                </div>
+                <div class="btn-group"> 
+                    <a class="btn btn-primary"   onclick="employeeLeaveDetails()"  accesskey="t"> <i class="fa fa-list"></i>Employee Leave Details </a>  
                 </div>
                 
             </div> 

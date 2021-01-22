@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -82,6 +83,7 @@ public class SupplierCashBankHelper {
 			String accNum = request.getParameter("accNum");
 			String chequeNum = request.getParameter("chequeNum");
 			String cardNum = request.getParameter("cardNum");
+			String payment = request.getParameter("payment");
 			
 			System.out.println(("bankName "+bankName+"  cardNum "+cardNum+"  accNum  "+accNum+"  nameOnCheck  "+nameOnCheck+"  chequeNum  "+chequeNum));
 			
@@ -181,6 +183,8 @@ public class SupplierCashBankHelper {
 				
 			}*/
 			
+			//to add to table
+			
 			com.srb.hibernate.SupplierPaymentBean bean = new com.srb.hibernate.SupplierPaymentBean();
 			
 			bean.setSupplier1(Long.parseLong(fk_supplier_id));
@@ -196,7 +200,7 @@ public class SupplierCashBankHelper {
 			bean.setPaidAmount(Double.parseDouble(paidAmount));
 			//bean.setTotalAmount(Double.parseDouble(totalAmounte));
 			//bean.setb
-			
+			bean.setPaymentDescription(payment);
 			
 			 if(!"".equals(bankName))
 			 {
@@ -247,8 +251,8 @@ public class SupplierCashBankHelper {
 			 
 			 
 			 
-			 HibernateUtility hbu = HibernateUtility.getInstance();
-				Session session = hbu.getHibernateSession();
+			 HibernateUtility hbu1 = HibernateUtility.getInstance();
+				Session session = hbu1.getHibernateSession();
 				
 				//Query to get latest paid amount
 				/*Query query = session.createSQLQuery("SELECT balance ,bill_no from supplier_payment WHERE  bill_no =:billNo ORDER BY  pk_supplier_payment_id  DESC LIMIT 1 ;");*/
@@ -262,12 +266,12 @@ public class SupplierCashBankHelper {
 					String billno = objects[1].toString();
 					System.out.println("hi this is kishor1111111111111111155555555555555++++++++++++"+billno);
 					
-					Session session1 = hbu.getHibernateSession();
+					Session session2 = hbu1.getHibernateSession();
 					
 					//Query to get latest paid amount
 					/*Query query = session.createSQLQuery("SELECT balance ,bill_no from supplier_payment WHERE  bill_no =:billNo ORDER BY  pk_supplier_payment_id  DESC LIMIT 1 ;");*/
 					//Query query1 = session1.createSQLQuery("SELECT balance ,bill_no, total_amount from vendor_payment WHERE   bill_no =:billno ORDER BY  pk_vendor_payment_id  DESC LIMIT 1;");
-					Query query1 = session1.createSQLQuery("SELECT balance ,bill_no, total_amount from supplier_payment WHERE   bill_no =:billno ORDER BY  pk_supplier_payment_id  DESC LIMIT 1;");
+					Query query1 = session.createSQLQuery("SELECT balance ,bill_no, total_amount from supplier_payment WHERE   bill_no =:billno ORDER BY  pk_supplier_payment_id  DESC LIMIT 1;");
 					query1.setParameter("billno",billno);
 					List<Object[]> list1 = query1.list();
 					

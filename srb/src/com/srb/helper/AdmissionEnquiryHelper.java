@@ -17,6 +17,7 @@ import com.srb.hibernate.AdmissionEnquiryHibernate;
 import com.srb.hibernate.NoticeInfoHibernate;
 import com.srb.hibernate.SchoolInfoHibernate;
 import com.srb.utility.HibernateUtility;
+import com.srb.bean.AdmissionEnquiryBean;
 import com.srb.bean.GetSchoolDetailBean;
 import com.srb.dao.AdmissionEnquiryDAO;
 import com.srb.dao.SchoolInfoDao;
@@ -26,6 +27,7 @@ public class AdmissionEnquiryHelper {
 
 	public void doAdmissionEnquiryInfo(HttpServletRequest request,
 			HttpServletResponse response) {
+		System.out.println("into helper class");
 		String className = request.getParameter("className");
 		String email = request.getParameter("email");
 		String address = request.getParameter("address");
@@ -36,6 +38,7 @@ public class AdmissionEnquiryHelper {
 		String preSchoolN = request.getParameter("preSchoolN");
 		String fkClassId = request.getParameter("fkClassId");
 		String comments = request.getParameter("comments");
+		String alternateContactNumber = request.getParameter("alternateContactNumber");
 		
 		AdmissionEnquiryHibernate b = new AdmissionEnquiryHibernate();
 		b.setClassName(className);
@@ -51,6 +54,7 @@ public class AdmissionEnquiryHelper {
 		b.setComments(comments);
 		Date d = new Date();
 		b.setInsertDate(d);
+		b.setAlternateContactNumber(Long.parseLong(alternateContactNumber));
 		System.out.println("comment - "+b.getComments());
 		AdmissionEnquiryDAO dao = new AdmissionEnquiryDAO();
 		dao.addAdmissionEnquiry(b);

@@ -111,7 +111,7 @@
 				<div class="form-group">
 					<div class="col-sm-2 col-md-offset-6" >
 						
-								 <input type="button" class="ui positive button" name="btn" value="Search" onclick="stockBetweenTwoDate()" style="margin-left: 100px;" >
+								 <input type="button" class="ui positive button" name="btn" value="Search" onclick="stockBetweenTwoDate()" >
                                        
                                 </div>
 					</div>

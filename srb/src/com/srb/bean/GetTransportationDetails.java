@@ -13,6 +13,7 @@ public class GetTransportationDetails {
 	private String LastName;
 	private String className;
 	private String divisionName;
+	private int ChargesPerKm;
 	
 	public Long getPkTranspaymentId() {
 		return pkTranspaymentId;
@@ -155,6 +156,12 @@ public class GetTransportationDetails {
 	}
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
+	}
+	public int getChargesPerKm() {
+		return ChargesPerKm;
+	}
+	public void setChargesPerKm(int chargesPerKm) {
+		ChargesPerKm = chargesPerKm;
 	}
 	private String DriverName;
 	private  String leaveDateTo;
